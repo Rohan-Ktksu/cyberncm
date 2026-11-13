@@ -4,11 +4,11 @@
 
 ## What would be published
 
-Only the contents of the `site/` folder: `index.html`, `assets/` (diagrams and screenshots) and `demo/` (the dashboard page plus its recording, `recorded_fallback.json`). It is a static page with no backend, no database, no cookies, no analytics and no external requests (verified by loading it and listing every request). It does not use Colab, private cloud-drive files, private GitHub access or any paid model API.
+Only the contents of the `site/` folder: `index.html`, `assets/` (diagrams and screenshots) and `demo/` (`live.html` and `sim.js` for the interactive simulation; `index.html` and `recorded_fallback.json` for the recorded playback). It is a static page with no backend, no database, no cookies, no analytics and no external requests (verified by loading it and listing every request). It does not use Colab, private cloud-drive files, private GitHub access or any paid model API.
 
 ## What visitors can and cannot reach
 
-- They can read the project overview, findings and research index, use the **in-browser simulation** (synthetic numbers, in their own browser, labelled as a simulation), and watch a **recorded playback** of a real sandbox run in the real dashboard (a static capture of synthetic data, controls disabled, labelled as a recording).
+- They can read the project overview, findings and research index, use the **interactive browser simulation** of the real dashboard (generated numbers in their own browser, labelled as a simulation), and watch a **recorded playback** of a real sandbox run in the real dashboard (a static capture of synthetic data, controls disabled, labelled as a recording).
 - They cannot reach the two-node demo's Node A or Node B services, operator endpoints, signing keys, arbitrary targets, live traffic or enforcement controls. Those run only on a user's own machine on `127.0.0.1` and are not part of the published folder. No tunnel is used.
 
 ## Configuration
@@ -18,7 +18,7 @@ Only the contents of the `site/` folder: `index.html`, `assets/` (diagrams and s
 1. Create the public repository and push the reviewed release.
 2. Repository *Settings → Pages → Build and deployment → Source: GitHub Actions*.
 3. *Actions → Deploy site to GitHub Pages → Run workflow*.
-4. Open the resulting URL, check the page loads and the simulation works, then add that URL to the README.
+4. Open the resulting URL, check the page loads and the interactive simulation and the recorded playback both work, then add that URL to the README.
 
 ## Limits (from GitHub's Pages documentation, read 13 Nov 2026)
 

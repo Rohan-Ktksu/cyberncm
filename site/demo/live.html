@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cyberncm two-node demo (browser simulation)</title>
+<link rel="icon" href="data:,">
+<style>
+:root {
+  --bg: #f5f7fa; --surface: #ffffff; --sunken: #ecf0f5; --line: #d5dce6;
+  --fg: #152033; --muted: #5a6779; --accent: #1f55c9; --accent-fg: #ffffff; --focus: #1f55c9;
+  --ok: #17703f; --ok-bg: #e3f3ea;
+  --warn: #8a5a00; --warn-bg: #fbefd2;
+  --crit: #b3261e; --crit-bg: #fbe6e4;
+  --mesh: #6a3fc0; --mesh-bg: #eee7fb;
+  --display: "Space Grotesk", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --r: 6px; --gap: 16px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f1520; --surface: #172030; --sunken: #111927; --line: #2b3850;
+  --fg: #e6ecf5; --muted: #9aa8bc; --accent: #7fa6ff; --accent-fg: #0b1220; --focus: #9dbbff;
+  --ok: #6fd39b; --ok-bg: #143324; --warn: #f0c060; --warn-bg: #3a2c0c;
+  --crit: #ff8f86; --crit-bg: #421a17; --mesh: #b99cff; --mesh-bg: #2a2047;
+  color-scheme: dark;
+} }
+* { box-sizing: border-box }
+[hidden] { display: none !important }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 14px/1.5 var(--body) }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 16px }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; margin: 0 }
+h1 { font-size: 20px } h2 { font-size: 18px } h3 { font-size: 15px }
+p { margin: 0 }
+.muted { color: var(--muted) }
+.mono, td.num, .stat b { font-family: var(--mono); font-variant-numeric: tabular-nums }
+.label { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted) }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px }
+
+header { background: var(--surface); border-bottom: 1px solid var(--line) }
+header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; padding-block: 12px }
+main { display: flex; flex-direction: column; gap: 18px; padding-block: 18px 48px }
+
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px }
+.between { justify-content: space-between }
+button, select { font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 6px 12px; min-height: 36px; cursor: pointer }
+button:disabled { opacity: .45; cursor: not-allowed }
+button.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); font-weight: 600 }
+button.danger { background: var(--crit); color: #ffffff; border-color: var(--crit); font-weight: 600 }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--gap); display: flex; flex-direction: column; gap: 12px; min-width: 0 }
+.banner { border: 1px solid var(--line); border-left: 4px solid var(--warn); background: var(--warn-bg); border-radius: var(--r); padding: 10px 14px; font-size: 13px }
+.banner.crit { border-left-color: var(--crit); background: var(--crit-bg) }
+.banner.ok { border-left-color: var(--ok); background: var(--ok-bg) }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap) }
+.grid-nodes { display: grid; grid-template-columns: 1fr 180px 1fr; gap: var(--gap); align-items: stretch }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px }
+.link-box { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-align: center; padding: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r) }
+.wire { width: 100%; border-top: 2px dashed var(--line) }
+.link-box.on .wire { border-top: 2px solid var(--mesh) }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(115px, 1fr)); gap: 10px }
+.stat { display: flex; flex-direction: column; gap: 2px; background: var(--sunken); border-radius: var(--r); padding: 8px 10px }
+.stat b { font-size: 19px; font-weight: 600; line-height: 1.2 }
+
+.pill { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; background: var(--sunken); color: var(--muted) }
+.pill::before { content: "○" }
+.pill.ok { background: var(--ok-bg); color: var(--ok) } .pill.ok::before { content: "●" }
+.pill.warn { background: var(--warn-bg); color: var(--warn) } .pill.warn::before { content: "▲" }
+.pill.crit { background: var(--crit-bg); color: var(--crit) } .pill.crit::before { content: "■" }
+.pill.mesh { background: var(--mesh-bg); color: var(--mesh) } .pill.mesh::before { content: "⇄" }
+
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 13px }
+.kv dt { color: var(--muted); font-weight: 500 }
+.kv dd { margin: 0; overflow-wrap: anywhere }
+
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface) }
+table { border-collapse: collapse; width: 100%; font-size: 13px }
+th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); white-space: nowrap }
+th { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: var(--sunken) }
+td.num, th.num { text-align: right }
+tr:last-child td { border-bottom: 0 }
+
+.probe-card { border: 1px solid var(--line); border-radius: var(--r); padding: 10px 12px; background: var(--sunken); display: flex; flex-direction: column; gap: 4px }
+progress { width: 100%; height: 8px }
+
+@media (max-width: 860px) {
+  .grid-nodes, .grid-2, .grid-3 { grid-template-columns: 1fr }
+}
+</style>
+</head>
+<body>
+<div id="simbar" style="background:var(--warn-bg);color:var(--warn);border-bottom:1px solid var(--line);padding:7px 14px;font-size:13px;line-height:1.5">
+  <b>Browser simulation.</b> Everything here is generated in your browser: no model, no network, no real gate. Press <i>Start replay</i>, then approve the pending alert to block the simulated lab client.
+  <label style="margin-left:10px;white-space:nowrap"><input type="checkbox" id="sim-auto"> autonomous lab mode (a launch flag in the real demo)</label>
+  <span style="white-space:nowrap">&middot; <i>Reset</i> restarts both simulated nodes.</span>
+</div>
+
+<header>
+  <div class="wrap">
+    <div class="row">
+      <h1>cyberncm — two-node cooperative demo</h1>
+      <span id="mode-pill" class="pill warn">Input: recorded-replay</span>
+    </div>
+    <div class="row">
+      <span id="conn-pill" class="pill">Connecting</span>
+      <span id="err-msg" class="muted mono" style="font-size:12px"></span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="autonomy-banner" class="banner crit" hidden>
+    AUTONOMOUS LAB MODE: recorded traffic mapped to a loopback client. One automatic block of at most 10 seconds per process. No independent local sensing. NOT G1-APPROVED.
+    <button id="btn-disable-autonomy" type="button">Disable automation and unblock</button>
+  </div>
+  <div id="fallback-banner" class="banner crit" hidden>
+    <strong>Recorded fallback trace:</strong> displaying a saved static capture, not live Node A / Node B processes.
+  </div>
+
+  <div class="banner">
+    <strong>Scope &amp; honesty notice:</strong>
+    Simulated two-node prototype on <span class="mono">127.0.0.1</span> (not decentralized consensus or federated learning).
+    <span id="scope-data">Node A scores <strong>recorded CIC-IDS2017 Friday</strong> windows through a frozen FP32 ONNX model (no online learning).</span>
+    Approved temporary blocks (&le; 30 s) gate mapped lab client <span class="mono">127.0.0.2</span> at Node B's isolated lab HTTP service (<span class="mono" id="scope-lab-service">configured lab listener</span>); the detector did not inspect <span class="mono">127.0.0.2</span>'s live traffic.
+  </div>
+
+  <!-- Top topology: Node A <-> Link <-> Node B -->
+  <section class="grid-nodes" aria-label="Node topology">
+    <div class="panel">
+      <div class="row between">
+        <h2>Node A (Detector &amp; Sender)</h2>
+        <span id="a-status" class="pill">Waiting</span>
+      </div>
+      <dl class="kv">
+        <dt>Node ID</dt><dd id="a-id" class="mono">—</dd>
+        <dt>Input Mode</dt><dd id="a-input" class="mono">recorded-replay</dd>
+        <dt>Model</dt><dd id="a-model" class="mono">—</dd>
+        <dt>ONNX SHA-256</dt><dd id="a-onnx-hash" class="mono">—</dd>
+        <dt>Thresholds</dt><dd id="a-thr" class="mono">—</dd>
+      </dl>
+      <div class="stats">
+        <div class="stat"><span class="label">Windows scored</span><b id="a-win">0</b></div>
+        <div class="stat"><span class="label">Alerts sent</span><b id="a-sent">0</b></div>
+        <div class="stat"><span class="label">B accepted</span><b id="a-acc">0</b></div>
+        <div class="stat"><span class="label">B rejected</span><b id="a-rej">0</b></div>
+      </div>
+      <div class="row">
+        <button id="btn-start" class="primary" type="button">Start replay</button>
+        <button id="btn-pause" type="button">Pause</button>
+        <button id="btn-reset" type="button">Reset</button>
+        <label class="row" for="sel-speed">
+          <span class="label">Speed</span>
+          <select id="sel-speed">
+            <option value="1">1×</option>
+            <option value="5">5×</option>
+            <option value="10" selected>10×</option>
+            <option value="20">20×</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <div class="row between" style="font-size:12px">
+          <span class="label">Replay offset</span>
+          <span id="a-offset" class="mono muted">0 / 0 s</span>
+        </div>
+        <progress id="a-prog" max="100" value="0"></progress>
+      </div>
+    </div>
+
+    <div id="link-box" class="link-box">
+      <span class="label">Signed Alert Channel</span>
+      <div class="wire"></div>
+      <span id="link-pill" class="pill">Idle</span>
+      <span class="mono muted" style="font-size:12px">Ed25519 + JSON Schema v1.2.0</span>
+      <span id="link-target" class="mono muted" style="font-size:11px">172.16.0.1 &rarr; 127.0.0.2</span>
+    </div>
+
+    <div class="panel">
+      <div class="row between">
+        <h2>Node B (Verifier &amp; Enforcer)</h2>
+        <span id="b-status" class="pill ok">Active</span>
+      </div>
+      <dl class="kv">
+        <dt>Node ID</dt><dd id="b-id" class="mono">—</dd>
+        <dt>Lab Service</dt><dd id="b-lab" class="mono">—</dd>
+        <dt>Allowlist</dt><dd id="b-allow" class="mono">—</dd>
+        <dt>Protected</dt><dd id="b-prot" class="mono">—</dd>
+        <dt>Startup Cleanup</dt><dd id="b-clean" class="mono">clean</dd>
+      </dl>
+      <div class="stats">
+        <div class="stat"><span class="label">Received</span><b id="b-recv">0</b></div>
+        <div class="stat"><span class="label">Accepted</span><b id="b-acc">0</b></div>
+        <div class="stat"><span class="label">Rejected</span><b id="b-rej">0</b></div>
+        <div class="stat"><span class="label">TCP Resets</span><b id="b-drops">0</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Policy Gate + Active Enforcement -->
+  <section class="grid-2" aria-label="Policy and enforcement">
+    <div class="panel">
+      <div class="row between">
+        <h3>Policy Gate (Node B)</h3>
+        <span id="pol-pill" class="pill">Waiting for alert</span>
+      </div>
+      <p class="muted" style="font-size:13px">
+        Default mode: remote alerts alone never automatically block. Explicit autonomous lab mode is the bounded exception shown in the red banner. Node B has no independent local sensor for the recorded subject, so mapped alerts (<span class="mono" id="map-text">172.16.0.1 &rarr; 127.0.0.2</span>) require explicit operator approval in default mode (<span class="mono">human-approved</span>). Unmapped subjects are rejected by policy.
+      </p>
+      <div id="pending-box" class="probe-card" hidden>
+        <div class="row between">
+          <strong id="pend-title">Pending approval</strong>
+          <span class="pill warn">PENDING_APPROVAL</span>
+        </div>
+        <dl class="kv">
+          <dt>Event ID</dt><dd id="pend-id" class="mono">—</dd>
+          <dt>Subject &rarr; Target</dt><dd id="pend-map" class="mono">—</dd>
+          <dt>Score / Thr</dt><dd id="pend-score" class="mono">—</dd>
+          <dt>Policy Reason</dt><dd id="pend-reason">—</dd>
+          <dt>Scope &amp; Max TTL</dt><dd id="pend-scope" class="mono">—</dd>
+        </dl>
+        <div class="row">
+          <button id="btn-approve" class="primary" type="button">Approve 30s block (human-approved)</button>
+        </div>
+      </div>
+      <div id="pending-empty" class="muted" style="font-size:13px">No mapped alert awaiting approval.</div>
+    </div>
+
+    <div class="panel">
+      <div class="row between">
+        <h3>Simulated Enforcement State (in memory)</h3>
+        <span id="enf-pill" class="pill ok">Allowing traffic</span>
+      </div>
+      <p class="muted" style="font-size:13px">
+        Status flips to <strong>Blocked</strong> only after Node B's <span class="mono">Enforcer</span> applies the rule and independent HTTP probes fail. Windows firewall and public networking are untouched.
+      </p>
+      <div id="block-box" class="probe-card" hidden>
+        <div class="row between">
+          <strong id="blk-target" class="mono">127.0.0.2</strong>
+          <span id="blk-rem" class="pill crit">0.0 s remaining</span>
+        </div>
+        <dl class="kv">
+          <dt>Approval Mode</dt><dd id="blk-mode" class="mono">—</dd>
+          <dt>Scope</dt><dd id="blk-scope" class="mono">—</dd>
+          <dt>Event ID</dt><dd id="blk-eid" class="mono">—</dd>
+          <dt>Reason</dt><dd id="blk-reason">—</dd>
+        </dl>
+        <div class="row">
+          <button id="btn-unblock" class="danger" type="button">Manual unblock now</button>
+        </div>
+      </div>
+      <div id="block-empty" class="muted" style="font-size:13px">No active block rule in <span class="mono">Enforcer</span>.</div>
+    </div>
+  </section>
+
+  <!-- Independent HTTP Connection Probes -->
+  <section class="panel" aria-label="Independent HTTP probes">
+    <div class="row between">
+      <div>
+        <h3>Independent HTTP Probes &rarr; <span class="mono" id="probe-lab-service">configured lab listener</span></h3>
+        <p class="muted" style="font-size:13px">Simulated probes (nothing leaves your browser) from the mapped lab client (<span class="mono">127.0.0.2</span>) and unblocked control client (<span class="mono">127.0.0.3</span>).</p>
+      </div>
+      <button id="btn-probe" type="button">Probe now</button>
+    </div>
+
+    <div class="grid-2">
+      <div class="probe-card">
+        <div class="row between">
+          <strong>Simulated Lab Client (<span class="mono">127.0.0.2</span>)</strong>
+          <span id="p-lab-pill" class="pill">—</span>
+        </div>
+        <span id="p-lab-detail" class="mono" style="font-size:12px">—</span>
+      </div>
+      <div class="probe-card">
+        <div class="row between">
+          <strong>Simulated Control Client (<span class="mono">127.0.0.3</span>)</strong>
+          <span id="p-ctrl-pill" class="pill">—</span>
+        </div>
+        <span id="p-ctrl-detail" class="mono" style="font-size:12px">—</span>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="probe-card">
+        <span class="label">1. Before block (<span class="mono">127.0.0.2</span>)</span>
+        <span id="p-before-pill" class="pill">—</span>
+        <span id="p-before-det" class="mono muted" style="font-size:12px">waiting</span>
+      </div>
+      <div class="probe-card">
+        <span class="label">2. During block (<span class="mono">127.0.0.2</span>)</span>
+        <span id="p-during-pill" class="pill">—</span>
+        <span id="p-during-det" class="mono muted" style="font-size:12px">not yet observed</span>
+      </div>
+      <div class="probe-card">
+        <span class="label">3. After expiry / unblock (<span class="mono">127.0.0.2</span>)</span>
+        <span id="p-after-pill" class="pill">—</span>
+        <span id="p-after-det" class="mono muted" style="font-size:12px">not yet observed</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tables: Node B alerts + Node A detector windows -->
+  <section class="grid-2" aria-label="Evidence tables">
+    <div class="panel">
+      <h3>Node B: Received Alerts (Verification &amp; Policy)</h3>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr><th>Seq</th><th>Subject</th><th class="num">Risk</th><th>Verification</th><th>Policy</th><th>Detail</th></tr>
+          </thead>
+          <tbody id="tbl-alerts"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Node A: Simulated Detector Output (generated numbers)</h3>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr><th>Offset</th><th>Subject</th><th class="num">Risk</th><th class="num">Thr</th><th>Stage (inferred)</th><th>Synthetic truth (label only)</th></tr>
+          </thead>
+          <tbody id="tbl-windows"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <!-- Automated report and summary (rule-based text from structured state; read-only) -->
+  <section class="panel" aria-label="Automated report and summary">
+    <div class="row between">
+      <div>
+        <h3>Report and summary</h3>
+        <p class="muted" style="font-size:13px">Plain-language summary of the current run, written by fixed templates from structured fields. It uses <strong>no language model</strong>, reads no message text and cannot affect any decision.</p>
+      </div>
+      <div class="row">
+        <button id="btn-report" class="primary" type="button">Generate report</button>
+        <a id="lnk-report" href="/api/report.md" download="cyberncm-demo-report.md"><button type="button">Download .md</button></a>
+      </div>
+    </div>
+    <div id="report-box" class="probe-card" hidden>
+      <strong id="report-head"></strong>
+      <div id="report-secs"></div>
+    </div>
+    <div id="report-empty" class="muted" style="font-size:13px">Press <em>Generate report</em> to summarise what has happened so far.</div>
+  </section>
+</main>
+
+<script src="sim.js"></script>
+<script>
+(function () {
+  "use strict";
+  var params = new URLSearchParams(location.search);
+  var sim = CyberSim.createSim({ autonomous: params.get("autonomous") === "1" });
+  window.__sim = sim;
+  var realFetch = window.fetch.bind(window);
+  // Answer the dashboard's /api/* calls from the in-browser simulator; anything else goes to the network as usual.
+  window.fetch = function (input, init) {
+    var url = new URL(typeof input === "string" ? input : input.url, location.href);
+    var m = url.pathname.match(/\/(api\/[A-Za-z0-9._\/-]+)$/);
+    if (!m) return realFetch(input, init);
+    var method = ((init && init.method) || "GET").toUpperCase();
+    var body = {};
+    try { body = init && init.body ? JSON.parse(init.body) : {}; } catch (e) { body = {}; }
+    var r = sim.request(method, "/" + m[1], body, (init && init.headers) || {});
+    return Promise.resolve(new Response(JSON.stringify(r.body), { status: r.status, headers: { "Content-Type": "application/json" } }));
+  };
+  var replayTimer = null;
+  function schedule() { clearInterval(replayTimer); replayTimer = setInterval(function () { sim.tick(); }, 5000 / sim.speed()); }
+  sim.onSpeed(schedule); schedule();
+  setInterval(function () { sim.pump(); }, 500);
+  document.addEventListener("DOMContentLoaded", function () {
+    var box = document.getElementById("sim-auto");
+    box.checked = sim.autonomous();
+    box.addEventListener("change", function () { sim.setAutonomous(box.checked); sim.reset(); });
+  });
+})();
+</script>
+<script>
+const $ = id => document.getElementById(id);
+const params = new URLSearchParams(location.search);
+let fallbackMode = params.get("fallback") === "1";
+let fallbackTrace = null;
+let fallbackIdx = 0;
+
+function shortHash(h) { return h ? h.slice(0, 12) + "…" : "—"; }
+function setPill(el, cls, text) {
+  el.className = "pill" + (cls ? " " + cls : "");
+  el.textContent = text;
+}
+function cell(tr, text, cls) {
+  const td = document.createElement("td");
+  td.textContent = text == null ? "" : String(text);
+  if (cls) td.className = cls;
+  tr.appendChild(td);
+}
+function renderRows(tbody, list, cols, emptyText, fillFn) {
+  tbody.replaceChildren();
+  if (!list || !list.length) {
+    const tr = document.createElement("tr"), td = document.createElement("td");
+    td.colSpan = cols; td.textContent = emptyText; td.className = "muted";
+    tr.appendChild(td); tbody.appendChild(tr);
+    return;
+  }
+  for (const item of list) {
+    const tr = document.createElement("tr");
+    fillFn(tr, item);
+    tbody.appendChild(tr);
+  }
+}
+function renderProbeSlot(pillEl, detEl, p) {
+  if (!p) { setPill(pillEl, "", "Not observed"); detEl.textContent = "—"; return; }
+  if (p.ok) {
+    setPill(pillEl, "ok", "HTTP " + p.http_status + " (" + p.latency_ms + " ms)");
+    detEl.textContent = p.body_preview || "200 OK";
+  } else {
+    setPill(pillEl, "crit", "Connection failed");
+    detEl.textContent = p.error || "failed";
+  }
+}
+
+async function postOp(path, body = {}) {
+  const r = await fetch(path, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "X-CyberNCM-Operator": "1" },
+    body: JSON.stringify(body),
+  });
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) {
+    $("err-msg").textContent = data.error || ("HTTP " + r.status);
+  } else {
+    $("err-msg").textContent = "";
+  }
+  return data;
+}
+
+function render(s) {
+  const a = s.node_a || {};
+  const b = s.node_b || {};
+  $("autonomy-banner").hidden = !b.autonomous_lab;
+  $("btn-disable-autonomy").onclick = async () => {
+    await fetch("/api/autonomy/disable", {method:"POST", headers:{"Content-Type":"application/json","X-CyberNCM-Operator":"1"}, body:"{}"});
+  };
+
+  // Node A
+  if (a.reachable === false) {
+    setPill($("a-status"), "crit", "Unreachable");
+    setPill($("link-pill"), "crit", "Disconnected");
+    $("link-box").classList.remove("on");
+  } else {
+    const stMap = { ready: ["warn", "Ready"], warming_up: ["warn", "Warming up"], replaying: ["ok", "Replaying"], paused: ["warn", "Paused"], finished: ["", "Finished"] };
+    const [cls, lbl] = stMap[a.status] || ["", a.status || "Unknown"];
+    setPill($("a-status"), cls, lbl);
+    const lstate = (a.link_to_node_b && a.link_to_node_b.state) || "idle";
+    if (lstate === "connected") {
+      setPill($("link-pill"), "mesh", "Connected");
+      $("link-box").classList.add("on");
+    } else if (lstate === "unreachable") {
+      setPill($("link-pill"), "crit", "Send error");
+      $("link-box").classList.remove("on");
+    } else {
+      setPill($("link-pill"), "", "Idle");
+      $("link-box").classList.remove("on");
+    }
+  }
+
+  $("a-id").textContent = a.node_id ? shortHash(a.node_id.split(":").pop()) + " (" + a.node_id.slice(0, 34) + "…)" : "—";
+  $("a-input").textContent = a.input_mode || "recorded-replay";
+  const mapEntries = Object.entries((s.node_b && s.node_b.subject_map) || {});
+  if (mapEntries.length) {
+    const txt = mapEntries.map(([k, v]) => k + " → " + v).join(", ");
+    $("link-target").textContent = txt;
+    $("map-text").textContent = txt;
+  }
+  if (s.simulation === "browser") {
+    $("scope-data").textContent = "BROWSER SIMULATION: everything on this page is generated in your browser (no model, no network, no real gate). It mirrors the demo's rules for illustration only.";
+    setPill($("mode-pill"), "crit", "BROWSER SIMULATION: generated numbers, no model");
+    $("lnk-report").hidden = true;
+  } else if (s.sandbox) {
+    $("scope-data").textContent = "SANDBOX: Node A scores synthetic windows through a toy model trained on synthetic data (no real traffic, no real dataset, no online learning).";
+    setPill($("mode-pill"), "crit", fallbackMode ? "RECORDED PLAYBACK of a SANDBOX run (synthetic data)" : "SANDBOX: synthetic data");
+    if (fallbackMode) $("fallback-banner").textContent = "RECORDED PLAYBACK: a saved capture of a real sandbox run (synthetic traffic, toy model). Nothing here is live and the controls are disabled.";
+  }
+  $("a-model").textContent = a.model ? a.model.format : "—";
+  $("a-onnx-hash").textContent = a.model ? shortHash(a.model.onnx_sha256) : "—";
+  $("a-thr").textContent = a.thresholds ? ("r_block=" + a.thresholds.r_block.toFixed(4) + "  r_limit=" + a.thresholds.r_limit.toFixed(4)) : "—";
+  if (a.replay) {
+    $("a-win").textContent = a.replay.windows_scored;
+    $("a-offset").textContent = a.replay.current_offset_s + " s (" + a.replay.step + " / " + a.replay.total_steps + " steps)";
+    $("a-prog").max = Math.max(1, a.replay.total_steps);
+    $("a-prog").value = a.replay.step;
+  }
+  if (a.link_to_node_b) {
+    $("a-sent").textContent = a.link_to_node_b.alerts_sent;
+    $("a-acc").textContent = a.link_to_node_b.node_b_accepted;
+    $("a-rej").textContent = a.link_to_node_b.node_b_rejected;
+  }
+
+  // Node B
+  $("b-id").textContent = b.node_id ? shortHash(b.node_id.split(":").pop()) : "—";
+  $("b-lab").textContent = b.lab_service || "—";
+  $("scope-lab-service").textContent = b.lab_service || "configured lab listener";
+  if ($("probe-lab-service")) $("probe-lab-service").textContent = b.lab_service || "configured lab listener";
+  $("b-allow").textContent = (b.lab_client_allowlist || []).join(", ") || "—";
+  $("b-prot").textContent = (b.protected_addresses || []).join(", ") || "—";
+  $("b-clean").textContent = (b.startup_cleared && b.startup_cleared.length)
+    ? ("cleared stale: " + b.startup_cleared.join(", ")) : "clean (no leftover rules)";
+  if (b.counts) {
+    $("b-recv").textContent = b.counts.alerts_received;
+    $("b-acc").textContent = b.counts.alerts_accepted;
+    $("b-rej").textContent = b.counts.alerts_rejected;
+  }
+  $("b-drops").textContent = b.drops_total ?? 0;
+
+  // Policy Gate / Pending Approval
+  const pend = (b.pending_approvals || [])[0];
+  const blocks = b.active_blocks || [];
+  if (pend) {
+    $("pending-box").hidden = false;
+    $("pending-empty").hidden = true;
+    setPill($("pol-pill"), "warn", "Approval required");
+    $("pend-id").textContent = pend.event_id;
+    $("pend-map").textContent = pend.subject + " -> " + pend.target;
+    $("pend-score").textContent = pend.risk.toFixed(4) + " > " + pend.threshold_r_block.toFixed(4) + " (" + pend.stage + ")";
+    $("pend-reason").textContent = pend.policy_reason;
+    $("pend-scope").textContent = pend.scope.service + " (" + pend.scope.proto + " " + pend.scope.dst + "), max " + pend.ttl_seconds + " s";
+    $("btn-approve").dataset.eventId = pend.event_id;
+    $("btn-approve").disabled = fallbackMode || blocks.length > 0;
+  } else {
+    $("pending-box").hidden = true;
+    $("pending-empty").hidden = false;
+    setPill($("pol-pill"), blocks.length ? "crit" : "ok", blocks.length ? (blocks[0].approval_mode === "autonomous-lab" ? "Autonomous lab block active" : "Human-approved block active") : "Waiting for mapped alert");
+  }
+
+  // Enforcement State (ONLY shown blocked when active_blocks non-empty!)
+  const blk = blocks[0];
+  if (blk) {
+    $("block-box").hidden = false;
+    $("block-empty").hidden = true;
+    const labProbe = (b.probe_summary || {}).latest_lab;
+    const controlProbe = (b.probe_summary || {}).latest_control;
+    const confirmed = labProbe && controlProbe && !labProbe.ok && controlProbe.ok &&
+      labProbe.ts >= blk.created && controlProbe.ts >= blk.created;
+    setPill($("enf-pill"), confirmed ? "crit" : "warn",
+      confirmed ? "Blocked (probe confirmed)" : "Rule active; awaiting probes");
+    $("blk-target").textContent = blk.target;
+    $("blk-rem").textContent = blk.remaining.toFixed(1) + " s remaining (rule TTL " + blk.ttl + " s)";
+    $("blk-mode").textContent = blk.approval_mode;
+    $("blk-scope").textContent = blk.scope.service + " " + blk.scope.proto + " " + blk.scope.dst;
+    $("blk-eid").textContent = blk.event_id;
+    $("blk-reason").textContent = blk.reason;
+    $("btn-unblock").disabled = fallbackMode;
+  } else {
+    $("block-box").hidden = true;
+    $("block-empty").hidden = false;
+    setPill($("enf-pill"), "ok", "Allowing traffic");
+  }
+
+  // Probes
+  const ps = b.probe_summary || {};
+  renderProbeSlot($("p-lab-pill"), $("p-lab-detail"), ps.latest_lab);
+  renderProbeSlot($("p-ctrl-pill"), $("p-ctrl-detail"), ps.latest_control);
+  renderProbeSlot($("p-before-pill"), $("p-before-det"), ps.lab_before);
+  renderProbeSlot($("p-during-pill"), $("p-during-det"), ps.lab_during);
+  renderProbeSlot($("p-after-pill"), $("p-after-det"), ps.lab_after);
+
+  // Tables
+  renderRows($("tbl-alerts"), b.alert_log || [], 6, "No alerts received yet.", (tr, x) => {
+    cell(tr, x.seq ?? "—", "mono");
+    cell(tr, x.subject || "—", "mono");
+    cell(tr, x.risk != null ? x.risk.toFixed(3) : "—", "num");
+    cell(tr, x.verification === "accepted" ? "● accepted" : ("■ rejected: " + x.reject_code));
+    cell(tr, x.policy_action + (x.approval_mode && x.approval_mode !== "none" ? " (" + x.approval_mode + ")" : ""));
+    cell(tr, x.reject_detail || x.policy_reason);
+  });
+
+  renderRows($("tbl-windows"), a.recent_windows || [], 6, "No windows scored yet.", (tr, w) => {
+    cell(tr, w.recorded_offset_s + " s", "mono");
+    cell(tr, w.subject, "mono");
+    cell(tr, w.risk.toFixed(4), "num");
+    cell(tr, w.threshold_r_block.toFixed(4), "num");
+    cell(tr, w.inferred_stage);
+    cell(tr, w.dataset_ground_truth_only);
+  });
+}
+
+$("btn-start").onclick = () => postOp("/api/node-a/start").then(pollOnce);
+$("btn-pause").onclick = () => postOp("/api/node-a/pause").then(pollOnce);
+$("btn-reset").onclick = () => postOp("/api/node-a/reset", { autostart: false }).then(pollOnce);
+$("sel-speed").onchange = e => postOp("/api/node-a/speed", { speed: Number(e.target.value) }).then(pollOnce);
+$("btn-approve").onclick = () => {
+  const eid = $("btn-approve").dataset.eventId;
+  if (eid) postOp("/api/approve", { event_id: eid }).then(pollOnce);
+};
+$("btn-unblock").onclick = () => postOp("/api/unblock", {}).then(pollOnce);
+$("btn-probe").onclick = () => postOp("/api/probe", {}).then(pollOnce);
+
+async function pollOnce() {
+  if (fallbackMode) return;
+  try {
+    const r = await fetch("/api/state", { cache: "no-store" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const data = await r.json();
+    setPill($("conn-pill"), "ok", "Live dashboard");
+    render(data);
+  } catch (e) {
+    setPill($("conn-pill"), "crit", "Node B unreachable");
+    $("err-msg").textContent = e.message;
+  }
+}
+
+async function pollLoop() {
+  await pollOnce();
+  setTimeout(pollLoop, 500);
+}
+
+// ---- report and summary (text is inserted with textContent only) ----
+async function loadReport() {
+  const box = $("report-box"), secs = $("report-secs");
+  try {
+    let rep;
+    if (fallbackMode) {
+      const frame = fallbackTrace && fallbackTrace[(fallbackIdx - 1 + fallbackTrace.length) % fallbackTrace.length];
+      if (!frame || !frame.report) throw new Error("no saved report in this frame");
+      rep = frame.report;
+    } else {
+      const r = await fetch("/api/report", { cache: "no-store" });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      rep = await r.json();
+    }
+    $("report-head").textContent = rep.headline;
+    secs.replaceChildren();
+    for (const sec of rep.sections) {
+      const h = document.createElement("h4"); h.textContent = sec.title; h.style.margin = "10px 0 2px";
+      const ul = document.createElement("ul"); ul.style.margin = "0 0 0 18px"; ul.style.padding = "0";
+      for (const t of sec.sentences) { const li = document.createElement("li"); li.textContent = t; ul.appendChild(li); }
+      secs.append(h, ul);
+    }
+    box.hidden = false; $("report-empty").hidden = true;
+  } catch (e) {
+    $("report-empty").hidden = false;
+    $("report-empty").textContent = "Report unavailable: it needs the live Node B (" + e.message + ").";
+  }
+}
+$("btn-report").onclick = loadReport;
+if (location.protocol === "file:") {
+  setPill($("conn-pill"), "crit", "Opened as a file");
+  $("err-msg").textContent = "This page was opened from disk, so it cannot reach Node B. Start the demo and open http://127.0.0.1:18100 instead.";
+  $("btn-report").disabled = true;
+}
+
+if (fallbackMode) {
+  $("fallback-banner").hidden = false;
+  $("lnk-report").hidden = true;
+  setPill($("mode-pill"), "crit", "RECORDED FALLBACK TRACE");
+  setPill($("conn-pill"), "warn", "Playback (static)");
+  for (const id of ["btn-start", "btn-pause", "btn-reset", "sel-speed", "btn-approve", "btn-unblock", "btn-probe"]) {
+    $(id).disabled = true;
+  }
+  fetch("recorded_fallback.json", { cache: "no-store" })
+    .then(r => r.json())
+    .then(frames => {
+      fallbackTrace = frames;
+      const tick = () => {
+        render(fallbackTrace[fallbackIdx]);
+        fallbackIdx = (fallbackIdx + 1) % fallbackTrace.length;
+        setTimeout(tick, 1200);
+      };
+      tick();
+    })
+    .catch(e => { $("err-msg").textContent = "Failed to load recorded_fallback.json: " + e.message; });
+} else {
+  pollLoop();
+}
+</script>
+</body>
+</html>

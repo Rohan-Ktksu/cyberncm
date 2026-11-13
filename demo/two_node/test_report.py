@@ -60,6 +60,11 @@ class ReportTests(unittest.TestCase):
         self.assertIn("This is a sandbox", out)
         self.assertNotIn("dataset label", out)
 
+    def test_counts_block_removed_events(self):
+        s = copy.deepcopy(STATE)
+        s["node_b"]["enforcer_events"].append({"type": "block_removed", "reason": "expired"})
+        self.assertIn("1 block applied, 1 block removed", report.build_report(s)["text"])
+
     def test_always_states_method_and_scope(self):
         for s in (STATE, {}, None, "not a dict"):
             r = report.build_report(s)

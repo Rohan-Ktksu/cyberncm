@@ -168,7 +168,7 @@ def build_report(state) -> dict:
     ev_types = {}
     for e in _l(b.get("enforcer_events")):
         t = _d(e).get("type")
-        if t in ("block_applied", "block_expired", "block_released"):
+        if t in ("block_applied", "block_removed", "block_expired", "block_released"):
             ev_types[t] = ev_types.get(t, 0) + 1
     if ev_types:
         s.append("Enforcement events recorded: " + ", ".join(f"{v} {k.replace('_', ' ')}" for k, v in sorted(ev_types.items())) + ".")

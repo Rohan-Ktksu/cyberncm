@@ -8,7 +8,7 @@ Authors: **Rohan Sai, Yuvashree C and Sonia C**.
 
 ![Website overview](docs/screenshots/site-overview.png)
 
-**Public demo:** https://rohan-ktksu.github.io/cyberncm/ (static page with an in-browser simulation on synthetic data; it controls nothing and makes no network requests). Deployed and checked on 13 November 2026. It can also be opened locally: `cd site && python -m http.server 8000`, then visit `http://127.0.0.1:8000`.
+**Public demo:** https://rohan-ktksu.github.io/cyberncm/ (a static page: an interactive simulation of the real dashboard that runs in your browser, a recording of a real sandbox run, and the research record; it controls nothing and sends nothing anywhere). Deployed and checked on 13 November 2026. It can also be opened locally: `cd site && python -m http.server 8000`, then visit `http://127.0.0.1:8000`.
 
 ## Contents
 
@@ -17,7 +17,7 @@ Authors: **Rohan Sai, Yuvashree C and Sonia C**.
 3. [What v1 does and does not do](#what-v1-does-and-does-not-do)
 4. [Method](#method)
 5. [Architecture and workflow](#architecture-and-workflow)
-6. [The website and its simulation](#the-website-and-its-simulation)
+6. [The website and its demos](#the-website-and-its-demos)
 7. [Local setup, launch and troubleshooting](#local-setup)
 8. [Human-approved mode and autonomous lab mode](#local-two-node-demo-human-approved-mode-and-autonomous-lab-mode)
 9. [Research index](#research-index)
@@ -91,21 +91,27 @@ The model card is [`MODEL_CARD.md`](MODEL_CARD.md); the list of what may and may
 
 ![Two-node demo workflow](site/assets/demo-workflow.svg)
 
-## The website and its simulation
+## The website and its demos
 
-The website in [`site/`](site/) is a single static page: overview, approach, findings, the full research index, an in-browser simulation, and limitations. It sets no cookies and makes no outside requests; the only extra file it loads is a static JSON recording of a sandbox run for the playback.
+The website in [`site/`](site/) is a single static page: overview, approach, findings, the full research index, three demos (see below), and limitations. It sets no cookies and makes no outside requests; the only extra file it loads is a static JSON recording of a sandbox run for the playback.
 
 ![Simulation panel](docs/screenshots/site-simulation.png)
 
 <img src="docs/screenshots/site-mobile.png" alt="The website at phone width" width="260">
 
-*Captured from the running site: desktop overview, the simulation with its report, and phone width.*
+*Captured from the running site: the desktop overview, the interactive simulation after approving a block, and phone width.*
 
-The simulation is **synthetic and clearly labelled**: it runs only in the visitor's browser on generated numbers, uses no dataset and no research model, and cannot affect any machine. It is an illustration of the control flow, not recorded playback and not enforcement. The public site never exposes the demo's Node A or Node B services, operator endpoints, signing tools, arbitrary targets, live traffic or enforcement controls, and no tunnel is used. The site also embeds a **recorded playback of a real sandbox run** (synthetic data), shown in the real dashboard and clearly labelled as a recording. Recorded playback of *dataset* traffic is **not** published, because redistribution of that data has not been cleared.
+The page offers three demos, all static (no server, no account, nothing leaves the visitor's browser):
+
+1. **Interactive browser simulation** (`site/demo/live.html`). The *real* dashboard page, driven by a small simulator (`site/demo/sim.js`) instead of a server. A visitor presses *Start replay*, approves the alert, watches the simulated block and its probes, tries the bounded autonomous lab mode and the emergency disable, and reads the report. Everything is **generated numbers**: no model, no network, no real gate. It follows the demo's rules (a mapped alert never blocks by itself; a human block lasts at most 30 s; the automatic mode allows one block of at most 10 s with no renewal; a newer alert supersedes a pending one so a stale approval is refused; operator calls need the operator header). The simulator's rules, its state shape against real recorded frames, and its report against the Python report are tested (`node --test release/test_sim.mjs`).
+2. **Recorded playback of a real sandbox run** (`site/demo/index.html`): a saved capture of the real dashboard running the real code on synthetic data, labelled as a recording; controls disabled.
+3. **Run it yourself**: the sandbox below.
+
+The public site never exposes the demo's Node A or Node B services, operator endpoints, signing tools, arbitrary targets, live traffic or enforcement controls, and no tunnel is used. Recorded playback of *dataset* traffic is **not** published, because redistribution of that data has not been cleared.
 
 | Mode | Where | What it is |
 |---|---|---|
-| In-browser simulation | Public website | Synthetic numbers, in the visitor's browser only |
+| Interactive browser simulation | Public website (`site/demo/live.html`) | The real dashboard page driven by a simulator in the visitor's browser: generated numbers, no model, no network, no real gate; clickable |
 | Recorded playback of a sandbox run | Public website (`site/demo/`) | A saved capture of the real dashboard running the real code on synthetic data; static, controls disabled, labelled as a recording |
 | Recorded replay | Local demo only | Frozen FP32 model replaying recorded CIC-IDS2017 traffic on your own machine; needs artifacts you build |
 | Sandbox (real code, synthetic data) | Local only: `python run_sandbox.py` | The real Node A, Node B, gate and enforcer on generated traffic and a toy model; labelled SANDBOX; says nothing about detection quality |
@@ -124,7 +130,7 @@ pip install -r requirements.txt
 **What works with nothing else downloaded**
 
 ```bash
-cd site && python -m http.server 8000                       # the website and simulation
+cd site && python -m http.server 8000                       # the website and its demos
 cd ncm && python test_ncm.py && python test_metrics.py       # model and metric checks
 python -m pytest product/tests -q                            # 5 pass, 1 skipped (needs artifacts)
 python -m pytest demo/two_node/test_report.py demo/two_node/test_sandbox.py -q   # 14 pass, 1 skipped (the optional 2-minute sandbox build), no artifacts needed
@@ -317,7 +323,7 @@ Round R14 used the Qwen2.5-0.5B model ([model page](https://huggingface.co/Qwen/
 |---|---|
 | **Implemented** | Single-site detector v0/v1 in alert and shadow mode; per-site refit; the research rounds above; single-site console and agent (first slice, replay only); local two-node demo with human approval and opt-in lab mode; a sandbox that runs that demo on synthetic data with no dataset; this website. |
 | **Proposed (not done)** | Independent reproduction by another person; shadow-mode trial on a real site; measuring a real learning duration; packet-level features; an edge-hardware measurement; a cleaner alert policy before revisiting sharing; a contrastive objective and a state-space backbone |
-| **Not offered** | A hosted live copy of the demo or sandbox: it has operator controls and one shared state, so every visitor would act on the same session. The website's static simulation is the public demo. |
+| **Not offered** | A hosted live copy of the demo or sandbox: it has operator controls and one shared state, so every visitor would act on the same session. The website's interactive browser simulation and recorded playback are the public demos. |
 | **Blocked** | Any sharing, consensus or federated feature (the pre-set test failed; R12b is incomplete); automatic blocking (no policy met the target); the rerun kit's Level 1 (needs unpublished artifacts); a clearance at gate G1 (needs independent confirmation and real-site evidence); publishing dataset-derived material (needs redistribution rights). |
 
 ## Team, licence and security reports

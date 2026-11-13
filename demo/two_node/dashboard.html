@@ -436,7 +436,11 @@ function render(s) {
     $("link-target").textContent = txt;
     $("map-text").textContent = txt;
   }
-  if (s.sandbox) {
+  if (s.simulation === "browser") {
+    $("scope-data").textContent = "BROWSER SIMULATION: everything on this page is generated in your browser (no model, no network, no real gate). It mirrors the demo's rules for illustration only.";
+    setPill($("mode-pill"), "crit", "BROWSER SIMULATION: generated numbers, no model");
+    $("lnk-report").hidden = true;
+  } else if (s.sandbox) {
     $("scope-data").textContent = "SANDBOX: Node A scores synthetic windows through a toy model trained on synthetic data (no real traffic, no real dataset, no online learning).";
     setPill($("mode-pill"), "crit", fallbackMode ? "RECORDED PLAYBACK of a SANDBOX run (synthetic data)" : "SANDBOX: synthetic data");
     if (fallbackMode) $("fallback-banner").textContent = "RECORDED PLAYBACK: a saved capture of a real sandbox run (synthetic traffic, toy model). Nothing here is live and the controls are disabled.";

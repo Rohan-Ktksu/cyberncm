@@ -42,21 +42,7 @@ th{background:var(--card);position:sticky;top:0}
 .bars .rng{position:absolute;top:50%;height:2px;background:var(--fg);opacity:.6}
 @media (max-width:620px){.bars .row{grid-template-columns:1fr}}
 code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:.92em}
-.sim{border:2px solid var(--warn-fg);border-radius:12px;padding:14px;background:var(--card)}
-.simbanner{background:var(--warn-bg);color:var(--warn-fg);border-radius:8px;padding:8px 12px;font-weight:600;margin-bottom:12px;font-size:14px}
-.nodes{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-.node{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--bg);min-height:230px}
-.node h3{margin-top:0}
-.log{font:12.5px/1.45 ui-monospace,Consolas,monospace;max-height:200px;overflow:auto;margin:8px 0 0;padding:0;list-style:none}
-.log li{padding:2px 0;border-bottom:1px dotted var(--line)}
-.btns{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
-button{font:inherit;padding:7px 13px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
-button:hover:not(:disabled){border-color:var(--acc)}button:disabled{opacity:.45;cursor:not-allowed}
-button.danger{border-color:var(--bad-fg);color:var(--bad-fg)}
-label.sw{display:inline-flex;gap:6px;align-items:center;font-size:14px}
 figure{margin:16px 0}figcaption{font-size:14px;color:var(--mut);margin-top:6px}img.shot{width:100%;height:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
-canvas{width:100%;height:110px;display:block;background:var(--bg);border:1px solid var(--line);border-radius:6px}
-.meter{height:10px;border-radius:5px;background:var(--line);overflow:hidden}.meter i{display:block;height:100%;background:var(--acc);width:0}
 footer{padding:28px 0 60px;color:var(--mut);font-size:14px}
 :focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 </style>
@@ -130,31 +116,12 @@ footer{padding:28px 0 60px;color:var(--mut);font-size:14px}
 </section>
 
 <section id="demo">
-  <h2>Demo: in-browser simulation</h2>
-  <p>This is an <b>illustration of the control flow</b>, running entirely in your browser on synthetic numbers. It is not the research model, it uses no dataset, makes no network requests and cannot affect any machine. Nothing here is recorded playback and nothing is real enforcement.</p>
-  <div class="sim" id="sim">
-    <div class="simbanner">SIMULATION · synthetic data generated in your browser · no real detector · no network · no enforcement</div>
-    <div class="btns">
-      <button id="bStart">Start</button><button id="bPause" disabled>Pause</button><button id="bReset">Reset</button>
-      <label class="sw"><input type="checkbox" id="auto"> Autonomous lab mode (simulated)</label>
-      <button id="bKill" class="danger">Emergency disable</button>
-      <button id="bReport">Generate report</button>
-    </div>
-    <div class="nodes">
-      <div class="node"><h3>Node A · detector <span class="pill" id="pA">idle</span></h3>
-        <canvas id="cv" width="560" height="110" role="img" aria-label="Synthetic risk score over time with threshold line"></canvas>
-        <div class="meter" aria-hidden="true"><i id="mt"></i></div>
-        <ul class="log" id="logA" aria-live="polite"></ul></div>
-      <div class="node"><h3>Node B · policy gate <span class="pill" id="pB">no block</span></h3>
-        <div id="pend" style="min-height:44px"></div>
-        <div style="font-size:14px">Synthetic lab client: <b id="cl">reachable</b> · control client: <b>reachable</b></div>
-        <ul class="log" id="logB" aria-live="polite"></ul></div>
-    </div>
-    <div id="repBox" class="node" style="margin-top:12px;min-height:0" hidden><h3>Simulation report <span class="pill">rule-based text</span></h3><div id="repOut"></div></div>
-    <p style="font-size:13px;color:var(--mut);margin:10px 0 0">Rules shown (simulated): human approval by default; signature, schema, allowlist and expiry checked before any action; in autonomous lab mode at most one automatic block per target per run, lasting at most 10 seconds, with no renewal; emergency disable releases the block and turns automation off. Signatures here are placeholders, not cryptography.</p>
-  </div>
-  <p style="font-size:14px;color:var(--mut)">The real local demonstration (Node A and Node B, one local HTTP listener) is in <code>demo/two_node/</code>. You can run it with no dataset using the sandbox (<code>python run_sandbox.py</code>: real code, synthetic data, toy model); see the README. It is not hosted here because it has operator controls and one shared state.</p>
-  <h3>The real demo, running in the sandbox</h3>
+  <h2>Demo</h2>
+  <p>Three ways to see how the two-node demo behaves, from most interactive to most real. All of it is static: there is no server and no account, and nothing leaves your browser.</p>
+  <h3>1. Try it: an interactive browser simulation</h3>
+  <p>This is the real dashboard page, driven by a simulator that runs in your browser. Press <i>Start replay</i>, wait for the alert (about 25 seconds), then press <i>Approve</i> to block the simulated lab client for at most 30 seconds. Tick <i>autonomous lab mode</i> to see the bounded automatic mode instead (one 10-second block, no renewal), and use <i>Disable automation and unblock</i> as the emergency switch. <i>Generate report</i> writes the plain-language summary. Everything is <b>generated numbers</b>: there is no model, no network and no real gate. It follows the demo's rules for illustration, and it says nothing about detection quality. <a href="demo/live.html">Open it full screen</a>.</p>
+  <iframe src="demo/live.html" title="Interactive browser simulation of the Node A and Node B dashboard" loading="lazy" style="width:100%;height:1150px;border:1px solid var(--line);border-radius:10px;background:#fff"></iframe>
+  <h3>2. Watch the real code run: a recording of a sandbox run</h3>
   <p>Below, the real Node A and Node B dashboard replays a <b>recording</b> of a real sandbox run: synthetic traffic, a toy model and documentation addresses only. It is a saved capture, <b>not live</b>: the controls are disabled and it loops. Press <i>Generate report</i> inside it to read the report saved with the frame being shown. The scores say nothing about detection quality, and the &ldquo;dataset truth&rdquo; column holds synthetic labels. <a href="demo/index.html">Open it full screen</a>. To run it yourself: <code>cd demo/two_node &amp;&amp; python run_sandbox.py --reset-state --autostart</code>, then open <code>http://127.0.0.1:18100</code>.</p>
   <iframe src="demo/index.html" title="Recorded playback of a sandbox run of the real Node A and Node B dashboard" loading="lazy" style="width:100%;height:1100px;border:1px solid var(--line);border-radius:10px;background:#fff"></iframe>
   <details style="margin-top:12px"><summary>Still images of the same kind of run (alert pending, block confirmed, report)</summary>
@@ -171,6 +138,8 @@ footer{padding:28px 0 60px;color:var(--mut);font-size:14px}
     <figcaption><b>3. Report and summary.</b> A plain-language summary written by fixed templates from structured fields. It uses no language model, reads no message text, and cannot affect any decision.</figcaption>
   </figure>
   </details>
+  <h3>3. Run it yourself</h3>
+  <p>The real two-node demo (Node A and Node B, one local HTTP listener) is in <code>demo/two_node/</code>. You can run it with no dataset using the sandbox: <code>cd demo/two_node &amp;&amp; python run_sandbox.py --reset-state --autostart</code>, then open <code>http://127.0.0.1:18100</code>. It is not hosted here because it has operator controls and one shared state, and the free options that could host it are too small or not free.</p>
 </section>
 
 <section id="limits">
@@ -246,58 +215,6 @@ function render(f){const q=(f||"").toLowerCase();
   tb.innerHTML = R.filter(r=>r.join(" ").toLowerCase().includes(q)).map(r=>
    `<tr><td><b>${esc(r[0])}</b></td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td><td>${esc(r[4])}</td><td>${link(r[5])}</td><td>${esc(r[6])}</td><td><span class="pill ${r[8]}">${esc(r[7])}</span></td></tr>`).join("");}
 render(""); document.getElementById("q").addEventListener("input",e=>render(e.target.value));
-
-/* ---------- synthetic simulation (no network, no real model) ---------- */
-(function(){
-  const $=id=>document.getElementById(id), cv=$("cv"), g=cv.getContext("2d");
-  const TH=.7, N=60, AUTO_S=10, HUMAN_S=30, TICK=500; // one tick = one synthetic 5 s window shown every 0.5 s
-  let t,series,timer,pending,block,autoUsed,autoOn,disabled,running,st;
-  let seed=12345; const rnd=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
-  const li=(ul,msg)=>{const e=document.createElement("li");e.textContent=msg;$(ul).prepend(e);while($(ul).children.length>40)$(ul).lastChild.remove()};
-  function reset(){st={w:0,d:0,b:[],exp:0,rej:0,kill:0};$("repBox").hidden=true;clearInterval(timer);seed=12345;t=0;series=[];pending=null;block=null;autoUsed=false;disabled=false;running=false;
-    $("logA").innerHTML="";$("logB").innerHTML="";$("pend").innerHTML="";$("cl").textContent="reachable";
-    $("pA").textContent="idle";$("pB").textContent="no block";$("pB").className="pill";$("bStart").disabled=false;$("bPause").disabled=true;$("mt").style.width="0";draw();}
-  function draw(){const w=cv.width,h=cv.height;g.clearRect(0,0,w,h);const css=getComputedStyle(document.documentElement);
-    g.strokeStyle="#b91c1c";g.setLineDash([5,4]);g.beginPath();g.moveTo(0,h*(1-TH));g.lineTo(w,h*(1-TH));g.stroke();g.setLineDash([]);
-    g.strokeStyle="#0369a1";g.lineWidth=2;g.beginPath();series.forEach((v,i)=>{const x=i/(N-1)*w,y=h*(1-v);i?g.lineTo(x,y):g.moveTo(x,y)});g.stroke();}
-  function score(i){const base=.28+.1*rnd(); return i>=22&&i<=34 ? Math.min(.98,.62+.07*(i-22)+.1*rnd()) : base;}
-  function fakeSig(){let s="";for(let i=0;i<12;i++)s+="0123456789abcdef"[Math.floor(rnd()*16)];return "sim-"+s}
-  function applyBlock(sec,mode){st.b.push(`${mode}, ${sec} s`);block={left:sec,mode};$("cl").textContent="BLOCKED (simulated)";$("pB").textContent=`block ${sec}s (${mode})`;$("pB").className="pill bad";
-    li("logB",`SIM: block applied to synthetic lab client for ${sec}s (${mode}). Control client unaffected.`);}
-  function expire(why){st.exp++;block=null;$("cl").textContent="reachable";$("pB").textContent="no block";$("pB").className="pill";li("logB",`SIM: ${why}; access restored. No renewal.`);$("mt").style.width="0"}
-  function directive(){st.d++;const d={id:fakeSig(),subject:"synthetic-subject-1",target:"lab-client",ttl:HUMAN_S};
-    li("logA",`SIM: score above threshold at window ${t}; emitting directive ${d.id}`);
-    li("logB",`SIM: checks passed (signature placeholder, schema, allowlist, expiry, replay)`);
-    if(disabled){li("logB","SIM: automation disabled; directive held for a human only");}
-    if(autoOn&&!disabled&&!autoUsed){autoUsed=true;applyBlock(AUTO_S,"autonomous lab");return}
-    if(autoOn&&autoUsed&&!disabled) li("logB","SIM: autonomous allowance already used this run; waiting for a human");
-    pending=d;$("pend").innerHTML=`<div class="pill warn">pending approval</div> <button id="ap">Approve block (${HUMAN_S}s max)</button> <button id="rj">Reject</button>`;
-    $("ap").onclick=()=>{if(!pending)return;pending=null;$("pend").innerHTML="";applyBlock(HUMAN_S,"human approved")};
-    $("rj").onclick=()=>{st.rej++;pending=null;$("pend").innerHTML="";li("logB","SIM: rejected by operator")};}
-  function step(){if(t>=N){clearInterval(timer);running=false;$("pA").textContent="replay finished";$("bPause").disabled=true;$("bStart").disabled=true;return}
-    const v=score(t);series.push(v);st.w++;$("pA").textContent=v>TH?"above threshold":"normal";
-    if(v>TH&&!pending&&!block&&!window.__sent){window.__sent=true;directive()}
-    if(v<=TH)window.__sent=false;
-    if(block){block.left-=5*TICK/1000*2;$("mt").style.width=Math.max(0,block.left/(block.mode==="autonomous lab"?AUTO_S:HUMAN_S)*100)+"%";if(block.left<=0)expire("block expired")}
-    t++;draw();}
-  $("bStart").onclick=()=>{if(running)return;running=true;$("bStart").disabled=true;$("bPause").disabled=false;timer=setInterval(step,TICK)};
-  $("bPause").onclick=()=>{clearInterval(timer);running=false;$("bStart").disabled=false;$("bPause").disabled=true};
-  $("bReset").onclick=()=>{window.__sent=false;reset()};
-  $("auto").onchange=e=>{autoOn=e.target.checked;li("logB",autoOn?"SIM: autonomous lab mode ON (one block, at most 10 s, no renewal)":"SIM: autonomous lab mode OFF (human approval)")};
-  $("bKill").onclick=()=>{st.kill=1;disabled=true;autoOn=false;$("auto").checked=false;pending=null;$("pend").innerHTML="";if(block)expire("emergency disable released the rule");else li("logB","SIM: emergency disable: automation off");};
-  $("bReport").onclick=()=>{
-    const S=[];
-    S.push(st.w?`As of synthetic window ${st.w}: ${st.w} windows scored; the synthetic score crossed the threshold ${st.d?"and "+st.d+" directive"+(st.d>1?"s were":" was")+" emitted":"but no directive was emitted yet"}.`:"No simulated windows yet: press Start.");
-    if(st.b.length)S.push(`Blocks applied to the synthetic lab client: ${st.b.length} (${st.b.join("; ")}). ${st.exp} ended by expiry or release; none was renewed.`);
-    else if(st.d)S.push("No block applied yet: the directive is waiting for a human decision"+(autoOn?" (the automatic allowance was already used or is disabled).":"."));
-    if(st.rej)S.push(`${st.rej} directive${st.rej>1?"s were":" was"} rejected by the operator.`);
-    S.push(autoOn?"Autonomous lab mode is ON: one automatic block per target per run, at most 10 seconds, no renewal.":"Autonomous lab mode is OFF: every block needs a human approval.");
-    if(st.kill)S.push("Emergency disable was used: the rule was released and automation turned off.");
-    S.push("Method: fixed templates over the simulation's own counters. No language model, no network, no real data. This is a simulation, not a detection result.");
-    const o=$("repOut");o.replaceChildren();const ul=document.createElement("ul");ul.style.margin="4px 0 0 18px";ul.style.padding="0";
-    S.forEach(x=>{const li=document.createElement("li");li.textContent=x;ul.appendChild(li)});o.appendChild(ul);$("repBox").hidden=false;};
-  window.__sent=false;autoOn=false;reset();
-})();
 </script>
 </body>
 </html>
