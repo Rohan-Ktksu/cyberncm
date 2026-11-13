@@ -8,7 +8,7 @@ Authors: **Rohan Sai, Yuvashree C and Sonia C**.
 
 ![Website overview](docs/screenshots/site-overview.png)
 
-**Public demo:** not deployed yet. A link will be added here only after the deployment has been verified (see [`docs/release/HOSTING.md`](docs/release/HOSTING.md)). Until then, the website can be opened locally: `cd site && python -m http.server 8000`, then visit `http://127.0.0.1:8000`.
+**Public demo:** https://rohan-ktksu.github.io/cyberncm/ (static page with an in-browser simulation on synthetic data; it controls nothing and makes no network requests). Deployed and checked on 13 November 2026. It can also be opened locally: `cd site && python -m http.server 8000`, then visit `http://127.0.0.1:8000`.
 
 ## Contents
 
