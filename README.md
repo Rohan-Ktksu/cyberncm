@@ -13,19 +13,20 @@ Authors: **Rohan Sai, Yuvashree C and Sonia C**.
 ## Contents
 
 1. [Purpose and intended users](#purpose-problem-and-intended-users)
-2. [What v1 does and does not do](#what-v1-does-and-does-not-do)
-3. [Method](#method)
-4. [Architecture and workflow](#architecture-and-workflow)
-5. [The website and its simulation](#the-website-and-its-simulation)
-6. [Local setup, launch and troubleshooting](#local-setup)
-7. [Human-approved mode and autonomous lab mode](#local-two-node-demo-human-approved-mode-and-autonomous-lab-mode)
-8. [Research index](#research-index)
-9. [Evaluation metrics and how to read them](#evaluation-metrics-and-how-to-read-them)
-10. [Reproduction, dataset provenance and artifact access](#reproduction-dataset-provenance-and-artifact-access)
-11. [Threat model and security boundaries](#threat-model-and-security-boundaries)
-12. [Citations, code links and licences](#citations-code-links-and-licences)
-13. [Roadmap](#roadmap)
-14. [Team, licence and security reports](#team-licence-and-security-reports)
+2. [What NCM is, and what we took from it](#what-ncm-is-and-what-we-took-from-it)
+3. [What v1 does and does not do](#what-v1-does-and-does-not-do)
+4. [Method](#method)
+5. [Architecture and workflow](#architecture-and-workflow)
+6. [The website and its simulation](#the-website-and-its-simulation)
+7. [Local setup, launch and troubleshooting](#local-setup)
+8. [Human-approved mode and autonomous lab mode](#local-two-node-demo-human-approved-mode-and-autonomous-lab-mode)
+9. [Research index](#research-index)
+10. [Evaluation metrics and how to read them](#evaluation-metrics-and-how-to-read-them)
+11. [Reproduction, dataset provenance and artifact access](#reproduction-dataset-provenance-and-artifact-access)
+12. [Threat model and security boundaries](#threat-model-and-security-boundaries)
+13. [Citations, code links and licences](#citations-code-links-and-licences)
+14. [Roadmap](#roadmap)
+15. [Team, licence and security reports](#team-licence-and-security-reports)
 
 ## Purpose, problem and intended users
 
@@ -34,6 +35,30 @@ Authors: **Rohan Sai, Yuvashree C and Sonia C**.
 **What we did.** We built a detector (called v0, shipped unchanged as v1) and ran a pre-registered series of research rounds against it: does it generalise to attacks it never saw, can it predict the next stage of an attack, is it safe to block automatically, does sharing blocks between sites help, can it be fooled. Each round's method and pass rule were committed before its results, and failures are reported as failures.
 
 **Intended users.** Researchers and small-site operators who want to evaluate behaviour-based alerting in shadow mode, and readers who want a worked example of reporting negative results.
+
+## What NCM is, and what we took from it
+
+**NCM stands for Next-Context Model** (the source architecture report calls it "Next-Context Modeling"). The idea is not new: learn what normally comes next from a source's benign history, and treat what is *surprising* as suspicious. Related published work is listed in [`ncm/README.md`](ncm/README.md) (some of those entries are marked there as from memory and not re-checked). The architecture report that proposed using it inside a "decentralized predictive firewall mesh" is a project source document and is **not included** in this repository.
+
+**CyberNCM is our prototype of that agent, plus a test of every claim around it.** We built the model, trained it only on benign traffic, and then measured which parts of the idea hold up.
+
+| Part of the NCM idea | What we did with it | What the evidence said |
+|---|---|---|
+| Learn normal behaviour from benign traffic only, no attack labels | **Kept.** The detector never sees an attack label | Works on held-out attack families at family-mean AUC 0.89 to 0.99 on four lab datasets, 0.70 on a fifth |
+| Read a source's recent windows as context (a recurrent model over per-source windows) | **Kept.** A 2-layer GRU over 5-second, 32-feature windows | Clearly useful on one dataset (Unraveled); on three others a simpler distance score is within 0.003 AUC, and on the fifth the GRU is 0.14 worse |
+| A vocabulary of "normal behaviour" tokens | **Kept.** 512 behaviour centres and 512 state centres | This is the part that carries most of the signal |
+| Score by next-step surprise | **Kept as two terms, at half weight** | **Not supported as the main signal.** Next-context surprise alone was the weakest score and unstable across seeds |
+| A risk score that combines surprise with a supervised stage head (the report's R = αS + (1−α)H) | **Built and measured** in the original prototype; the local demo's alert risk comes from it | The head needs labelled attack families. In the demo it had seen the replayed families, so the demo is an illustration of the control flow, not zero-day evidence; the held-out-family tables are. The research detector v1 (= v0) uses the unsupervised score only |
+| Kill-chain stage labels in the alert | **Kept, with a change:** we added an `IMPACT` stage because denial of service fits none of the report's five | No example of `EXFILTRATION` exists in the CIC-IDS2017 data used, so the head can never output it |
+| Signed, schema-valid directives with short expiry | **Kept and built** in the two-node demo (Ed25519 signatures, JSON schema, hard block caps) | Demonstrates the control flow only; see the demo limits |
+| Safeguards: shadow mode first, short expiry, protected addresses, two-peer corroboration | **Kept:** shadow mode, short expiry and protected addresses; human approval is the default and an explicit lab mode allows one 10-second block. **Two-peer corroboration is not built** (the demo has one detector) | Needed: thresholds drifted and false alerts are common |
+| **Predicting the next attack stage** | Tested (R2, R13) | **Not supported.** The attacker was flagged in the hour before only 1, 1 and 2 of 6 testable stage onsets |
+| **Sharing blocks between sites, consensus, federated learning** | Simulated (R12); R12b to test the block rule is incomplete | **Not supported.** Sharing sped the first block but spread false alerts, and a lying site was not stopped |
+| **Automatic blocking** | Tested (R4) | **Not supported.** No policy met the pre-set false-alert target |
+| The report's sub-250 ms reaction time | Not attempted | Needs packet-level features; we used flow records and 5-second windows |
+| The report's own figures | **Not reproduced and not used.** Every number here comes from our runs in `research/` | See `research/CLAIMS.md`, row N8 |
+
+**In one sentence:** we kept the benign-only, context-aware, vocabulary-based detector and the safety-first message design, and we dropped, or are not claiming, the parts of the NCM idea (next-stage prediction, sharing and automatic blocking) that our own tests did not support.
 
 ## What v1 does and does not do
 

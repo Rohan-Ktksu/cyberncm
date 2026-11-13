@@ -81,6 +81,13 @@ footer{padding:28px 0 60px;color:var(--mut);font-size:14px}
 
 <section id="approach">
   <h2>Approach and architecture</h2>
+  <h3>Where "NCM" comes from</h3>
+  <p><b>NCM stands for Next-Context Model.</b> The idea is not new: learn what normally comes next from a source's benign history and treat what is surprising as suspicious. CyberNCM is our prototype of that agent, plus a test of every claim around it. The architecture report that proposed it is not included here, and none of its figures were reproduced or used: every number on this page comes from our own runs.</p>
+  <div class="grid" style="margin-bottom:8px">
+    <div class="card"><span class="pill ok">kept</span><br>Learning from benign traffic only; a recurrent model over each source's recent windows; a vocabulary of 512 normal-behaviour tokens; signed, schema-valid messages with short expiry; shadow mode and human approval first.</div>
+    <div class="card"><span class="pill warn">changed</span><br>Next-step surprise is kept only as two half-weight terms, because on its own it was the weakest and least stable signal. An <code>IMPACT</code> stage was added for denial of service. Two-peer corroboration is not built.</div>
+    <div class="card"><span class="pill bad">not supported</span><br>Predicting the next attack stage, sharing blocks between sites, and automatic blocking. Each failed its pre-set test or was never measured, so v1 does not claim them.</div>
+  </div>
   <p>Flow records are cut into 5-second windows per source address. Each window is 32 numbers (counts, timing, TCP flag ratios, packet and byte statistics, fan-out); no payload and no text. A 2-layer GRU summarises each source's recent windows. The score combines the distance to the nearest of 512 learned "normal behaviour" centres, the distance of the GRU state to the nearest of 512 normal states, and two next-window surprise terms. It is standardised on the site's own normal period and smoothed per source.</p>
   <img class="diagram" src="assets/architecture.svg" alt="Architecture: flow records, 5-second windows, scoring model, calibration, then alerts and a would-block list in shadow mode. Automatic blocking, prediction and sharing are outside v1.">
   <h3>The local two-node demonstration</h3>

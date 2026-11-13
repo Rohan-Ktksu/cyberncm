@@ -30,15 +30,15 @@ So the novelty claim cannot rest on the model. See "What this means for the proj
 ## The model
 
 ```
-flows â”€â–¶ 5 s window per source â”€â–¶ 32 features â”€â–¶ normalize â”€â–¶ embed â”€â–¶ GRU (2 layers, 64) â”€â–¶ state s_t
-                                                    â”‚                         â”‚
-                         dx: distance to nearest of 512 benign tokens         â”œâ”€ ds: distance to nearest of 512 benign states
-                                                                              â”œâ”€ g, k: how badly s_(t-1) predicted this window
-                                                                              â””â”€ stage head on [s_t, window] → 6 kill-chain classes
+flows ─▶ 5 s window per source ─▶ 32 features ─▶ normalize ─▶ embed ─▶ GRU (2 layers, 64) ─▶ state s_t
+                                                    │                         │
+                         dx: distance to nearest of 512 benign tokens         ├─ ds: distance to nearest of 512 benign states
+                                                                              ├─ g, k: how badly s_(t-1) predicted this window
+                                                                              └─ stage head on [s_t, window] → 6 kill-chain classes
 
 surprise S = z(dx) + z(ds) + (z(g) + z(k)) / 2        each z-scored on benign calibration data
-hazard   H = 1 âˆ’ P(benign)                             from the stage head
-risk     R = 0.5 · clip(S) + 0.5 · H                   S and H smoothed per source (EWMA, Î± = 0.1)
+hazard   H = 1 − P(benign)                             from the stage head
+risk     R = 0.5 · clip(S) + 0.5 · H                   S and H smoothed per source (EWMA, α = 0.1)
 R > 99th benign percentile → rate-limit;  R > 99.9th → quarantine, TTL 30 s
 ```
 
@@ -90,7 +90,7 @@ In the historical INT8 runs, the external attacker was quarantined in its first 
 
 ## What this means for the project
 
-1. **Keep NCM, but describe it accurately.** What is supported: an unsupervised behaviour-vocabulary detector plus a stage classifier, combined as the report's R = Î±S + (1âˆ’Î±)H, catches unseen attack families at about 0.98–0.99 AUC on this data, with a compact FP32 deployment candidate; INT8 is experimental.
+1. **Keep NCM, but describe it accurately.** What is supported: an unsupervised behaviour-vocabulary detector plus a stage classifier, combined as the report's R = αS + (1−α)H, catches unseen attack families at about 0.98–0.99 AUC on this data, with a compact FP32 deployment candidate; INT8 is experimental.
 2. **The prediction claim is untested, not disproven.** CIC-IDS2017 attacks are loud and each source does one thing; there are no reconnaissance → access → lateral chains from one source. Stopping an attack before its next stage can only be shown on a multi-stage dataset.
 3. **Do not enforce on one node's opinion.** The false-quarantine rate is the strongest argument for the report's safeguards: shadow mode first, two-peer corroboration, 30 s expiry, protected prefixes.
 4. **Evaluate recalibration offline with reviewed clean data.** A threshold fixed on one day drifted 5–9× within the week.
