@@ -4,11 +4,11 @@
 
 ## What would be published
 
-Only the contents of the `site/` folder: `index.html` and `assets/*.svg`. It is a static page with no backend, no database, no cookies, no analytics and no external requests (verified by loading it and listing every request). It does not use Colab, private cloud-drive files, private GitHub access or any paid model API.
+Only the contents of the `site/` folder: `index.html`, `assets/` (diagrams and screenshots) and `demo/` (the dashboard page plus its recording, `recorded_fallback.json`). It is a static page with no backend, no database, no cookies, no analytics and no external requests (verified by loading it and listing every request). It does not use Colab, private cloud-drive files, private GitHub access or any paid model API.
 
 ## What visitors can and cannot reach
 
-- They can read the project overview, findings and research index, and use the **in-browser simulation**, which runs entirely in their own browser on synthetic numbers and is labelled as a simulation.
+- They can read the project overview, findings and research index, use the **in-browser simulation** (synthetic numbers, in their own browser, labelled as a simulation), and watch a **recorded playback** of a real sandbox run in the real dashboard (a static capture of synthetic data, controls disabled, labelled as a recording).
 - They cannot reach the two-node demo's Node A or Node B services, operator endpoints, signing keys, arbitrary targets, live traffic or enforcement controls. Those run only on a user's own machine on `127.0.0.1` and are not part of the published folder. No tunnel is used.
 
 ## Configuration
@@ -36,7 +36,7 @@ Check the live documentation again before publishing; these figures were read fr
 
 ## Why the real demo and the sandbox are not hosted
 
-The two-node demo (and its synthetic-data sandbox) has operator controls (start, approve, unblock, reset) and holds a single shared state, so a public copy would let every visitor act on the same session; making it per-visitor would mean running a process pair per visitor on a free host. The public site therefore offers only the static in-browser simulation, and the sandbox is run locally (`demo/two_node/sandbox/README.md`). If a hosted per-visitor sandbox is wanted later it should get its own review: session isolation, rate limits, timeouts and abuse handling.
+The two-node demo (and its synthetic-data sandbox) has operator controls (start, approve, unblock, reset) and holds a single shared state, so a public copy would let every visitor act on the same session; making it per-visitor would mean running a process pair per visitor on a free host. The public site therefore offers only static things (the in-browser simulation and a recorded playback of a sandbox run), and the sandbox itself is run locally (`demo/two_node/sandbox/README.md`). If a hosted per-visitor sandbox is wanted later it should get its own review: session isolation, rate limits, timeouts and abuse handling.
 
 ## Alternatives considered
 

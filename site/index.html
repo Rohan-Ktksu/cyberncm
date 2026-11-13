@@ -155,7 +155,9 @@ footer{padding:28px 0 60px;color:var(--mut);font-size:14px}
   </div>
   <p style="font-size:14px;color:var(--mut)">The real local demonstration (Node A and Node B, one local HTTP listener) is in <code>demo/two_node/</code>. You can run it with no dataset using the sandbox (<code>python run_sandbox.py</code>: real code, synthetic data, toy model); see the README. It is not hosted here because it has operator controls and one shared state.</p>
   <h3>The real demo, running in the sandbox</h3>
-  <p>These are screenshots of the real Node A and Node B dashboard, running the project's own code on <b>synthetic data</b> (the sandbox: generated traffic, a toy model, documentation addresses only). They are not recorded dataset traffic, and the scores say nothing about detection quality. In this view the &ldquo;dataset truth&rdquo; column holds synthetic labels. To run it yourself: <code>cd demo/two_node &amp;&amp; python run_sandbox.py --reset-state --autostart</code>, then open <code>http://127.0.0.1:18100</code>.</p>
+  <p>Below, the real Node A and Node B dashboard replays a <b>recording</b> of a real sandbox run: synthetic traffic, a toy model and documentation addresses only. It is a saved capture, <b>not live</b>: the controls are disabled and it loops. Press <i>Generate report</i> inside it to read the report saved with the frame being shown. The scores say nothing about detection quality, and the &ldquo;dataset truth&rdquo; column holds synthetic labels. <a href="demo/index.html">Open it full screen</a>. To run it yourself: <code>cd demo/two_node &amp;&amp; python run_sandbox.py --reset-state --autostart</code>, then open <code>http://127.0.0.1:18100</code>.</p>
+  <iframe src="demo/index.html" title="Recorded playback of a sandbox run of the real Node A and Node B dashboard" loading="lazy" style="width:100%;height:1100px;border:1px solid var(--line);border-radius:10px;background:#fff"></iframe>
+  <details style="margin-top:12px"><summary>Still images of the same kind of run (alert pending, block confirmed, report)</summary>
   <figure>
     <img class="shot" loading="lazy" src="assets/demo-1-pending.png" alt="Dashboard: Policy Gate shows Approval required with a pending approval for a synthetic subject mapped to the lab client, and the enforcement panel still shows Allowing traffic.">
     <figcaption><b>1. Alert pending.</b> Node A scored a window, signed an alert, and Node B's checks passed. In the default mode nothing is blocked until a person approves. The enforcement panel still says &ldquo;Allowing traffic&rdquo; and both probes get HTTP 200.</figcaption>
@@ -168,6 +170,7 @@ footer{padding:28px 0 60px;color:var(--mut);font-size:14px}
     <img class="shot" loading="lazy" src="assets/demo-3-report.png" alt="Dashboard report panel: a plain-language summary with overview, most alerted sources, policy decisions, approvals and blocks, enforcement evidence and how to read the report.">
     <figcaption><b>3. Report and summary.</b> A plain-language summary written by fixed templates from structured fields. It uses no language model, reads no message text, and cannot affect any decision.</figcaption>
   </figure>
+  </details>
 </section>
 
 <section id="limits">

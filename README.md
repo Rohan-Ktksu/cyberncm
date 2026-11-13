@@ -93,7 +93,7 @@ The model card is [`MODEL_CARD.md`](MODEL_CARD.md); the list of what may and may
 
 ## The website and its simulation
 
-The website in [`site/`](site/) is a single static page: overview, approach, findings, the full research index, an in-browser simulation, and limitations. It makes no network requests and sets no cookies.
+The website in [`site/`](site/) is a single static page: overview, approach, findings, the full research index, an in-browser simulation, and limitations. It sets no cookies and makes no outside requests; the only extra file it loads is a static JSON recording of a sandbox run for the playback.
 
 ![Simulation panel](docs/screenshots/site-simulation.png)
 
@@ -101,11 +101,12 @@ The website in [`site/`](site/) is a single static page: overview, approach, fin
 
 *Captured from the running site: desktop overview, the simulation with its report, and phone width.*
 
-The simulation is **synthetic and clearly labelled**: it runs only in the visitor's browser on generated numbers, uses no dataset and no research model, and cannot affect any machine. It is an illustration of the control flow, not recorded playback and not enforcement. The public site never exposes the demo's Node A or Node B services, operator endpoints, signing tools, arbitrary targets, live traffic or enforcement controls, and no tunnel is used. Recorded playback of dataset traffic is **not** published, because redistribution of that data has not been cleared.
+The simulation is **synthetic and clearly labelled**: it runs only in the visitor's browser on generated numbers, uses no dataset and no research model, and cannot affect any machine. It is an illustration of the control flow, not recorded playback and not enforcement. The public site never exposes the demo's Node A or Node B services, operator endpoints, signing tools, arbitrary targets, live traffic or enforcement controls, and no tunnel is used. The site also embeds a **recorded playback of a real sandbox run** (synthetic data), shown in the real dashboard and clearly labelled as a recording. Recorded playback of *dataset* traffic is **not** published, because redistribution of that data has not been cleared.
 
 | Mode | Where | What it is |
 |---|---|---|
 | In-browser simulation | Public website | Synthetic numbers, in the visitor's browser only |
+| Recorded playback of a sandbox run | Public website (`site/demo/`) | A saved capture of the real dashboard running the real code on synthetic data; static, controls disabled, labelled as a recording |
 | Recorded replay | Local demo only | Frozen FP32 model replaying recorded CIC-IDS2017 traffic on your own machine; needs artifacts you build |
 | Sandbox (real code, synthetic data) | Local only: `python run_sandbox.py` | The real Node A, Node B, gate and enforcer on generated traffic and a toy model; labelled SANDBOX; says nothing about detection quality |
 | Actual local enforcement | Local demo only | A userspace gate on one local HTTP listener, one loopback client, 127.0.0.1 only |

@@ -438,7 +438,8 @@ function render(s) {
   }
   if (s.sandbox) {
     $("scope-data").textContent = "SANDBOX: Node A scores synthetic windows through a toy model trained on synthetic data (no real traffic, no real dataset, no online learning).";
-    setPill($("mode-pill"), "crit", "SANDBOX: synthetic data");
+    setPill($("mode-pill"), "crit", fallbackMode ? "RECORDED PLAYBACK of a SANDBOX run (synthetic data)" : "SANDBOX: synthetic data");
+    if (fallbackMode) $("fallback-banner").textContent = "RECORDED PLAYBACK: a saved capture of a real sandbox run (synthetic traffic, toy model). Nothing here is live and the controls are disabled.";
   }
   $("a-model").textContent = a.model ? a.model.format : "—";
   $("a-onnx-hash").textContent = a.model ? shortHash(a.model.onnx_sha256) : "—";
@@ -577,9 +578,16 @@ async function pollLoop() {
 async function loadReport() {
   const box = $("report-box"), secs = $("report-secs");
   try {
-    const r = await fetch("/api/report", { cache: "no-store" });
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    const rep = await r.json();
+    let rep;
+    if (fallbackMode) {
+      const frame = fallbackTrace && fallbackTrace[(fallbackIdx - 1 + fallbackTrace.length) % fallbackTrace.length];
+      if (!frame || !frame.report) throw new Error("no saved report in this frame");
+      rep = frame.report;
+    } else {
+      const r = await fetch("/api/report", { cache: "no-store" });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      rep = await r.json();
+    }
     $("report-head").textContent = rep.headline;
     secs.replaceChildren();
     for (const sec of rep.sections) {
@@ -603,9 +611,10 @@ if (location.protocol === "file:") {
 
 if (fallbackMode) {
   $("fallback-banner").hidden = false;
+  $("lnk-report").hidden = true;
   setPill($("mode-pill"), "crit", "RECORDED FALLBACK TRACE");
   setPill($("conn-pill"), "warn", "Playback (static)");
-  for (const id of ["btn-start", "btn-pause", "btn-reset", "sel-speed", "btn-approve", "btn-unblock", "btn-probe", "btn-report"]) {
+  for (const id of ["btn-start", "btn-pause", "btn-reset", "sel-speed", "btn-approve", "btn-unblock", "btn-probe"]) {
     $(id).disabled = true;
   }
   fetch("recorded_fallback.json", { cache: "no-store" })
