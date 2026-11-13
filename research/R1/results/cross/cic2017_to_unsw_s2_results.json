@@ -1,0 +1,231 @@
+{
+ "unsupervised": {
+  "dev AUC": {
+   "baseline: isolation forest, smoothed": 0.05657944784372878,
+   "token distance only, smoothed": 0.05915325069886393,
+   "next-context surprise only, smoothed": 0.9420052099118948,
+   "NCM (all three signals), smoothed": 0.08777738183199615
+  },
+  "dev family-mean AUC": {
+   "baseline: isolation forest, smoothed": 0.052470835224105436,
+   "token distance only, smoothed": 0.054778682330647005,
+   "next-context surprise only, smoothed": 0.9489266559703756,
+   "NCM (all three signals), smoothed": 0.08073747422393397
+  },
+  "dev worst family": {
+   "baseline: isolation forest, smoothed": 0.041789872481981155,
+   "token distance only, smoothed": 0.04727583141924299,
+   "next-context surprise only, smoothed": 0.8935891508029126,
+   "NCM (all three signals), smoothed": 0.0662469968582517
+  },
+  "dev detect@1% source": {
+   "baseline: isolation forest, smoothed": 0.2173729884573258,
+   "token distance only, smoothed": 0.994186536355211,
+   "next-context surprise only, smoothed": 0.6690538377285365,
+   "NCM (all three signals), smoothed": 0.9762406268430365
+  },
+  "dev false@1% source": {
+   "baseline: isolation forest, smoothed": 0.9422010718905932,
+   "token distance only, smoothed": 0.9648863426353724,
+   "next-context surprise only, smoothed": 0.0319026058029939,
+   "NCM (all three signals), smoothed": 0.9634078728515986
+  },
+  "dev detect@1% target-cal": {
+   "baseline: isolation forest, smoothed": 0.004381161007667032,
+   "token distance only, smoothed": 0.004212654815064454,
+   "next-context surprise only, smoothed": 0.5645799983149381,
+   "NCM (all three signals), smoothed": 0.006655994607801837
+  },
+  "dev false@1% target-cal": {
+   "baseline: isolation forest, smoothed": 0.011227129920532248,
+   "token distance only, smoothed": 0.009332840510072075,
+   "next-context surprise only, smoothed": 0.027444095361301053,
+   "NCM (all three signals), smoothed": 0.003765477730548882
+  },
+  "final AUC": {
+   "baseline: isolation forest, smoothed": 0.0707855089359342,
+   "token distance only, smoothed": 0.06865943994474909,
+   "next-context surprise only, smoothed": 0.9469459969538001,
+   "NCM (all three signals), smoothed": 0.10085497453614506
+  },
+  "final family-mean AUC": {
+   "baseline: isolation forest, smoothed": 0.06423691989249335,
+   "token distance only, smoothed": 0.06420360611109904,
+   "next-context surprise only, smoothed": 0.948038298976934,
+   "NCM (all three signals), smoothed": 0.09148011791041415
+  },
+  "final worst family": {
+   "baseline: isolation forest, smoothed": 0.04280293868666103,
+   "token distance only, smoothed": 0.05042553513121297,
+   "next-context surprise only, smoothed": 0.9026877758467656,
+   "NCM (all three signals), smoothed": 0.06189164067531576
+  },
+  "final detect@1% source": {
+   "baseline: isolation forest, smoothed": 0.27477358190773793,
+   "token distance only, smoothed": 0.9933795879455537,
+   "next-context surprise only, smoothed": 0.6672316084953127,
+   "NCM (all three signals), smoothed": 0.9742068746358773
+  },
+  "final false@1% source": {
+   "baseline: isolation forest, smoothed": 0.93858084411658,
+   "token distance only, smoothed": 0.9603488934574919,
+   "next-context surprise only, smoothed": 0.02223666706977869,
+   "NCM (all three signals), smoothed": 0.9599860926351433
+  },
+  "final detect@1% target-cal": {
+   "baseline: isolation forest, smoothed": 0.009904136433451617,
+   "token distance only, smoothed": 0.007361898204544251,
+   "next-context surprise only, smoothed": 0.5664424553784227,
+   "NCM (all three signals), smoothed": 0.0055611461257348655
+  },
+  "final false@1% target-cal": {
+   "baseline: isolation forest, smoothed": 0.018140041117426533,
+   "token distance only, smoothed": 0.010642157455556899,
+   "next-context surprise only, smoothed": 0.018351674930463177,
+   "NCM (all three signals), smoothed": 0.012592211875680251
+  }
+ },
+ "per_family_final": {
+  "windows": {
+   "Analysis": 172,
+   "Backdoor": 166,
+   "DoS": 1455,
+   "Exploits": 8375,
+   "Fuzzers": 2963,
+   "Generic": 3204,
+   "Reconnaissance": 2312,
+   "Shellcode": 214,
+   "Worms": 20
+  },
+  "baseline: isolation forest, smoothed": {
+   "Analysis": 0.04605988463496331,
+   "Backdoor": 0.06886294725400574,
+   "DoS": 0.06351486049622675,
+   "Exploits": 0.06241099196242756,
+   "Fuzzers": 0.09865420751203,
+   "Generic": 0.08184306913039072,
+   "Reconnaissance": 0.058272332127205416,
+   "Shellcode": 0.05571104722852949,
+   "Worms": 0.04280293868666103
+  },
+  "token distance only, smoothed": {
+   "Analysis": 0.05605606678910023,
+   "Backdoor": 0.06576484314328301,
+   "DoS": 0.06340246704559196,
+   "Exploits": 0.06684658759654383,
+   "Fuzzers": 0.0769314011356331,
+   "Generic": 0.07386583412710167,
+   "Reconnaissance": 0.06264806128572092,
+   "Shellcode": 0.06189165874570375,
+   "Worms": 0.05042553513121297
+  },
+  "next-context surprise only, smoothed": {
+   "Analysis": 0.9421015413410131,
+   "Backdoor": 0.9705320860173068,
+   "DoS": 0.9630116353922384,
+   "Exploits": 0.9630921441889597,
+   "Fuzzers": 0.9238123834054928,
+   "Generic": 0.9026877758467656,
+   "Reconnaissance": 0.9654433197467843,
+   "Shellcode": 0.9765617671225599,
+   "Worms": 0.9251020377312855
+  },
+  "NCM (all three signals), smoothed": {
+   "Analysis": 0.06189164067531576,
+   "Backdoor": 0.09173351405379651,
+   "DoS": 0.0935697813927645,
+   "Exploits": 0.10012868238322235,
+   "Fuzzers": 0.11105106038937845,
+   "Generic": 0.10421493253761738,
+   "Reconnaissance": 0.09468146208103723,
+   "Shellcode": 0.09522899965302226,
+   "Worms": 0.07082098802757286
+  }
+ },
+ "supervised": {
+  "dev AUC": {
+   "RF single-window, smoothed": 0.10101068253276049,
+   "head without state": 0.09402357683775722,
+   "NCM hazard H": 0.29528380875814597,
+   "NCM risk R": 0.2785967539373141
+  },
+  "dev family-mean AUC": {
+   "RF single-window, smoothed": 0.10453326275171385,
+   "head without state": 0.0968850324265746,
+   "NCM hazard H": 0.28021182018566054,
+   "NCM risk R": 0.2571584175049856
+  },
+  "dev worst family": {
+   "RF single-window, smoothed": 0.0745170916898616,
+   "head without state": 0.08214560429954997,
+   "NCM hazard H": 0.17272175577641188,
+   "NCM risk R": 0.14848184611081977
+  },
+  "final AUC": {
+   "RF single-window, smoothed": 0.11800916632357523,
+   "head without state": 0.10545322660388973,
+   "NCM hazard H": 0.3454530569663391,
+   "NCM risk R": 0.32232422432101093
+  },
+  "final family-mean AUC": {
+   "RF single-window, smoothed": 0.11122800772509052,
+   "head without state": 0.1025723266720942,
+   "NCM hazard H": 0.33284690212063756,
+   "NCM risk R": 0.2835386707609938
+  },
+  "final worst family": {
+   "RF single-window, smoothed": 0.09164921800954533,
+   "head without state": 0.08647836599754928,
+   "NCM hazard H": 0.173902800705786,
+   "NCM risk R": 0.12460772161083564
+  },
+  "dev detect@1% source": {
+   "RF single-window, smoothed": NaN,
+   "head without state": NaN,
+   "NCM hazard H": NaN,
+   "NCM risk R": 0.9684050888870166
+  },
+  "dev false@1% source": {
+   "RF single-window, smoothed": NaN,
+   "head without state": NaN,
+   "NCM hazard H": NaN,
+   "NCM risk R": 0.9592265754943633
+  },
+  "dev detect@1% target-cal": {
+   "RF single-window, smoothed": NaN,
+   "head without state": NaN,
+   "NCM hazard H": NaN,
+   "NCM risk R": 0.13632150981548571
+  },
+  "dev false@1% target-cal": {
+   "RF single-window, smoothed": NaN,
+   "head without state": NaN,
+   "NCM hazard H": NaN,
+   "NCM risk R": 0.023239696913694326
+  },
+  "final detect@1% source": {
+   "RF single-window, smoothed": NaN,
+   "head without state": NaN,
+   "NCM hazard H": NaN,
+   "NCM risk R": 0.9633493988665854
+  },
+  "final false@1% source": {
+   "RF single-window, smoothed": NaN,
+   "head without state": NaN,
+   "NCM hazard H": NaN,
+   "NCM risk R": 0.9566453017293506
+  },
+  "final detect@1% target-cal": {
+   "RF single-window, smoothed": NaN,
+   "head without state": NaN,
+   "NCM hazard H": NaN,
+   "NCM risk R": 0.16524548487897886
+  },
+  "final false@1% target-cal": {
+   "RF single-window, smoothed": NaN,
+   "head without state": NaN,
+   "NCM hazard H": NaN,
+   "NCM risk R": 0.016477204014995767
+  }
+ }
+}

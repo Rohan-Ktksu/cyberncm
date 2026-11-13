@@ -1,0 +1,239 @@
+{
+  "status": "COMPLETE",
+  "seed": 0,
+  "input_sha256": {
+    "windows": "ff6d3b230b6e5e30cff459dd695d127cd9a6477e78d2dcde20890fc274ef669d",
+    "checkpoint": "183f8b84c3b98cdc925a765758b2a442680560a731280b478b21a5055ba57773",
+    "original": "b6b8600a0633d910eb148c77f00521a33c2fd828b91eef41e8c4b433a9475e20"
+  },
+  "environment": {
+    "python": "3.13.18",
+    "torch": "2.15.0+cpu",
+    "numpy": "2.5.4"
+  },
+  "models": {
+    "v0 NCM, smoothed": {
+      "dev": {
+        "family_mean_auc": 0.8532200864413995,
+        "worst_family_auc": 0.8532200864413995,
+        "n_families": 1,
+        "n_attacking_sources": 2,
+        "n_benign_sources": 16,
+        "fa_threshold": 10.716288911764948,
+        "false_per_host_day_at_80pct_5min": 2.64,
+        "detect_within_5min_check": 1.0,
+        "metrics_py_false_per_host_day": 2.64,
+        "detect_1pct_cal": 1.0,
+        "false_window_rate_1pct_cal": 0.0627852859572183,
+        "benign_source_hour_rate_1pct_cal": 0.5284974093264249,
+        "per_family_auc": {
+          "APT:collection": 0.8532200864413995
+        },
+        "bootstrap": {
+          "family_mean_auc_ci95": [
+            0.5744644992226845,
+            0.9891741878947349
+          ],
+          "false_per_host_day_ci95": [
+            0.921875,
+            3.5620000000000007
+          ],
+          "B": 200
+        }
+      },
+      "final": {
+        "family_mean_auc": 0.6368140212992026,
+        "worst_family_auc": 0.5967004890867946,
+        "n_families": 2,
+        "n_attacking_sources": 2,
+        "n_benign_sources": 17,
+        "fa_threshold": 7.785266506032251,
+        "false_per_host_day_at_80pct_5min": 5.428571428571429,
+        "detect_within_5min_check": 1.0,
+        "metrics_py_false_per_host_day": 5.428571428571429,
+        "detect_1pct_cal": 1.0,
+        "false_window_rate_1pct_cal": 0.5368998628257887,
+        "benign_source_hour_rate_1pct_cal": 0.47953216374269003,
+        "per_family_auc": {
+          "APT:credential access": 0.6769275535116107,
+          "APT:discovery": 0.5967004890867946
+        },
+        "bootstrap": {
+          "family_mean_auc_ci95": [
+            0.28437190547912855,
+            0.962043483034805
+          ],
+          "false_per_host_day_ci95": [
+            2.0781770833333333,
+            7.933387445887445
+          ],
+          "B": 200
+        }
+      }
+    },
+    "token distance, smoothed": {
+      "dev": {
+        "family_mean_auc": 0.9265324768563615,
+        "worst_family_auc": 0.9265324768563615,
+        "n_families": 1,
+        "n_attacking_sources": 2,
+        "n_benign_sources": 16,
+        "fa_threshold": 4.298126114656072,
+        "false_per_host_day_at_80pct_5min": 3.4,
+        "detect_within_5min_check": 1.0,
+        "metrics_py_false_per_host_day": 3.4,
+        "detect_1pct_cal": 1.0,
+        "false_window_rate_1pct_cal": 0.01942182046003759,
+        "benign_source_hour_rate_1pct_cal": 0.5077720207253886,
+        "per_family_auc": {
+          "APT:collection": 0.9265324768563615
+        },
+        "bootstrap": {
+          "family_mean_auc_ci95": [
+            0.6853486780314696,
+            0.9900405243893565
+          ],
+          "false_per_host_day_ci95": [
+            1.0163793103448275,
+            5.077333333333334
+          ],
+          "B": 200
+        }
+      },
+      "final": {
+        "family_mean_auc": 0.8184167944132175,
+        "worst_family_auc": 0.8002767841934935,
+        "n_families": 2,
+        "n_attacking_sources": 2,
+        "n_benign_sources": 17,
+        "fa_threshold": 3.3645634990070645,
+        "false_per_host_day_at_80pct_5min": 5.75,
+        "detect_within_5min_check": 1.0,
+        "metrics_py_false_per_host_day": 5.75,
+        "detect_1pct_cal": 1.0,
+        "false_window_rate_1pct_cal": 0.2574884648958723,
+        "benign_source_hour_rate_1pct_cal": 0.5380116959064327,
+        "per_family_auc": {
+          "APT:credential access": 0.8365568046329416,
+          "APT:discovery": 0.8002767841934935
+        },
+        "bootstrap": {
+          "family_mean_auc_ci95": [
+            0.3138335451209824,
+            0.9468130180359409
+          ],
+          "false_per_host_day_ci95": [
+            3.25141065830721,
+            8.444230769230769
+          ],
+          "B": 200
+        }
+      }
+    },
+    "isolation forest, smoothed": {
+      "dev": {
+        "family_mean_auc": 0.8993355448766513,
+        "worst_family_auc": 0.8993355448766513,
+        "n_families": 1,
+        "n_attacking_sources": 2,
+        "n_benign_sources": 16,
+        "fa_threshold": 0.6165454150032611,
+        "false_per_host_day_at_80pct_5min": 3.0,
+        "detect_within_5min_check": 1.0,
+        "metrics_py_false_per_host_day": 3.0,
+        "detect_1pct_cal": 0.033707865168539325,
+        "false_window_rate_1pct_cal": 0.00514633491452609,
+        "benign_source_hour_rate_1pct_cal": 0.15025906735751296,
+        "per_family_auc": {
+          "APT:collection": 0.8993355448766513
+        },
+        "bootstrap": {
+          "family_mean_auc_ci95": [
+            0.494316636878451,
+            0.9771142566548979
+          ],
+          "false_per_host_day_ci95": [
+            1.623489010989011,
+            4.6433333333333335
+          ],
+          "B": 200
+        }
+      },
+      "final": {
+        "family_mean_auc": 0.8063424134770584,
+        "worst_family_auc": 0.7974049200671582,
+        "n_families": 2,
+        "n_attacking_sources": 2,
+        "n_benign_sources": 17,
+        "fa_threshold": 0.5939654845123022,
+        "false_per_host_day_at_80pct_5min": 22.464285714285715,
+        "detect_within_5min_check": 1.0,
+        "metrics_py_false_per_host_day": 22.464285714285715,
+        "detect_1pct_cal": 0.0,
+        "false_window_rate_1pct_cal": 0.003541588726773912,
+        "benign_source_hour_rate_1pct_cal": 0.08771929824561403,
+        "per_family_auc": {
+          "APT:credential access": 0.8152799068869585,
+          "APT:discovery": 0.7974049200671582
+        },
+        "bootstrap": {
+          "family_mean_auc_ci95": [
+            0.3888124412689844,
+            0.9205953504489928
+          ],
+          "false_per_host_day_ci95": [
+            3.2,
+            40.470206896551716
+          ],
+          "B": 200
+        }
+      }
+    }
+  },
+  "point_checks": [
+    {
+      "model": "v0 NCM, smoothed",
+      "split": "dev",
+      "original_family_mean_auc": 0.8532200864413995,
+      "recomputed_family_mean_auc": 0.8532200864413995,
+      "matches_3_decimals": true
+    },
+    {
+      "model": "v0 NCM, smoothed",
+      "split": "final",
+      "original_family_mean_auc": 0.6368140212992026,
+      "recomputed_family_mean_auc": 0.6368140212992026,
+      "matches_3_decimals": true
+    },
+    {
+      "model": "token distance, smoothed",
+      "split": "dev",
+      "original_family_mean_auc": 0.9265324768563615,
+      "recomputed_family_mean_auc": 0.9265324768563615,
+      "matches_3_decimals": true
+    },
+    {
+      "model": "token distance, smoothed",
+      "split": "final",
+      "original_family_mean_auc": 0.8184167944132175,
+      "recomputed_family_mean_auc": 0.8184167944132175,
+      "matches_3_decimals": true
+    },
+    {
+      "model": "isolation forest, smoothed",
+      "split": "dev",
+      "original_family_mean_auc": 0.8993355448766513,
+      "recomputed_family_mean_auc": 0.8993355448766513,
+      "matches_3_decimals": true
+    },
+    {
+      "model": "isolation forest, smoothed",
+      "split": "final",
+      "original_family_mean_auc": 0.8063424134770584,
+      "recomputed_family_mean_auc": 0.8063424134770584,
+      "matches_3_decimals": true
+    }
+  ],
+  "note": "Author rerun. Same 200 source resamples and RNG order as scoreboard; weighted AUC credits ties. Historical point estimates remain unchanged.",
+  "inputs_unchanged": true
+}

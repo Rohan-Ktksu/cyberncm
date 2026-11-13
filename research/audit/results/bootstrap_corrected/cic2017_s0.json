@@ -1,0 +1,275 @@
+{
+  "status": "COMPLETE",
+  "seed": 0,
+  "input_sha256": {
+    "windows": "0f8a383e5b19c05123d23f89f7dbc526a00f15e54afbe9bc5292685f8bc2bea5",
+    "checkpoint": "481b4c7355cec3de34c89f01abaaf39ca0096d04aca8c407b146b8f125e1c14a",
+    "original": "548123efdac317fe35726f5bc29cc80eaf3d96f828226aa82ab43b0b7dcb4097"
+  },
+  "environment": {
+    "python": "3.13.18",
+    "torch": "2.15.0+cpu",
+    "numpy": "2.5.4"
+  },
+  "models": {
+    "v0 NCM, smoothed": {
+      "dev": {
+        "family_mean_auc": 0.9798958242670703,
+        "worst_family_auc": 0.9394848210139961,
+        "n_families": 7,
+        "n_attacking_sources": 1,
+        "n_benign_sources": 19,
+        "fa_threshold": 8.191191113277332,
+        "false_per_host_day_at_80pct_5min": 0.696969696969697,
+        "detect_within_5min_check": 1.0,
+        "metrics_py_false_per_host_day": 0.696969696969697,
+        "detect_1pct_cal": 0.8526473526473527,
+        "false_window_rate_1pct_cal": 0.05152253104433755,
+        "benign_source_hour_rate_1pct_cal": 0.24632352941176472,
+        "per_family_auc": {
+          "DoS GoldenEye": 0.9394848210139961,
+          "DoS Hulk": 0.9972692152917506,
+          "DoS Slowhttptest": 0.9983218542021358,
+          "DoS Slowloris": 0.9663478688726244,
+          "FTP-Patator": 0.9995606136820925,
+          "Heartbleed": 0.998355588073898,
+          "SSH-Patator": 0.959930808732995
+        },
+        "bootstrap": {
+          "family_mean_auc_ci95": [
+            0.9475577332652398,
+            0.9940124608282231
+          ],
+          "false_per_host_day_ci95": [
+            0.23529411764705882,
+            1.7166666666666668
+          ],
+          "B": 200
+        }
+      },
+      "final": {
+        "family_mean_auc": 0.9419058401220572,
+        "worst_family_auc": 0.8215801806310713,
+        "n_families": 8,
+        "n_attacking_sources": 7,
+        "n_benign_sources": 11,
+        "fa_threshold": 2.3342898198028905,
+        "false_per_host_day_at_80pct_5min": 11.263157894736842,
+        "detect_within_5min_check": 0.8571428571428571,
+        "metrics_py_false_per_host_day": 11.263157894736842,
+        "detect_1pct_cal": 0.8596991701244814,
+        "false_window_rate_1pct_cal": 0.019684203073001488,
+        "benign_source_hour_rate_1pct_cal": 0.20689655172413793,
+        "per_family_auc": {
+          "Botnet": 0.9450613537021678,
+          "DDoS": 0.9577022211577921,
+          "Infiltration": 0.9319411921434777,
+          "Infiltration - Portscan": 0.9931403324747956,
+          "Portscan": 0.9949240979008707,
+          "Web Attack - Brute Force": 0.9363887048222659,
+          "Web Attack - SQL Injection": 0.8215801806310713,
+          "Web Attack - XSS": 0.9545086381440169
+        },
+        "bootstrap": {
+          "family_mean_auc_ci95": [
+            0.8900682948843716,
+            0.9685645291043817
+          ],
+          "false_per_host_day_ci95": [
+            1.3898550724637682,
+            21.122500000000006
+          ],
+          "B": 200
+        }
+      }
+    },
+    "token distance, smoothed": {
+      "dev": {
+        "family_mean_auc": 0.9951879658592045,
+        "worst_family_auc": 0.9801837292411183,
+        "n_families": 7,
+        "n_attacking_sources": 1,
+        "n_benign_sources": 19,
+        "fa_threshold": 4.672772883368896,
+        "false_per_host_day_at_80pct_5min": 0.696969696969697,
+        "detect_within_5min_check": 1.0,
+        "metrics_py_false_per_host_day": 0.696969696969697,
+        "detect_1pct_cal": 0.8731268731268731,
+        "false_window_rate_1pct_cal": 0.022782619196168013,
+        "benign_source_hour_rate_1pct_cal": 0.25,
+        "per_family_auc": {
+          "DoS GoldenEye": 0.9951785437902138,
+          "DoS Hulk": 0.9989282897384306,
+          "DoS Slowhttptest": 0.9985866480936904,
+          "DoS Slowloris": 0.9986775675889398,
+          "FTP-Patator": 0.9972157109322601,
+          "Heartbleed": 0.9975452716297787,
+          "SSH-Patator": 0.9801837292411183
+        },
+        "bootstrap": {
+          "family_mean_auc_ci95": [
+            0.9912447557301738,
+            0.997709119855659
+          ],
+          "false_per_host_day_ci95": [
+            0.23387254901960786,
+            1.5270917338709677
+          ],
+          "B": 200
+        }
+      },
+      "final": {
+        "family_mean_auc": 0.9455914184741784,
+        "worst_family_auc": 0.8549961704999582,
+        "n_families": 8,
+        "n_attacking_sources": 7,
+        "n_benign_sources": 11,
+        "fa_threshold": 0.9758995861473319,
+        "false_per_host_day_at_80pct_5min": 10.052631578947368,
+        "detect_within_5min_check": 0.8571428571428571,
+        "metrics_py_false_per_host_day": 10.052631578947368,
+        "detect_1pct_cal": 0.8871887966804979,
+        "false_window_rate_1pct_cal": 0.019648799830064435,
+        "benign_source_hour_rate_1pct_cal": 0.22758620689655173,
+        "per_family_auc": {
+          "Botnet": 0.9518236869561478,
+          "DDoS": 0.9795737208463747,
+          "Infiltration": 0.9133027924439253,
+          "Infiltration - Portscan": 0.9928761769026117,
+          "Portscan": 0.9966733723541513,
+          "Web Attack - Brute Force": 0.9377012060625979,
+          "Web Attack - SQL Injection": 0.8549961704999582,
+          "Web Attack - XSS": 0.9377842217276602
+        },
+        "bootstrap": {
+          "family_mean_auc_ci95": [
+            0.8912378914411624,
+            0.9737576538854902
+          ],
+          "false_per_host_day_ci95": [
+            1.411697860962567,
+            20.13831168831169
+          ],
+          "B": 200
+        }
+      }
+    },
+    "isolation forest, smoothed": {
+      "dev": {
+        "family_mean_auc": 0.9513079782196396,
+        "worst_family_auc": 0.7845484549085558,
+        "n_families": 7,
+        "n_attacking_sources": 1,
+        "n_benign_sources": 19,
+        "fa_threshold": 0.5040218268262767,
+        "false_per_host_day_at_80pct_5min": 21.393939393939394,
+        "detect_within_5min_check": 1.0,
+        "metrics_py_false_per_host_day": 21.393939393939394,
+        "detect_1pct_cal": 0.3001998001998002,
+        "false_window_rate_1pct_cal": 0.016322176826936624,
+        "benign_source_hour_rate_1pct_cal": 0.20220588235294118,
+        "per_family_auc": {
+          "DoS GoldenEye": 0.9879854953899219,
+          "DoS Hulk": 0.998179476861167,
+          "DoS Slowhttptest": 0.9905280400350823,
+          "DoS Slowloris": 0.9961270680853681,
+          "FTP-Patator": 0.9109897999105745,
+          "Heartbleed": 0.990797512346808,
+          "SSH-Patator": 0.7845484549085558
+        },
+        "bootstrap": {
+          "family_mean_auc_ci95": [
+            0.8865309140995584,
+            0.9826946079730683
+          ],
+          "false_per_host_day_ci95": [
+            6.832837301587301,
+            43.770287298387096
+          ],
+          "B": 200
+        }
+      },
+      "final": {
+        "family_mean_auc": 0.9569203560872016,
+        "worst_family_auc": 0.8412743887227233,
+        "n_families": 8,
+        "n_attacking_sources": 7,
+        "n_benign_sources": 11,
+        "fa_threshold": 0.47767928526395903,
+        "false_per_host_day_at_80pct_5min": 40.63157894736842,
+        "detect_within_5min_check": 0.8571428571428571,
+        "metrics_py_false_per_host_day": 40.63157894736842,
+        "detect_1pct_cal": 0.5969917012448133,
+        "false_window_rate_1pct_cal": 0.03232316080152942,
+        "benign_source_hour_rate_1pct_cal": 0.23448275862068965,
+        "per_family_auc": {
+          "Botnet": 0.9117224773582931,
+          "DDoS": 0.9903484776371468,
+          "Infiltration": 0.8412743887227233,
+          "Infiltration - Portscan": 0.9798390195824052,
+          "Portscan": 0.9977286244024193,
+          "Web Attack - Brute Force": 0.9834046715866908,
+          "Web Attack - SQL Injection": 0.9578830827096178,
+          "Web Attack - XSS": 0.9931621066983173
+        },
+        "bootstrap": {
+          "family_mean_auc_ci95": [
+            0.7962903576665682,
+            0.9781596458072837
+          ],
+          "false_per_host_day_ci95": [
+            16.4895,
+            54.51375
+          ],
+          "B": 200
+        }
+      }
+    }
+  },
+  "point_checks": [
+    {
+      "model": "v0 NCM, smoothed",
+      "split": "dev",
+      "original_family_mean_auc": 0.9798958242670703,
+      "recomputed_family_mean_auc": 0.9798958242670703,
+      "matches_3_decimals": true
+    },
+    {
+      "model": "v0 NCM, smoothed",
+      "split": "final",
+      "original_family_mean_auc": 0.9419058401220572,
+      "recomputed_family_mean_auc": 0.9419058401220572,
+      "matches_3_decimals": true
+    },
+    {
+      "model": "token distance, smoothed",
+      "split": "dev",
+      "original_family_mean_auc": 0.9951879658592045,
+      "recomputed_family_mean_auc": 0.9951879658592045,
+      "matches_3_decimals": true
+    },
+    {
+      "model": "token distance, smoothed",
+      "split": "final",
+      "original_family_mean_auc": 0.9455914184741784,
+      "recomputed_family_mean_auc": 0.9455914184741784,
+      "matches_3_decimals": true
+    },
+    {
+      "model": "isolation forest, smoothed",
+      "split": "dev",
+      "original_family_mean_auc": 0.9513079782196396,
+      "recomputed_family_mean_auc": 0.9513079782196396,
+      "matches_3_decimals": true
+    },
+    {
+      "model": "isolation forest, smoothed",
+      "split": "final",
+      "original_family_mean_auc": 0.9569203560872016,
+      "recomputed_family_mean_auc": 0.9569203560872016,
+      "matches_3_decimals": true
+    }
+  ],
+  "note": "Author rerun. Same 200 source resamples and RNG order as scoreboard; weighted AUC credits ties. Historical point estimates remain unchanged.",
+  "inputs_unchanged": true
+}

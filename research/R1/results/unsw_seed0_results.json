@@ -1,0 +1,361 @@
+{
+ "overall": {
+  "dev AUC": {
+   "baseline: isolation forest": 0.9179264581955552,
+   "baseline: isolation forest, smoothed": 0.9172449030419073,
+   "token distance only, smoothed": 0.9493500136765307,
+   "next-context surprise only, smoothed": 0.9549729483098145,
+   "NCM (all three signals), raw": 0.950264963998423,
+   "NCM (all three signals), smoothed": 0.9486521598851904
+  },
+  "dev family-mean AUC": {
+   "baseline: isolation forest": 0.9254943634221726,
+   "baseline: isolation forest, smoothed": 0.9162193598925101,
+   "token distance only, smoothed": 0.9488551814876283,
+   "next-context surprise only, smoothed": 0.9535663788722739,
+   "NCM (all three signals), raw": 0.9493311743723744,
+   "NCM (all three signals), smoothed": 0.9482139749161248
+  },
+  "dev worst family": {
+   "baseline: isolation forest": 0.905618561659525,
+   "baseline: isolation forest, smoothed": 0.9039402759810263,
+   "token distance only, smoothed": 0.9461920602652447,
+   "next-context surprise only, smoothed": 0.9494737009694966,
+   "NCM (all three signals), raw": 0.9345068479124106,
+   "NCM (all three signals), smoothed": 0.9433166360317071
+  },
+  "dev detect@1%": {
+   "baseline: isolation forest": 0.4055101524981043,
+   "baseline: isolation forest, smoothed": 0.3117364563147696,
+   "token distance only, smoothed": 1.0,
+   "next-context surprise only, smoothed": 1.0,
+   "NCM (all three signals), raw": 0.9771674109023507,
+   "NCM (all three signals), smoothed": 1.0
+  },
+  "dev false@1%": {
+   "baseline: isolation forest": 0.06156440583995565,
+   "baseline: isolation forest, smoothed": 0.07334596192940307,
+   "token distance only, smoothed": 0.07357697283311772,
+   "next-context surprise only, smoothed": 0.08501201256699316,
+   "NCM (all three signals), raw": 0.06985769728331177,
+   "NCM (all three signals), smoothed": 0.08434208094622066
+  },
+  "dev detect@0.1%": {
+   "baseline: isolation forest": 0.012216698963686915,
+   "baseline: isolation forest, smoothed": 0.04802426489173477,
+   "token distance only, smoothed": 1.0,
+   "next-context surprise only, smoothed": 1.0,
+   "NCM (all three signals), raw": 0.7325806723397085,
+   "NCM (all three signals), smoothed": 1.0
+  },
+  "dev false@0.1%": {
+   "baseline: isolation forest": 0.008755313250785436,
+   "baseline: isolation forest, smoothed": 0.04696451672518943,
+   "token distance only, smoothed": 0.06341249306967289,
+   "next-context surprise only, smoothed": 0.0698345961929403,
+   "NCM (all three signals), raw": 0.0550961005359453,
+   "NCM (all three signals), smoothed": 0.07731934947329513
+  },
+  "final AUC": {
+   "baseline: isolation forest": 0.9129608978912673,
+   "baseline: isolation forest, smoothed": 0.9153127226132568,
+   "token distance only, smoothed": 0.9409955747625415,
+   "next-context surprise only, smoothed": 0.9462854337119125,
+   "NCM (all three signals), raw": 0.9435616401498653,
+   "NCM (all three signals), smoothed": 0.9424448837606163
+  },
+  "final family-mean AUC": {
+   "baseline: isolation forest": 0.9209657738857303,
+   "baseline: isolation forest, smoothed": 0.9148753838789953,
+   "token distance only, smoothed": 0.9403113305220008,
+   "next-context surprise only, smoothed": 0.9441313554853024,
+   "NCM (all three signals), raw": 0.9420143105604374,
+   "NCM (all three signals), smoothed": 0.9415297293607698
+  },
+  "final worst family": {
+   "baseline: isolation forest": 0.900045445766692,
+   "baseline: isolation forest, smoothed": 0.9094477095737231,
+   "token distance only, smoothed": 0.9379814033497479,
+   "next-context surprise only, smoothed": 0.9390010036359197,
+   "NCM (all three signals), raw": 0.9318194404729748,
+   "NCM (all three signals), smoothed": 0.9368498405823802
+  },
+  "final detect@1%": {
+   "baseline: isolation forest": 0.4069170065144855,
+   "baseline: isolation forest, smoothed": 0.3010963402362163,
+   "token distance only, smoothed": 1.0,
+   "next-context surprise only, smoothed": 1.0,
+   "NCM (all three signals), raw": 0.9863354695196229,
+   "NCM (all three signals), smoothed": 1.0
+  },
+  "final false@1%": {
+   "baseline: isolation forest": 0.069506590881606,
+   "baseline: isolation forest, smoothed": 0.07352763332930222,
+   "token distance only, smoothed": 0.07136594509614222,
+   "next-context surprise only, smoothed": 0.08321743862619423,
+   "NCM (all three signals), raw": 0.0757044382633934,
+   "NCM (all three signals), smoothed": 0.07708005804813158
+  },
+  "final detect@0.1%": {
+   "baseline: isolation forest": 0.014670833112652932,
+   "baseline: isolation forest, smoothed": 0.05698850696467348,
+   "token distance only, smoothed": 1.0,
+   "next-context surprise only, smoothed": 0.9999470367035644,
+   "NCM (all three signals), raw": 0.8007520788093851,
+   "NCM (all three signals), smoothed": 1.0
+  },
+  "final false@0.1%": {
+   "baseline: isolation forest": 0.011806143427258435,
+   "baseline: isolation forest, smoothed": 0.05440500665134841,
+   "token distance only, smoothed": 0.0698996251058169,
+   "next-context surprise only, smoothed": 0.07298343209577941,
+   "NCM (all three signals), raw": 0.06468436328455678,
+   "NCM (all three signals), smoothed": 0.07444975208610473
+  }
+ },
+ "per_family": {
+  "windows": {
+   "Analysis": 172,
+   "Backdoor": 166,
+   "DoS": 1455,
+   "Exploits": 8375,
+   "Fuzzers": 2963,
+   "Generic": 3204,
+   "Reconnaissance": 2312,
+   "Shellcode": 214,
+   "Worms": 20
+  },
+  "baseline: isolation forest, smoothed": {
+   "Analysis": 0.9094477095737231,
+   "Backdoor": 0.9112425636759155,
+   "DoS": 0.91153834405736,
+   "Exploits": 0.9105068489936339,
+   "Fuzzers": 0.9104237514829469,
+   "Generic": 0.9324653034912671,
+   "Reconnaissance": 0.9179889421071155,
+   "Shellcode": 0.9193038716837915,
+   "Worms": 0.910961119845205
+  },
+  "token distance only, smoothed": {
+   "Analysis": 0.9400290592209063,
+   "Backdoor": 0.9390186820568037,
+   "DoS": 0.9386840013148934,
+   "Exploits": 0.938646225878709,
+   "Fuzzers": 0.9422654825730508,
+   "Generic": 0.9487956292239005,
+   "Reconnaissance": 0.9390394908381284,
+   "Shellcode": 0.9379814033497479,
+   "Worms": 0.9383420002418672
+  },
+  "NCM (all three signals), smoothed": {
+   "Analysis": 0.945522749580248,
+   "Backdoor": 0.9384475257421026,
+   "DoS": 0.9384353393766891,
+   "Exploits": 0.9385744923947201,
+   "Fuzzers": 0.945745293048089,
+   "Generic": 0.9551778541199483,
+   "Reconnaissance": 0.9377336615662534,
+   "Shellcode": 0.9368498405823802,
+   "Worms": 0.9372808078364978
+  }
+ },
+ "time_to_alert": {
+  "sources": {
+   "Analysis": 13,
+   "Backdoor": 16,
+   "DoS": 16,
+   "Exploits": 16,
+   "Fuzzers": 16,
+   "Generic": 16,
+   "Reconnaissance": 16,
+   "Shellcode": 16,
+   "Worms": 16
+  },
+  "detected": {
+   "Analysis": 1.0,
+   "Backdoor": 1.0,
+   "DoS": 1.0,
+   "Exploits": 1.0,
+   "Fuzzers": 1.0,
+   "Generic": 1.0,
+   "Reconnaissance": 1.0,
+   "Shellcode": 1.0,
+   "Worms": 1.0
+  },
+  "median_windows_to_alert": {
+   "Analysis": 1.0,
+   "Backdoor": 1.0,
+   "DoS": 1.0,
+   "Exploits": 1.0,
+   "Fuzzers": 1.0,
+   "Generic": 1.0,
+   "Reconnaissance": 1.0,
+   "Shellcode": 1.0,
+   "Worms": 1.0
+  }
+ },
+ "leave_family_out": {
+  "windows": {
+   "Analysis": 232.0,
+   "Backdoor": 255.0,
+   "DoS": 2403.0,
+   "Exploits": 13787.0,
+   "Fuzzers": 4775.0,
+   "Generic": 5042.0,
+   "Reconnaissance": 3853.0,
+   "Shellcode": 362.0,
+   "Worms": 41.0,
+   "MEAN": 3416.6666666666665
+  },
+  "RF single-window, smoothed": {
+   "Analysis": 0.9899563254905525,
+   "Backdoor": 0.9959901638717651,
+   "DoS": 0.9962601950142254,
+   "Exploits": 0.9943321650318336,
+   "Fuzzers": 0.9952704071960659,
+   "Generic": 0.9915687002508413,
+   "Reconnaissance": 0.9895736448296791,
+   "Shellcode": 0.9946491550158449,
+   "Worms": 0.9950486070327653,
+   "MEAN": 0.9936277070815083
+  },
+  "head without state": {
+   "Analysis": 0.9942160995059309,
+   "Backdoor": 0.9936571979067791,
+   "DoS": 0.9934210141850802,
+   "Exploits": 0.9934324898913612,
+   "Fuzzers": 0.9931633707819723,
+   "Generic": 0.9873280035585993,
+   "Reconnaissance": 0.9931949947547573,
+   "Shellcode": 0.9924757887153685,
+   "Worms": 0.9933607222069116,
+   "MEAN": 0.9926944090563068
+  },
+  "NCM hazard H": {
+   "Analysis": 0.9940543507081159,
+   "Backdoor": 0.9962337312095337,
+   "DoS": 0.9966512308935755,
+   "Exploits": 0.9955160876441697,
+   "Fuzzers": 0.9939442411495529,
+   "Generic": 0.9872203557622559,
+   "Reconnaissance": 0.9961790636399205,
+   "Shellcode": 0.9960487195447997,
+   "Worms": 0.9954923701794687,
+   "MEAN": 0.9945933500812658
+  },
+  "NCM surprise S": {
+   "Analysis": 0.944785620212889,
+   "Backdoor": 0.9365113172809645,
+   "DoS": 0.9358436005508739,
+   "Exploits": 0.9362135062732118,
+   "Fuzzers": 0.9444169687109412,
+   "Generic": 0.955148311169677,
+   "Reconnaissance": 0.9352606102879051,
+   "Shellcode": 0.9341584393407022,
+   "Worms": 0.9345533004443796,
+   "MEAN": 0.9396546304746161
+  },
+  "NCM risk R": {
+   "Analysis": 0.994065242883053,
+   "Backdoor": 0.9962529136415406,
+   "DoS": 0.9966536796093918,
+   "Exploits": 0.9955283404126858,
+   "Fuzzers": 0.9939551807058584,
+   "Generic": 0.9882815081448393,
+   "Reconnaissance": 0.9961931315919986,
+   "Shellcode": 0.9960573954587276,
+   "Worms": 0.9954923701794687,
+   "MEAN": 0.9947199736252847
+  },
+  "R detect@1%": {
+   "Analysis": 1.0,
+   "Backdoor": 1.0,
+   "DoS": 1.0,
+   "Exploits": 1.0,
+   "Fuzzers": 1.0,
+   "Generic": 1.0,
+   "Reconnaissance": 1.0,
+   "Shellcode": 1.0,
+   "Worms": 1.0,
+   "MEAN": 1.0
+  },
+  "R false@1%": {
+   "Analysis": 0.08687412006786759,
+   "Backdoor": 0.0864228728204758,
+   "DoS": 0.08681997039818057,
+   "Exploits": 0.08671167105880655,
+   "Fuzzers": 0.0865492220497455,
+   "Generic": 0.08627847370131042,
+   "Reconnaissance": 0.08674777083859789,
+   "Shellcode": 0.0865492220497455,
+   "Worms": 0.08638677304068446,
+   "MEAN": 0.08659334400282379
+  }
+ },
+ "leave_stage_out": {
+  "windows": {
+   "RECONNAISSANCE": 4085.0,
+   "INITIAL_ACCESS": 23966.0,
+   "LATERAL_MOVEMENT": 41.0,
+   "COMMAND_AND_CONTROL": 255.0,
+   "IMPACT": 2403.0,
+   "MEAN": 6150.0
+  },
+  "RF single-window, smoothed": {
+   "RECONNAISSANCE": 0.9894998775391192,
+   "INITIAL_ACCESS": 0.9960284450539073,
+   "LATERAL_MOVEMENT": 0.9950486070327653,
+   "COMMAND_AND_CONTROL": 0.9959901638717651,
+   "IMPACT": 0.9962601950142254,
+   "MEAN": 0.9945654577023564
+  },
+  "head without state": {
+   "RECONNAISSANCE": 0.9934937548043747,
+   "INITIAL_ACCESS": 0.9923456273413435,
+   "LATERAL_MOVEMENT": 0.9930873324111748,
+   "COMMAND_AND_CONTROL": 0.9940065871480536,
+   "IMPACT": 0.9922447592711798,
+   "MEAN": 0.9930356121952253
+  },
+  "NCM hazard H": {
+   "RECONNAISSANCE": 0.9960917945377277,
+   "INITIAL_ACCESS": 0.9937350990687708,
+   "LATERAL_MOVEMENT": 0.9949451503467779,
+   "COMMAND_AND_CONTROL": 0.9965844653445652,
+   "IMPACT": 0.9966446058403555,
+   "MEAN": 0.9956002230276393
+  },
+  "NCM surprise S": {
+   "RECONNAISSANCE": 0.9358015655639383,
+   "INITIAL_ACCESS": 0.9418004580047719,
+   "LATERAL_MOVEMENT": 0.9345533004443796,
+   "COMMAND_AND_CONTROL": 0.9365113172809645,
+   "IMPACT": 0.9358436005508739,
+   "MEAN": 0.9369020483689857
+  },
+  "NCM risk R": {
+   "RECONNAISSANCE": 0.9961133969640925,
+   "INITIAL_ACCESS": 0.9940115457175874,
+   "LATERAL_MOVEMENT": 0.9949451503467779,
+   "COMMAND_AND_CONTROL": 0.9965944458719193,
+   "IMPACT": 0.9966515388609022,
+   "MEAN": 0.9956632155522559
+  },
+  "R detect@1%": {
+   "RECONNAISSANCE": 1.0,
+   "INITIAL_ACCESS": 1.0,
+   "LATERAL_MOVEMENT": 1.0,
+   "COMMAND_AND_CONTROL": 1.0,
+   "IMPACT": 1.0,
+   "MEAN": 1.0
+  },
+  "R false@1%": {
+   "RECONNAISSANCE": 0.08662142160932819,
+   "INITIAL_ACCESS": 0.08676582072849355,
+   "LATERAL_MOVEMENT": 0.08653117215984983,
+   "COMMAND_AND_CONTROL": 0.08644092271037147,
+   "IMPACT": 0.08656727193964117,
+   "MEAN": 0.08658532182953685
+  }
+ }
+}

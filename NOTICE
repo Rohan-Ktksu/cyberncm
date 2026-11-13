@@ -1,0 +1,10 @@
+CyberNCM
+Copyright 2026 Rohan Sai, Yuvashree C, Sonia C
+
+The source code in this repository is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Documentation, research write-ups, result summaries, diagrams and screenshots are licensed under
+Creative Commons Attribution 4.0 International (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
+
+Datasets, packet captures and models trained on them are NOT included and are NOT licensed by this
+repository. They remain under the terms of their original providers (see the README, "Dataset provenance").

@@ -1,0 +1,58 @@
+artifacts/ncm_gru64_s0.pt: 109440 benign and 30750 attack test windows
+
+PART 1 - unsupervised, every attack unseen. Thresholds set on Monday benign calibration data.
+                                      dev AUC  dev family-mean AUC  dev worst family  dev detect@1%  dev false@1%  dev detect@0.1%  dev false@0.1%  final AUC  final family-mean AUC  final worst family  final detect@1%  final false@1%  final detect@0.1%  final false@0.1%
+baseline: isolation forest              0.918                0.925             0.906          0.406         0.062            0.012           0.009      0.913                  0.921               0.900            0.407           0.070              0.015             0.012
+baseline: isolation forest, smoothed    0.917                0.916             0.904          0.312         0.073            0.048           0.047      0.915                  0.915               0.909            0.301           0.074              0.057             0.054
+token distance only, smoothed           0.949                0.949             0.946          1.000         0.074            1.000           0.063      0.941                  0.940               0.938            1.000           0.072              1.000             0.070
+next-context surprise only, smoothed    0.955                0.953             0.949          1.000         0.085            1.000           0.070      0.946                  0.944               0.939            1.000           0.083              1.000             0.073
+NCM (all three signals), raw            0.950                0.949             0.934          0.977         0.070            0.727           0.055      0.943                  0.941               0.931            0.984           0.075              0.784             0.065
+NCM (all three signals), smoothed       0.948                0.948             0.943          1.000         0.086            1.000           0.078      0.942                  0.941               0.936            1.000           0.078              1.000             0.075 
+
+AUC per attack family, final split (days 3-4)
+                windows  baseline: isolation forest, smoothed  token distance only, smoothed  NCM (all three signals), smoothed
+Analysis            172                                 0.909                          0.940                              0.945
+Backdoor            166                                 0.911                          0.939                              0.938
+DoS                1455                                 0.912                          0.939                              0.938
+Exploits           8375                                 0.911                          0.939                              0.938
+Fuzzers            2963                                 0.910                          0.942                              0.945
+Generic            3204                                 0.932                          0.949                              0.953
+Reconnaissance     2312                                 0.918                          0.939                              0.937
+Shellcode           214                                 0.919                          0.938                              0.936
+Worms                20                                 0.911                          0.938                              0.936 
+
+Windows (5 s each) from an attacking source's first attack window to its first alert, 1% threshold
+                sources  detected  median_windows_to_alert
+family                                                    
+Analysis             13       1.0                      1.0
+Backdoor             16       1.0                      1.0
+DoS                  16       1.0                      1.0
+Exploits             16       1.0                      1.0
+Fuzzers              16       1.0                      1.0
+Generic              16       1.0                      1.0
+Reconnaissance       16       1.0                      1.0
+Shellcode            16       1.0                      1.0
+Worms                16       1.0                      1.0 
+
+PART 2 - stage head trained WITHOUT the listed family, AUC on that family
+                  windows  RF single-window, smoothed  head without state  NCM hazard H  NCM surprise S  NCM risk R  R detect@1%  R false@1%
+Analysis          232.000                       0.990               0.994         0.995           0.945       0.995          1.0       0.087
+Backdoor          255.000                       0.996               0.994         0.996           0.936       0.996          1.0       0.087
+DoS              2403.000                       0.996               0.993         0.996           0.935       0.996          1.0       0.087
+Exploits        13787.000                       0.994               0.993         0.995           0.936       0.995          1.0       0.087
+Fuzzers          4775.000                       0.995               0.993         0.994           0.944       0.994          1.0       0.087
+Generic          5042.000                       0.992               0.987         0.987           0.954       0.988          1.0       0.087
+Reconnaissance   3853.000                       0.990               0.993         0.996           0.935       0.996          1.0       0.087
+Shellcode         362.000                       0.995               0.992         0.996           0.934       0.996          1.0       0.087
+Worms              41.000                       0.995               0.993         0.995           0.934       0.995          1.0       0.087
+MEAN             3416.667                       0.994               0.993         0.995           0.939       0.995          1.0       0.087 
+
+PART 2b - stage head trained WITHOUT a whole kill-chain stage
+                     windows  RF single-window, smoothed  head without state  NCM hazard H  NCM surprise S  NCM risk R  R detect@1%  R false@1%
+RECONNAISSANCE        4085.0                       0.989               0.993         0.996           0.935       0.996          1.0       0.087
+INITIAL_ACCESS       23966.0                       0.996               0.992         0.994           0.941       0.994          1.0       0.087
+LATERAL_MOVEMENT        41.0                       0.995               0.993         0.995           0.934       0.995          1.0       0.087
+COMMAND_AND_CONTROL    255.0                       0.996               0.994         0.997           0.936       0.997          1.0       0.087
+IMPACT                2403.0                       0.996               0.992         0.997           0.935       0.997          1.0       0.087
+MEAN                  6150.0                       0.995               0.993         0.996           0.936       0.996          1.0       0.087 
+

@@ -1,0 +1,28 @@
+{
+  "dataset": "CIC-IDS2017 canonical Friday",
+  "seed": 0,
+  "windows": 24452,
+  "coverage": {
+    "windows": 24452,
+    "attack_windows": 2784,
+    "benign_windows": 21668,
+    "attack_windows_covered": 1210,
+    "benign_windows_covered": 1372,
+    "attack_coverage": 0.43462643678160917,
+    "benign_coverage": 0.0633191803581318
+  },
+  "coverage_reconstructed_from_events": true,
+  "directives": 2201,
+  "events": 2201,
+  "all_schema_valid": true,
+  "all_signatures_verified": true,
+  "sequence_numbers_contiguous": true,
+  "model_files_unchanged": true,
+  "sha256": {
+    "artifacts\\ncm_gru64_s0.pt": "6fbe44e4f23c77f49fa6d3b3fc193d69c04cb5338b3cecb833518f1d748aecff",
+    "artifacts\\ncm_gru64_s0.onnx": "228f207cf44871a845867c3153aa2b61851362df4b7199d84bbe735582e2b945"
+  },
+  "format": "FP32",
+  "mode": "offline replay; no network enforcement",
+  "limitations": "Historical prototype checkpoint, not scoreboard seed-2. Full replay success does not establish deployment safety. Negative first-quarantine times are pre-attack alerts, not evidence of prediction."
+}

@@ -1,0 +1,351 @@
+dataset,score,seed,policy,param,dev_reached_80,final_detected_5min,final_false_per_host_day,final_benign_source_hour_rate,attacking_sources,benign_sources,meets
+cic2017,token distance,0,daily recalibration,,True,0.14285714285714285,1.0526315789473684,0.0896551724137931,7,11,False
+cic2017,token distance,0,fixed threshold,,True,0.7142857142857143,3.0,0.22758620689655173,7,11,False
+cic2017,token distance,0,k of n on daily,6 of 12,True,0.0,0.3157894736842105,0.020689655172413793,7,11,False
+cic2017,token distance,0,k of n on fixed,6 of 12,True,0.5714285714285714,2.210526315789474,0.10344827586206896,7,11,False
+cic2017,token distance,0,per-source threshold,previous day,True,0.5714285714285714,3.6315789473684212,0.2620689655172414,7,11,False
+cic2017,token distance,0,rolling quantile,24 h,True,0.2857142857142857,0.7894736842105263,0.07586206896551724,7,11,False
+cic2017,token distance,0,two tiers,block above 99.9th percentile for 6 windows,True,0.2857142857142857,1.3157894736842106,0.08275862068965517,7,11,False
+cic2017,token distance,1,daily recalibration,,True,0.0,0.8947368421052632,0.06896551724137931,7,11,False
+cic2017,token distance,1,fixed threshold,,True,0.5714285714285714,2.0526315789473686,0.1724137931034483,7,11,False
+cic2017,token distance,1,k of n on daily,6 of 12,True,0.0,0.5263157894736842,0.020689655172413793,7,11,False
+cic2017,token distance,1,k of n on fixed,6 of 12,True,0.42857142857142855,1.631578947368421,0.0896551724137931,7,11,False
+cic2017,token distance,1,per-source threshold,previous day,True,0.5714285714285714,3.9473684210526314,0.2620689655172414,7,11,False
+cic2017,token distance,1,rolling quantile,6 h,True,0.2857142857142857,1.2105263157894737,0.1310344827586207,7,11,False
+cic2017,token distance,1,two tiers,block above 99.9th percentile for 6 windows,True,0.14285714285714285,0.8947368421052632,0.06206896551724138,7,11,False
+cic2017,token distance,2,daily recalibration,,True,0.0,1.105263157894737,0.07586206896551724,7,11,False
+cic2017,token distance,2,fixed threshold,,True,0.7142857142857143,2.9473684210526314,0.20689655172413793,7,11,False
+cic2017,token distance,2,k of n on daily,6 of 12,True,0.0,0.631578947368421,0.027586206896551724,7,11,False
+cic2017,token distance,2,k of n on fixed,6 of 12,True,0.7142857142857143,2.210526315789474,0.10344827586206896,7,11,False
+cic2017,token distance,2,per-source threshold,previous day,True,0.5714285714285714,3.8421052631578947,0.25517241379310346,7,11,False
+cic2017,token distance,2,rolling quantile,6 h,True,0.2857142857142857,1.5789473684210527,0.14482758620689656,7,11,False
+cic2017,token distance,2,two tiers,block above 99.9th percentile for 6 windows,True,0.14285714285714285,1.105263157894737,0.06206896551724138,7,11,False
+cic2017,token distance,3,daily recalibration,,True,0.0,0.7894736842105263,0.06896551724137931,7,11,False
+cic2017,token distance,3,fixed threshold,,True,0.5714285714285714,2.210526315789474,0.19310344827586207,7,11,False
+cic2017,token distance,3,k of n on daily,6 of 12,True,0.0,0.2631578947368421,0.013793103448275862,7,11,False
+cic2017,token distance,3,k of n on fixed,6 of 12,True,0.2857142857142857,1.736842105263158,0.10344827586206896,7,11,False
+cic2017,token distance,3,per-source threshold,previous day,True,0.7142857142857143,3.3157894736842106,0.2482758620689655,7,11,False
+cic2017,token distance,3,rolling quantile,6 h,True,0.14285714285714285,1.368421052631579,0.14482758620689656,7,11,False
+cic2017,token distance,3,two tiers,block above 99.9th percentile for 6 windows,True,0.0,0.8421052631578947,0.05517241379310345,7,11,False
+cic2017,token distance,4,daily recalibration,,True,0.14285714285714285,1.3157894736842106,0.1103448275862069,7,11,False
+cic2017,token distance,4,fixed threshold,,True,0.7142857142857143,4.526315789473684,0.2482758620689655,7,11,False
+cic2017,token distance,4,k of n on daily,6 of 12,True,0.0,0.6842105263157895,0.027586206896551724,7,11,False
+cic2017,token distance,4,k of n on fixed,6 of 12,True,0.7142857142857143,2.736842105263158,0.13793103448275862,7,11,False
+cic2017,token distance,4,per-source threshold,previous day,True,0.5714285714285714,3.789473684210526,0.2482758620689655,7,11,False
+cic2017,token distance,4,rolling quantile,24 h,True,0.2857142857142857,0.8947368421052632,0.09655172413793103,7,11,False
+cic2017,token distance,4,two tiers,block above 99.9th percentile for 6 windows,True,0.42857142857142855,1.5789473684210527,0.1103448275862069,7,11,False
+cic2017,v0,0,daily recalibration,,True,0.14285714285714285,0.9473684210526315,0.09655172413793103,7,11,False
+cic2017,v0,0,fixed threshold,,True,0.7142857142857143,3.0,0.20689655172413793,7,11,False
+cic2017,v0,0,k of n on daily,6 of 12,True,0.0,0.42105263157894735,0.027586206896551724,7,11,False
+cic2017,v0,0,k of n on fixed,6 of 12,True,0.5714285714285714,1.894736842105263,0.1103448275862069,7,11,False
+cic2017,v0,0,per-source threshold,previous day,True,0.42857142857142855,3.8947368421052633,0.296551724137931,7,11,False
+cic2017,v0,0,rolling quantile,24 h,True,0.2857142857142857,0.7894736842105263,0.0896551724137931,7,11,False
+cic2017,v0,0,two tiers,block above 99.9th percentile for 6 windows,True,0.42857142857142855,1.1578947368421053,0.06206896551724138,7,11,False
+cic2017,v0,1,daily recalibration,,True,0.14285714285714285,0.7368421052631579,0.06896551724137931,7,11,False
+cic2017,v0,1,fixed threshold,,True,0.7142857142857143,2.1052631578947367,0.1793103448275862,7,11,False
+cic2017,v0,1,k of n on daily,6 of 12,True,0.0,0.5789473684210527,0.020689655172413793,7,11,False
+cic2017,v0,1,k of n on fixed,6 of 12,True,0.7142857142857143,1.736842105263158,0.09655172413793103,7,11,False
+cic2017,v0,1,per-source threshold,previous day,True,0.5714285714285714,3.6842105263157894,0.25517241379310346,7,11,False
+cic2017,v0,1,rolling quantile,6 h,True,0.42857142857142855,1.2105263157894737,0.1310344827586207,7,11,False
+cic2017,v0,1,two tiers,block above 99.9th percentile for 6 windows,True,0.2857142857142857,0.9473684210526315,0.06206896551724138,7,11,False
+cic2017,v0,2,daily recalibration,,True,0.14285714285714285,1.105263157894737,0.09655172413793103,7,11,False
+cic2017,v0,2,fixed threshold,,True,0.7142857142857143,4.947368421052632,0.2206896551724138,7,11,False
+cic2017,v0,2,k of n on daily,6 of 12,True,0.0,0.47368421052631576,0.027586206896551724,7,11,False
+cic2017,v0,2,k of n on fixed,6 of 12,True,0.7142857142857143,2.526315789473684,0.11724137931034483,7,11,False
+cic2017,v0,2,per-source threshold,previous day,True,0.42857142857142855,3.9473684210526314,0.296551724137931,7,11,False
+cic2017,v0,2,rolling quantile,6 h,True,0.42857142857142855,2.0526315789473686,0.15172413793103448,7,11,False
+cic2017,v0,2,two tiers,block above 99.9th percentile for 6 windows,True,0.5714285714285714,1.105263157894737,0.06206896551724138,7,11,False
+cic2017,v0,3,daily recalibration,,True,0.0,0.7894736842105263,0.06206896551724138,7,11,False
+cic2017,v0,3,fixed threshold,,True,0.5714285714285714,2.3157894736842106,0.19310344827586207,7,11,False
+cic2017,v0,3,k of n on daily,6 of 12,True,0.0,0.3684210526315789,0.020689655172413793,7,11,False
+cic2017,v0,3,k of n on fixed,6 of 12,True,0.5714285714285714,1.4736842105263157,0.07586206896551724,7,11,False
+cic2017,v0,3,per-source threshold,previous day,True,0.7142857142857143,4.2631578947368425,0.2896551724137931,7,11,False
+cic2017,v0,3,rolling quantile,6 h,True,0.2857142857142857,1.631578947368421,0.14482758620689656,7,11,False
+cic2017,v0,3,two tiers,block above 99.9th percentile for 6 windows,True,0.2857142857142857,0.7894736842105263,0.04827586206896552,7,11,False
+cic2017,v0,4,daily recalibration,,True,0.14285714285714285,0.8947368421052632,0.09655172413793103,7,11,False
+cic2017,v0,4,fixed threshold,,True,0.7142857142857143,2.473684210526316,0.22758620689655173,7,11,False
+cic2017,v0,4,k of n on daily,6 of 12,True,0.0,0.3684210526315789,0.020689655172413793,7,11,False
+cic2017,v0,4,k of n on fixed,6 of 12,True,0.7142857142857143,1.8421052631578947,0.10344827586206896,7,11,False
+cic2017,v0,4,per-source threshold,previous day,True,0.5714285714285714,3.5789473684210527,0.25517241379310346,7,11,False
+cic2017,v0,4,rolling quantile,24 h,True,0.2857142857142857,0.7368421052631579,0.0896551724137931,7,11,False
+cic2017,v0,4,two tiers,block above 99.9th percentile for 6 windows,True,0.5714285714285714,1.263157894736842,0.08275862068965517,7,11,False
+cicapt,token distance,0,daily recalibration,,True,0.0,2.9285714285714284,0.17251461988304093,2,17,False
+cicapt,token distance,0,fixed threshold,,True,1.0,10.464285714285714,0.5380116959064327,2,17,False
+cicapt,token distance,0,k of n on daily,6 of 12,True,0.0,2.392857142857143,0.11695906432748537,2,17,False
+cicapt,token distance,0,k of n on fixed,6 of 12,True,1.0,14.714285714285714,0.40058479532163743,2,17,False
+cicapt,token distance,0,per-source threshold,previous day,True,0.0,13.75,0.2807017543859649,2,17,False
+cicapt,token distance,0,rolling quantile,6 h,True,0.0,2.357142857142857,0.14327485380116958,2,17,False
+cicapt,token distance,0,two tiers,block above 99.9th percentile for 6 windows,False,0.0,0.7142857142857143,0.04093567251461988,2,17,False
+cicapt,token distance,1,daily recalibration,,True,0.0,3.357142857142857,0.21637426900584794,2,17,False
+cicapt,token distance,1,fixed threshold,,True,1.0,12.285714285714286,0.5730994152046783,2,17,False
+cicapt,token distance,1,k of n on daily,6 of 12,True,0.0,2.3214285714285716,0.13742690058479531,2,17,False
+cicapt,token distance,1,k of n on fixed,6 of 12,True,1.0,16.571428571428573,0.45614035087719296,2,17,False
+cicapt,token distance,1,per-source threshold,previous day,True,0.0,14.321428571428571,0.32748538011695905,2,17,False
+cicapt,token distance,1,rolling quantile,6 h,True,0.0,2.8214285714285716,0.195906432748538,2,17,False
+cicapt,token distance,1,two tiers,block above 99.9th percentile for 6 windows,False,0.0,1.5714285714285714,0.1023391812865497,2,17,False
+cicapt,token distance,2,daily recalibration,,True,0.0,2.5357142857142856,0.15789473684210525,2,17,False
+cicapt,token distance,2,fixed threshold,,True,1.0,11.964285714285714,0.5497076023391813,2,17,False
+cicapt,token distance,2,k of n on daily,6 of 12,True,0.0,1.9285714285714286,0.1023391812865497,2,17,False
+cicapt,token distance,2,k of n on fixed,6 of 12,True,1.0,18.285714285714285,0.42105263157894735,2,17,False
+cicapt,token distance,2,per-source threshold,previous day,True,0.0,13.785714285714286,0.27485380116959063,2,17,False
+cicapt,token distance,2,rolling quantile,6 h,True,0.0,1.8571428571428572,0.1286549707602339,2,17,False
+cicapt,token distance,2,two tiers,block above 99.9th percentile for 6 windows,False,0.0,0.9642857142857143,0.05847953216374269,2,17,False
+cicapt,token distance,3,daily recalibration,,True,0.0,2.75,0.16666666666666666,2,17,False
+cicapt,token distance,3,fixed threshold,,True,1.0,14.071428571428571,0.6257309941520468,2,17,False
+cicapt,token distance,3,k of n on daily,6 of 12,True,0.0,2.1785714285714284,0.1111111111111111,2,17,False
+cicapt,token distance,3,k of n on fixed,6 of 12,True,1.0,15.892857142857142,0.47368421052631576,2,17,False
+cicapt,token distance,3,per-source threshold,previous day,True,0.0,13.464285714285714,0.26900584795321636,2,17,False
+cicapt,token distance,3,rolling quantile,6 h,True,0.0,2.0357142857142856,0.13742690058479531,2,17,False
+cicapt,token distance,3,two tiers,block above 99.9th percentile for 6 windows,False,0.0,1.0714285714285714,0.06725146198830409,2,17,False
+cicapt,token distance,4,daily recalibration,,True,0.0,3.4285714285714284,0.2134502923976608,2,17,False
+cicapt,token distance,4,fixed threshold,,True,1.0,12.392857142857142,0.5555555555555556,2,17,False
+cicapt,token distance,4,k of n on daily,6 of 12,True,0.0,2.7857142857142856,0.14912280701754385,2,17,False
+cicapt,token distance,4,k of n on fixed,6 of 12,True,1.0,9.642857142857142,0.4093567251461988,2,17,False
+cicapt,token distance,4,per-source threshold,previous day,True,0.0,14.928571428571429,0.32456140350877194,2,17,False
+cicapt,token distance,4,rolling quantile,6 h,True,0.0,2.5,0.16666666666666666,2,17,False
+cicapt,token distance,4,two tiers,block above 99.9th percentile for 6 windows,False,0.0,1.1428571428571428,0.07309941520467836,2,17,False
+cicapt,v0,0,daily recalibration,,True,0.0,1.9285714285714286,0.11695906432748537,2,17,False
+cicapt,v0,0,fixed threshold,,True,1.0,10.785714285714286,0.47953216374269003,2,17,False
+cicapt,v0,0,k of n on daily,6 of 12,True,0.0,1.2857142857142858,0.06725146198830409,2,17,False
+cicapt,v0,0,k of n on fixed,6 of 12,True,1.0,8.5,0.3654970760233918,2,17,False
+cicapt,v0,0,per-source threshold,previous day,True,0.0,16.535714285714285,0.2309941520467836,2,17,False
+cicapt,v0,0,rolling quantile,6 h,True,0.0,1.7142857142857142,0.10526315789473684,2,17,False
+cicapt,v0,0,two tiers,block above 99.9th percentile for 6 windows,False,0.0,0.7857142857142857,0.04093567251461988,2,17,False
+cicapt,v0,1,daily recalibration,,True,0.5,1.9642857142857142,0.13157894736842105,2,17,False
+cicapt,v0,1,fixed threshold,,True,1.0,13.892857142857142,0.5380116959064327,2,17,False
+cicapt,v0,1,k of n on daily,6 of 12,True,0.0,1.0,0.06140350877192982,2,17,False
+cicapt,v0,1,k of n on fixed,6 of 12,True,1.0,11.964285714285714,0.43859649122807015,2,17,False
+cicapt,v0,1,per-source threshold,previous day,True,0.5,12.928571428571429,0.24561403508771928,2,17,False
+cicapt,v0,1,rolling quantile,6 h,True,0.0,1.6071428571428572,0.1111111111111111,2,17,False
+cicapt,v0,1,two tiers,block above 99.9th percentile for 6 windows,False,0.5,1.3571428571428572,0.0847953216374269,2,17,False
+cicapt,v0,2,daily recalibration,,True,0.5,1.6428571428571428,0.11403508771929824,2,17,False
+cicapt,v0,2,fixed threshold,,True,1.0,14.642857142857142,0.5555555555555556,2,17,False
+cicapt,v0,2,k of n on daily,6 of 12,True,0.0,1.1071428571428572,0.07017543859649122,2,17,False
+cicapt,v0,2,k of n on fixed,6 of 12,True,1.0,12.321428571428571,0.4444444444444444,2,17,False
+cicapt,v0,2,per-source threshold,previous day,True,0.5,10.321428571428571,0.22807017543859648,2,17,False
+cicapt,v0,2,rolling quantile,6 h,True,0.0,1.3571428571428572,0.09649122807017543,2,17,False
+cicapt,v0,2,two tiers,block above 99.9th percentile for 6 windows,False,0.0,0.7142857142857143,0.04093567251461988,2,17,False
+cicapt,v0,3,daily recalibration,,True,0.5,1.5714285714285714,0.09649122807017543,2,17,False
+cicapt,v0,3,fixed threshold,,True,1.0,16.214285714285715,0.5701754385964912,2,17,False
+cicapt,v0,3,k of n on daily,6 of 12,True,0.0,0.5,0.02631578947368421,2,17,False
+cicapt,v0,3,k of n on fixed,6 of 12,True,1.0,13.107142857142858,0.4444444444444444,2,17,False
+cicapt,v0,3,per-source threshold,previous day,True,0.0,15.642857142857142,0.2222222222222222,2,17,False
+cicapt,v0,3,rolling quantile,6 h,True,0.0,1.1428571428571428,0.06725146198830409,2,17,False
+cicapt,v0,3,two tiers,block above 99.9th percentile for 6 windows,False,0.0,0.8571428571428571,0.04678362573099415,2,17,False
+cicapt,v0,4,daily recalibration,,True,0.5,1.9285714285714286,0.13450292397660818,2,17,False
+cicapt,v0,4,fixed threshold,,True,1.0,10.071428571428571,0.4678362573099415,2,17,False
+cicapt,v0,4,k of n on daily,6 of 12,True,0.0,1.4285714285714286,0.09064327485380116,2,17,False
+cicapt,v0,4,k of n on fixed,6 of 12,True,1.0,7.964285714285714,0.3684210526315789,2,17,False
+cicapt,v0,4,per-source threshold,previous day,True,0.5,14.821428571428571,0.25146198830409355,2,17,False
+cicapt,v0,4,rolling quantile,6 h,True,0.0,1.5714285714285714,0.10818713450292397,2,17,False
+cicapt,v0,4,two tiers,block above 99.9th percentile for 6 windows,False,0.0,1.8214285714285714,0.11695906432748537,2,17,False
+d2018,token distance,0,daily recalibration,,True,0.18181818181818182,0.12279843444227005,0.025161290322580646,11,3794,False
+d2018,token distance,0,fixed threshold,,True,1.0,0.875,0.13686635944700462,11,3794,True
+d2018,token distance,0,k of n on daily,6 of 12,True,0.18181818181818182,0.05430528375733855,0.0033179723502304147,11,3794,False
+d2018,token distance,0,k of n on fixed,6 of 12,True,1.0,0.5613992172211351,0.05327188940092166,11,3794,True
+d2018,token distance,0,per-source threshold,previous day,True,0.9090909090909091,0.3578767123287671,0.05926267281105991,11,3794,True
+d2018,token distance,0,rolling quantile,6 h,True,0.18181818181818182,0.30528375733855184,0.04894009216589862,11,3794,False
+d2018,token distance,0,two tiers,block above 99.9th percentile for 6 windows,True,1.0,0.23434442270058709,0.01815668202764977,11,3794,True
+d2018,token distance,1,daily recalibration,,True,0.18181818181818182,0.11937377690802348,0.024055299539170506,11,3794,False
+d2018,token distance,1,fixed threshold,,True,1.0,0.8485812133072407,0.12921658986175116,11,3794,True
+d2018,token distance,1,k of n on daily,6 of 12,True,0.18181818181818182,0.053816046966731895,0.00304147465437788,11,3794,False
+d2018,token distance,1,k of n on fixed,6 of 12,True,1.0,0.5555283757338552,0.05105990783410138,11,3794,True
+d2018,token distance,1,per-source threshold,previous day,True,0.9090909090909091,0.36888454011741684,0.058248847926267285,11,3794,True
+d2018,token distance,1,rolling quantile,6 h,True,0.18181818181818182,0.313600782778865,0.05290322580645161,11,3794,False
+d2018,token distance,1,two tiers,block above 99.9th percentile for 6 windows,True,1.0,0.2382583170254403,0.01935483870967742,11,3794,True
+d2018,token distance,2,daily recalibration,,True,0.18181818181818182,0.12573385518591,0.02552995391705069,11,3794,False
+d2018,token distance,2,fixed threshold,,True,1.0,0.9070450097847358,0.14267281105990784,11,3794,True
+d2018,token distance,2,k of n on daily,6 of 12,True,0.18181818181818182,0.053082191780821915,0.002857142857142857,11,3794,False
+d2018,token distance,2,k of n on fixed,6 of 12,True,1.0,0.5711839530332681,0.056497695852534564,11,3794,True
+d2018,token distance,2,per-source threshold,previous day,True,0.9090909090909091,0.3485812133072407,0.05852534562211981,11,3794,True
+d2018,token distance,2,rolling quantile,6 h,True,0.18181818181818182,0.325587084148728,0.05152073732718894,11,3794,False
+d2018,token distance,2,two tiers,block above 99.9th percentile for 6 windows,True,1.0,0.22113502935420742,0.017880184331797236,11,3794,True
+d2018,token distance,3,daily recalibration,,True,0.18181818181818182,0.12915851272015655,0.026175115207373274,11,3794,False
+d2018,token distance,3,fixed threshold,,True,1.0,0.9249021526418787,0.15483870967741936,11,3794,True
+d2018,token distance,3,k of n on daily,6 of 12,True,0.18181818181818182,0.0574853228962818,0.0037788018433179723,11,3794,False
+d2018,token distance,3,k of n on fixed,6 of 12,True,1.0,0.5452544031311155,0.051336405529953916,11,3794,True
+d2018,token distance,3,per-source threshold,previous day,True,0.9090909090909091,0.3639921722113503,0.060368663594470046,11,3794,True
+d2018,token distance,3,rolling quantile,24 h,True,0.18181818181818182,0.14921722113502936,0.02847926267281106,11,3794,False
+d2018,token distance,3,two tiers,block above 99.9th percentile for 6 windows,True,0.9090909090909091,0.21379647749510763,0.01695852534562212,11,3794,True
+d2018,token distance,4,daily recalibration,,True,0.18181818181818182,0.12304305283757339,0.025622119815668202,11,3794,False
+d2018,token distance,4,fixed threshold,,True,1.0,0.8647260273972602,0.14589861751152075,11,3794,True
+d2018,token distance,4,k of n on daily,6 of 12,True,0.18181818181818182,0.05552837573385518,0.0034101382488479263,11,3794,False
+d2018,token distance,4,k of n on fixed,6 of 12,True,1.0,0.5225048923679061,0.053456221198156684,11,3794,True
+d2018,token distance,4,per-source threshold,previous day,True,0.9090909090909091,0.36081213307240706,0.05852534562211981,11,3794,True
+d2018,token distance,4,rolling quantile,6 h,True,0.18181818181818182,0.3385518590998043,0.05880184331797235,11,3794,False
+d2018,token distance,4,two tiers,block above 99.9th percentile for 6 windows,True,1.0,0.24877690802348337,0.020921658986175116,11,3794,True
+d2018,v0,0,daily recalibration,,True,0.9090909090909091,0.12181996086105674,0.023963133640552997,11,3794,True
+d2018,v0,0,fixed threshold,,True,1.0,0.7558708414872799,0.11852534562211982,11,3794,True
+d2018,v0,0,k of n on daily,6 of 12,True,0.8181818181818182,0.05870841487279843,0.0033179723502304147,11,3794,True
+d2018,v0,0,k of n on fixed,6 of 12,True,1.0,0.48850293542074363,0.04976958525345622,11,3794,True
+d2018,v0,0,per-source threshold,previous day,True,0.9090909090909091,0.3250978473581213,0.0567741935483871,11,3794,True
+d2018,v0,0,rolling quantile,6 h,True,0.9090909090909091,0.25782778864970646,0.03944700460829493,11,3794,True
+d2018,v0,0,two tiers,block above 99.9th percentile for 6 windows,True,1.0,0.21404109589041095,0.019723502304147465,11,3794,True
+d2018,v0,1,daily recalibration,,True,0.8181818181818182,0.1113013698630137,0.02184331797235023,11,3794,True
+d2018,v0,1,fixed threshold,,True,1.0,0.7818003913894325,0.12857142857142856,11,3794,True
+d2018,v0,1,k of n on daily,6 of 12,True,0.7272727272727273,0.04794520547945205,0.002119815668202765,11,3794,False
+d2018,v0,1,k of n on fixed,6 of 12,True,1.0,0.49412915851272016,0.05059907834101383,11,3794,True
+d2018,v0,1,per-source threshold,previous day,True,0.9090909090909091,0.33659491193737767,0.05714285714285714,11,3794,True
+d2018,v0,1,rolling quantile,6 h,True,0.9090909090909091,0.25244618395303325,0.04,11,3794,True
+d2018,v0,1,two tiers,block above 99.9th percentile for 6 windows,True,1.0,0.23850293542074363,0.023133640552995393,11,3794,True
+d2018,v0,2,daily recalibration,,True,0.2727272727272727,0.13307240704500978,0.02423963133640553,11,3794,False
+d2018,v0,2,fixed threshold,,True,1.0,0.815068493150685,0.13658986175115206,11,3794,True
+d2018,v0,2,k of n on daily,6 of 12,True,0.2727272727272727,0.06482387475538161,0.0031336405529953917,11,3794,False
+d2018,v0,2,k of n on fixed,6 of 12,True,1.0,0.5009784735812133,0.05290322580645161,11,3794,True
+d2018,v0,2,per-source threshold,previous day,True,0.9090909090909091,0.3353718199608611,0.05695852534562212,11,3794,True
+d2018,v0,2,rolling quantile,6 h,True,0.2727272727272727,0.3038160469667319,0.04764976958525346,11,3794,False
+d2018,v0,2,two tiers,block above 99.9th percentile for 6 windows,True,1.0,0.19006849315068494,0.0176036866359447,11,3794,True
+d2018,v0,3,daily recalibration,,True,0.18181818181818182,0.11521526418786693,0.022764976958525345,11,3794,False
+d2018,v0,3,fixed threshold,,True,1.0,0.7570939334637965,0.1263594470046083,11,3794,True
+d2018,v0,3,k of n on daily,6 of 12,True,0.18181818181818182,0.05283757338551859,0.0027649769585253456,11,3794,False
+d2018,v0,3,k of n on fixed,6 of 12,True,1.0,0.4799412915851272,0.04986175115207373,11,3794,True
+d2018,v0,3,per-source threshold,previous day,True,0.9090909090909091,0.33610567514677103,0.054746543778801844,11,3794,True
+d2018,v0,3,rolling quantile,6 h,True,0.8181818181818182,0.27323874755381605,0.04820276497695852,11,3794,True
+d2018,v0,3,two tiers,block above 99.9th percentile for 6 windows,True,1.0,0.24217221135029354,0.02368663594470046,11,3794,True
+d2018,v0,4,daily recalibration,,True,0.9090909090909091,0.13331702544031312,0.027004608294930874,11,3794,True
+d2018,v0,4,fixed threshold,,True,1.0,0.8209393346379648,0.13631336405529954,11,3794,True
+d2018,v0,4,k of n on daily,6 of 12,True,0.9090909090909091,0.05968688845401174,0.003686635944700461,11,3794,True
+d2018,v0,4,k of n on fixed,6 of 12,True,1.0,0.5102739726027398,0.05419354838709677,11,3794,True
+d2018,v0,4,per-source threshold,previous day,True,0.9090909090909091,0.3715753424657534,0.0623963133640553,11,3794,True
+d2018,v0,4,rolling quantile,6 h,True,0.9090909090909091,0.27813111545988256,0.04599078341013825,11,3794,True
+d2018,v0,4,two tiers,block above 99.9th percentile for 6 windows,True,1.0,0.2262720156555773,0.02193548387096774,11,3794,True
+unraveled,token distance,0,daily recalibration,,False,1.0,2.1946614583333335,0.09041504926843834,4,457,False
+unraveled,token distance,0,fixed threshold,,False,0.75,2.8509114583333335,0.12099134069871603,4,457,False
+unraveled,token distance,0,k of n on daily,3 of 6,False,0.5,1.5989583333333333,0.05070170200059719,4,457,False
+unraveled,token distance,0,k of n on fixed,3 of 6,False,0.5,2.1796875,0.07506718423409973,4,457,False
+unraveled,token distance,0,per-source threshold,previous day,False,0.75,4.389973958333333,0.1390265750970439,4,457,False
+unraveled,token distance,0,rolling quantile,24 h,False,0.25,1.404296875,0.07482830695730068,4,457,False
+unraveled,token distance,0,two tiers,block above 99.9th percentile for 3 windows,False,0.0,1.2916666666666667,0.053986264556584056,4,457,False
+unraveled,token distance,1,daily recalibration,,False,1.0,2.08984375,0.08993729471484026,4,457,False
+unraveled,token distance,1,fixed threshold,,False,0.5,2.5533854166666665,0.11352642579874589,4,457,False
+unraveled,token distance,1,k of n on daily,3 of 6,False,0.25,1.5071614583333333,0.0499253508510003,4,457,False
+unraveled,token distance,1,k of n on fixed,3 of 6,False,0.25,1.8626302083333333,0.06879665571812481,4,457,False
+unraveled,token distance,1,per-source threshold,previous day,False,0.75,4.409505208333333,0.13866825918184533,4,457,False
+unraveled,token distance,1,rolling quantile,24 h,False,0.25,1.390625,0.07930725589728277,4,457,False
+unraveled,token distance,1,two tiers,block above 99.9th percentile for 3 windows,False,0.0,1.1705729166666667,0.04837264855180651,4,457,False
+unraveled,token distance,2,daily recalibration,,False,1.0,2.5436197916666665,0.10068677217079726,4,457,False
+unraveled,token distance,2,fixed threshold,,False,0.75,4.209635416666667,0.13418931024186323,4,457,False
+unraveled,token distance,2,k of n on daily,3 of 6,False,0.5,1.869140625,0.05535980889817856,4,457,False
+unraveled,token distance,2,k of n on fixed,3 of 6,False,0.75,3.3352864583333335,0.08760824126604956,4,457,False
+unraveled,token distance,2,per-source threshold,previous day,False,0.75,4.593098958333333,0.1436249626754255,4,457,False
+unraveled,token distance,2,rolling quantile,24 h,False,0.25,1.869140625,0.0858763810092565,4,457,False
+unraveled,token distance,2,two tiers,block above 99.9th percentile for 3 windows,False,0.25,1.9915364583333333,0.06766198865332936,4,457,False
+unraveled,token distance,3,daily recalibration,,False,1.0,2.6764322916666665,0.0990743505524037,4,457,False
+unraveled,token distance,3,fixed threshold,,False,0.75,4.3125,0.13783218871304867,4,457,False
+unraveled,token distance,3,k of n on daily,3 of 6,False,0.5,2.0501302083333335,0.0563750373245745,4,457,False
+unraveled,token distance,3,k of n on fixed,3 of 6,False,0.75,3.4947916666666665,0.09041504926843834,4,457,False
+unraveled,token distance,3,per-source threshold,previous day,False,0.75,4.591145833333333,0.14016124216183937,4,457,False
+unraveled,token distance,3,rolling quantile,24 h,False,0.25,2.0657552083333335,0.08724992535085101,4,457,False
+unraveled,token distance,3,two tiers,block above 99.9th percentile for 3 windows,False,0.25,2.8268229166666665,0.0751269035532995,4,457,False
+unraveled,token distance,4,daily recalibration,,False,0.75,2.765625,0.10020901761719916,4,457,False
+unraveled,token distance,4,fixed threshold,,False,0.75,4.331380208333333,0.13801134667064796,4,457,False
+unraveled,token distance,4,k of n on daily,3 of 6,False,0.5,2.1178385416666665,0.05840549417736638,4,457,False
+unraveled,token distance,4,k of n on fixed,3 of 6,False,0.5,3.4772135416666665,0.09023589131083906,4,457,False
+unraveled,token distance,4,per-source threshold,previous day,False,0.75,4.630208333333333,0.143505524037026,4,457,False
+unraveled,token distance,4,rolling quantile,24 h,False,0.25,2.244140625,0.0904747685876381,4,457,False
+unraveled,token distance,4,two tiers,block above 99.9th percentile for 3 windows,False,0.25,2.8873697916666665,0.07739623768289042,4,457,False
+unraveled,v0,0,daily recalibration,,True,0.5,1.646484375,0.06169005673335324,4,457,False
+unraveled,v0,0,fixed threshold,,True,1.0,20.720052083333332,0.3147208121827411,4,457,False
+unraveled,v0,0,k of n on daily,3 of 6,False,0.25,1.3053385416666667,0.03499552105106002,4,457,False
+unraveled,v0,0,k of n on fixed,2 of 3,False,1.0,20.233723958333332,0.2778739922364885,4,457,False
+unraveled,v0,0,per-source threshold,previous day,True,0.75,3.9212239583333335,0.10325470289638698,4,457,False
+unraveled,v0,0,rolling quantile,24 h,False,0.25,1.3313802083333333,0.05691251119737235,4,457,False
+unraveled,v0,0,two tiers,block above 99.9th percentile for 3 windows,False,1.0,14.28515625,0.197252911316811,4,457,False
+unraveled,v0,1,daily recalibration,,True,0.5,1.140625,0.047058823529411764,4,457,False
+unraveled,v0,1,fixed threshold,,True,1.0,21.837890625,0.343505524037026,4,457,False
+unraveled,v0,1,k of n on daily,3 of 6,False,0.0,0.87890625,0.025082114063899673,4,457,False
+unraveled,v0,1,k of n on fixed,2 of 3,False,1.0,21.352864583333332,0.30677814272917286,4,457,False
+unraveled,v0,1,per-source threshold,previous day,True,0.5,3.6223958333333335,0.09190803224843237,4,457,False
+unraveled,v0,1,rolling quantile,24 h,False,0.25,1.025390625,0.04186324275903255,4,457,False
+unraveled,v0,1,two tiers,block above 99.9th percentile for 3 windows,False,1.0,14.217447916666666,0.2024484920871902,4,457,False
+unraveled,v0,2,daily recalibration,,True,0.25,1.583984375,0.07232009555091072,4,457,False
+unraveled,v0,2,fixed threshold,,True,1.0,25.705078125,0.3986264556584055,4,457,False
+unraveled,v0,2,k of n on daily,3 of 6,False,0.0,1.0651041666666667,0.034696924455061215,4,457,False
+unraveled,v0,2,k of n on fixed,2 of 3,False,1.0,25.216796875,0.36136160047775456,4,457,False
+unraveled,v0,2,per-source threshold,previous day,True,0.5,3.4283854166666665,0.10833084502836668,4,457,False
+unraveled,v0,2,rolling quantile,24 h,False,0.25,1.4127604166666667,0.0689758136757241,4,457,False
+unraveled,v0,2,two tiers,block above 99.9th percentile for 3 windows,False,1.0,18.094401041666668,0.24873096446700507,4,457,False
+unraveled,v0,3,daily recalibration,,True,0.25,1.4869791666666667,0.07070767393251717,4,457,False
+unraveled,v0,3,fixed threshold,,True,1.0,26.09375,0.37903851896088386,4,457,False
+unraveled,v0,3,k of n on daily,3 of 6,False,0.0,1.1484375,0.040191101821439236,4,457,False
+unraveled,v0,3,k of n on fixed,2 of 3,False,1.0,25.534505208333332,0.3433263660794267,4,457,False
+unraveled,v0,3,per-source threshold,previous day,True,0.5,3.697265625,0.1103015825619588,4,457,False
+unraveled,v0,3,rolling quantile,24 h,False,0.25,1.3919270833333333,0.06843833980292624,4,457,False
+unraveled,v0,3,two tiers,block above 99.9th percentile for 3 windows,False,1.0,18.41796875,0.2514780531501941,4,457,False
+unraveled,v0,4,daily recalibration,,True,0.25,1.3424479166666667,0.047596297402209616,4,457,False
+unraveled,v0,4,fixed threshold,,True,1.0,24.783854166666668,0.36906539265452376,4,457,False
+unraveled,v0,4,k of n on daily,3 of 6,False,0.0,1.119140625,0.02866527321588534,4,457,False
+unraveled,v0,4,k of n on fixed,2 of 3,False,1.0,24.294921875,0.3310839056434757,4,457,False
+unraveled,v0,4,per-source threshold,previous day,True,0.5,3.3977864583333335,0.08951925948044193,4,457,False
+unraveled,v0,4,rolling quantile,24 h,False,0.25,1.1907552083333333,0.04526724395341893,4,457,False
+unraveled,v0,4,two tiers,block above 99.9th percentile for 3 windows,False,1.0,17.207682291666668,0.23678710062705285,4,457,False
+unsw,token distance,0,daily recalibration,,True,0.0,0.5217391304347826,0.054901960784313725,4,37,False
+unsw,token distance,0,fixed threshold,,True,1.0,5.115942028985507,0.5058823529411764,4,37,False
+unsw,token distance,0,k of n on daily,6 of 12,True,0.0,0.4492753623188406,0.047058823529411764,4,37,False
+unsw,token distance,0,k of n on fixed,6 of 12,True,1.0,3.5942028985507246,0.24313725490196078,4,37,False
+unsw,token distance,0,per-source threshold,previous day,True,0.25,1.7971014492753623,0.27450980392156865,4,37,False
+unsw,token distance,0,rolling quantile,1 h,True,1.0,1.7971014492753623,0.23137254901960785,4,37,False
+unsw,token distance,0,two tiers,block above 99.9th percentile for 6 windows,True,1.0,3.420289855072464,0.2196078431372549,4,37,False
+unsw,token distance,1,daily recalibration,,True,0.0,0.43478260869565216,0.054901960784313725,4,37,False
+unsw,token distance,1,fixed threshold,,True,1.0,5.144927536231884,0.5098039215686274,4,37,False
+unsw,token distance,1,k of n on daily,6 of 12,True,0.0,0.37681159420289856,0.047058823529411764,4,37,False
+unsw,token distance,1,k of n on fixed,6 of 12,True,1.0,3.608695652173913,0.24313725490196078,4,37,False
+unsw,token distance,1,per-source threshold,previous day,True,0.25,1.608695652173913,0.25882352941176473,4,37,False
+unsw,token distance,1,rolling quantile,1 h,True,1.0,1.7246376811594204,0.22745098039215686,4,37,False
+unsw,token distance,1,two tiers,block above 99.9th percentile for 6 windows,True,1.0,3.420289855072464,0.2196078431372549,4,37,False
+unsw,token distance,2,daily recalibration,,True,0.0,0.463768115942029,0.054901960784313725,4,37,False
+unsw,token distance,2,fixed threshold,,True,1.0,5.159420289855072,0.5294117647058824,4,37,False
+unsw,token distance,2,k of n on daily,6 of 12,True,0.0,0.42028985507246375,0.047058823529411764,4,37,False
+unsw,token distance,2,k of n on fixed,6 of 12,True,1.0,3.63768115942029,0.2784313725490196,4,37,False
+unsw,token distance,2,per-source threshold,previous day,True,0.5,1.7391304347826086,0.26666666666666666,4,37,False
+unsw,token distance,2,rolling quantile,1 h,True,1.0,1.8695652173913044,0.25098039215686274,4,37,False
+unsw,token distance,2,two tiers,block above 99.9th percentile for 6 windows,True,1.0,3.36231884057971,0.20392156862745098,4,37,False
+unsw,token distance,3,daily recalibration,,True,0.0,0.4492753623188406,0.054901960784313725,4,37,False
+unsw,token distance,3,fixed threshold,,True,1.0,5.202898550724638,0.5294117647058824,4,37,False
+unsw,token distance,3,k of n on daily,6 of 12,True,0.0,0.42028985507246375,0.047058823529411764,4,37,False
+unsw,token distance,3,k of n on fixed,6 of 12,True,1.0,3.7681159420289854,0.2901960784313726,4,37,False
+unsw,token distance,3,per-source threshold,previous day,True,0.25,1.318840579710145,0.23921568627450981,4,37,False
+unsw,token distance,3,rolling quantile,1 h,True,1.0,1.8985507246376812,0.25098039215686274,4,37,False
+unsw,token distance,3,two tiers,block above 99.9th percentile for 6 windows,True,1.0,3.608695652173913,0.27058823529411763,4,37,False
+unsw,token distance,4,daily recalibration,,True,0.0,0.463768115942029,0.054901960784313725,4,37,False
+unsw,token distance,4,fixed threshold,,True,1.0,5.188405797101449,0.5254901960784314,4,37,False
+unsw,token distance,4,k of n on daily,6 of 12,True,0.0,0.391304347826087,0.047058823529411764,4,37,False
+unsw,token distance,4,k of n on fixed,6 of 12,True,1.0,3.63768115942029,0.25098039215686274,4,37,False
+unsw,token distance,4,per-source threshold,previous day,True,0.25,1.855072463768116,0.27450980392156865,4,37,False
+unsw,token distance,4,rolling quantile,1 h,True,1.0,1.9565217391304348,0.25098039215686274,4,37,False
+unsw,token distance,4,two tiers,block above 99.9th percentile for 6 windows,True,1.0,3.3333333333333335,0.19607843137254902,4,37,False
+unsw,v0,0,daily recalibration,,True,0.0,0.391304347826087,0.043137254901960784,4,37,False
+unsw,v0,0,fixed threshold,,True,1.0,5.7101449275362315,0.6235294117647059,4,37,False
+unsw,v0,0,k of n on daily,6 of 12,True,0.0,0.37681159420289856,0.047058823529411764,4,37,False
+unsw,v0,0,k of n on fixed,6 of 12,True,1.0,3.9855072463768115,0.32941176470588235,4,37,False
+unsw,v0,0,per-source threshold,previous day,True,0.0,1.4202898550724639,0.23921568627450981,4,37,False
+unsw,v0,0,rolling quantile,1 h,True,1.0,1.9275362318840579,0.24313725490196078,4,37,False
+unsw,v0,0,two tiers,block above 99.9th percentile for 6 windows,True,1.0,3.7681159420289854,0.30196078431372547,4,37,False
+unsw,v0,1,daily recalibration,,True,0.0,0.42028985507246375,0.03137254901960784,4,37,False
+unsw,v0,1,fixed threshold,,True,1.0,5.463768115942029,0.5882352941176471,4,37,False
+unsw,v0,1,k of n on daily,6 of 12,True,0.0,0.2318840579710145,0.03137254901960784,4,37,False
+unsw,v0,1,k of n on fixed,6 of 12,True,1.0,3.8405797101449277,0.30196078431372547,4,37,False
+unsw,v0,1,per-source threshold,previous day,True,0.25,1.1884057971014492,0.2235294117647059,4,37,False
+unsw,v0,1,rolling quantile,1 h,True,1.0,1.8115942028985508,0.22745098039215686,4,37,False
+unsw,v0,1,two tiers,block above 99.9th percentile for 6 windows,True,1.0,3.6956521739130435,0.2823529411764706,4,37,False
+unsw,v0,2,daily recalibration,,True,0.0,0.42028985507246375,0.043137254901960784,4,37,False
+unsw,v0,2,fixed threshold,,True,1.0,5.565217391304348,0.611764705882353,4,37,False
+unsw,v0,2,k of n on daily,6 of 12,True,0.0,0.2898550724637681,0.0392156862745098,4,37,False
+unsw,v0,2,k of n on fixed,6 of 12,True,1.0,3.9420289855072466,0.3333333333333333,4,37,False
+unsw,v0,2,per-source threshold,previous day,True,0.25,1.2318840579710144,0.2196078431372549,4,37,False
+unsw,v0,2,rolling quantile,1 h,True,1.0,1.7971014492753623,0.24313725490196078,4,37,False
+unsw,v0,2,two tiers,block above 99.9th percentile for 6 windows,True,1.0,3.739130434782609,0.2980392156862745,4,37,False
+unsw,v0,3,daily recalibration,,True,0.0,0.4782608695652174,0.0392156862745098,4,37,False
+unsw,v0,3,fixed threshold,,True,1.0,5.797101449275362,0.6470588235294118,4,37,False
+unsw,v0,3,k of n on daily,6 of 12,True,0.0,0.37681159420289856,0.0392156862745098,4,37,False
+unsw,v0,3,k of n on fixed,6 of 12,True,1.0,4.028985507246377,0.34509803921568627,4,37,False
+unsw,v0,3,per-source threshold,previous day,True,0.25,1.318840579710145,0.23137254901960785,4,37,False
+unsw,v0,3,rolling quantile,1 h,True,1.0,1.9565217391304348,0.23921568627450981,4,37,False
+unsw,v0,3,two tiers,block above 99.9th percentile for 6 windows,True,1.0,3.753623188405797,0.2980392156862745,4,37,False
+unsw,v0,4,daily recalibration,,True,0.0,0.5072463768115942,0.043137254901960784,4,37,False
+unsw,v0,4,fixed threshold,,True,1.0,5.956521739130435,0.6627450980392157,4,37,False
+unsw,v0,4,k of n on daily,6 of 12,True,0.0,0.463768115942029,0.047058823529411764,4,37,False
+unsw,v0,4,k of n on fixed,6 of 12,True,1.0,4.115942028985507,0.36470588235294116,4,37,False
+unsw,v0,4,per-source threshold,previous day,True,0.0,1.2463768115942029,0.21568627450980393,4,37,False
+unsw,v0,4,rolling quantile,6 h,True,1.0,1.9855072463768115,0.24313725490196078,4,37,False
+unsw,v0,4,two tiers,block above 99.9th percentile for 6 windows,True,1.0,3.7681159420289854,0.3058823529411765,4,37,False

@@ -1,0 +1,17 @@
+{
+  "clean": {
+    "threshold": 3.2765480879098816,
+    "botnet_final_windows": 2259,
+    "botnet_detection": 0.8494909251881363,
+    "benign_window_false_alarm": 0.09302272675569306,
+    "botnet_auc": 0.9460102982246634
+  },
+  "full_poison": {
+    "threshold": 3.9418960955185844,
+    "botnet_final_windows": 2259,
+    "botnet_detection": 0.01239486498450642,
+    "benign_window_false_alarm": 0.02381873194258025,
+    "botnet_auc": 0.8225036776100849
+  },
+  "scope": "Single seed and family; full backbone retrained; both use same held-out original rows with poison-source indices removed. Threshold uses complete calibration population including injected calibration rows."
+}

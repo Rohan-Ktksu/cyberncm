@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CyberNCM research prototype</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230369a1'/%3E%3Cpath d='M8 20l5-8 4 6 3-4 4 6' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="description" content="CyberNCM: a research prototype that learns one site's normal network behaviour and flags unusual sources. Findings, limits and a clearly labelled in-browser simulation.">
+<style>
+:root{--bg:#ffffff;--fg:#0f172a;--mut:#475569;--line:#e2e8f0;--card:#f8fafc;--acc:#0369a1;--warn-bg:#fef3c7;--warn-fg:#78350f;--bad-bg:#fee2e2;--bad-fg:#7f1d1d;--ok-bg:#dcfce7;--ok-fg:#14532d;--code:#f1f5f9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--fg:#e5e7eb;--mut:#94a3b8;--line:#1e293b;--card:#111a2e;--acc:#38bdf8;--warn-bg:#3b2a07;--warn-fg:#fde68a;--bad-bg:#3b1010;--bad-fg:#fecaca;--ok-bg:#0f2a1a;--ok-fg:#bbf7d0;--code:#0f172a}}
+:root[data-theme="dark"]{--bg:#0b1220;--fg:#e5e7eb;--mut:#94a3b8;--line:#1e293b;--card:#111a2e;--acc:#38bdf8;--warn-bg:#3b2a07;--warn-fg:#fde68a;--bad-bg:#3b1010;--bad-fg:#fecaca;--ok-bg:#0f2a1a;--ok-fg:#bbf7d0;--code:#0f172a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--acc)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+header.top{border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5}
+header.top .wrap{display:flex;gap:16px;align-items:center;justify-content:space-between;min-height:52px;flex-wrap:wrap}
+header.top strong{font-size:17px}
+nav a{margin-right:14px;text-decoration:none;font-size:14px;color:var(--mut)}
+nav a:hover{color:var(--acc)}
+.banner{background:var(--warn-bg);color:var(--warn-fg);padding:10px 0;font-size:14px;border-bottom:1px solid var(--line)}
+h1{font-size:clamp(28px,5vw,42px);line-height:1.15;margin:40px 0 12px}
+h2{font-size:26px;margin:0 0 12px;scroll-margin-top:70px}
+h3{font-size:18px;margin:22px 0 6px}
+section{padding:36px 0;border-bottom:1px solid var(--line)}
+.lead{font-size:19px;color:var(--mut);max-width:760px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.card b{display:block;margin-bottom:4px}
+.pill{display:inline-block;font-size:12px;padding:2px 9px;border-radius:99px;border:1px solid var(--line);white-space:nowrap}
+.pill.ok{background:var(--ok-bg);color:var(--ok-fg)}.pill.warn{background:var(--warn-bg);color:var(--warn-fg)}.pill.bad{background:var(--bad-bg);color:var(--bad-fg)}
+img.diagram{width:100%;height:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--card);position:sticky;top:0}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+.bars .row{display:grid;grid-template-columns:150px 1fr 90px;gap:10px;align-items:center;margin:8px 0;font-size:14px}
+.bars .track{background:var(--card);border:1px solid var(--line);border-radius:6px;height:20px;position:relative}
+.bars .fill{background:var(--acc);height:100%;border-radius:5px}
+.bars .rng{position:absolute;top:50%;height:2px;background:var(--fg);opacity:.6}
+@media (max-width:620px){.bars .row{grid-template-columns:1fr}}
+code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:.92em}
+.sim{border:2px solid var(--warn-fg);border-radius:12px;padding:14px;background:var(--card)}
+.simbanner{background:var(--warn-bg);color:var(--warn-fg);border-radius:8px;padding:8px 12px;font-weight:600;margin-bottom:12px;font-size:14px}
+.nodes{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.node{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--bg);min-height:230px}
+.node h3{margin-top:0}
+.log{font:12.5px/1.45 ui-monospace,Consolas,monospace;max-height:200px;overflow:auto;margin:8px 0 0;padding:0;list-style:none}
+.log li{padding:2px 0;border-bottom:1px dotted var(--line)}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+button{font:inherit;padding:7px 13px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
+button:hover:not(:disabled){border-color:var(--acc)}button:disabled{opacity:.45;cursor:not-allowed}
+button.danger{border-color:var(--bad-fg);color:var(--bad-fg)}
+label.sw{display:inline-flex;gap:6px;align-items:center;font-size:14px}
+canvas{width:100%;height:110px;display:block;background:var(--bg);border:1px solid var(--line);border-radius:6px}
+.meter{height:10px;border-radius:5px;background:var(--line);overflow:hidden}.meter i{display:block;height:100%;background:var(--acc);width:0}
+footer{padding:28px 0 60px;color:var(--mut);font-size:14px}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <strong>CyberNCM</strong>
+  <nav aria-label="Sections"><a href="#overview">Overview</a><a href="#approach">Approach</a><a href="#findings">Findings</a><a href="#research">Research index</a><a href="#demo">Demo</a><a href="#limits">Limits</a><a href="#team">Team</a></nav>
+</div></header>
+<div class="banner"><div class="wrap"><b>Research prototype, not a production security system.</b> Results come from public lab datasets and have not been independently reproduced. This page contains no live data and controls no network.</div></div>
+
+<main class="wrap">
+<section id="overview">
+  <h1>Can a firewall learn one site's normal behaviour, and spot what it has never seen?</h1>
+  <p class="lead">CyberNCM studies an unsupervised detector, trained only on a site's normal traffic, that flags source addresses behaving unusually. The project also tested whether sites sharing blocks with each other would help. It did not, on this evidence, so version 1 is a single-site detector that alerts and shows what it <em>would</em> block.</p>
+  <div class="grid" style="margin-top:18px">
+    <div class="card"><b>Research question</b>Does a model trained on benign flows alone detect attack families it never saw, and is it safe enough to act on?</div>
+    <div class="card"><b>What v1 is</b>A per-site detector in alert and shadow mode. A person decides what, if anything, to block.</div>
+    <div class="card"><b>What v1 is not</b>An autonomous blocker, a predictor of the next attack stage, or a mesh of cooperating sites.</div>
+    <div class="card"><b>Intended users</b>Researchers and small-site operators who want to evaluate behaviour-based alerting in shadow mode.</div>
+  </div>
+</section>
+
+<section id="approach">
+  <h2>Approach and architecture</h2>
+  <p>Flow records are cut into 5-second windows per source address. Each window is 32 numbers (counts, timing, TCP flag ratios, packet and byte statistics, fan-out); no payload and no text. A 2-layer GRU summarises each source's recent windows. The score combines the distance to the nearest of 512 learned "normal behaviour" centres, the distance of the GRU state to the nearest of 512 normal states, and two next-window surprise terms. It is standardised on the site's own normal period and smoothed per source.</p>
+  <img class="diagram" src="assets/architecture.svg" alt="Architecture: flow records, 5-second windows, scoring model, calibration, then alerts and a would-block list in shadow mode. Automatic blocking, prediction and sharing are outside v1.">
+  <h3>The local two-node demonstration</h3>
+  <p>Separately, a local demonstration shows how a signed directive could pass a policy gate before any block is applied. It runs two processes on one laptop, replays recorded traffic through a frozen FP32 model, and maps one recorded subject to a loopback client. It does not independently detect that client's live traffic, and two processes on one machine do not establish decentralised consensus or independent corroboration.</p>
+  <img class="diagram" src="assets/demo-workflow.svg" alt="Two-node demo workflow: Node A scores recorded traffic and signs a directive; Node B checks it, a human approves, and a userspace gate on one local HTTP listener blocks one loopback client.">
+</section>
+
+<section id="findings">
+  <h2>Research findings</h2>
+  <p>Held-out attack families, mean of 5 seeds, on the later days of each dataset. AUC measures how well scores separate attack windows from normal ones; it is not a detection rate and not a statement about live performance. The bar marks the mean, the line the seed range.</p>
+  <div class="bars" id="bars" aria-label="Family-mean AUC by dataset"></div>
+  <div class="scroll" style="margin-top:14px"><table>
+    <thead><tr><th>Dataset</th><th>Family-mean AUC (range)</th><th>Worst family</th><th>False alerts per benign host-day at 80% attackers caught in 5 min (FA80)</th></tr></thead>
+    <tbody>
+      <tr><td>CIC-IDS2017</td><td>0.954 (0.942 to 0.966)</td><td>0.861</td><td>12.1</td></tr>
+      <tr><td>UNSW-NB15</td><td>0.942 (0.941 to 0.944)</td><td>0.938</td><td>3.0</td></tr>
+      <tr><td>CSE-CIC-IDS2018 (10% of sources)</td><td>0.989 (0.988 to 0.991)</td><td>0.982</td><td>0.24</td></tr>
+      <tr><td>Unraveled (five-week campaign)</td><td>0.894 (0.884 to 0.899)</td><td>0.760</td><td>13.5</td></tr>
+      <tr><td>CICAPT-IIoT (detection only)</td><td>0.697 (0.637 to 0.756)</td><td>0.654</td><td>8.7</td></tr>
+    </tbody></table></div>
+  <p><b>How to read FA80.</b> It is a retrospective, labelled evaluation metric: the threshold is chosen using the test split's own labels, so it is a best case, not a guaranteed operating point of a deployed system. It rests on 2 to 11 attacking sources per dataset.</p>
+  <h3>What the evidence says</h3>
+  <div class="grid">
+    <div class="card"><span class="pill ok">supported</span><br>Unseen attack families are separable from one site's normal traffic on these lab datasets.</div>
+    <div class="card"><span class="pill ok">supported</span><br>Refitting normalisation, centres and calibration on a new site's own normal traffic comes within 0.021 AUC of full retraining in six lab directions.</div>
+    <div class="card"><span class="pill bad">not supported</span><br>Automatic blocking: no alert policy reached 80% of attackers in 5 minutes with fewer than one false alert per host-day on the five-week campaign.</div>
+    <div class="card"><span class="pill bad">not supported</span><br>Prediction of the next attack stage: the attacker was flagged in the hour before only 1, 1 and 2 of 6 testable onsets.</div>
+    <div class="card"><span class="pill bad">not supported</span><br>Benefit from sharing blocks between sites: in simulation it sped the first block but spread false alerts, and a lying site was not stopped.</div>
+    <div class="card"><span class="pill warn">weak spot</span><br>A poisoned learning period left 6 of 20 testable attack families undetected.</div>
+  </div>
+</section>
+
+<section id="research">
+  <h2>Research index</h2>
+  <p>Every round in the repository is listed, including reduced, incomplete and negative ones. Evidence paths are inside the public repository.</p>
+  <label for="q" class="sr" style="font-size:14px">Filter rounds: </label><input id="q" type="search" placeholder="filter by round, topic or status" style="font:inherit;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);width:min(360px,100%)">
+  <div class="scroll" style="margin-top:10px;max-height:560px"><table id="idx">
+    <thead><tr><th>Round</th><th>Question</th><th>Dataset / scope</th><th>Method</th><th>Finding</th><th>Evidence</th><th>Limitations</th><th>Status</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section id="demo">
+  <h2>Demo: in-browser simulation</h2>
+  <p>This is an <b>illustration of the control flow</b>, running entirely in your browser on synthetic numbers. It is not the research model, it uses no dataset, makes no network requests and cannot affect any machine. Nothing here is recorded playback and nothing is real enforcement.</p>
+  <div class="sim" id="sim">
+    <div class="simbanner">SIMULATION · synthetic data generated in your browser · no real detector · no network · no enforcement</div>
+    <div class="btns">
+      <button id="bStart">Start</button><button id="bPause" disabled>Pause</button><button id="bReset">Reset</button>
+      <label class="sw"><input type="checkbox" id="auto"> Autonomous lab mode (simulated)</label>
+      <button id="bKill" class="danger">Emergency disable</button>
+      <button id="bReport">Generate report</button>
+    </div>
+    <div class="nodes">
+      <div class="node"><h3>Node A · detector <span class="pill" id="pA">idle</span></h3>
+        <canvas id="cv" width="560" height="110" role="img" aria-label="Synthetic risk score over time with threshold line"></canvas>
+        <div class="meter" aria-hidden="true"><i id="mt"></i></div>
+        <ul class="log" id="logA" aria-live="polite"></ul></div>
+      <div class="node"><h3>Node B · policy gate <span class="pill" id="pB">no block</span></h3>
+        <div id="pend" style="min-height:44px"></div>
+        <div style="font-size:14px">Synthetic lab client: <b id="cl">reachable</b> · control client: <b>reachable</b></div>
+        <ul class="log" id="logB" aria-live="polite"></ul></div>
+    </div>
+    <div id="repBox" class="node" style="margin-top:12px;min-height:0" hidden><h3>Simulation report <span class="pill">rule-based text</span></h3><div id="repOut"></div></div>
+    <p style="font-size:13px;color:var(--mut);margin:10px 0 0">Rules shown (simulated): human approval by default; signature, schema, allowlist and expiry checked before any action; in autonomous lab mode at most one automatic block per target per run, lasting at most 10 seconds, with no renewal; emergency disable releases the block and turns automation off. Signatures here are placeholders, not cryptography.</p>
+  </div>
+  <p style="font-size:14px;color:var(--mut)">The real local demonstration (frozen FP32 model, recorded traffic, one local HTTP listener) is in <code>demo/two_node/</code> and needs artifacts you build yourself; see the README.</p>
+</section>
+
+<section id="limits">
+  <h2>Limitations, open questions and next steps</h2>
+  <div class="grid">
+    <div class="card"><b>Data</b>Public lab datasets with few attackers (2 to 11 per dataset), partly approximated features, no live network, and known timestamp ambiguities in one dataset's reconstruction.</div>
+    <div class="card"><b>False alerts and drift</b>Thresholds drifted from 1% to 5 to 9% within a week; a fixed threshold is unusable over weeks. New benign sources are alerted heavily.</div>
+    <div class="card"><b>Poisoning and evasion</b>A poisoned learning period is a breach; mimicry and low-and-slow tests were weak; targeted adversaries were not tested. Induced or spoofed blocks breached on every seed.</div>
+    <div class="card"><b>Quantisation</b>INT8 is experimental. Similar AUC does not mean the same alert decisions: in one seed INT8 changed 41,403 of 99,515 decisions at the reference threshold, while FP32 preserved them.</div>
+    <div class="card"><b>Language models</b>One small model on CPU scored far below the GRU and followed an injected instruction. This does not show GRUs beat all language models, nor that the system is immune to prompt injection.</div>
+    <div class="card"><b>Reproducibility</b>Reruns were done by the authors. No independent human has reproduced the results. Trained models and datasets are not redistributed here.</div>
+    <div class="card"><b>Unresolved</b>The R12b block-rule sensitivity study is incomplete: the rebuilt site populations did not match the earlier run, so there is no verdict either way and no clearance for any mesh.</div>
+    <div class="card"><b>Next steps (proposed, not done)</b>Independent reproduction; shadow-mode trials on a real site; measure a real learning duration; packet-level features; a cleaner alert policy before revisiting sharing.</div>
+  </div>
+</section>
+
+<section id="team">
+  <h2>Team</h2>
+  <p>Rohan Sai, Yuvashree C and Sonia C.</p>
+  <p style="font-size:14px;color:var(--mut)">Licence, security contact and citation details are in the repository.</p>
+</section>
+</main>
+<footer><div class="wrap">Research prototype. Static page: no cookies, no analytics, no external requests.</div></footer>
+
+<script>
+"use strict";
+/* Repository base URL. Evidence paths link into this repository. */
+const REPO = "https://github.com/Rohan-Ktksu/cyberncm";
+const link = p => REPO ? `<a href="${REPO}/blob/main/${p}">${p}</a>` : `<code>${p}</code>`;
+const esc = s => String(s).replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+
+/* ---------- findings bars ---------- */
+const AUC = [["CIC-IDS2017",.954,.942,.966],["UNSW-NB15",.942,.941,.944],["CSE-CIC-IDS2018",.989,.988,.991],["Unraveled",.894,.884,.899],["CICAPT-IIoT",.697,.637,.756]];
+document.getElementById("bars").innerHTML = AUC.map(([n,m,lo,hi]) =>
+  `<div class="row"><span>${n}</span><div class="track"><div class="fill" style="width:${m*100}%"></div><div class="rng" style="left:${lo*100}%;width:${(hi-lo)*100}%"></div></div><b>${m.toFixed(3)}</b></div>`).join("");
+
+/* ---------- research index (every round in the repository) ---------- */
+const R = [
+["R1","Do the results hold on other networks?","CIC-IDS2017, UNSW-NB15, CSE-CIC-IDS2018 (10% of sources); 3 seeds","Unchanged pipeline in-domain and in all 6 cross-dataset directions","In-network family-mean AUC 0.94 to 0.99. Across networks near chance or inverted in 4 of 6 directions; thresholds do not transfer.","research/R1/README.md","UNSW features partly approximated; 2018 subsampled","Run; motivates per-site refit","ok"],
+["R2","Can it predict the next stage?","Unraveled five-week campaign; 3 seeds","Lead time before stage onsets against token distance, a stage head and shuffled order","Detects stages while they happen (0.79 to 0.999 AUC per stage). Attacker flagged in the hour before only 1, 1 and 2 of 6 testable onsets.","research/R2/README.md","One campaign; few testable onsets","Run; negative for prediction","bad"],
+["R3","Is detection just 'a new source'?","CIC-IDS2017, CSE-CIC-IDS2018, Unraveled; 3 seeds","Known-history vs new-source attackers; retrain without the gap feature","Attackers with history: AUC 0.953, 0.993, 0.830, not dependent on the gap feature. New benign sources alerted 92% to 94% of the time.","research/R3/README.md","Only 6, 10 and 3 attacking sources","Run","ok"],
+["R4","How low can false alarms go?","Five datasets; 5 seeds","Alert policies on top of the scores","Pre-set rule not met: no policy reaches 80% of attackers in 5 min with under one false alert per host-day on Unraveled. Product alerts, never blocks.","research/R4/README.md","Best-case thresholds use test labels","Run; rule not met","bad"],
+["R5","Do shorter windows work?","CIC-IDS2017, flow level; 3 seeds","0.5, 1 and 5 second windows","Shorter windows alert sooner (median 20 to 25 s against 81 s) but lose accuracy (AUC 0.917 at 1 s, 0.878 at 0.5 s, against 0.954). 5 s kept.","research/R5/README.md","No packet-level features; 0.05 s window not tried","Run; reduced","warn"],
+["R6a","Do running averages replace the GRU?","Five datasets; 5 seeds","History-only score and v0 plus history","GRU-removal rule not met; improvement rule not met.","research/R6a/README.md","Averages restart daily","Run; negative","bad"],
+["R6b","Compare each host to itself","Five datasets; 5 seeds","Self-centred, self-scaled and hour-of-day token distance","No candidate passes the improvement rule.","research/R6b/README.md","Self-centring can hide an early-starting campaign","Run; negative","bad"],
+["R6c","Unit of scoring","Five datasets; 5 seeds","Per source-destination and per source-service windows","Neither passes. Per-pair scoring is an open lead, not a result.","research/R6c/README.md","Benign population changes with the unit","Run; negative","bad"],
+["R6d","Which scoring function?","Five datasets; 5 seeds","Token distance variants, nearest neighbour, mixture model, autoencoder","None passes the improvement rule.","research/R6d/README.md","Same few attacking sources","Run; negative","bad"],
+["R6e","Backbone or objective","Five datasets; 3 to 5 seeds","Seed ensemble, Transformer at equal hidden size, masked-history objective","None beats v0. Transformer worse on two datasets; ensemble gains about 0.005 AUC at best for five times the compute.","research/R6e/README.md","Reduced: contrastive objective and state-space backbone not tried","Run; reduced; negative","warn"],
+["R6f","Supervised head on history features","Five datasets; 5 seeds","Supervised candidates against v0","Neither passes. A random forest trained without the test period is ahead on three datasets but needs labels.","research/R6f/README.md","Needs labelled attacks","Run; negative","bad"],
+["V1 (R6g)","Which detector ships?","Rounds R6a to R6f","Decision from the pre-set rule","v1 is v0: nothing tried passed, so the GRU stays and the product alerts without blocking.","research/V1/README.md","The GRU earns its place on one dataset only","Decision","ok"],
+["R7","Can v0 be fooled?","CIC-IDS2017 and CSE-CIC-IDS2018 (poisoning); 27 mimicry families","Mimicry, low-and-slow, poisoned learning period, text path review","A poisoned learning period blinds 6 of 20 testable families; one mimicry family breaches. No path from packet text to a directive in the code reviewed.","research/R7/README.md","Mimicry tests are weak; targeted adversaries untested","Run; breaches found","bad"],
+["R7m","Does trimming the learning period fix poisoning?","Same as R7","Trim the most unusual windows before refitting","Not adopted: fails the clean-data rule at every level.","research/R7m/README.md","Process defence (clean learning period) unmeasured","Run; negative","bad"],
+["R7d / R7f","Induced false blocks and spoofed sources","One site; 3 seeds","Add flows to a benign host; spoof unanswered flows","Both breach on every seed. The research block rule already blocks 29 to 42 of 48 benign host-days with nothing injected.","research/R7df/README.md","Cost of dropping unanswered flows on scan detection not measured","Run; breached","bad"],
+["R8","One shared model or one per site?","None","Skipped by decision","Not run; moot without a mesh.","research/G1.md","Unmeasured","Skipped","warn"],
+["R9","Cost on an edge-class CPU","Substitute: one pinned core of a cloud CPU","Latency and INT8 parity, 4 runs","0.44 to 0.45 ms per batch of 64 sources (INT8). INT8 parity failed in one of four runs. Not an edge board; feature extraction not included.","research/R9/README.md","No edge hardware tried","Run; substitute","warn"],
+["R10","What is already published?","Web searches","First-pass related-work scan","Sharing alerts between sites and federated IDS are established ideas. Search snippets only, not a literature review.","research/R10/README.md","Every row needs checking against the paper","First pass only","warn"],
+["R11","Can a new site start without retraining?","CIC-IDS2017, UNSW-NB15, CSE-CIC-IDS2018; Unraveled follow-up (1 seed)","Refit normalisation, centres and calibration on the target's normal traffic","Within 0.021 AUC of retraining in six lab directions. Unraveled seed 0: 1 to 3 days about 0.035 below reference; full span 0.887 vs 0.889; FA80 9 to 19. No validated duration.","research/R11/README.md","Clean lab data; '10 minutes' is the lab minimum, not a setting","Run; duration unanswered","warn"],
+["R12","What does sharing buy?","Virtual sites (2 and 4) on three datasets; 18 runs","Simulated sharing of blocks with a block rule","By the pre-set rule sharing does not help more than it harms: it speeds the first block, spreads false alerts, and a lying site is not stopped.","research/R12/README.md","One author-chosen block rule; random host split","Run; negative","bad"],
+["R12b","Does that depend on the block rule?","Virtual sites rebuilt from the R12 datasets; 72 runs planned","Four block rules, protocol committed before any run","Incomplete. Rebuilt site populations did not match R12 (83,558 and 77,938 against 83,567 and 77,862 windows) and six Friday input orders did not explain it. No verdict either way.","research/R12b/STATUS.md","Zero R12b result runs produced; protocol in the R12b README","Incomplete","warn"],
+["R13","Does risk rise on hosts a campaign touches next?","Unraveled; 3 seeds","Victim-side warning against an order-free control","No signal beyond the control.","research/R13/README.md","Only 2 victim hosts and 3 subnets testable","Run; negative","bad"],
+["R14","Language-model detector comparison","355 windows; one 0.5B model on CPU, one seed","Zero-shot and 6-shot, plus an injection check","AUC 0.64 against 0.93 for v0; all 24 flagged attack windows turned normal after an injected instruction.","research/R14/README.md","Says nothing about larger or fine-tuned models","Run; reduced","warn"],
+["Errors","What do misses and false alarms look like?","CIC-IDS2017, CSE-CIC-IDS2018, Unraveled; seed 0","Hard-set windows listed with feature contrasts","Qualitative look at missed windows and false alarms; examples in the result files.","research/errors/README.md","One seed; 20 examples per group","Run","ok"],
+["Features","Which features matter and drift?","Five datasets","Drift statistics and model-free importance","Between-network drift is several times day-to-day drift; see the README for features.","research/features/README.md","Single-feature AUC ignores interactions","Run","ok"],
+["Reproduction","Do stored results recompute?","UNSW-NB15 seed 0; one cross run","Author re-run in a pinned environment","Headline AUC 0.9409 against 0.9415; cross run 124 of 124 numbers identical; 216 of 261 UNSW numbers identical.","research/reproduction/README.md","Author-run, not independent","Run","ok"],
+["Rerun kit","Independent rerun","Kit for another person","Four levels of checks","Not done by anyone other than the authors.","research/RERUN/README.md","Needs stored artifacts that are not published","Blocked on a second person","warn"],
+["Audit","Cross-check of reporting and claims (13 Nov)","CIC-IDS2017 seeds 0 and 2; UNSW seed 0","Rebuilds, parity, poisoning, bootstrap reruns","Fixed tie handling; FP32 required for streaming; INT8 flipped 41,403 of 99,515 decisions in one seed; full-backbone poisoning cut Botnet AUC 0.946 to 0.823 (one seed); 30 seed-0 interval pairs regenerated.","research/audit/README.md","Author-run; one seed for several checks","Run","ok"],
+["G1","Is the mesh worth building?","All of the above","Five gate questions","Recommendation: build the single-site detector in alert and shadow mode; do not build the mesh on this evidence.","research/G1.md","A recommendation for the team, not an independent decision","Recommendation","ok"],
+["Product","Single-site console and agent","Replay of flow files","Sign-up, enrolment, learning period, would-block list","Implemented as a first slice in shadow mode: nothing blocks and nothing is shared.","product/README.md","Replay only; learning period not validated","Implemented (first slice)","ok"],
+["Two-node demo","How would a directive pass a policy gate?","Recorded traffic, frozen FP32 model, loopback only","Signed directives, human approval by default, opt-in 10 s lab mode","Works locally as an illustration and passes its automated tests. Not consensus, not corroboration, no live detection.","demo/two_node/DEMO_RUNBOOK.md","Needs model and data artifacts you build yourself","Implemented (illustration)","ok"]
+];
+const tb = document.querySelector("#idx tbody");
+function render(f){const q=(f||"").toLowerCase();
+  tb.innerHTML = R.filter(r=>r.join(" ").toLowerCase().includes(q)).map(r=>
+   `<tr><td><b>${esc(r[0])}</b></td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td><td>${esc(r[4])}</td><td>${link(r[5])}</td><td>${esc(r[6])}</td><td><span class="pill ${r[8]}">${esc(r[7])}</span></td></tr>`).join("");}
+render(""); document.getElementById("q").addEventListener("input",e=>render(e.target.value));
+
+/* ---------- synthetic simulation (no network, no real model) ---------- */
+(function(){
+  const $=id=>document.getElementById(id), cv=$("cv"), g=cv.getContext("2d");
+  const TH=.7, N=60, AUTO_S=10, HUMAN_S=30, TICK=500; // one tick = one synthetic 5 s window shown every 0.5 s
+  let t,series,timer,pending,block,autoUsed,autoOn,disabled,running,st;
+  let seed=12345; const rnd=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
+  const li=(ul,msg)=>{const e=document.createElement("li");e.textContent=msg;$(ul).prepend(e);while($(ul).children.length>40)$(ul).lastChild.remove()};
+  function reset(){st={w:0,d:0,b:[],exp:0,rej:0,kill:0};$("repBox").hidden=true;clearInterval(timer);seed=12345;t=0;series=[];pending=null;block=null;autoUsed=false;disabled=false;running=false;
+    $("logA").innerHTML="";$("logB").innerHTML="";$("pend").innerHTML="";$("cl").textContent="reachable";
+    $("pA").textContent="idle";$("pB").textContent="no block";$("pB").className="pill";$("bStart").disabled=false;$("bPause").disabled=true;$("mt").style.width="0";draw();}
+  function draw(){const w=cv.width,h=cv.height;g.clearRect(0,0,w,h);const css=getComputedStyle(document.documentElement);
+    g.strokeStyle="#b91c1c";g.setLineDash([5,4]);g.beginPath();g.moveTo(0,h*(1-TH));g.lineTo(w,h*(1-TH));g.stroke();g.setLineDash([]);
+    g.strokeStyle="#0369a1";g.lineWidth=2;g.beginPath();series.forEach((v,i)=>{const x=i/(N-1)*w,y=h*(1-v);i?g.lineTo(x,y):g.moveTo(x,y)});g.stroke();}
+  function score(i){const base=.28+.1*rnd(); return i>=22&&i<=34 ? Math.min(.98,.62+.07*(i-22)+.1*rnd()) : base;}
+  function fakeSig(){let s="";for(let i=0;i<12;i++)s+="0123456789abcdef"[Math.floor(rnd()*16)];return "sim-"+s}
+  function applyBlock(sec,mode){st.b.push(`${mode}, ${sec} s`);block={left:sec,mode};$("cl").textContent="BLOCKED (simulated)";$("pB").textContent=`block ${sec}s (${mode})`;$("pB").className="pill bad";
+    li("logB",`SIM: block applied to synthetic lab client for ${sec}s (${mode}). Control client unaffected.`);}
+  function expire(why){st.exp++;block=null;$("cl").textContent="reachable";$("pB").textContent="no block";$("pB").className="pill";li("logB",`SIM: ${why}; access restored. No renewal.`);$("mt").style.width="0"}
+  function directive(){st.d++;const d={id:fakeSig(),subject:"synthetic-subject-1",target:"lab-client",ttl:HUMAN_S};
+    li("logA",`SIM: score above threshold at window ${t}; emitting directive ${d.id}`);
+    li("logB",`SIM: checks passed (signature placeholder, schema, allowlist, expiry, replay)`);
+    if(disabled){li("logB","SIM: automation disabled; directive held for a human only");}
+    if(autoOn&&!disabled&&!autoUsed){autoUsed=true;applyBlock(AUTO_S,"autonomous lab");return}
+    if(autoOn&&autoUsed&&!disabled) li("logB","SIM: autonomous allowance already used this run; waiting for a human");
+    pending=d;$("pend").innerHTML=`<div class="pill warn">pending approval</div> <button id="ap">Approve block (${HUMAN_S}s max)</button> <button id="rj">Reject</button>`;
+    $("ap").onclick=()=>{if(!pending)return;pending=null;$("pend").innerHTML="";applyBlock(HUMAN_S,"human approved")};
+    $("rj").onclick=()=>{st.rej++;pending=null;$("pend").innerHTML="";li("logB","SIM: rejected by operator")};}
+  function step(){if(t>=N){clearInterval(timer);running=false;$("pA").textContent="replay finished";$("bPause").disabled=true;$("bStart").disabled=true;return}
+    const v=score(t);series.push(v);st.w++;$("pA").textContent=v>TH?"above threshold":"normal";
+    if(v>TH&&!pending&&!block&&!window.__sent){window.__sent=true;directive()}
+    if(v<=TH)window.__sent=false;
+    if(block){block.left-=5*TICK/1000*2;$("mt").style.width=Math.max(0,block.left/(block.mode==="autonomous lab"?AUTO_S:HUMAN_S)*100)+"%";if(block.left<=0)expire("block expired")}
+    t++;draw();}
+  $("bStart").onclick=()=>{if(running)return;running=true;$("bStart").disabled=true;$("bPause").disabled=false;timer=setInterval(step,TICK)};
+  $("bPause").onclick=()=>{clearInterval(timer);running=false;$("bStart").disabled=false;$("bPause").disabled=true};
+  $("bReset").onclick=()=>{window.__sent=false;reset()};
+  $("auto").onchange=e=>{autoOn=e.target.checked;li("logB",autoOn?"SIM: autonomous lab mode ON (one block, at most 10 s, no renewal)":"SIM: autonomous lab mode OFF (human approval)")};
+  $("bKill").onclick=()=>{st.kill=1;disabled=true;autoOn=false;$("auto").checked=false;pending=null;$("pend").innerHTML="";if(block)expire("emergency disable released the rule");else li("logB","SIM: emergency disable: automation off");};
+  $("bReport").onclick=()=>{
+    const S=[];
+    S.push(st.w?`As of synthetic window ${st.w}: ${st.w} windows scored; the synthetic score crossed the threshold ${st.d?"and "+st.d+" directive"+(st.d>1?"s were":" was")+" emitted":"but no directive was emitted yet"}.`:"No simulated windows yet: press Start.");
+    if(st.b.length)S.push(`Blocks applied to the synthetic lab client: ${st.b.length} (${st.b.join("; ")}). ${st.exp} ended by expiry or release; none was renewed.`);
+    else if(st.d)S.push("No block applied yet: the directive is waiting for a human decision"+(autoOn?" (the automatic allowance was already used or is disabled).":"."));
+    if(st.rej)S.push(`${st.rej} directive${st.rej>1?"s were":" was"} rejected by the operator.`);
+    S.push(autoOn?"Autonomous lab mode is ON: one automatic block per target per run, at most 10 seconds, no renewal.":"Autonomous lab mode is OFF: every block needs a human approval.");
+    if(st.kill)S.push("Emergency disable was used: the rule was released and automation turned off.");
+    S.push("Method: fixed templates over the simulation's own counters. No language model, no network, no real data. This is a simulation, not a detection result.");
+    const o=$("repOut");o.replaceChildren();const ul=document.createElement("ul");ul.style.margin="4px 0 0 18px";ul.style.padding="0";
+    S.forEach(x=>{const li=document.createElement("li");li.textContent=x;ul.appendChild(li)});o.appendChild(ul);$("repBox").hidden=false;};
+  window.__sent=false;autoOn=false;reset();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+ "NCM (all three signals) [ordered] fixed threshold": {
+  "r2_source_hour": 0.2896989625262203,
+  "metrics_source_hour": 0.2896989625262203,
+  "r2_window": 0.2994605080923786,
+  "metrics_window": 0.2994605080923786
+ },
+ "NCM (all three signals) [ordered] daily recalibration": {
+  "r2_source_hour": 0.10269856567832644,
+  "metrics_source_hour": 0.10269856567832644,
+  "r2_window": 0.03235051474227887,
+  "metrics_window": 0.03235051474227887
+ },
+ "NCM (all three signals) [ordered] daily recalibration, benign-only (uses labels)": {
+  "r2_source_hour": 0.10672373717330914,
+  "metrics_source_hour": 0.10672373717330914,
+  "r2_window": 0.03410148847767284,
+  "metrics_window": 0.03410148847767284
+ },
+ "token distance only [ordered] fixed threshold": {
+  "r2_source_hour": 0.14725891490447304,
+  "metrics_source_hour": 0.14725891490447304,
+  "r2_window": 0.043531347029794554,
+  "metrics_window": 0.043531347029794554
+ },
+ "token distance only [ordered] daily recalibration": {
+  "r2_source_hour": 0.11497250411021033,
+  "metrics_source_hour": 0.11497250411021033,
+  "r2_window": 0.024932626010609842,
+  "metrics_window": 0.024932626010609842
+ },
+ "token distance only [ordered] daily recalibration, benign-only (uses labels)": {
+  "r2_source_hour": 0.11899767560519303,
+  "metrics_source_hour": 0.11899767560519303,
+  "r2_window": 0.027052594211086835,
+  "metrics_window": 0.027052594211086835
+ },
+ "next-context surprise only [ordered] fixed threshold": {
+  "r2_source_hour": 0.4126084245138613,
+  "metrics_source_hour": 0.4126084245138613,
+  "r2_window": 0.49394859077113845,
+  "metrics_window": 0.49394859077113845
+ },
+ "next-context surprise only [ordered] daily recalibration": {
+  "r2_source_hour": 0.11131583423096547,
+  "metrics_source_hour": 0.11131583423096547,
+  "r2_window": 0.04787428188577171,
+  "metrics_window": 0.04787428188577171
+ },
+ "next-context surprise only [ordered] daily recalibration, benign-only (uses labels)": {
+  "r2_source_hour": 0.1151709280571461,
+  "metrics_source_hour": 0.1151709280571461,
+  "r2_window": 0.04968125478117828,
+  "metrics_window": 0.04968125478117828
+ }
+}

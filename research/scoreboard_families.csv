@@ -1,0 +1,233 @@
+version,dataset,model,split,family,n_seeds,mean_auc,min_auc,max_auc,commit
+v0,cic2017,"isolation forest, smoothed",dev,DoS GoldenEye,5,0.9879854953899219,0.9879854953899219,0.9879854953899219,aec4298
+v0,cic2017,"isolation forest, smoothed",dev,DoS Hulk,5,0.9981794768611671,0.998179476861167,0.998179476861167,aec4298
+v0,cic2017,"isolation forest, smoothed",dev,DoS Slowhttptest,5,0.9905280400350824,0.9905280400350823,0.9905280400350823,aec4298
+v0,cic2017,"isolation forest, smoothed",dev,DoS Slowloris,5,0.9961270680853682,0.9961270680853681,0.9961270680853681,aec4298
+v0,cic2017,"isolation forest, smoothed",dev,FTP-Patator,5,0.9109897999105744,0.9109897999105745,0.9109897999105745,aec4298
+v0,cic2017,"isolation forest, smoothed",dev,Heartbleed,5,0.990797512346808,0.990797512346808,0.990797512346808,aec4298
+v0,cic2017,"isolation forest, smoothed",dev,SSH-Patator,5,0.7845484549085558,0.7845484549085558,0.7845484549085558,aec4298
+v0,cic2017,"isolation forest, smoothed",final,Botnet,5,0.9117224773582931,0.9117224773582931,0.9117224773582931,aec4298
+v0,cic2017,"isolation forest, smoothed",final,DDoS,5,0.990348477637147,0.9903484776371468,0.9903484776371468,aec4298
+v0,cic2017,"isolation forest, smoothed",final,Infiltration,5,0.8412743887227233,0.8412743887227233,0.8412743887227233,aec4298
+v0,cic2017,"isolation forest, smoothed",final,Infiltration - Portscan,5,0.9798390195824052,0.9798390195824052,0.9798390195824052,aec4298
+v0,cic2017,"isolation forest, smoothed",final,Portscan,5,0.9977286244024193,0.9977286244024193,0.9977286244024193,aec4298
+v0,cic2017,"isolation forest, smoothed",final,Web Attack - Brute Force,5,0.9834046715866908,0.9834046715866908,0.9834046715866908,aec4298
+v0,cic2017,"isolation forest, smoothed",final,Web Attack - SQL Injection,5,0.9578830827096179,0.9578830827096178,0.9578830827096178,aec4298
+v0,cic2017,"isolation forest, smoothed",final,Web Attack - XSS,5,0.9931621066983173,0.9931621066983173,0.9931621066983173,aec4298
+v0,cic2017,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Botnet,1,0.8772375018834973,0.8772375018834973,0.8772375018834973,aec4298
+v0,cic2017,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,DDoS,1,0.999873444681712,0.999873444681712,0.999873444681712,aec4298
+v0,cic2017,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Infiltration,1,0.9490607731824205,0.9490607731824205,0.9490607731824205,aec4298
+v0,cic2017,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Infiltration - Portscan,1,0.9754201587669523,0.9754201587669523,0.9754201587669523,aec4298
+v0,cic2017,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Portscan,1,0.9969336916922057,0.9969336916922057,0.9969336916922057,aec4298
+v0,cic2017,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Web Attack - Brute Force,1,0.9993488801193042,0.9993488801193042,0.9993488801193042,aec4298
+v0,cic2017,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Web Attack - SQL Injection,1,0.9987442273130559,0.9987442273130559,0.9987442273130559,aec4298
+v0,cic2017,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Web Attack - XSS,1,0.998583353010348,0.998583353010348,0.998583353010348,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",dev,DoS GoldenEye,1,0.9999615907775484,0.9999615907775484,0.9999615907775484,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",dev,DoS Hulk,1,0.9999328271262705,0.9999328271262705,0.9999328271262705,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",dev,DoS Slowhttptest,1,0.999849600669174,0.999849600669174,0.999849600669174,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",dev,DoS Slowloris,1,0.9999580704623249,0.9999580704623249,0.9999580704623249,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",dev,FTP-Patator,1,0.9998760707797106,0.9998760707797106,0.9998760707797106,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",dev,Heartbleed,1,0.9998027764690414,0.9998027764690414,0.9998027764690414,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",dev,SSH-Patator,1,0.9998401987891086,0.9998401987891086,0.9998401987891086,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",final,Botnet,1,0.960886882194431,0.960886882194431,0.960886882194431,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",final,DDoS,1,0.9965662595599074,0.9965662595599074,0.9965662595599074,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",final,Infiltration,1,0.8663745098222726,0.8663745098222726,0.8663745098222726,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",final,Infiltration - Portscan,1,0.9653820372000935,0.9653820372000935,0.9653820372000935,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",final,Portscan,1,0.9919641213746679,0.9919641213746679,0.9919641213746679,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",final,Web Attack - Brute Force,1,0.9985289855923807,0.9985289855923807,0.9985289855923807,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",final,Web Attack - SQL Injection,1,0.9888643475059821,0.9888643475059821,0.9888643475059821,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",final,Web Attack - XSS,1,0.9999775874762785,0.9999775874762785,0.9999775874762785,aec4298
+v0,cic2017,"token distance, smoothed",dev,DoS GoldenEye,5,0.993548146018971,0.9865204413292944,0.9959858049395273,aec4298
+v0,cic2017,"token distance, smoothed",dev,DoS Hulk,5,0.9991268893360161,0.9989282897384306,0.9992817706237423,aec4298
+v0,cic2017,"token distance, smoothed",dev,DoS Slowhttptest,5,0.9984965175669401,0.9983738327400299,0.9985866480936904,aec4298
+v0,cic2017,"token distance, smoothed",dev,DoS Slowloris,5,0.9989361847943556,0.9985864532171194,0.9992081748130706,aec4298
+v0,cic2017,"token distance, smoothed",dev,FTP-Patator,5,0.9972810753409345,0.9968359881511291,0.9977104851330204,aec4298
+v0,cic2017,"token distance, smoothed",dev,Heartbleed,5,0.9982352295591733,0.9975452716297787,0.9988823852204134,aec4298
+v0,cic2017,"token distance, smoothed",dev,SSH-Patator,5,0.9817038769933031,0.9676104687828464,0.9895678849214691,aec4298
+v0,cic2017,"token distance, smoothed",final,Botnet,5,0.9553673440657061,0.9518236869561478,0.9580180155140203,aec4298
+v0,cic2017,"token distance, smoothed",final,DDoS,5,0.976080310410729,0.9701680543566289,0.9880905444637288,aec4298
+v0,cic2017,"token distance, smoothed",final,Infiltration,5,0.9054531335129902,0.8993060629744862,0.9133027924439253,aec4298
+v0,cic2017,"token distance, smoothed",final,Infiltration - Portscan,5,0.9906900109382079,0.9893988842904827,0.9928761769026117,aec4298
+v0,cic2017,"token distance, smoothed",final,Portscan,5,0.9970504291531659,0.9966733723541513,0.9973833194128028,aec4298
+v0,cic2017,"token distance, smoothed",final,Web Attack - Brute Force,5,0.9512528539738303,0.911063713619548,0.9914113841428205,aec4298
+v0,cic2017,"token distance, smoothed",final,Web Attack - SQL Injection,5,0.8785039925381621,0.812187668251549,0.9454512364356075,aec4298
+v0,cic2017,"token distance, smoothed",final,Web Attack - XSS,5,0.9528326467951047,0.9081697591611865,0.9950244282617887,aec4298
+v0,cic2017,"v0 NCM, smoothed",dev,DoS GoldenEye,5,0.9714759325181861,0.9394848210139961,0.9887312888318923,aec4298
+v0,cic2017,"v0 NCM, smoothed",dev,DoS Hulk,5,0.9989689818913481,0.9972692152917506,0.9994720321931589,aec4298
+v0,cic2017,"v0 NCM, smoothed",dev,DoS Slowhttptest,5,0.9949123716658927,0.9838524738172626,0.9986711293401433,aec4298
+v0,cic2017,"v0 NCM, smoothed",dev,DoS Slowloris,5,0.9878153989438816,0.9663478688726244,0.9977793397942238,aec4298
+v0,cic2017,"v0 NCM, smoothed",dev,FTP-Patator,5,0.9983594455622624,0.9968494019673598,0.9995606136820925,aec4298
+v0,cic2017,"v0 NCM, smoothed",dev,Heartbleed,5,0.9987839765867935,0.998355588073898,0.9991732211450521,aec4298
+v0,cic2017,"v0 NCM, smoothed",dev,SSH-Patator,5,0.9887277696026908,0.959930808732995,0.9983322922610288,aec4298
+v0,cic2017,"v0 NCM, smoothed",final,Botnet,5,0.9499750888158769,0.9450613537021678,0.9535807102471673,aec4298
+v0,cic2017,"v0 NCM, smoothed",final,DDoS,5,0.9825443046613735,0.9577022211577921,0.9980068209107004,aec4298
+v0,cic2017,"v0 NCM, smoothed",final,Infiltration,5,0.925153202494117,0.9124502643762413,0.9349522241111594,aec4298
+v0,cic2017,"v0 NCM, smoothed",final,Infiltration - Portscan,5,0.9918312367922214,0.9902874984090717,0.9931403324747956,aec4298
+v0,cic2017,"v0 NCM, smoothed",final,Portscan,5,0.9954316718611371,0.9934418051407382,0.9975077917055305,aec4298
+v0,cic2017,"v0 NCM, smoothed",final,Web Attack - Brute Force,5,0.9596258142023709,0.9310752432623952,0.9902303460006129,aec4298
+v0,cic2017,"v0 NCM, smoothed",final,Web Attack - SQL Injection,5,0.8650323422132236,0.8215801806310713,0.9337322079911429,aec4298
+v0,cic2017,"v0 NCM, smoothed",final,Web Attack - XSS,5,0.9628065201650831,0.9328744470497421,0.9882723358956598,aec4298
+v0,cicapt,"isolation forest, smoothed",dev,APT:collection,5,0.8993355448766513,0.8993355448766513,0.8993355448766513,aec4298
+v0,cicapt,"isolation forest, smoothed",final,APT:credential access,5,0.8152799068869585,0.8152799068869585,0.8152799068869585,aec4298
+v0,cicapt,"isolation forest, smoothed",final,APT:discovery,5,0.7974049200671582,0.7974049200671582,0.7974049200671582,aec4298
+v0,cicapt,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,APT:credential access,1,0.8946289672401068,0.8946289672401068,0.8946289672401068,aec4298
+v0,cicapt,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,APT:discovery,1,0.8872046621407889,0.8872046621407889,0.8872046621407889,aec4298
+v0,cicapt,"random forest, single windows (leave-one-family-out)",dev,APT:collection,1,0.9831765145605823,0.9831765145605823,0.9831765145605823,aec4298
+v0,cicapt,"random forest, single windows (leave-one-family-out)",final,APT:credential access,1,0.962817155393221,0.962817155393221,0.962817155393221,aec4298
+v0,cicapt,"random forest, single windows (leave-one-family-out)",final,APT:discovery,1,0.9591404254062329,0.9591404254062329,0.9591404254062329,aec4298
+v0,cicapt,"token distance, smoothed",dev,APT:collection,5,0.9356193764385855,0.9265324768563615,0.9447605724758462,aec4298
+v0,cicapt,"token distance, smoothed",final,APT:credential access,5,0.8439978992789416,0.8365568046329416,0.8489141543178335,aec4298
+v0,cicapt,"token distance, smoothed",final,APT:discovery,5,0.8221825194053094,0.8002767841934935,0.8473203640168383,aec4298
+v0,cicapt,"v0 NCM, smoothed",dev,APT:collection,5,0.8792943805874842,0.8532200864413995,0.9084631217034296,aec4298
+v0,cicapt,"v0 NCM, smoothed",final,APT:credential access,5,0.739878498836087,0.6769275535116107,0.7896227218531767,aec4298
+v0,cicapt,"v0 NCM, smoothed",final,APT:discovery,5,0.6541964133635059,0.5944217339465168,0.72287149913619,aec4298
+v0,d2018,"isolation forest, smoothed",dev,DDoS-HOIC,5,0.9873727365620273,0.9873727365620272,0.9873727365620272,aec4298
+v0,d2018,"isolation forest, smoothed",dev,DDoS-LOIC-UDP,5,0.9938727514233812,0.9938727514233812,0.9938727514233812,aec4298
+v0,d2018,"isolation forest, smoothed",dev,DoS GoldenEye,5,0.9841722910631215,0.9841722910631217,0.9841722910631217,aec4298
+v0,d2018,"isolation forest, smoothed",dev,DoS Slowloris,5,0.9893362386563164,0.9893362386563164,0.9893362386563164,aec4298
+v0,d2018,"isolation forest, smoothed",final,Botnet Ares,5,0.7818708966551642,0.7818708966551642,0.7818708966551642,aec4298
+v0,d2018,"isolation forest, smoothed",final,Web Attack - Brute Force,5,0.9430352261130605,0.9430352261130603,0.9430352261130603,aec4298
+v0,d2018,"isolation forest, smoothed",final,Web Attack - SQL,5,0.5586841968979,0.5586841968979,0.5586841968979,aec4298
+v0,d2018,"isolation forest, smoothed",final,Web Attack - XSS,5,0.943089606152412,0.943089606152412,0.943089606152412,aec4298
+v0,d2018,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Botnet Ares,1,0.5799873513725144,0.5799873513725144,0.5799873513725144,aec4298
+v0,d2018,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Web Attack - Brute Force,1,0.9751147139228435,0.9751147139228435,0.9751147139228435,aec4298
+v0,d2018,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Web Attack - SQL,1,0.9833862002295934,0.9833862002295934,0.9833862002295934,aec4298
+v0,d2018,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Web Attack - XSS,1,0.9910516196690748,0.9910516196690748,0.9910516196690748,aec4298
+v0,d2018,"random forest, single windows (leave-one-family-out)",dev,DDoS-HOIC,1,0.9999575005339043,0.9999575005339043,0.9999575005339043,aec4298
+v0,d2018,"random forest, single windows (leave-one-family-out)",dev,DDoS-LOIC-UDP,1,0.9989759123971226,0.9989759123971226,0.9989759123971226,aec4298
+v0,d2018,"random forest, single windows (leave-one-family-out)",dev,DoS GoldenEye,1,0.9999560418216065,0.9999560418216065,0.9999560418216065,aec4298
+v0,d2018,"random forest, single windows (leave-one-family-out)",dev,DoS Slowloris,1,0.9999492099399565,0.9999492099399565,0.9999492099399565,aec4298
+v0,d2018,"random forest, single windows (leave-one-family-out)",final,Botnet Ares,1,0.9995925784793802,0.9995925784793802,0.9995925784793802,aec4298
+v0,d2018,"random forest, single windows (leave-one-family-out)",final,Web Attack - Brute Force,1,0.9997159201587756,0.9997159201587756,0.9997159201587756,aec4298
+v0,d2018,"random forest, single windows (leave-one-family-out)",final,Web Attack - SQL,1,0.999816487316588,0.999816487316588,0.999816487316588,aec4298
+v0,d2018,"random forest, single windows (leave-one-family-out)",final,Web Attack - XSS,1,0.9998281918450544,0.9998281918450544,0.9998281918450544,aec4298
+v0,d2018,"token distance, smoothed",dev,DDoS-HOIC,5,0.9997794239874643,0.9995492632554869,0.9999008627700754,aec4298
+v0,d2018,"token distance, smoothed",dev,DDoS-LOIC-UDP,5,0.9999741579237493,0.9999642237555363,0.9999846316394441,aec4298
+v0,d2018,"token distance, smoothed",dev,DoS GoldenEye,5,0.998983495935898,0.9981605681860077,0.999609585016804,aec4298
+v0,d2018,"token distance, smoothed",dev,DoS Slowloris,5,0.9988022059205395,0.9981440416728941,0.9994488386702975,aec4298
+v0,d2018,"token distance, smoothed",final,Botnet Ares,5,0.9883770603787438,0.9875584655893477,0.9890892742501451,aec4298
+v0,d2018,"token distance, smoothed",final,Web Attack - Brute Force,5,0.9896097917591135,0.9891637376307424,0.990305981830932,aec4298
+v0,d2018,"token distance, smoothed",final,Web Attack - SQL,5,0.9766931216931216,0.9727953425343312,0.9784544740499064,aec4298
+v0,d2018,"token distance, smoothed",final,Web Attack - XSS,5,0.98748689116756,0.9848948380330926,0.9898664841140371,aec4298
+v0,d2018,"v0 NCM, smoothed",dev,DDoS-HOIC,5,0.9998721770444886,0.9996254598511612,0.9999512849142493,aec4298
+v0,d2018,"v0 NCM, smoothed",dev,DDoS-LOIC-UDP,5,0.9999268800756805,0.9998458542820137,0.9999839010022294,aec4298
+v0,d2018,"v0 NCM, smoothed",dev,DoS GoldenEye,5,0.9997783336691274,0.9993807732848399,0.9999525046828075,aec4298
+v0,d2018,"v0 NCM, smoothed",dev,DoS Slowloris,5,0.9997694129900994,0.9992274259820225,0.9999714892345596,aec4298
+v0,d2018,"v0 NCM, smoothed",final,Botnet Ares,5,0.9928006613941429,0.9907792403907,0.9943752576874432,aec4298
+v0,d2018,"v0 NCM, smoothed",final,Web Attack - Brute Force,5,0.989969150680675,0.9885765470683571,0.9907125884164478,aec4298
+v0,d2018,"v0 NCM, smoothed",final,Web Attack - SQL,5,0.9818480540666512,0.9745304556479109,0.985541659114253,aec4298
+v0,d2018,"v0 NCM, smoothed",final,Web Attack - XSS,5,0.9919660529791037,0.9904280276547813,0.9941168531033947,aec4298
+v0,unraveled,"isolation forest, smoothed",dev,APT:Lateral Movement,5,0.690311791756247,0.690311791756247,0.690311791756247,aec4298
+v0,unraveled,"isolation forest, smoothed",dev,APT:Reconnaissance,5,0.9782020421289788,0.9782020421289788,0.9782020421289788,aec4298
+v0,unraveled,"isolation forest, smoothed",final,AA:Reconnaissance,5,0.9738447267016316,0.9738447267016315,0.9738447267016315,aec4298
+v0,unraveled,"isolation forest, smoothed",final,APT:Cover up,5,0.8773041238424458,0.8773041238424457,0.8773041238424457,aec4298
+v0,unraveled,"isolation forest, smoothed",final,APT:Data Exfiltration,5,0.7643609562357495,0.7643609562357495,0.7643609562357495,aec4298
+v0,unraveled,"isolation forest, smoothed",final,APT:Establish Foothold,5,0.6404081224868201,0.6404081224868201,0.6404081224868201,aec4298
+v0,unraveled,"isolation forest, smoothed",final,APT:Lateral Movement,5,0.7380046064597336,0.7380046064597336,0.7380046064597336,aec4298
+v0,unraveled,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,AA:Reconnaissance,1,0.7327152456025379,0.7327152456025379,0.7327152456025379,aec4298
+v0,unraveled,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,APT:Cover up,1,0.8194133241292932,0.8194133241292932,0.8194133241292932,aec4298
+v0,unraveled,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,APT:Data Exfiltration,1,0.5797659751607305,0.5797659751607305,0.5797659751607305,aec4298
+v0,unraveled,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,APT:Establish Foothold,1,0.4814435741508586,0.4814435741508586,0.4814435741508586,aec4298
+v0,unraveled,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,APT:Lateral Movement,1,0.6225684218979983,0.6225684218979983,0.6225684218979983,aec4298
+v0,unraveled,"random forest, single windows (leave-one-family-out)",dev,APT:Lateral Movement,1,0.8726479499533133,0.8726479499533133,0.8726479499533133,aec4298
+v0,unraveled,"random forest, single windows (leave-one-family-out)",dev,APT:Reconnaissance,1,0.89038373419846,0.89038373419846,0.89038373419846,aec4298
+v0,unraveled,"random forest, single windows (leave-one-family-out)",final,AA:Reconnaissance,1,0.7787484816281844,0.7787484816281844,0.7787484816281844,aec4298
+v0,unraveled,"random forest, single windows (leave-one-family-out)",final,APT:Cover up,1,0.9640378445482195,0.9640378445482195,0.9640378445482195,aec4298
+v0,unraveled,"random forest, single windows (leave-one-family-out)",final,APT:Data Exfiltration,1,0.9538781928540917,0.9538781928540917,0.9538781928540917,aec4298
+v0,unraveled,"random forest, single windows (leave-one-family-out)",final,APT:Establish Foothold,1,0.9863752345542046,0.9863752345542046,0.9863752345542046,aec4298
+v0,unraveled,"random forest, single windows (leave-one-family-out)",final,APT:Lateral Movement,1,0.9262200831956513,0.9262200831956513,0.9262200831956513,aec4298
+v0,unraveled,"token distance, smoothed",dev,APT:Lateral Movement,5,0.7054791893273581,0.6887553116058109,0.7176347062768662,aec4298
+v0,unraveled,"token distance, smoothed",dev,APT:Reconnaissance,5,0.99868156081387,0.9977163919679558,0.9989961342321944,aec4298
+v0,unraveled,"token distance, smoothed",final,AA:Reconnaissance,5,0.9977710494702201,0.9970699391445914,0.9981592463150887,aec4298
+v0,unraveled,"token distance, smoothed",final,APT:Cover up,5,0.9322592174717869,0.9188477441052038,0.9369400010326205,aec4298
+v0,unraveled,"token distance, smoothed",final,APT:Data Exfiltration,5,0.8382085783836206,0.8250563932945474,0.8604801713964099,aec4298
+v0,unraveled,"token distance, smoothed",final,APT:Establish Foothold,5,0.729359493413687,0.7127342230446864,0.7365460042430778,aec4298
+v0,unraveled,"token distance, smoothed",final,APT:Lateral Movement,5,0.7887861976009729,0.7834829979442955,0.7913686364978779,aec4298
+v0,unraveled,"v0 NCM, smoothed",dev,APT:Lateral Movement,5,0.8142143034572495,0.8031633520764484,0.8346723259698321,aec4298
+v0,unraveled,"v0 NCM, smoothed",dev,APT:Reconnaissance,5,0.9985249190265175,0.9979013522356703,0.9989484265547374,aec4298
+v0,unraveled,"v0 NCM, smoothed",final,AA:Reconnaissance,5,0.9975573349491673,0.9947150218547509,0.9985009602899232,aec4298
+v0,unraveled,"v0 NCM, smoothed",final,APT:Cover up,5,0.8963327277642698,0.879084834586386,0.9175943164052155,aec4298
+v0,unraveled,"v0 NCM, smoothed",final,APT:Data Exfiltration,5,0.947550126528854,0.9312057490124178,0.9743154897693673,aec4298
+v0,unraveled,"v0 NCM, smoothed",final,APT:Establish Foothold,5,0.8665882977614491,0.8301451298089675,0.8838006294576497,aec4298
+v0,unraveled,"v0 NCM, smoothed",final,APT:Lateral Movement,5,0.7597942320973458,0.7332690219137415,0.7823649006001887,aec4298
+v0,unsw,"isolation forest, smoothed",dev,Analysis,5,0.9039402759810263,0.9039402759810263,0.9039402759810263,aec4298
+v0,unsw,"isolation forest, smoothed",dev,Backdoor,5,0.9137724547789666,0.9137724547789667,0.9137724547789667,aec4298
+v0,unsw,"isolation forest, smoothed",dev,DoS,5,0.9133732748261666,0.9133732748261666,0.9133732748261666,aec4298
+v0,unsw,"isolation forest, smoothed",dev,Exploits,5,0.9125638711854516,0.9125638711854516,0.9125638711854516,aec4298
+v0,unsw,"isolation forest, smoothed",dev,Fuzzers,5,0.9110292739261002,0.9110292739261001,0.9110292739261001,aec4298
+v0,unsw,"isolation forest, smoothed",dev,Generic,5,0.9369628179529508,0.9369628179529509,0.9369628179529509,aec4298
+v0,unsw,"isolation forest, smoothed",dev,Reconnaissance,5,0.9200842438750779,0.920084243875078,0.920084243875078,aec4298
+v0,unsw,"isolation forest, smoothed",dev,Shellcode,5,0.9232466272408058,0.9232466272408058,0.9232466272408058,aec4298
+v0,unsw,"isolation forest, smoothed",dev,Worms,5,0.9110013992660452,0.9110013992660453,0.9110013992660453,aec4298
+v0,unsw,"isolation forest, smoothed",final,Analysis,5,0.9094477095737231,0.9094477095737231,0.9094477095737231,aec4298
+v0,unsw,"isolation forest, smoothed",final,Backdoor,5,0.9112425636759156,0.9112425636759155,0.9112425636759155,aec4298
+v0,unsw,"isolation forest, smoothed",final,DoS,5,0.91153834405736,0.91153834405736,0.91153834405736,aec4298
+v0,unsw,"isolation forest, smoothed",final,Exploits,5,0.910506848993634,0.9105068489936339,0.9105068489936339,aec4298
+v0,unsw,"isolation forest, smoothed",final,Fuzzers,5,0.910423751482947,0.9104237514829469,0.9104237514829469,aec4298
+v0,unsw,"isolation forest, smoothed",final,Generic,5,0.9324653034912671,0.9324653034912671,0.9324653034912671,aec4298
+v0,unsw,"isolation forest, smoothed",final,Reconnaissance,5,0.9179889421071155,0.9179889421071155,0.9179889421071155,aec4298
+v0,unsw,"isolation forest, smoothed",final,Shellcode,5,0.9193038716837915,0.9193038716837915,0.9193038716837915,aec4298
+v0,unsw,"isolation forest, smoothed",final,Worms,5,0.910961119845205,0.910961119845205,0.910961119845205,aec4298
+v0,unsw,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Analysis,1,0.9676015701682101,0.9676015701682101,0.9676015701682101,aec4298
+v0,unsw,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Backdoor,1,0.9632394616560327,0.9632394616560327,0.9632394616560327,aec4298
+v0,unsw,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,DoS,1,0.9596139412761363,0.9596139412761363,0.9596139412761363,aec4298
+v0,unsw,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Exploits,1,0.957472175342901,0.957472175342901,0.957472175342901,aec4298
+v0,unsw,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Fuzzers,1,0.9586678173385816,0.9586678173385816,0.9586678173385816,aec4298
+v0,unsw,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Generic,1,0.9534665246791373,0.9534665246791373,0.9534665246791373,aec4298
+v0,unsw,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Reconnaissance,1,0.9545014436187854,0.9545014436187854,0.9545014436187854,aec4298
+v0,unsw,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Shellcode,1,0.9661917809225539,0.9661917809225539,0.9661917809225539,aec4298
+v0,unsw,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,Worms,1,0.9657160781231104,0.9657160781231104,0.9657160781231104,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",dev,Analysis,1,0.9945014208028619,0.9945014208028619,0.9945014208028619,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",dev,Backdoor,1,0.996806050077284,0.996806050077284,0.996806050077284,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",dev,DoS,1,0.9973926081003383,0.9973926081003383,0.9973926081003383,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",dev,Exploits,1,0.9961788267670835,0.9961788267670835,0.9961788267670835,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",dev,Fuzzers,1,0.9971353247977218,0.9971353247977218,0.9971353247977218,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",dev,Generic,1,0.9945027518024881,0.9945027518024881,0.9945027518024881,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",dev,Reconnaissance,1,0.9928185329638181,0.9928185329638181,0.9928185329638181,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",dev,Shellcode,1,0.9965448701979924,0.9965448701979924,0.9965448701979924,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",dev,Worms,1,0.9968616638745159,0.9968616638745159,0.9968616638745159,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",final,Analysis,1,0.9870360341610502,0.9870360341610502,0.9870360341610502,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",final,Backdoor,1,0.9952871281366136,0.9952871281366136,0.9952871281366136,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",final,DoS,1,0.9953457512043667,0.9953457512043667,0.9953457512043667,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",final,Exploits,1,0.9929992831494835,0.9929992831494835,0.9929992831494835,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",final,Fuzzers,1,0.9939644868488628,0.9939644868488628,0.9939644868488628,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",final,Generic,1,0.9893476815919221,0.9893476815919221,0.9893476815919221,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",final,Reconnaissance,1,0.9874088645733695,0.9874088645733695,0.9874088645733695,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",final,Shellcode,1,0.9934245464498398,0.9934245464498398,0.9934245464498398,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",final,Worms,1,0.9936565199888521,0.9936565199888521,0.9936565199888521,aec4298
+v0,unsw,"token distance, smoothed",dev,Analysis,5,0.9483336413478716,0.9461686841618925,0.9496315376085751,aec4298
+v0,unsw,"token distance, smoothed",dev,Backdoor,5,0.9463729211614293,0.945077027860434,0.948058366332419,aec4298
+v0,unsw,"token distance, smoothed",dev,DoS,5,0.9456660989841759,0.9442956682238945,0.947412292860223,aec4298
+v0,unsw,"token distance, smoothed",dev,Exploits,5,0.9458683887684376,0.9444516781192072,0.9475712771935518,aec4298
+v0,unsw,"token distance, smoothed",dev,Fuzzers,5,0.9487094751799438,0.9470424969290339,0.9496198111279329,aec4298
+v0,unsw,"token distance, smoothed",dev,Generic,5,0.9567689412350491,0.9557390775329907,0.9574448253457019,aec4298
+v0,unsw,"token distance, smoothed",dev,Reconnaissance,5,0.9459434155506286,0.9446229686181356,0.9479065015372944,aec4298
+v0,unsw,"token distance, smoothed",dev,Shellcode,5,0.9449190712612447,0.943589478639608,0.9472853409221456,aec4298
+v0,unsw,"token distance, smoothed",dev,Worms,5,0.9444819195466027,0.9428666033036759,0.9463427673786203,aec4298
+v0,unsw,"token distance, smoothed",final,Analysis,5,0.9416632976344823,0.9400300259866635,0.9430952007638504,aec4298
+v0,unsw,"token distance, smoothed",final,Backdoor,5,0.938216786604636,0.9374937165520226,0.9390357111114672,aec4298
+v0,unsw,"token distance, smoothed",final,DoS,5,0.9379460611176011,0.9372808597839238,0.9387698807993587,aec4298
+v0,unsw,"token distance, smoothed",final,Exploits,5,0.9379404623995755,0.9373417637895901,0.9387072991554503,aec4298
+v0,unsw,"token distance, smoothed",final,Fuzzers,5,0.9423117408003012,0.9417025831589971,0.9427745985712366,aec4298
+v0,unsw,"token distance, smoothed",final,Generic,5,0.948831576210291,0.9486059155708284,0.9491845445717343,aec4298
+v0,unsw,"token distance, smoothed",final,Reconnaissance,5,0.9380683487248198,0.9371222263207604,0.9391446081395433,aec4298
+v0,unsw,"token distance, smoothed",final,Shellcode,5,0.9366651484036199,0.9355080567777636,0.9381052331475628,aec4298
+v0,unsw,"token distance, smoothed",final,Worms,5,0.9374499637199177,0.936628522191317,0.9383979320353126,aec4298
+v0,unsw,"v0 NCM, smoothed",dev,Analysis,5,0.9492141009055628,0.9479055011396539,0.9524618061972524,aec4298
+v0,unsw,"v0 NCM, smoothed",dev,Backdoor,5,0.9470630986816285,0.9458873829631275,0.948389049356388,aec4298
+v0,unsw,"v0 NCM, smoothed",dev,DoS,5,0.945674281838761,0.9445748063992165,0.9473798587343956,aec4298
+v0,unsw,"v0 NCM, smoothed",dev,Exploits,5,0.9461377674587217,0.9451280594346493,0.9477635045593665,aec4298
+v0,unsw,"v0 NCM, smoothed",dev,Fuzzers,5,0.9513095513472475,0.9506963703852385,0.9519564634709036,aec4298
+v0,unsw,"v0 NCM, smoothed",dev,Generic,5,0.9631500053592518,0.9594850739305276,0.9696533242745554,aec4298
+v0,unsw,"v0 NCM, smoothed",dev,Reconnaissance,5,0.9456569320480753,0.9444961449811841,0.9475884230587078,aec4298
+v0,unsw,"v0 NCM, smoothed",dev,Shellcode,5,0.9446360204688148,0.9432301630312626,0.9461513583441138,aec4298
+v0,unsw,"v0 NCM, smoothed",dev,Worms,5,0.9441877656625393,0.9438269486319755,0.9446552877295809,aec4298
+v0,unsw,"v0 NCM, smoothed",final,Analysis,5,0.9439080925676455,0.942544232170027,0.9454266882190979,aec4298
+v0,unsw,"v0 NCM, smoothed",final,Backdoor,5,0.9395545964241535,0.9379269102046109,0.9427441292561709,aec4298
+v0,unsw,"v0 NCM, smoothed",final,DoS,5,0.939324853851112,0.9379500984715405,0.9418624461253245,aec4298
+v0,unsw,"v0 NCM, smoothed",final,Exploits,5,0.9393604474904471,0.9380770599776546,0.9417229302754577,aec4298
+v0,unsw,"v0 NCM, smoothed",final,Fuzzers,5,0.9452724571321381,0.9440218207817813,0.9463430889300365,aec4298
+v0,unsw,"v0 NCM, smoothed",final,Generic,5,0.9559255429443393,0.951521391207538,0.9627646168118248,aec4298
+v0,unsw,"v0 NCM, smoothed",final,Reconnaissance,5,0.9387775443029183,0.9372062770086802,0.9415046246120397,aec4298
+v0,unsw,"v0 NCM, smoothed",final,Shellcode,5,0.9379439082803354,0.9362790085252543,0.9406744365567602,aec4298
+v0,unsw,"v0 NCM, smoothed",final,Worms,5,0.9379060345870117,0.936431249244165,0.9393797617607933,aec4298

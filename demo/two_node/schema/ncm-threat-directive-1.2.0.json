@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mesh.zero-trust.internal/schemas/v1/ncm-threat-directive-1.2.0.json",
+  "title": "NCMThreatDirective 1.2.0 (two-node demo)",
+  "description": "ncm/schemas/ncm-threat-directive.json (1.1.0) with the fields the two-node demo needs: event_id, expires_ns, model identity, detection evidence and input mode. ttl_seconds is capped at 30. Signing is unchanged: Ed25519 over sorted compact JSON of every field except ed25519_signature.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "node_id", "shard_id", "timestamp_ns", "monotonic_seq",
+               "rats_attestation_quote_sha256", "ncm_prediction", "enforcement_action", "ed25519_signature",
+               "event_id", "expires_ns", "model", "detection"],
+  "properties": {
+    "schema_version": { "type": "string", "enum": ["1.2.0"] },
+    "node_id": { "type": "string", "pattern": "^urn:ietf:params:rats:dice:[a-f0-9]{64}$" },
+    "shard_id": { "type": "integer", "minimum": 0, "maximum": 1023 },
+    "timestamp_ns": { "type": "integer", "minimum": 1700000000000000000 },
+    "expires_ns": { "type": "integer", "minimum": 1700000000000000000 },
+    "monotonic_seq": { "type": "integer", "minimum": 1 },
+    "event_id": { "type": "string", "pattern": "^[a-f0-9]{32}$" },
+    "rats_attestation_quote_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "ncm_prediction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["current_state_token", "predicted_next_token", "kill_chain_phase",
+                   "surprise_score", "hazard_probability", "horizon_ms"],
+      "properties": {
+        "current_state_token": { "type": "integer", "minimum": 0, "maximum": 2047 },
+        "predicted_next_token": { "type": "integer", "minimum": 0, "maximum": 2047 },
+        "kill_chain_phase": {
+          "type": "string",
+          "enum": ["RECONNAISSANCE", "INITIAL_ACCESS", "LATERAL_MOVEMENT", "COMMAND_AND_CONTROL", "EXFILTRATION", "IMPACT"]
+        },
+        "surprise_score": { "type": "number", "minimum": 0.0, "maximum": 50.0 },
+        "hazard_probability": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "horizon_ms": { "type": "integer", "enum": [50, 100, 150, 200, 250, 5000] }
+      }
+    },
+    "enforcement_action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["directive_type", "src_cidr", "dst_port", "ip_proto", "ttl_seconds"],
+      "properties": {
+        "directive_type": {
+          "type": "string",
+          "enum": ["OPTIMISTIC_RATE_LIMIT", "OPTIMISTIC_QUARANTINE_DROP", "COMMIT_BFT_BLOCKLIST", "REQUIRE_POT_STRICT"]
+        },
+        "src_cidr": { "type": "string", "pattern": "^([0-9]{1,3}\\.){3}[0-9]{1,3}/32$" },
+        "dst_port": { "type": "integer", "minimum": 0, "maximum": 65535 },
+        "ip_proto": { "type": "integer", "enum": [1, 6, 17, 47, 58] },
+        "ttl_seconds": { "type": "integer", "minimum": 5, "maximum": 30 }
+      }
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["format", "onnx_sha256", "checkpoint_sha256"],
+      "properties": {
+        "format": { "type": "string", "enum": ["onnx-fp32"] },
+        "onnx_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "checkpoint_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "detection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["input_mode", "windows_sha256", "recorded_offset_s", "risk", "threshold_r_block",
+                   "surprise_ewma", "hazard_ewma"],
+      "properties": {
+        "input_mode": { "type": "string", "enum": ["recorded-replay", "live", "test-injection"] },
+        "windows_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "recorded_offset_s": { "type": "number", "minimum": 0, "maximum": 172800 },
+        "risk": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "threshold_r_block": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "surprise_ewma": { "type": "number", "minimum": -1000.0, "maximum": 1000.0 },
+        "hazard_ewma": { "type": "number", "minimum": 0.0, "maximum": 1.0 }
+      }
+    },
+    "ed25519_signature": { "type": "string", "pattern": "^[a-f0-9]{128}$" }
+  }
+}

@@ -1,0 +1,314 @@
+{
+ "overall": {
+  "dev AUC": {
+   "baseline: isolation forest": 0.9696145251686349,
+   "baseline: isolation forest, smoothed": 0.9879724097579141,
+   "token distance only, smoothed": 0.9996354057851681,
+   "next-context surprise only, smoothed": 0.9974710376691764,
+   "NCM (all three signals), raw": 0.9984419014805641,
+   "NCM (all three signals), smoothed": 0.9996054816719284
+  },
+  "dev family-mean AUC": {
+   "baseline: isolation forest": 0.9694748684161202,
+   "baseline: isolation forest, smoothed": 0.9886885044262116,
+   "token distance only, smoothed": 0.9993767827218433,
+   "next-context surprise only, smoothed": 0.997434859730096,
+   "NCM (all three signals), raw": 0.9981760140697769,
+   "NCM (all three signals), smoothed": 0.9995586409088081
+  },
+  "dev worst family": {
+   "baseline: isolation forest": 0.9496105967440259,
+   "baseline: isolation forest, smoothed": 0.9841722910631217,
+   "token distance only, smoothed": 0.9988864530850234,
+   "next-context surprise only, smoothed": 0.9955615296015748,
+   "NCM (all three signals), raw": 0.9973280470275641,
+   "NCM (all three signals), smoothed": 0.999236940582772
+  },
+  "dev detect@1%": {
+   "baseline: isolation forest": 0.0659536541889483,
+   "baseline: isolation forest, smoothed": 0.9987267634326458,
+   "token distance only, smoothed": 1.0,
+   "next-context surprise only, smoothed": 1.0,
+   "NCM (all three signals), raw": 0.9998726763432646,
+   "NCM (all three signals), smoothed": 1.0
+  },
+  "dev false@1%": {
+   "baseline: isolation forest": 0.01246584489588582,
+   "baseline: isolation forest, smoothed": 0.018913836964937508,
+   "token distance only, smoothed": 0.04931853654340105,
+   "next-context surprise only, smoothed": 0.044816412474857334,
+   "NCM (all three signals), raw": 0.020327151617938036,
+   "NCM (all three signals), smoothed": 0.052636753554793594
+  },
+  "dev detect@0.1%": {
+   "baseline: isolation forest": 0.023172905525846704,
+   "baseline: isolation forest, smoothed": 0.009039979628214923,
+   "token distance only, smoothed": 1.0,
+   "next-context surprise only, smoothed": 0.9994907053730583,
+   "NCM (all three signals), raw": 0.6050420168067226,
+   "NCM (all three signals), smoothed": 1.0
+  },
+  "dev false@0.1%": {
+   "baseline: isolation forest": 0.004420192784311798,
+   "baseline: isolation forest, smoothed": 0.0037565493820332888,
+   "token distance only, smoothed": 0.010519976895377847,
+   "next-context surprise only, smoothed": 0.018053558480502403,
+   "NCM (all three signals), raw": 0.001667301634119464,
+   "NCM (all three signals), smoothed": 0.02363717550090739
+  },
+  "final AUC": {
+   "baseline: isolation forest": 0.7226387003095474,
+   "baseline: isolation forest, smoothed": 0.7822682205800086,
+   "token distance only, smoothed": 0.9883361817809407,
+   "next-context surprise only, smoothed": 0.9995810448079301,
+   "NCM (all three signals), raw": 0.9882327068096562,
+   "NCM (all three signals), smoothed": 0.9928052664984014
+  },
+  "final family-mean AUC": {
+   "baseline: isolation forest": 0.6911273630179752,
+   "baseline: isolation forest, smoothed": 0.8066699814546341,
+   "token distance only, smoothed": 0.9842605431066166,
+   "next-context surprise only, smoothed": 0.9806725884512734,
+   "NCM (all three signals), raw": 0.9512978013637992,
+   "NCM (all three signals), smoothed": 0.9858775692279214
+  },
+  "final worst family": {
+   "baseline: isolation forest": 0.3548995744754309,
+   "baseline: isolation forest, smoothed": 0.5586841968979,
+   "token distance only, smoothed": 0.9746167689479271,
+   "next-context surprise only, smoothed": 0.9577968222753581,
+   "NCM (all three signals), raw": 0.8428879998618987,
+   "NCM (all three signals), smoothed": 0.9676670378138567
+  },
+  "final detect@1%": {
+   "baseline: isolation forest": 0.002239014833473272,
+   "baseline: isolation forest, smoothed": 0.0009515813042261405,
+   "token distance only, smoothed": 1.0,
+   "next-context surprise only, smoothed": 0.9990484186957739,
+   "NCM (all three signals), raw": 0.9993562832353764,
+   "NCM (all three signals), smoothed": 1.0
+  },
+  "final false@1%": {
+   "baseline: isolation forest": 0.010572516119008777,
+   "baseline: isolation forest, smoothed": 0.023681348558999456,
+   "token distance only, smoothed": 0.06599471762603899,
+   "next-context surprise only, smoothed": 0.04821331468966053,
+   "NCM (all three signals), raw": 0.021044045676998368,
+   "NCM (all three signals), smoothed": 0.08799425153421891
+  },
+  "final detect@0.1%": {
+   "baseline: isolation forest": 0.0012314581584102994,
+   "baseline: isolation forest, smoothed": 0.0,
+   "token distance only, smoothed": 0.9968653792331374,
+   "next-context surprise only, smoothed": 0.9986286034144977,
+   "NCM (all three signals), raw": 0.034872656031346205,
+   "NCM (all three signals), smoothed": 0.9995521970333053
+  },
+  "final false@0.1%": {
+   "baseline: isolation forest": 0.0031733084751029285,
+   "baseline: isolation forest, smoothed": 0.0021051813873999843,
+   "token distance only, smoothed": 0.015668453351977005,
+   "next-context surprise only, smoothed": 0.01777363473937699,
+   "NCM (all three signals), raw": 0.0015147984152878117,
+   "NCM (all three signals), smoothed": 0.019206867086149305
+  }
+ },
+ "per_family": {
+  "windows": {
+   "Botnet Ares": 35599,
+   "Web Attack - Brute Force": 73,
+   "Web Attack - SQL": 18,
+   "Web Attack - XSS": 40
+  },
+  "baseline: isolation forest, smoothed": {
+   "Botnet Ares": 0.7818708966551642,
+   "Web Attack - Brute Force": 0.9430352261130603,
+   "Web Attack - SQL": 0.5586841968979,
+   "Web Attack - XSS": 0.943089606152412
+  },
+  "token distance only, smoothed": {
+   "Botnet Ares": 0.9883466757283047,
+   "Web Attack - Brute Force": 0.987642873636974,
+   "Web Attack - SQL": 0.9746167689479271,
+   "Web Attack - XSS": 0.9864358541132603
+  },
+  "NCM (all three signals), smoothed": {
+   "Botnet Ares": 0.9928225969765366,
+   "Web Attack - Brute Force": 0.990960904686351,
+   "Web Attack - SQL": 0.9676670378138567,
+   "Web Attack - XSS": 0.9920597374349414
+  }
+ },
+ "time_to_alert": {
+  "sources": {
+   "Botnet Ares": 10,
+   "DDoS-HOIC": 10,
+   "DDoS-LOIC-UDP": 11,
+   "DoS GoldenEye": 1,
+   "DoS Slowloris": 1,
+   "Web Attack - Brute Force": 1,
+   "Web Attack - SQL": 1,
+   "Web Attack - XSS": 1
+  },
+  "detected": {
+   "Botnet Ares": 1.0,
+   "DDoS-HOIC": 1.0,
+   "DDoS-LOIC-UDP": 1.0,
+   "DoS GoldenEye": 1.0,
+   "DoS Slowloris": 1.0,
+   "Web Attack - Brute Force": 1.0,
+   "Web Attack - SQL": 1.0,
+   "Web Attack - XSS": 1.0
+  },
+  "median_windows_to_alert": {
+   "Botnet Ares": 1.0,
+   "DDoS-HOIC": 1.0,
+   "DDoS-LOIC-UDP": 1.0,
+   "DoS GoldenEye": 1.0,
+   "DoS Slowloris": 1.0,
+   "Web Attack - Brute Force": 1.0,
+   "Web Attack - SQL": 1.0,
+   "Web Attack - XSS": 1.0
+  }
+ },
+ "leave_family_out": {
+  "windows": {
+   "Botnet Ares": 35599.0,
+   "DDoS-HOIC": 6537.0,
+   "DDoS-LOIC-UDP": 656.0,
+   "DoS GoldenEye": 165.0,
+   "DoS Slowloris": 496.0,
+   "Web Attack - Brute Force": 73.0,
+   "Web Attack - SQL": 18.0,
+   "Web Attack - XSS": 40.0,
+   "MEAN": 5448.0
+  },
+  "RF single-window, smoothed": {
+   "Botnet Ares": 0.9995726434771031,
+   "DDoS-HOIC": 0.9999401880047019,
+   "DDoS-LOIC-UDP": 0.9975758658179311,
+   "DoS GoldenEye": 0.9999113974959803,
+   "DoS Slowloris": 0.999894471211966,
+   "Web Attack - Brute Force": 0.9998084265560531,
+   "Web Attack - SQL": 0.9998592174136385,
+   "Web Attack - XSS": 0.999888335372964,
+   "MEAN": 0.9995563181687921
+  },
+  "head without state": {
+   "Botnet Ares": 0.9901999592233949,
+   "DDoS-HOIC": 0.999996954246377,
+   "DDoS-LOIC-UDP": 0.7867277292082043,
+   "DoS GoldenEye": 0.9999958046164951,
+   "DoS Slowloris": 0.9996771249409011,
+   "Web Attack - Brute Force": 0.9999917590681154,
+   "Web Attack - SQL": 0.9998532656294996,
+   "Web Attack - XSS": 0.9999959825457062,
+   "MEAN": 0.9720548224348368
+  },
+  "NCM hazard H": {
+   "Botnet Ares": 0.9763316196474168,
+   "DDoS-HOIC": 0.9999978209498604,
+   "DDoS-LOIC-UDP": 0.8058454977527885,
+   "DoS GoldenEye": 0.9999852162676496,
+   "DoS Slowloris": 0.999810018274931,
+   "Web Attack - Brute Force": 1.0,
+   "Web Attack - SQL": 0.9996552543494951,
+   "Web Attack - XSS": 0.99997929465864,
+   "MEAN": 0.9727005902375977
+  },
+  "NCM surprise S": {
+   "Botnet Ares": 0.9946413978763455,
+   "DDoS-HOIC": 0.9997573999248988,
+   "DDoS-LOIC-UDP": 0.9999320437179425,
+   "DoS GoldenEye": 0.9996839477759659,
+   "DoS Slowloris": 0.9995136853301179,
+   "Web Attack - Brute Force": 0.9931937240449452,
+   "Web Attack - SQL": 0.9741994735875844,
+   "Web Attack - XSS": 0.9940666320547528,
+   "MEAN": 0.9943735380390691
+  },
+  "NCM risk R": {
+   "Botnet Ares": 0.9940107934301471,
+   "DDoS-HOIC": 0.9999980655178252,
+   "DDoS-LOIC-UDP": 0.9953105266045924,
+   "DoS GoldenEye": 0.9999852162676495,
+   "DoS Slowloris": 0.9998186247320202,
+   "Web Attack - Brute Force": 1.0,
+   "Web Attack - SQL": 0.9986619931426289,
+   "Web Attack - XSS": 0.999988359683713,
+   "MEAN": 0.998471697422322
+  },
+  "R detect@1%": {
+   "Botnet Ares": 1.0,
+   "DDoS-HOIC": 1.0,
+   "DDoS-LOIC-UDP": 1.0,
+   "DoS GoldenEye": 1.0,
+   "DoS Slowloris": 1.0,
+   "Web Attack - Brute Force": 1.0,
+   "Web Attack - SQL": 1.0,
+   "Web Attack - XSS": 1.0,
+   "MEAN": 1.0
+  },
+  "R false@1%": {
+   "Botnet Ares": 0.06472015855552946,
+   "DDoS-HOIC": 0.06489321812510558,
+   "DDoS-LOIC-UDP": 0.06400319748157121,
+   "DoS GoldenEye": 0.06409796819824386,
+   "DoS Slowloris": 0.06493854325047076,
+   "Web Attack - Brute Force": 0.0647448813511832,
+   "Web Attack - SQL": 0.06380129465039906,
+   "Web Attack - XSS": 0.06433283475695431,
+   "MEAN": 0.06444151204618218
+  }
+ },
+ "leave_stage_out": {
+  "windows": {
+   "INITIAL_ACCESS": 131.0,
+   "COMMAND_AND_CONTROL": 35599.0,
+   "IMPACT": 7854.0,
+   "MEAN": 14528.0
+  },
+  "RF single-window, smoothed": {
+   "INITIAL_ACCESS": 0.9920134046620587,
+   "COMMAND_AND_CONTROL": 0.9995726434771031,
+   "IMPACT": 0.9996506903065279,
+   "MEAN": 0.9970789128152299
+  },
+  "head without state": {
+   "INITIAL_ACCESS": 0.9429591318033571,
+   "COMMAND_AND_CONTROL": 0.9784447363491521,
+   "IMPACT": 0.9704809541839053,
+   "MEAN": 0.9639616074454715
+  },
+  "NCM hazard H": {
+   "INITIAL_ACCESS": 0.9788071540473309,
+   "COMMAND_AND_CONTROL": 0.9862204676404198,
+   "IMPACT": 0.9792012435744589,
+   "MEAN": 0.9814096217540699
+  },
+  "NCM surprise S": {
+   "INITIAL_ACCESS": 0.9908503638324245,
+   "COMMAND_AND_CONTROL": 0.9946413978763455,
+   "IMPACT": 0.9997550526222062,
+   "MEAN": 0.9950822714436587
+  },
+  "NCM risk R": {
+   "INITIAL_ACCESS": 0.9925002487220187,
+   "COMMAND_AND_CONTROL": 0.9947678712605144,
+   "IMPACT": 0.9986280831524128,
+   "MEAN": 0.9952987343783152
+  },
+  "R detect@1%": {
+   "INITIAL_ACCESS": 1.0,
+   "COMMAND_AND_CONTROL": 1.0,
+   "IMPACT": 1.0,
+   "MEAN": 1.0
+  },
+  "R false@1%": {
+   "INITIAL_ACCESS": 0.06451001479247273,
+   "COMMAND_AND_CONTROL": 0.06482729067002897,
+   "IMPACT": 0.06494678418235535,
+   "MEAN": 0.06476136321495235
+  }
+ }
+}

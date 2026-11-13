@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below. Licence and release details are being finalised by the authors."
+title: "CyberNCM: a single-site, behaviour-based network detector and its negative results (research prototype)"
+type: software
+authors:
+  - given-names: "Rohan"
+    family-names: "Sai"
+  - given-names: "Yuvashree"
+    family-names: "C"
+  - given-names: "Sonia"
+    family-names: "C"
+abstract: >
+  A research prototype that learns one site's normal network behaviour from flow records and flags
+  unusual source addresses, with a record of every research round including negative and incomplete ones.
+  Not a production security system.
+keywords:
+  - intrusion detection
+  - anomaly detection
+  - network security
+  - research prototype

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title id="t">CyberNCM v1 detector architecture</title>
+  <desc id="d">Flow records are cut into 5-second windows of 32 features per source, scored by a GRU with two codebooks, calibrated on the site's own normal traffic, then shown as alerts and a would-block list in shadow mode. Blocking is out of scope for v1.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#334155"/></marker>
+    <style>
+      .box{fill:#f1f5f9;stroke:#334155;stroke-width:1.5;rx:8}
+      .own{fill:#e0f2fe;stroke:#0369a1;stroke-width:1.5;rx:8}
+      .out{fill:#fef3c7;stroke:#b45309;stroke-width:1.5;rx:8}
+      .no{fill:#fee2e2;stroke:#b91c1c;stroke-width:1.5;stroke-dasharray:6 4;rx:8}
+      .t{font-size:14px;fill:#0f172a}.s{font-size:12px;fill:#334155}.h{font-size:15px;font-weight:600;fill:#0f172a}
+      .l{stroke:#334155;stroke-width:1.6;fill:none;marker-end:url(#a)}
+    </style>
+  </defs>
+  <rect width="960" height="430" fill="#ffffff"/>
+  <text x="24" y="30" class="h">Single-site detector (v1 = v0): alert and shadow mode only</text>
+
+  <rect class="box" x="24" y="60" width="150" height="86"/>
+  <text x="99" y="92" class="t" text-anchor="middle">Flow records</text>
+  <text x="99" y="112" class="s" text-anchor="middle">one site's own export</text>
+  <text x="99" y="128" class="s" text-anchor="middle">no payload, no text</text>
+
+  <rect class="box" x="214" y="60" width="170" height="86"/>
+  <text x="299" y="92" class="t" text-anchor="middle">5-second windows</text>
+  <text x="299" y="112" class="s" text-anchor="middle">per source address</text>
+  <text x="299" y="128" class="s" text-anchor="middle">32 numeric features</text>
+
+  <rect class="own" x="424" y="48" width="230" height="110"/>
+  <text x="539" y="76" class="t" text-anchor="middle">Scoring model</text>
+  <text x="539" y="98" class="s" text-anchor="middle">2-layer GRU, hidden size 64</text>
+  <text x="539" y="116" class="s" text-anchor="middle">512 behaviour centres + 512 state centres</text>
+  <text x="539" y="134" class="s" text-anchor="middle">+ two next-window surprise terms</text>
+
+  <rect class="own" x="694" y="60" width="242" height="86"/>
+  <text x="815" y="92" class="t" text-anchor="middle">Calibration and smoothing</text>
+  <text x="815" y="112" class="s" text-anchor="middle">standardised on the site's own</text>
+  <text x="815" y="128" class="s" text-anchor="middle">normal period, smoothed per source</text>
+
+  <path class="l" d="M174 103H212"/><path class="l" d="M384 103H422"/><path class="l" d="M654 103H692"/>
+
+  <rect class="out" x="694" y="206" width="242" height="96"/>
+  <text x="815" y="236" class="t" text-anchor="middle">Alerts and "would block" list</text>
+  <text x="815" y="256" class="s" text-anchor="middle">shown to the site owner</text>
+  <text x="815" y="272" class="s" text-anchor="middle">nothing is blocked automatically</text>
+  <path class="l" d="M815 146V204"/>
+
+  <rect class="box" x="424" y="206" width="230" height="96"/>
+  <text x="539" y="236" class="t" text-anchor="middle">Per-site refit</text>
+  <text x="539" y="256" class="s" text-anchor="middle">normalisation, centres and calibration</text>
+  <text x="539" y="272" class="s" text-anchor="middle">refitted on owner-confirmed clean data</text>
+  <path class="l" d="M539 204V160" />
+
+  <rect class="no" x="24" y="206" width="360" height="96"/>
+  <text x="204" y="232" class="t" text-anchor="middle">Not part of v1 (see limitations)</text>
+  <text x="204" y="254" class="s" text-anchor="middle">automatic blocking · prediction of the next stage</text>
+  <text x="204" y="272" class="s" text-anchor="middle">sharing between sites · consensus · federated learning</text>
+  <text x="204" y="290" class="s" text-anchor="middle">each failed its pre-set test, or was never measured</text>
+
+  <rect class="box" x="24" y="338" width="912" height="64"/>
+  <text x="480" y="364" class="t" text-anchor="middle">Evidence base: five public lab datasets, attack families held out of training, 5 seeds</text>
+  <text x="480" y="384" class="s" text-anchor="middle">Research prototype. Not tested on a live network. Not independently reproduced yet.</text>
+</svg>

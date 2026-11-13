@@ -1,0 +1,91 @@
+{
+  "source": "Hosted notebook execution, 2026-11-13; compact transcription of saved Drive results",
+  "file_key": {
+    "D": "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv.parquet",
+    "P": "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv.parquet",
+    "M": "Friday-WorkingHours-Morning.pcap_ISCX.csv.parquet"
+  },
+  "pandas": "2.2.3",
+  "numpy": "2.4.6",
+  "rows": [
+    {
+      "file_order": [
+        "D",
+        "P",
+        "M"
+      ],
+      "friday_windows": 24687,
+      "total_windows": 125909,
+      "canonical_only_keys": 999,
+      "rebuilt_only_keys": 1234
+    },
+    {
+      "file_order": [
+        "D",
+        "M",
+        "P"
+      ],
+      "friday_windows": 24558,
+      "total_windows": 125780,
+      "canonical_only_keys": 387,
+      "rebuilt_only_keys": 493
+    },
+    {
+      "file_order": [
+        "P",
+        "D",
+        "M"
+      ],
+      "friday_windows": 24689,
+      "total_windows": 125911,
+      "canonical_only_keys": 1170,
+      "rebuilt_only_keys": 1407
+    },
+    {
+      "file_order": [
+        "P",
+        "M",
+        "D"
+      ],
+      "friday_windows": 24588,
+      "total_windows": 125810,
+      "canonical_only_keys": 963,
+      "rebuilt_only_keys": 1099
+    },
+    {
+      "file_order": [
+        "M",
+        "D",
+        "P"
+      ],
+      "friday_windows": 24452,
+      "total_windows": 125674,
+      "canonical_only_keys": 0,
+      "rebuilt_only_keys": 0
+    },
+    {
+      "file_order": [
+        "M",
+        "P",
+        "D"
+      ],
+      "friday_windows": 24446,
+      "total_windows": 125668,
+      "canonical_only_keys": 199,
+      "rebuilt_only_keys": 193
+    }
+  ],
+  "fixed_policy": {
+    "name": "shortest wait then earliest implied minute",
+    "orders_tested": [
+      "D,P,M",
+      "M,P,D"
+    ],
+    "friday_windows": 24446,
+    "total_if_other_days_unchanged": 125668,
+    "canonical_only_keys": 199,
+    "rebuilt_only_keys": 193,
+    "counterfactual_note": "125668 assumes other days unchanged and is not the full corrected rebuild. Actual five-day total is 125577; Thursday also changes by -91."
+  },
+  "caveat": "The earliest-minute tie rule is a deterministic convention; it does not recover unknowable missing hours. Historical canonical data not overwritten. R5 125577 remains unresolved."
+}

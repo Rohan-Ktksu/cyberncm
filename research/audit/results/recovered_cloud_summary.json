@@ -1,0 +1,35 @@
+{
+  "source": "Recovered completed Drive outputs from the hosted notebook runtime, 2026-11-13",
+  "poison": {
+    "dataset": "cic2017",
+    "seed": 0,
+    "families": 15,
+    "points": 75,
+    "completion_log_verified": true,
+    "Botnet_detection": {
+      "0": 0.7912133891213389,
+      ".005": 0.025675077467906152,
+      ".01": 0.0014097744360902255,
+      ".02": 0.0037513397642015005,
+      ".05": 0.0008368200836820083
+    }
+  },
+  "onnx": {
+    "dataset": "cic2017",
+    "seed": 2,
+    "reference_auc": 0.9719936931048894,
+    "reference_threshold": 3.464097325281826,
+    "test_windows": 99515,
+    "FP32": {
+      "max_absolute_error": 0.2689707279205322,
+      "auc": 0.9719936912822095,
+      "alarm_disagreements": 0
+    },
+    "INT8": {
+      "max_absolute_error": 7.550753593444824,
+      "auc": 0.9761802046084251,
+      "alarm_disagreements": 41403
+    }
+  },
+  "limitations": "Compact transcription of recovered outputs; full JSON and logs remain in Drive audit_20261113. One seed; threshold comparison uses the PyTorch calibration threshold, not recalibrated INT8. FP32 numerical outlier cause is not yet isolated. AUC alone does not establish deployment parity."
+}

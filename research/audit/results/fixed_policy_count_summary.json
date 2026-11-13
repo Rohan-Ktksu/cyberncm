@@ -1,0 +1,25 @@
+{
+  "source": "Completed Colab raw rebuild under pinned core packages; summary transcribed from actual output",
+  "day_counts": [
+    26159,
+    26523,
+    25179,
+    23270,
+    24446
+  ],
+  "total": 125577,
+  "policy": "shortest wait then earliest implied minute",
+  "core_versions": {
+    "torch": "2.15.0+cpu",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "sklearn": "1.9.1"
+  },
+  "python": "3.13",
+  "canonical_preserved": true,
+  "artifact": "Drive/cyberncm-data/audit_20261113/fixed_policy_windows.npz",
+  "caveat": "Matches R5 count; equality of features and rows with its historical artifact has not been established",
+  "dataset_version": "cic2017-earliest-minute-v1",
+  "sha256": "034fb41a424635e1827e672e6378991c2307e120c12b4d8f7b4a441a5dd24ca4",
+  "raw_evidence": "cloud_raw/fixed_raw_rebuild.log"
+}

@@ -1,0 +1,14 @@
+day 0: 5500000 flows, 1061087 windows, 0 attack windows, 4 shards
+day 1: 5410102 flows, 1045562 windows, 661 attack windows, 4 shards
+day 2: 6962593 flows, 1120030 windows, 7193 attack windows, 5 shards
+day 3: 6071153 flows, 1241484 windows, 131 attack windows, 5 shards
+day 4: 6311371 flows, 1422665 windows, 35599 attack windows, 5 shards
+BENIGN                      5847244
+Botnet Ares                   35599
+DDoS-HOIC                      6537
+DDoS-LOIC-UDP                   656
+DoS Slowloris                   496
+DoS GoldenEye                   165
+Web Attack - Brute Force         73
+Web Attack - XSS                 40
+Web Attack - SQL                 18

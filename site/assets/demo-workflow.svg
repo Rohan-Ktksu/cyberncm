@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title id="t">Local two-node demo workflow</title>
+  <desc id="d">Node A scores recorded traffic and emits a signed directive. Node B verifies signature, schema, allowlist and expiry, then waits for human approval (or, in explicit lab mode, applies one bounded automatic block). A userspace gate on one local HTTP listener enforces the block against one loopback client.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#334155"/></marker>
+    <style>
+      .box{fill:#f1f5f9;stroke:#334155;stroke-width:1.5;rx:8}
+      .own{fill:#e0f2fe;stroke:#0369a1;stroke-width:1.5;rx:8}
+      .out{fill:#fef3c7;stroke:#b45309;stroke-width:1.5;rx:8}
+      .ok{fill:#dcfce7;stroke:#15803d;stroke-width:1.5;rx:8}
+      .t{font-size:14px;fill:#0f172a}.s{font-size:12px;fill:#334155}.h{font-size:15px;font-weight:600;fill:#0f172a}
+      .l{stroke:#334155;stroke-width:1.6;fill:none;marker-end:url(#a)}
+    </style>
+  </defs>
+  <rect width="960" height="400" fill="#ffffff"/>
+  <text x="24" y="30" class="h">Two processes on one laptop (127.0.0.1). Not a mesh, not consensus.</text>
+
+  <rect class="own" x="24" y="58" width="190" height="104"/>
+  <text x="119" y="86" class="t" text-anchor="middle">Node A</text>
+  <text x="119" y="106" class="s" text-anchor="middle">frozen FP32 model</text>
+  <text x="119" y="122" class="s" text-anchor="middle">replays recorded traffic</text>
+  <text x="119" y="138" class="s" text-anchor="middle">replay controls need operator header</text>
+
+  <rect class="box" x="254" y="58" width="190" height="104"/>
+  <text x="349" y="86" class="t" text-anchor="middle">Signed directive</text>
+  <text x="349" y="106" class="s" text-anchor="middle">Ed25519 signature</text>
+  <text x="349" y="122" class="s" text-anchor="middle">schema-valid, short expiry</text>
+  <text x="349" y="138" class="s" text-anchor="middle">no free-text field</text>
+
+  <rect class="own" x="484" y="58" width="220" height="104"/>
+  <text x="594" y="86" class="t" text-anchor="middle">Node B: policy gate</text>
+  <text x="594" y="106" class="s" text-anchor="middle">signature · schema · sender trust</text>
+  <text x="594" y="122" class="s" text-anchor="middle">target allowlist · expiry · replay</text>
+  <text x="594" y="138" class="s" text-anchor="middle">protected addresses never blockable</text>
+
+  <rect class="out" x="744" y="58" width="192" height="104"/>
+  <text x="840" y="86" class="t" text-anchor="middle">Approval</text>
+  <text x="840" y="106" class="s" text-anchor="middle">default: a human approves</text>
+  <text x="840" y="122" class="s" text-anchor="middle">opt-in lab mode: one block,</text>
+  <text x="840" y="138" class="s" text-anchor="middle">at most 10 s, no renewal</text>
+
+  <path class="l" d="M214 110H252"/><path class="l" d="M444 110H482"/><path class="l" d="M704 110H742"/>
+
+  <rect class="ok" x="744" y="214" width="192" height="104"/>
+  <text x="840" y="242" class="t" text-anchor="middle">Userspace gate</text>
+  <text x="840" y="262" class="s" text-anchor="middle">one local HTTP listener</text>
+  <text x="840" y="278" class="s" text-anchor="middle">drops requests from one</text>
+  <text x="840" y="294" class="s" text-anchor="middle">loopback client (127.0.0.2)</text>
+  <path class="l" d="M840 162V212"/>
+
+  <rect class="box" x="484" y="214" width="220" height="104"/>
+  <text x="594" y="242" class="t" text-anchor="middle">Probes</text>
+  <text x="594" y="262" class="s" text-anchor="middle">blocked client fails</text>
+  <text x="594" y="278" class="s" text-anchor="middle">control client (127.0.0.3) works</text>
+  <text x="594" y="294" class="s" text-anchor="middle">expiry restores access</text>
+  <path class="l" d="M744 266H706"/>
+
+  <rect class="out" x="254" y="214" width="190" height="104"/>
+  <text x="349" y="242" class="t" text-anchor="middle">Emergency disable</text>
+  <text x="349" y="262" class="s" text-anchor="middle">releases the rule</text>
+  <text x="349" y="278" class="s" text-anchor="middle">and turns automation off</text>
+  <path class="l" d="M484 266H446"/>
+
+  <rect class="box" x="24" y="344" width="912" height="40"/>
+  <text x="480" y="369" class="t" text-anchor="middle">Does not touch the Windows firewall. Does not block campus or internet traffic. Does not detect the client's live traffic.</text>
+</svg>

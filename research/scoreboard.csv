@@ -1,0 +1,316 @@
+version,dataset,model,split,metric,n_seeds,mean,min,max,boot95_lo_seed0,boot95_hi_seed0,commit
+v0,cic2017,"isolation forest, smoothed",dev,family_mean_auc,5,0.9513079782196396,0.9513079782196396,0.9513079782196396,0.8865309140995584,0.9826946079730683,aec4298
+v0,cic2017,"isolation forest, smoothed",dev,worst_family_auc,5,0.7845484549085558,0.7845484549085558,0.7845484549085558,,,aec4298
+v0,cic2017,"isolation forest, smoothed",dev,false_per_host_day_at_80pct_5min,5,21.393939393939394,21.393939393939394,21.393939393939394,6.832837301587301,43.770287298387096,aec4298
+v0,cic2017,"isolation forest, smoothed",dev,detect_1pct_cal,5,0.3001998001998002,0.3001998001998002,0.3001998001998002,,,aec4298
+v0,cic2017,"isolation forest, smoothed",dev,false_window_rate_1pct_cal,5,0.016322176826936624,0.016322176826936624,0.016322176826936624,,,aec4298
+v0,cic2017,"isolation forest, smoothed",dev,benign_source_hour_rate_1pct_cal,5,0.20220588235294118,0.20220588235294118,0.20220588235294118,,,aec4298
+v0,cic2017,"isolation forest, smoothed",dev,n_attacking_sources,5,1.0,1.0,1.0,,,aec4298
+v0,cic2017,"isolation forest, smoothed",dev,n_benign_sources,5,19.0,19.0,19.0,,,aec4298
+v0,cic2017,"isolation forest, smoothed",dev,n_families,5,7.0,7.0,7.0,,,aec4298
+v0,cic2017,"isolation forest, smoothed",final,family_mean_auc,5,0.9569203560872015,0.9569203560872016,0.9569203560872016,0.7962903576665682,0.9781596458072837,aec4298
+v0,cic2017,"isolation forest, smoothed",final,worst_family_auc,5,0.8412743887227233,0.8412743887227233,0.8412743887227233,,,aec4298
+v0,cic2017,"isolation forest, smoothed",final,false_per_host_day_at_80pct_5min,5,40.63157894736842,40.63157894736842,40.63157894736842,16.4895,54.51375,aec4298
+v0,cic2017,"isolation forest, smoothed",final,detect_1pct_cal,5,0.5969917012448133,0.5969917012448133,0.5969917012448133,,,aec4298
+v0,cic2017,"isolation forest, smoothed",final,false_window_rate_1pct_cal,5,0.03232316080152942,0.03232316080152942,0.03232316080152942,,,aec4298
+v0,cic2017,"isolation forest, smoothed",final,benign_source_hour_rate_1pct_cal,5,0.23448275862068962,0.23448275862068965,0.23448275862068965,,,aec4298
+v0,cic2017,"isolation forest, smoothed",final,n_attacking_sources,5,7.0,7.0,7.0,,,aec4298
+v0,cic2017,"isolation forest, smoothed",final,n_benign_sources,5,11.0,11.0,11.0,,,aec4298
+v0,cic2017,"isolation forest, smoothed",final,n_families,5,8.0,8.0,8.0,,,aec4298
+v0,cic2017,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,family_mean_auc,1,0.974400253831187,0.974400253831187,0.974400253831187,,,aec4298
+v0,cic2017,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,worst_family_auc,1,0.8772375018834973,0.8772375018834973,0.8772375018834973,,,aec4298
+v0,cic2017,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,n_families,1,8.0,8.0,8.0,,,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",dev,family_mean_auc,1,0.9998887335818826,0.9998887335818826,0.9998887335818826,,,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",dev,worst_family_auc,1,0.9998027764690414,0.9998027764690414,0.9998027764690414,,,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",dev,n_families,1,7.0,7.0,7.0,,,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",final,family_mean_auc,1,0.9710680913407517,0.9710680913407517,0.9710680913407517,,,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",final,worst_family_auc,1,0.8663745098222726,0.8663745098222726,0.8663745098222726,,,aec4298
+v0,cic2017,"random forest, single windows (leave-one-family-out)",final,n_families,1,8.0,8.0,8.0,,,aec4298
+v0,cic2017,"token distance, smoothed",dev,family_mean_auc,5,0.9953325599442419,0.9924533078094446,0.9970052233961513,0.9912447557301738,0.997709119855659,aec4298
+v0,cic2017,"token distance, smoothed",dev,worst_family_auc,5,0.9817038769933031,0.9676104687828464,0.9895678849214691,,,aec4298
+v0,cic2017,"token distance, smoothed",dev,false_per_host_day_at_80pct_5min,5,0.6242424242424243,0.5454545454545454,0.696969696969697,0.23387254901960786,1.5270917338709677,aec4298
+v0,cic2017,"token distance, smoothed",dev,detect_1pct_cal,5,0.8270729270729271,0.6328671328671329,0.9790209790209791,,,aec4298
+v0,cic2017,"token distance, smoothed",dev,false_window_rate_1pct_cal,5,0.016036387787550063,0.005031497172298589,0.028518525972588405,,,aec4298
+v0,cic2017,"token distance, smoothed",dev,benign_source_hour_rate_1pct_cal,5,0.19338235294117645,0.125,0.2610294117647059,,,aec4298
+v0,cic2017,"token distance, smoothed",dev,n_attacking_sources,5,1.0,1.0,1.0,,,aec4298
+v0,cic2017,"token distance, smoothed",dev,n_benign_sources,5,19.0,19.0,19.0,,,aec4298
+v0,cic2017,"token distance, smoothed",dev,n_families,5,7.0,7.0,7.0,,,aec4298
+v0,cic2017,"token distance, smoothed",final,family_mean_auc,5,0.950903840173487,0.9310983286009191,0.9710274743269691,0.8912378914411624,0.9737576538854902,aec4298
+v0,cic2017,"token distance, smoothed",final,worst_family_auc,5,0.8659045351074349,0.812187668251549,0.9057919854649941,,,aec4298
+v0,cic2017,"token distance, smoothed",final,false_per_host_day_at_80pct_5min,5,9.726315789473682,9.105263157894736,10.105263157894736,1.411697860962567,20.13831168831169,aec4298
+v0,cic2017,"token distance, smoothed",final,detect_1pct_cal,5,0.8818983402489626,0.8301348547717843,0.9315352697095436,,,aec4298
+v0,cic2017,"token distance, smoothed",final,false_window_rate_1pct_cal,5,0.019910783827798623,0.01727678255328188,0.02382638249663669,,,aec4298
+v0,cic2017,"token distance, smoothed",final,benign_source_hour_rate_1pct_cal,5,0.2096551724137931,0.1724137931034483,0.2482758620689655,,,aec4298
+v0,cic2017,"token distance, smoothed",final,n_attacking_sources,5,7.0,7.0,7.0,,,aec4298
+v0,cic2017,"token distance, smoothed",final,n_benign_sources,5,11.0,11.0,11.0,,,aec4298
+v0,cic2017,"token distance, smoothed",final,n_families,5,8.0,8.0,8.0,,,aec4298
+v0,cic2017,"v0 NCM, smoothed",dev,family_mean_auc,5,0.9912919823958651,0.9798958242670703,0.9970772182904779,0.9475577332652398,0.9940124608282231,aec4298
+v0,cic2017,"v0 NCM, smoothed",dev,worst_family_auc,5,0.9714759325181861,0.9394848210139961,0.9887312888318923,,,aec4298
+v0,cic2017,"v0 NCM, smoothed",dev,false_per_host_day_at_80pct_5min,5,0.6242424242424243,0.5151515151515151,0.696969696969697,0.23529411764705882,1.7166666666666668,aec4298
+v0,cic2017,"v0 NCM, smoothed",dev,detect_1pct_cal,5,0.9553446553446554,0.8526473526473527,0.9875124875124875,,,aec4298
+v0,cic2017,"v0 NCM, smoothed",dev,false_window_rate_1pct_cal,5,0.031803087326664925,0.006722080222190915,0.05152253104433755,,,aec4298
+v0,cic2017,"v0 NCM, smoothed",dev,benign_source_hour_rate_1pct_cal,5,0.21176470588235294,0.15441176470588236,0.2536764705882353,,,aec4298
+v0,cic2017,"v0 NCM, smoothed",dev,n_attacking_sources,5,1.0,1.0,1.0,,,aec4298
+v0,cic2017,"v0 NCM, smoothed",dev,n_benign_sources,5,19.0,19.0,19.0,,,aec4298
+v0,cic2017,"v0 NCM, smoothed",dev,n_families,5,7.0,7.0,7.0,,,aec4298
+v0,cic2017,"v0 NCM, smoothed",final,family_mean_auc,5,0.9540500226506753,0.9419058401220572,0.9658990849899676,0.8900682948843716,0.9685645291043817,aec4298
+v0,cic2017,"v0 NCM, smoothed",final,worst_family_auc,5,0.8607759534902432,0.8215801806310713,0.9124502643762413,,,aec4298
+v0,cic2017,"v0 NCM, smoothed",final,false_per_host_day_at_80pct_5min,5,12.063157894736841,6.368421052631579,15.157894736842104,1.3898550724637682,21.122500000000006,aec4298
+v0,cic2017,"v0 NCM, smoothed",final,detect_1pct_cal,5,0.8702282157676349,0.8054979253112033,0.9149377593360996,,,aec4298
+v0,cic2017,"v0 NCM, smoothed",final,false_window_rate_1pct_cal,5,0.01959215464136515,0.016639524180414925,0.02403880195425901,,,aec4298
+v0,cic2017,"v0 NCM, smoothed",final,benign_source_hour_rate_1pct_cal,5,0.20551724137931035,0.1793103448275862,0.22758620689655173,,,aec4298
+v0,cic2017,"v0 NCM, smoothed",final,n_attacking_sources,5,7.0,7.0,7.0,,,aec4298
+v0,cic2017,"v0 NCM, smoothed",final,n_benign_sources,5,11.0,11.0,11.0,,,aec4298
+v0,cic2017,"v0 NCM, smoothed",final,n_families,5,8.0,8.0,8.0,,,aec4298
+v0,cicapt,"isolation forest, smoothed",dev,family_mean_auc,5,0.8993355448766513,0.8993355448766513,0.8993355448766513,0.494316636878451,0.9771142566548979,aec4298
+v0,cicapt,"isolation forest, smoothed",dev,worst_family_auc,5,0.8993355448766513,0.8993355448766513,0.8993355448766513,,,aec4298
+v0,cicapt,"isolation forest, smoothed",dev,false_per_host_day_at_80pct_5min,5,3.0,3.0,3.0,1.623489010989011,4.6433333333333335,aec4298
+v0,cicapt,"isolation forest, smoothed",dev,detect_1pct_cal,5,0.033707865168539325,0.033707865168539325,0.033707865168539325,,,aec4298
+v0,cicapt,"isolation forest, smoothed",dev,false_window_rate_1pct_cal,5,0.00514633491452609,0.00514633491452609,0.00514633491452609,,,aec4298
+v0,cicapt,"isolation forest, smoothed",dev,benign_source_hour_rate_1pct_cal,5,0.15025906735751296,0.15025906735751296,0.15025906735751296,,,aec4298
+v0,cicapt,"isolation forest, smoothed",dev,n_attacking_sources,5,2.0,2.0,2.0,,,aec4298
+v0,cicapt,"isolation forest, smoothed",dev,n_benign_sources,5,16.0,16.0,16.0,,,aec4298
+v0,cicapt,"isolation forest, smoothed",dev,n_families,5,1.0,1.0,1.0,,,aec4298
+v0,cicapt,"isolation forest, smoothed",final,family_mean_auc,5,0.8063424134770584,0.8063424134770584,0.8063424134770584,0.3888124412689844,0.9205953504489928,aec4298
+v0,cicapt,"isolation forest, smoothed",final,worst_family_auc,5,0.7974049200671582,0.7974049200671582,0.7974049200671582,,,aec4298
+v0,cicapt,"isolation forest, smoothed",final,false_per_host_day_at_80pct_5min,5,22.464285714285715,22.464285714285715,22.464285714285715,3.2,40.470206896551716,aec4298
+v0,cicapt,"isolation forest, smoothed",final,detect_1pct_cal,5,0.0,0.0,0.0,,,aec4298
+v0,cicapt,"isolation forest, smoothed",final,false_window_rate_1pct_cal,5,0.0035415887267739115,0.003541588726773912,0.003541588726773912,,,aec4298
+v0,cicapt,"isolation forest, smoothed",final,benign_source_hour_rate_1pct_cal,5,0.08771929824561403,0.08771929824561403,0.08771929824561403,,,aec4298
+v0,cicapt,"isolation forest, smoothed",final,n_attacking_sources,5,2.0,2.0,2.0,,,aec4298
+v0,cicapt,"isolation forest, smoothed",final,n_benign_sources,5,17.0,17.0,17.0,,,aec4298
+v0,cicapt,"isolation forest, smoothed",final,n_families,5,2.0,2.0,2.0,,,aec4298
+v0,cicapt,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,family_mean_auc,1,0.8909168146904478,0.8909168146904478,0.8909168146904478,,,aec4298
+v0,cicapt,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,worst_family_auc,1,0.8872046621407889,0.8872046621407889,0.8872046621407889,,,aec4298
+v0,cicapt,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,n_families,1,2.0,2.0,2.0,,,aec4298
+v0,cicapt,"random forest, single windows (leave-one-family-out)",dev,family_mean_auc,1,0.9831765145605823,0.9831765145605823,0.9831765145605823,,,aec4298
+v0,cicapt,"random forest, single windows (leave-one-family-out)",dev,worst_family_auc,1,0.9831765145605823,0.9831765145605823,0.9831765145605823,,,aec4298
+v0,cicapt,"random forest, single windows (leave-one-family-out)",dev,n_families,1,1.0,1.0,1.0,,,aec4298
+v0,cicapt,"random forest, single windows (leave-one-family-out)",final,family_mean_auc,1,0.9609787903997269,0.9609787903997269,0.9609787903997269,,,aec4298
+v0,cicapt,"random forest, single windows (leave-one-family-out)",final,worst_family_auc,1,0.9591404254062329,0.9591404254062329,0.9591404254062329,,,aec4298
+v0,cicapt,"random forest, single windows (leave-one-family-out)",final,n_families,1,2.0,2.0,2.0,,,aec4298
+v0,cicapt,"token distance, smoothed",dev,family_mean_auc,5,0.9356193764385855,0.9265324768563615,0.9447605724758462,0.6853486780314696,0.9900405243893565,aec4298
+v0,cicapt,"token distance, smoothed",dev,worst_family_auc,5,0.9356193764385855,0.9265324768563615,0.9447605724758462,,,aec4298
+v0,cicapt,"token distance, smoothed",dev,false_per_host_day_at_80pct_5min,5,4.144,3.4,5.48,1.0163793103448275,5.077333333333334,aec4298
+v0,cicapt,"token distance, smoothed",dev,detect_1pct_cal,5,1.0,1.0,1.0,,,aec4298
+v0,cicapt,"token distance, smoothed",dev,false_window_rate_1pct_cal,5,0.019457621050747338,0.01834780273874519,0.020540588919717176,,,aec4298
+v0,cicapt,"token distance, smoothed",dev,benign_source_hour_rate_1pct_cal,5,0.5243523316062177,0.5077720207253886,0.5492227979274611,,,aec4298
+v0,cicapt,"token distance, smoothed",dev,n_attacking_sources,5,2.0,2.0,2.0,,,aec4298
+v0,cicapt,"token distance, smoothed",dev,n_benign_sources,5,16.0,16.0,16.0,,,aec4298
+v0,cicapt,"token distance, smoothed",dev,n_families,5,1.0,1.0,1.0,,,aec4298
+v0,cicapt,"token distance, smoothed",final,family_mean_auc,5,0.8330902093421255,0.8184167944132175,0.8481172591673358,0.3138335451209824,0.9468130180359409,aec4298
+v0,cicapt,"token distance, smoothed",final,worst_family_auc,5,0.8221825194053094,0.8002767841934935,0.8473203640168383,,,aec4298
+v0,cicapt,"token distance, smoothed",final,false_per_host_day_at_80pct_5min,5,5.6,5.357142857142857,5.928571428571429,3.25141065830721,8.444230769230769,aec4298
+v0,cicapt,"token distance, smoothed",final,detect_1pct_cal,5,1.0,1.0,1.0,,,aec4298
+v0,cicapt,"token distance, smoothed",final,false_window_rate_1pct_cal,5,0.24839506172839504,0.17366255144032922,0.35827409901483975,,,aec4298
+v0,cicapt,"token distance, smoothed",final,benign_source_hour_rate_1pct_cal,5,0.5684210526315789,0.5380116959064327,0.6257309941520468,,,aec4298
+v0,cicapt,"token distance, smoothed",final,n_attacking_sources,5,2.0,2.0,2.0,,,aec4298
+v0,cicapt,"token distance, smoothed",final,n_benign_sources,5,17.0,17.0,17.0,,,aec4298
+v0,cicapt,"token distance, smoothed",final,n_families,5,2.0,2.0,2.0,,,aec4298
+v0,cicapt,"v0 NCM, smoothed",dev,family_mean_auc,5,0.8792943805874842,0.8532200864413995,0.9084631217034296,0.5744644992226845,0.9891741878947349,aec4298
+v0,cicapt,"v0 NCM, smoothed",dev,worst_family_auc,5,0.8792943805874842,0.8532200864413995,0.9084631217034296,,,aec4298
+v0,cicapt,"v0 NCM, smoothed",dev,false_per_host_day_at_80pct_5min,5,3.0,2.6,3.96,0.921875,3.5620000000000007,aec4298
+v0,cicapt,"v0 NCM, smoothed",dev,detect_1pct_cal,5,1.0,1.0,1.0,,,aec4298
+v0,cicapt,"v0 NCM, smoothed",dev,false_window_rate_1pct_cal,5,0.061988722813926436,0.050210328470419764,0.08717443837823324,,,aec4298
+v0,cicapt,"v0 NCM, smoothed",dev,benign_source_hour_rate_1pct_cal,5,0.5098445595854922,0.45595854922279794,0.5544041450777202,,,aec4298
+v0,cicapt,"v0 NCM, smoothed",dev,n_attacking_sources,5,2.0,2.0,2.0,,,aec4298
+v0,cicapt,"v0 NCM, smoothed",dev,n_benign_sources,5,16.0,16.0,16.0,,,aec4298
+v0,cicapt,"v0 NCM, smoothed",dev,n_families,5,1.0,1.0,1.0,,,aec4298
+v0,cicapt,"v0 NCM, smoothed",final,family_mean_auc,5,0.6970374560997964,0.6368140212992026,0.7562471104946833,0.28437190547912855,0.962043483034805,aec4298
+v0,cicapt,"v0 NCM, smoothed",final,worst_family_auc,5,0.6541964133635059,0.5944217339465168,0.72287149913619,,,aec4298
+v0,cicapt,"v0 NCM, smoothed",final,false_per_host_day_at_80pct_5min,5,8.735714285714286,5.178571428571429,18.928571428571427,2.0781770833333333,7.933387445887445,aec4298
+v0,cicapt,"v0 NCM, smoothed",final,detect_1pct_cal,5,1.0,1.0,1.0,,,aec4298
+v0,cicapt,"v0 NCM, smoothed",final,false_window_rate_1pct_cal,5,0.5398029679511162,0.5279710687118094,0.5509913954358399,,,aec4298
+v0,cicapt,"v0 NCM, smoothed",final,benign_source_hour_rate_1pct_cal,5,0.5222222222222223,0.4678362573099415,0.5701754385964912,,,aec4298
+v0,cicapt,"v0 NCM, smoothed",final,n_attacking_sources,5,2.0,2.0,2.0,,,aec4298
+v0,cicapt,"v0 NCM, smoothed",final,n_benign_sources,5,17.0,17.0,17.0,,,aec4298
+v0,cicapt,"v0 NCM, smoothed",final,n_families,5,2.0,2.0,2.0,,,aec4298
+v0,d2018,"isolation forest, smoothed",dev,family_mean_auc,5,0.9886885044262115,0.9886885044262116,0.9886885044262116,0.9814976049196537,0.9948589310685425,aec4298
+v0,d2018,"isolation forest, smoothed",dev,worst_family_auc,5,0.9841722910631215,0.9841722910631217,0.9841722910631217,,,aec4298
+v0,d2018,"isolation forest, smoothed",dev,false_per_host_day_at_80pct_5min,5,0.24525000000000002,0.24525,0.24525,0.06073183687487209,0.4073030917715768,aec4298
+v0,d2018,"isolation forest, smoothed",dev,detect_1pct_cal,5,0.9987267634326458,0.9987267634326458,0.9987267634326458,,,aec4298
+v0,d2018,"isolation forest, smoothed",dev,false_window_rate_1pct_cal,5,0.017578326530106856,0.017578326530106856,0.017578326530106856,,,aec4298
+v0,d2018,"isolation forest, smoothed",dev,benign_source_hour_rate_1pct_cal,5,0.1389766890557092,0.1389766890557092,0.1389766890557092,,,aec4298
+v0,d2018,"isolation forest, smoothed",dev,n_attacking_sources,5,13.0,13.0,13.0,,,aec4298
+v0,d2018,"isolation forest, smoothed",dev,n_benign_sources,5,3676.0,3676.0,3676.0,,,aec4298
+v0,d2018,"isolation forest, smoothed",dev,n_families,5,4.0,4.0,4.0,,,aec4298
+v0,d2018,"isolation forest, smoothed",final,family_mean_auc,5,0.8066699814546341,0.8066699814546341,0.8066699814546341,0.7431414191765741,0.8350285622870537,aec4298
+v0,d2018,"isolation forest, smoothed",final,worst_family_auc,5,0.5586841968979,0.5586841968979,0.5586841968979,,,aec4298
+v0,d2018,"isolation forest, smoothed",final,false_per_host_day_at_80pct_5min,5,1.9422700587084152,1.942270058708415,1.942270058708415,1.4099426441096208,2.6886551414188546,aec4298
+v0,d2018,"isolation forest, smoothed",final,detect_1pct_cal,5,0.0009515813042261405,0.0009515813042261405,0.0009515813042261405,,,aec4298
+v0,d2018,"isolation forest, smoothed",final,false_window_rate_1pct_cal,5,0.025158458883653017,0.025158458883653017,0.025158458883653017,,,aec4298
+v0,d2018,"isolation forest, smoothed",final,benign_source_hour_rate_1pct_cal,5,0.1352995391705069,0.1352995391705069,0.1352995391705069,,,aec4298
+v0,d2018,"isolation forest, smoothed",final,n_attacking_sources,5,11.0,11.0,11.0,,,aec4298
+v0,d2018,"isolation forest, smoothed",final,n_benign_sources,5,3794.0,3794.0,3794.0,,,aec4298
+v0,d2018,"isolation forest, smoothed",final,n_families,5,4.0,4.0,4.0,,,aec4298
+v0,d2018,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,family_mean_auc,1,0.8823849712985066,0.8823849712985066,0.8823849712985066,,,aec4298
+v0,d2018,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,worst_family_auc,1,0.5799873513725144,0.5799873513725144,0.5799873513725144,,,aec4298
+v0,d2018,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,n_families,1,4.0,4.0,4.0,,,aec4298
+v0,d2018,"random forest, single windows (leave-one-family-out)",dev,family_mean_auc,1,0.9997096661731474,0.9997096661731474,0.9997096661731474,,,aec4298
+v0,d2018,"random forest, single windows (leave-one-family-out)",dev,worst_family_auc,1,0.9989759123971226,0.9989759123971226,0.9989759123971226,,,aec4298
+v0,d2018,"random forest, single windows (leave-one-family-out)",dev,n_families,1,4.0,4.0,4.0,,,aec4298
+v0,d2018,"random forest, single windows (leave-one-family-out)",final,family_mean_auc,1,0.9997382944499495,0.9997382944499495,0.9997382944499495,,,aec4298
+v0,d2018,"random forest, single windows (leave-one-family-out)",final,worst_family_auc,1,0.9995925784793802,0.9995925784793802,0.9995925784793802,,,aec4298
+v0,d2018,"random forest, single windows (leave-one-family-out)",final,n_families,1,4.0,4.0,4.0,,,aec4298
+v0,d2018,"token distance, smoothed",dev,family_mean_auc,5,0.9993848209419127,0.9990108302632101,0.9997118880949039,0.997967042922063,0.9999108021513746,aec4298
+v0,d2018,"token distance, smoothed",dev,worst_family_auc,5,0.9988022059205395,0.9981440416728941,0.9994488386702975,,,aec4298
+v0,d2018,"token distance, smoothed",dev,false_per_host_day_at_80pct_5min,5,0.00355,0.0025,0.0055,0.0,0.009784825802350426,aec4298
+v0,d2018,"token distance, smoothed",dev,detect_1pct_cal,5,1.0,1.0,1.0,,,aec4298
+v0,d2018,"token distance, smoothed",dev,false_window_rate_1pct_cal,5,0.04777392101103237,0.045809308794941536,0.049911881363837104,,,aec4298
+v0,d2018,"token distance, smoothed",dev,benign_source_hour_rate_1pct_cal,5,0.13152903990517584,0.12178980640063217,0.14589095219280918,,,aec4298
+v0,d2018,"token distance, smoothed",dev,n_attacking_sources,5,13.0,13.0,13.0,,,aec4298
+v0,d2018,"token distance, smoothed",dev,n_benign_sources,5,3676.0,3676.0,3676.0,,,aec4298
+v0,d2018,"token distance, smoothed",dev,n_families,5,4.0,4.0,4.0,,,aec4298
+v0,d2018,"token distance, smoothed",final,family_mean_auc,5,0.9855417162496348,0.983792896442345,0.9864844932715344,0.9723591882175743,0.9941869154958364,aec4298
+v0,d2018,"token distance, smoothed",final,worst_family_auc,5,0.9766931216931216,0.9727953425343312,0.9784544740499064,,,aec4298
+v0,d2018,"token distance, smoothed",final,false_per_host_day_at_80pct_5min,5,0.3448630136986302,0.3084637964774951,0.37989236790606656,0.1886384711271913,0.5779404559480623,aec4298
+v0,d2018,"token distance, smoothed",final,detect_1pct_cal,5,1.0,1.0,1.0,,,aec4298
+v0,d2018,"token distance, smoothed",final,false_window_rate_1pct_cal,5,0.06359510851529834,0.043505674653215635,0.08561757483241521,,,aec4298
+v0,d2018,"token distance, smoothed",final,benign_source_hour_rate_1pct_cal,5,0.14189861751152072,0.12921658986175116,0.15483870967741936,,,aec4298
+v0,d2018,"token distance, smoothed",final,n_attacking_sources,5,11.0,11.0,11.0,,,aec4298
+v0,d2018,"token distance, smoothed",final,n_benign_sources,5,3794.0,3794.0,3794.0,,,aec4298
+v0,d2018,"token distance, smoothed",final,n_families,5,4.0,4.0,4.0,,,aec4298
+v0,d2018,"v0 NCM, smoothed",dev,family_mean_auc,5,0.999836700944849,0.9995543900300632,0.9999544614376853,0.9989623511073579,0.9999488813181535,aec4298
+v0,d2018,"v0 NCM, smoothed",dev,worst_family_auc,5,0.9997155705277823,0.9992274259820225,0.9999425669191249,,,aec4298
+v0,d2018,"v0 NCM, smoothed",dev,false_per_host_day_at_80pct_5min,5,0.0021,0.0005,0.00275,0.0,0.005552510088255181,aec4298
+v0,d2018,"v0 NCM, smoothed",dev,detect_1pct_cal,5,1.0,1.0,1.0,,,aec4298
+v0,d2018,"v0 NCM, smoothed",dev,false_window_rate_1pct_cal,5,0.04935964372830569,0.04740658805466245,0.05427860347439194,,,aec4298
+v0,d2018,"v0 NCM, smoothed",dev,benign_source_hour_rate_1pct_cal,5,0.11483603318846305,0.10529435005926512,0.11882655077044646,,,aec4298
+v0,d2018,"v0 NCM, smoothed",dev,n_attacking_sources,5,13.0,13.0,13.0,,,aec4298
+v0,d2018,"v0 NCM, smoothed",dev,n_benign_sources,5,3676.0,3676.0,3676.0,,,aec4298
+v0,d2018,"v0 NCM, smoothed",dev,n_families,5,4.0,4.0,4.0,,,aec4298
+v0,d2018,"v0 NCM, smoothed",final,family_mean_auc,5,0.9891459797801432,0.9881402431375502,0.9907036496844468,0.9809271641038415,0.9963522425424404,aec4298
+v0,d2018,"v0 NCM, smoothed",final,worst_family_auc,5,0.9818480540666512,0.9745304556479109,0.985541659114253,,,aec4298
+v0,d2018,"v0 NCM, smoothed",final,false_per_host_day_at_80pct_5min,5,0.23762230919765165,0.2035225048923679,0.27666340508806264,0.11297302310647515,0.4019811196057353,aec4298
+v0,d2018,"v0 NCM, smoothed",final,detect_1pct_cal,5,1.0,1.0,1.0,,,aec4298
+v0,d2018,"v0 NCM, smoothed",final,false_window_rate_1pct_cal,5,0.06643326475077985,0.05074417601380501,0.08458468839184974,,,aec4298
+v0,d2018,"v0 NCM, smoothed",final,benign_source_hour_rate_1pct_cal,5,0.12927188940092166,0.11852534562211982,0.13658986175115206,,,aec4298
+v0,d2018,"v0 NCM, smoothed",final,n_attacking_sources,5,11.0,11.0,11.0,,,aec4298
+v0,d2018,"v0 NCM, smoothed",final,n_benign_sources,5,3794.0,3794.0,3794.0,,,aec4298
+v0,d2018,"v0 NCM, smoothed",final,n_families,5,4.0,4.0,4.0,,,aec4298
+v0,unraveled,"isolation forest, smoothed",dev,family_mean_auc,5,0.8342569169426127,0.8342569169426128,0.8342569169426128,0.6808851781168543,0.9871636596642336,aec4298
+v0,unraveled,"isolation forest, smoothed",dev,worst_family_auc,5,0.690311791756247,0.690311791756247,0.690311791756247,,,aec4298
+v0,unraveled,"isolation forest, smoothed",dev,false_per_host_day_at_80pct_5min,5,14.6199426568971,14.6199426568971,14.6199426568971,6.90208082513444,22.599026142477456,aec4298
+v0,unraveled,"isolation forest, smoothed",dev,detect_1pct_cal,5,0.8703208556149733,0.8703208556149733,0.8703208556149733,,,aec4298
+v0,unraveled,"isolation forest, smoothed",dev,false_window_rate_1pct_cal,5,0.09062120607537334,0.09062120607537334,0.09062120607537334,,,aec4298
+v0,unraveled,"isolation forest, smoothed",dev,benign_source_hour_rate_1pct_cal,5,0.2130678864746855,0.21306788647468553,0.21306788647468553,,,aec4298
+v0,unraveled,"isolation forest, smoothed",dev,n_attacking_sources,5,3.0,3.0,3.0,,,aec4298
+v0,unraveled,"isolation forest, smoothed",dev,n_benign_sources,5,1790.0,1790.0,1790.0,,,aec4298
+v0,unraveled,"isolation forest, smoothed",dev,n_families,5,2.0,2.0,2.0,,,aec4298
+v0,unraveled,"isolation forest, smoothed",final,family_mean_auc,5,0.7987845071452762,0.7987845071452762,0.7987845071452762,0.6804199607880557,0.9811052070779755,aec4298
+v0,unraveled,"isolation forest, smoothed",final,worst_family_auc,5,0.6404081224868201,0.6404081224868201,0.6404081224868201,,,aec4298
+v0,unraveled,"isolation forest, smoothed",final,false_per_host_day_at_80pct_5min,5,15.770833333333334,15.770833333333334,15.770833333333334,3.913383437093443,20.407404033074574,aec4298
+v0,unraveled,"isolation forest, smoothed",final,detect_1pct_cal,5,0.09311479747945024,0.09311479747945024,0.09311479747945024,,,aec4298
+v0,unraveled,"isolation forest, smoothed",final,false_window_rate_1pct_cal,5,0.03991607692510063,0.03991607692510063,0.03991607692510063,,,aec4298
+v0,unraveled,"isolation forest, smoothed",final,benign_source_hour_rate_1pct_cal,5,0.1318005374738728,0.1318005374738728,0.1318005374738728,,,aec4298
+v0,unraveled,"isolation forest, smoothed",final,n_attacking_sources,5,4.0,4.0,4.0,,,aec4298
+v0,unraveled,"isolation forest, smoothed",final,n_benign_sources,5,457.0,457.0,457.0,,,aec4298
+v0,unraveled,"isolation forest, smoothed",final,n_families,5,5.0,5.0,5.0,,,aec4298
+v0,unraveled,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,family_mean_auc,1,0.6471813081882838,0.6471813081882838,0.6471813081882838,,,aec4298
+v0,unraveled,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,worst_family_auc,1,0.4814435741508586,0.4814435741508586,0.4814435741508586,,,aec4298
+v0,unraveled,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,n_families,1,5.0,5.0,5.0,,,aec4298
+v0,unraveled,"random forest, single windows (leave-one-family-out)",dev,family_mean_auc,1,0.8815158420758866,0.8815158420758866,0.8815158420758866,,,aec4298
+v0,unraveled,"random forest, single windows (leave-one-family-out)",dev,worst_family_auc,1,0.8726479499533133,0.8726479499533133,0.8726479499533133,,,aec4298
+v0,unraveled,"random forest, single windows (leave-one-family-out)",dev,n_families,1,2.0,2.0,2.0,,,aec4298
+v0,unraveled,"random forest, single windows (leave-one-family-out)",final,family_mean_auc,1,0.9218519673560703,0.9218519673560703,0.9218519673560703,,,aec4298
+v0,unraveled,"random forest, single windows (leave-one-family-out)",final,worst_family_auc,1,0.7787484816281844,0.7787484816281844,0.7787484816281844,,,aec4298
+v0,unraveled,"random forest, single windows (leave-one-family-out)",final,n_families,1,5.0,5.0,5.0,,,aec4298
+v0,unraveled,"token distance, smoothed",dev,family_mean_auc,5,0.852080375070614,0.8438301256564106,0.8583154202545302,0.7067213603932809,0.9990711300743161,aec4298
+v0,unraveled,"token distance, smoothed",dev,worst_family_auc,5,0.7054791893273581,0.6887553116058109,0.7176347062768662,,,aec4298
+v0,unraveled,"token distance, smoothed",dev,false_per_host_day_at_80pct_5min,5,4.809875756610386,3.953488372093023,5.928002548582351,0.7033264639317665,5.746194456014329,aec4298
+v0,unraveled,"token distance, smoothed",dev,detect_1pct_cal,5,0.9074866310160428,0.9064171122994652,0.9077540106951871,,,aec4298
+v0,unraveled,"token distance, smoothed",dev,false_window_rate_1pct_cal,5,0.06616406451192972,0.03829794459490436,0.07774485582732672,,,aec4298
+v0,unraveled,"token distance, smoothed",dev,benign_source_hour_rate_1pct_cal,5,0.20886786568250337,0.18931281838028902,0.21982534567002807,,,aec4298
+v0,unraveled,"token distance, smoothed",dev,n_attacking_sources,5,3.0,3.0,3.0,,,aec4298
+v0,unraveled,"token distance, smoothed",dev,n_benign_sources,5,1790.0,1790.0,1790.0,,,aec4298
+v0,unraveled,"token distance, smoothed",dev,n_families,5,2.0,2.0,2.0,,,aec4298
+v0,unraveled,"token distance, smoothed",final,family_mean_auc,5,0.8572769072680575,0.8489824436317376,0.8630810645219918,0.729806402106345,0.9520247184564484,aec4298
+v0,unraveled,"token distance, smoothed",final,worst_family_auc,5,0.729359493413687,0.7127342230446864,0.7365460042430778,,,aec4298
+v0,unraveled,"token distance, smoothed",final,false_per_host_day_at_80pct_5min,5,6.584375,5.400390625,8.341796875,1.7021391736209022,7.1786857564183135,aec4298
+v0,unraveled,"token distance, smoothed",final,detect_1pct_cal,5,0.10090799331822768,0.05993748242726957,0.11886608338984173,,,aec4298
+v0,unraveled,"token distance, smoothed",final,false_window_rate_1pct_cal,5,0.05182534880253962,0.03708137118202626,0.059548551735024075,,,aec4298
+v0,unraveled,"token distance, smoothed",final,benign_source_hour_rate_1pct_cal,5,0.12891012242460437,0.11352642579874589,0.13801134667064796,,,aec4298
+v0,unraveled,"token distance, smoothed",final,n_attacking_sources,5,4.0,4.0,4.0,,,aec4298
+v0,unraveled,"token distance, smoothed",final,n_benign_sources,5,457.0,457.0,457.0,,,aec4298
+v0,unraveled,"token distance, smoothed",final,n_families,5,5.0,5.0,5.0,,,aec4298
+v0,unraveled,"v0 NCM, smoothed",dev,family_mean_auc,5,0.9063696112418835,0.9006740994557845,0.9166192642310296,0.7623897046172068,0.9994314368767683,aec4298
+v0,unraveled,"v0 NCM, smoothed",dev,worst_family_auc,5,0.8142143034572495,0.8031633520764484,0.8346723259698321,,,aec4298
+v0,unraveled,"v0 NCM, smoothed",dev,false_per_host_day_at_80pct_5min,5,5.8729531697993,5.099076138897738,6.616438356164384,1.0032967122168224,7.662048030295198,aec4298
+v0,unraveled,"v0 NCM, smoothed",dev,detect_1pct_cal,5,0.9991978609625669,0.9973262032085561,1.0,,,aec4298
+v0,unraveled,"v0 NCM, smoothed",dev,false_window_rate_1pct_cal,5,0.47148893058373725,0.43114124082736915,0.5019243776194883,,,aec4298
+v0,unraveled,"v0 NCM, smoothed",dev,benign_source_hour_rate_1pct_cal,5,0.44472398378209793,0.40934608587171223,0.47161867137956126,,,aec4298
+v0,unraveled,"v0 NCM, smoothed",dev,n_attacking_sources,5,3.0,3.0,3.0,,,aec4298
+v0,unraveled,"v0 NCM, smoothed",dev,n_benign_sources,5,1790.0,1790.0,1790.0,,,aec4298
+v0,unraveled,"v0 NCM, smoothed",dev,n_families,5,2.0,2.0,2.0,,,aec4298
+v0,unraveled,"v0 NCM, smoothed",final,family_mean_auc,5,0.8935645438202172,0.8842868441807663,0.8991852063772667,0.8087988001512451,0.9978525336247775,aec4298
+v0,unraveled,"v0 NCM, smoothed",final,worst_family_auc,5,0.7597942320973458,0.7332690219137415,0.7823649006001887,,,aec4298
+v0,unraveled,"v0 NCM, smoothed",final,false_per_host_day_at_80pct_5min,5,13.467578125,10.948567708333334,15.908203125,0.07369225395999918,17.419336233123403,aec4298
+v0,unraveled,"v0 NCM, smoothed",final,detect_1pct_cal,5,0.9886145245852835,0.9762499379785985,0.9967087309594297,,,aec4298
+v0,unraveled,"v0 NCM, smoothed",final,false_window_rate_1pct_cal,5,0.3295493409802426,0.3136131646102444,0.34380617891312165,,,aec4298
+v0,unraveled,"v0 NCM, smoothed",final,benign_source_hour_rate_1pct_cal,5,0.360991340698716,0.3147208121827411,0.3986264556584055,,,aec4298
+v0,unraveled,"v0 NCM, smoothed",final,n_attacking_sources,5,4.0,4.0,4.0,,,aec4298
+v0,unraveled,"v0 NCM, smoothed",final,n_benign_sources,5,457.0,457.0,457.0,,,aec4298
+v0,unraveled,"v0 NCM, smoothed",final,n_families,5,5.0,5.0,5.0,,,aec4298
+v0,unsw,"isolation forest, smoothed",dev,family_mean_auc,5,0.9162193598925101,0.9162193598925101,0.9162193598925101,0.8178805980612217,0.96597680348273,aec4298
+v0,unsw,"isolation forest, smoothed",dev,worst_family_auc,5,0.9039402759810263,0.9039402759810263,0.9039402759810263,,,aec4298
+v0,unsw,"isolation forest, smoothed",dev,false_per_host_day_at_80pct_5min,5,4.768115942028985,4.768115942028985,4.768115942028985,0.33912698412698417,6.911900452488687,aec4298
+v0,unsw,"isolation forest, smoothed",dev,detect_1pct_cal,5,0.3117364563147696,0.3117364563147696,0.3117364563147696,,,aec4298
+v0,unsw,"isolation forest, smoothed",dev,false_window_rate_1pct_cal,5,0.06925019879320829,0.06925019879320829,0.06925019879320829,,,aec4298
+v0,unsw,"isolation forest, smoothed",dev,benign_source_hour_rate_1pct_cal,5,0.5051546391752577,0.5051546391752577,0.5051546391752577,,,aec4298
+v0,unsw,"isolation forest, smoothed",dev,n_attacking_sources,5,4.0,4.0,4.0,,,aec4298
+v0,unsw,"isolation forest, smoothed",dev,n_benign_sources,5,38.0,38.0,38.0,,,aec4298
+v0,unsw,"isolation forest, smoothed",dev,n_families,5,9.0,9.0,9.0,,,aec4298
+v0,unsw,"isolation forest, smoothed",final,family_mean_auc,5,0.9148753838789953,0.9148753838789953,0.9148753838789953,0.7985357183831134,0.9580097062503237,aec4298
+v0,unsw,"isolation forest, smoothed",final,worst_family_auc,5,0.9094477095737231,0.9094477095737231,0.9094477095737231,,,aec4298
+v0,unsw,"isolation forest, smoothed",final,false_per_host_day_at_80pct_5min,5,6.057971014492754,6.057971014492754,6.057971014492754,0.2146159317211949,10.437023460410552,aec4298
+v0,unsw,"isolation forest, smoothed",final,detect_1pct_cal,5,0.3010963402362163,0.3010963402362163,0.3010963402362163,,,aec4298
+v0,unsw,"isolation forest, smoothed",final,false_window_rate_1pct_cal,5,0.07007883677413418,0.07007883677413418,0.07007883677413418,,,aec4298
+v0,unsw,"isolation forest, smoothed",final,benign_source_hour_rate_1pct_cal,5,0.4862745098039215,0.48627450980392156,0.48627450980392156,,,aec4298
+v0,unsw,"isolation forest, smoothed",final,n_attacking_sources,5,4.0,4.0,4.0,,,aec4298
+v0,unsw,"isolation forest, smoothed",final,n_benign_sources,5,37.0,37.0,37.0,,,aec4298
+v0,unsw,"isolation forest, smoothed",final,n_families,5,9.0,9.0,9.0,,,aec4298
+v0,unsw,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,family_mean_auc,1,0.9607189770139387,0.9607189770139387,0.9607189770139387,,,aec4298
+v0,unsw,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,worst_family_auc,1,0.9534665246791373,0.9534665246791373,0.9534665246791373,,,aec4298
+v0,unsw,"random forest, fair (day 0 benign + dev-split attacks of other families)",final,n_families,1,9.0,9.0,9.0,,,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",dev,family_mean_auc,1,0.9958602277093449,0.9958602277093449,0.9958602277093449,,,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",dev,worst_family_auc,1,0.9928185329638181,0.9928185329638181,0.9928185329638181,,,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",dev,n_families,1,9.0,9.0,9.0,,,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",final,family_mean_auc,1,0.9920522551227067,0.9920522551227067,0.9920522551227067,,,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",final,worst_family_auc,1,0.9870360341610502,0.9870360341610502,0.9870360341610502,,,aec4298
+v0,unsw,"random forest, single windows (leave-one-family-out)",final,n_families,1,9.0,9.0,9.0,,,aec4298
+v0,unsw,"token distance, smoothed",dev,family_mean_auc,5,0.9474515414483757,0.9460224872203025,0.9489634527323229,0.8796983127452942,0.9887705659744226,aec4298
+v0,unsw,"token distance, smoothed",dev,worst_family_auc,5,0.9444819195466027,0.9428666033036759,0.9463427673786203,,,aec4298
+v0,unsw,"token distance, smoothed",dev,false_per_host_day_at_80pct_5min,5,1.8173913043478263,1.6666666666666667,1.9130434782608696,0.5,2.5445872061235644,aec4298
+v0,unsw,"token distance, smoothed",dev,detect_1pct_cal,5,1.0,1.0,1.0,,,aec4298
+v0,unsw,"token distance, smoothed",dev,false_window_rate_1pct_cal,5,0.062458487300622104,0.06150895738809112,0.06335656485336078,,,aec4298
+v0,unsw,"token distance, smoothed",dev,benign_source_hour_rate_1pct_cal,5,0.5391752577319587,0.5360824742268041,0.5412371134020618,,,aec4298
+v0,unsw,"token distance, smoothed",dev,n_attacking_sources,5,4.0,4.0,4.0,,,aec4298
+v0,unsw,"token distance, smoothed",dev,n_benign_sources,5,38.0,38.0,38.0,,,aec4298
+v0,unsw,"token distance, smoothed",dev,n_families,5,9.0,9.0,9.0,,,aec4298
+v0,unsw,"token distance, smoothed",final,family_mean_auc,5,0.9398992650683606,0.939391230843077,0.9403765419392269,0.8478743224379853,0.9793086287533387,aec4298
+v0,unsw,"token distance, smoothed",final,worst_family_auc,5,0.9366651484036199,0.9355080567777636,0.9381052331475628,,,aec4298
+v0,unsw,"token distance, smoothed",final,false_per_host_day_at_80pct_5min,5,2.240579710144927,1.5072463768115942,2.710144927536232,0.39413157894736844,4.281452489671666,aec4298
+v0,unsw,"token distance, smoothed",final,detect_1pct_cal,5,1.0,1.0,1.0,,,aec4298
+v0,unsw,"token distance, smoothed",final,false_window_rate_1pct_cal,5,0.05876867388570202,0.057946562777999325,0.060262584741863245,,,aec4298
+v0,unsw,"token distance, smoothed",final,benign_source_hour_rate_1pct_cal,5,0.5199999999999999,0.5058823529411764,0.5294117647058824,,,aec4298
+v0,unsw,"token distance, smoothed",final,n_attacking_sources,5,4.0,4.0,4.0,,,aec4298
+v0,unsw,"token distance, smoothed",final,n_benign_sources,5,37.0,37.0,37.0,,,aec4298
+v0,unsw,"token distance, smoothed",final,n_families,5,9.0,9.0,9.0,,,aec4298
+v0,unsw,"v0 NCM, smoothed",dev,family_mean_auc,5,0.9485588359745114,0.9478446694088123,0.9497806559480577,0.8578233852101246,0.9866817962633989,aec4298
+v0,unsw,"v0 NCM, smoothed",dev,worst_family_auc,5,0.9439999853128201,0.9432301630312626,0.9446552877295809,,,aec4298
+v0,unsw,"v0 NCM, smoothed",dev,false_per_host_day_at_80pct_5min,5,2.257971014492754,1.2028985507246377,2.9855072463768115,1.0359595070422536,5.622857142857141,aec4298
+v0,unsw,"v0 NCM, smoothed",dev,detect_1pct_cal,5,1.0,1.0,1.0,,,aec4298
+v0,unsw,"v0 NCM, smoothed",dev,false_window_rate_1pct_cal,5,0.08216474110108049,0.07142523036624725,0.11188549511202582,,,aec4298
+v0,unsw,"v0 NCM, smoothed",dev,benign_source_hour_rate_1pct_cal,5,0.6659793814432989,0.6185567010309279,0.7010309278350515,,,aec4298
+v0,unsw,"v0 NCM, smoothed",dev,n_attacking_sources,5,4.0,4.0,4.0,,,aec4298
+v0,unsw,"v0 NCM, smoothed",dev,n_benign_sources,5,38.0,38.0,38.0,,,aec4298
+v0,unsw,"v0 NCM, smoothed",dev,n_families,5,9.0,9.0,9.0,,,aec4298
+v0,unsw,"v0 NCM, smoothed",final,family_mean_auc,5,0.9419970530644557,0.940555803116374,0.9441258561888106,0.8746108192504911,0.9809400652985338,aec4298
+v0,unsw,"v0 NCM, smoothed",final,worst_family_auc,5,0.9376095084896523,0.9362790085252543,0.9393797617607933,,,aec4298
+v0,unsw,"v0 NCM, smoothed",final,false_per_host_day_at_80pct_5min,5,3.011594202898551,1.2463768115942029,4.144927536231884,0.2681766273315569,6.7090677634155895,aec4298
+v0,unsw,"v0 NCM, smoothed",final,detect_1pct_cal,5,1.0,1.0,1.0,,,aec4298
+v0,unsw,"v0 NCM, smoothed",final,false_window_rate_1pct_cal,5,0.06609711954354427,0.06342219086475046,0.06984876836712782,,,aec4298
+v0,unsw,"v0 NCM, smoothed",final,benign_source_hour_rate_1pct_cal,5,0.6266666666666667,0.5882352941176471,0.6627450980392157,,,aec4298
+v0,unsw,"v0 NCM, smoothed",final,n_attacking_sources,5,4.0,4.0,4.0,,,aec4298
+v0,unsw,"v0 NCM, smoothed",final,n_benign_sources,5,37.0,37.0,37.0,,,aec4298
+v0,unsw,"v0 NCM, smoothed",final,n_families,5,9.0,9.0,9.0,,,aec4298

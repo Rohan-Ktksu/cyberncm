@@ -1,0 +1,49 @@
+artifacts/ncm_gru64_s2.pt: 501567 benign and 43584 attack test windows
+
+PART 1 - unsupervised, every attack unseen. Thresholds set on Monday benign calibration data.
+                                      dev AUC  dev family-mean AUC  dev worst family  dev detect@1%  dev false@1%  dev detect@0.1%  dev false@0.1%  final AUC  final family-mean AUC  final worst family  final detect@1%  final false@1%  final detect@0.1%  final false@0.1%
+baseline: isolation forest              0.970                0.969             0.950          0.066         0.012            0.023           0.004      0.723                  0.691               0.355            0.002           0.011              0.001             0.003
+baseline: isolation forest, smoothed    0.988                0.989             0.984          0.999         0.019            0.009           0.004      0.782                  0.807               0.559            0.001           0.024              0.000             0.002
+token distance only, smoothed           1.000                0.999             0.999          1.000         0.051            1.000           0.011      0.988                  0.986               0.977            1.000           0.065              0.997             0.016
+next-context surprise only, smoothed    0.996                0.991             0.978          0.980         0.039            0.979           0.020      0.998                  0.993               0.983            1.000           0.033              1.000             0.011
+NCM (all three signals), raw            0.998                0.997             0.996          1.000         0.023            0.770           0.002      0.986                  0.962               0.886            0.996           0.022              0.025             0.002
+NCM (all three signals), smoothed       1.000                1.000             0.999          1.000         0.051            1.000           0.024      0.991                  0.990               0.985            1.000           0.051              0.999             0.018 
+
+AUC per attack family, final split (days 3-4)
+                          windows  baseline: isolation forest, smoothed  token distance only, smoothed  NCM (all three signals), smoothed
+Botnet Ares                 35599                                 0.782                          0.988                              0.991
+Web Attack - Brute Force       73                                 0.943                          0.989                              0.990
+Web Attack - SQL               18                                 0.559                          0.977                              0.985
+Web Attack - XSS               40                                 0.943                          0.990                              0.994 
+
+Windows (5 s each) from an attacking source's first attack window to its first alert, 1% threshold
+                          sources  detected  median_windows_to_alert
+family                                                              
+Botnet Ares                    10       1.0                      1.0
+DDoS-HOIC                      10       1.0                      1.0
+DDoS-LOIC-UDP                  11       1.0                      1.0
+DoS GoldenEye                   1       1.0                      1.0
+DoS Slowloris                   1       1.0                      1.0
+Web Attack - Brute Force        1       1.0                      1.0
+Web Attack - SQL                1       1.0                      1.0
+Web Attack - XSS                1       1.0                      1.0 
+
+PART 2 - stage head trained WITHOUT the listed family, AUC on that family
+                          windows  RF single-window, smoothed  head without state  NCM hazard H  NCM surprise S  NCM risk R  R detect@1%  R false@1%
+Botnet Ares               35599.0                       1.000               0.990         0.876           0.993       0.990          1.0       0.045
+DDoS-HOIC                  6537.0                       1.000               1.000         1.000           1.000       1.000          1.0       0.045
+DDoS-LOIC-UDP               656.0                       0.998               0.787         0.911           0.999       0.996          1.0       0.045
+DoS GoldenEye               165.0                       1.000               1.000         1.000           1.000       1.000          1.0       0.045
+DoS Slowloris               496.0                       1.000               1.000         1.000           1.000       1.000          1.0       0.045
+Web Attack - Brute Force     73.0                       1.000               1.000         1.000           0.993       1.000          1.0       0.045
+Web Attack - SQL             18.0                       1.000               1.000         1.000           0.985       0.999          1.0       0.045
+Web Attack - XSS             40.0                       1.000               1.000         1.000           0.996       1.000          1.0       0.045
+MEAN                       5448.0                       1.000               0.972         0.973           0.996       0.998          1.0       0.045 
+
+PART 2b - stage head trained WITHOUT a whole kill-chain stage
+                     windows  RF single-window, smoothed  head without state  NCM hazard H  NCM surprise S  NCM risk R  R detect@1%  R false@1%
+INITIAL_ACCESS         131.0                       0.992               0.943         0.997           0.993       0.998          1.0       0.045
+COMMAND_AND_CONTROL  35599.0                       1.000               0.978         0.919           0.993       0.992          1.0       0.045
+IMPACT                7854.0                       1.000               0.970         0.995           1.000       0.999          1.0       0.045
+MEAN                 14528.0                       0.997               0.964         0.970           0.995       0.996          1.0       0.045 
+

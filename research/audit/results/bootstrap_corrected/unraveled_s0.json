@@ -1,0 +1,251 @@
+{
+  "status": "COMPLETE",
+  "seed": 0,
+  "input_sha256": {
+    "windows": "9a13ba73ae3d0293dd7a98e54b423af1dfe89921a95fc390f0a60fcb1cf61894",
+    "checkpoint": "c40f38f8b08af8d0601e4b7584defde0bb3f9604dd82f5c9623abac137f6bfa4",
+    "original": "af3a000d4c3aa0f8d6c78726325e3b40871aa7122d9c59f52ee1b59392948cb7"
+  },
+  "environment": {
+    "python": "3.13.18",
+    "torch": "2.15.0+cpu",
+    "numpy": "2.5.4"
+  },
+  "models": {
+    "v0 NCM, smoothed": {
+      "dev": {
+        "family_mean_auc": 0.9010232982800783,
+        "worst_family_auc": 0.8031630251817736,
+        "n_families": 2,
+        "n_attacking_sources": 3,
+        "n_benign_sources": 1790,
+        "fa_threshold": 6.174870793898519,
+        "false_per_host_day_at_80pct_5min": 5.099076138897738,
+        "detect_within_5min_check": 1.0,
+        "metrics_py_false_per_host_day": 5.099076138897738,
+        "detect_1pct_cal": 0.9973262032085561,
+        "false_window_rate_1pct_cal": 0.45936025764020366,
+        "benign_source_hour_rate_1pct_cal": 0.40934608587171223,
+        "per_family_auc": {
+          "APT:Lateral Movement": 0.8031630251817736,
+          "APT:Reconnaissance": 0.998883571378383
+        },
+        "bootstrap": {
+          "family_mean_auc_ci95": [
+            0.7623897046172068,
+            0.9994314368767683
+          ],
+          "false_per_host_day_ci95": [
+            1.0032967122168224,
+            7.662048030295198
+          ],
+          "B": 200
+        }
+      },
+      "final": {
+        "family_mean_auc": 0.8889385612498455,
+        "worst_family_auc": 0.782360035435405,
+        "n_families": 5,
+        "n_attacking_sources": 4,
+        "n_benign_sources": 457,
+        "fa_threshold": 5.154164232088067,
+        "false_per_host_day_at_80pct_5min": 10.949869791666666,
+        "detect_within_5min_check": 1.0,
+        "metrics_py_false_per_host_day": 10.949869791666666,
+        "detect_1pct_cal": 0.9915816284339183,
+        "false_window_rate_1pct_cal": 0.31362851104504835,
+        "benign_source_hour_rate_1pct_cal": 0.3147208121827411,
+        "per_family_auc": {
+          "AA:Reconnaissance": 0.9984504263292124,
+          "APT:Cover up": 0.8941517944067785,
+          "APT:Data Exfiltration": 0.9395891326388115,
+          "APT:Establish Foothold": 0.8301414174390194,
+          "APT:Lateral Movement": 0.782360035435405
+        },
+        "bootstrap": {
+          "family_mean_auc_ci95": [
+            0.8087988001512451,
+            0.9978525336247775
+          ],
+          "false_per_host_day_ci95": [
+            0.07369225395999918,
+            17.42076342356231
+          ],
+          "B": 200
+        }
+      }
+    },
+    "token distance, smoothed": {
+      "dev": {
+        "family_mean_auc": 0.8517797825276702,
+        "worst_family_auc": 0.7058431730873844,
+        "n_families": 2,
+        "n_attacking_sources": 3,
+        "n_benign_sources": 1790,
+        "fa_threshold": 1.1641064086109174,
+        "false_per_host_day_at_80pct_5min": 4.553679515769353,
+        "detect_within_5min_check": 1.0,
+        "metrics_py_false_per_host_day": 4.553679515769353,
+        "detect_1pct_cal": 0.9077540106951871,
+        "false_window_rate_1pct_cal": 0.07214576594474206,
+        "benign_source_hour_rate_1pct_cal": 0.20173614720864955,
+        "per_family_auc": {
+          "APT:Lateral Movement": 0.7058431730873844,
+          "APT:Reconnaissance": 0.9977163919679559
+        },
+        "bootstrap": {
+          "family_mean_auc_ci95": [
+            0.7067213603932809,
+            0.9990711300743161
+          ],
+          "false_per_host_day_ci95": [
+            0.7033264639317665,
+            5.746194456014329
+          ],
+          "B": 200
+        }
+      },
+      "final": {
+        "family_mean_auc": 0.8601150620571889,
+        "worst_family_auc": 0.7362823625762085,
+        "n_families": 5,
+        "n_attacking_sources": 4,
+        "n_benign_sources": 457,
+        "fa_threshold": 1.2774139092369479,
+        "false_per_host_day_at_80pct_5min": 5.400390625,
+        "detect_within_5min_check": 1.0,
+        "metrics_py_false_per_host_day": 5.400390625,
+        "detect_1pct_cal": 0.11230008434910606,
+        "false_window_rate_1pct_cal": 0.0502332658090202,
+        "benign_source_hour_rate_1pct_cal": 0.12099134069871603,
+        "per_family_auc": {
+          "AA:Reconnaissance": 0.9981592463150887,
+          "APT:Cover up": 0.9324856521474887,
+          "APT:Data Exfiltration": 0.8447380216972562,
+          "APT:Establish Foothold": 0.7362823625762085,
+          "APT:Lateral Movement": 0.7889100275499031
+        },
+        "bootstrap": {
+          "family_mean_auc_ci95": [
+            0.729806402106345,
+            0.9520247184564484
+          ],
+          "false_per_host_day_ci95": [
+            1.7021391736209022,
+            7.1786857564183135
+          ],
+          "B": 200
+        }
+      }
+    },
+    "isolation forest, smoothed": {
+      "dev": {
+        "family_mean_auc": 0.8342569169426128,
+        "worst_family_auc": 0.690311791756247,
+        "n_families": 2,
+        "n_attacking_sources": 3,
+        "n_benign_sources": 1790,
+        "fa_threshold": 0.4670293263056029,
+        "false_per_host_day_at_80pct_5min": 14.6199426568971,
+        "detect_within_5min_check": 1.0,
+        "metrics_py_false_per_host_day": 14.6199426568971,
+        "detect_1pct_cal": 0.8703208556149733,
+        "false_window_rate_1pct_cal": 0.09062120607537334,
+        "benign_source_hour_rate_1pct_cal": 0.21306788647468553,
+        "per_family_auc": {
+          "APT:Lateral Movement": 0.690311791756247,
+          "APT:Reconnaissance": 0.9782020421289788
+        },
+        "bootstrap": {
+          "family_mean_auc_ci95": [
+            0.6808851781168543,
+            0.9871636596642336
+          ],
+          "false_per_host_day_ci95": [
+            6.90208082513444,
+            22.599026142477456
+          ],
+          "B": 200
+        }
+      },
+      "final": {
+        "family_mean_auc": 0.7987845071452762,
+        "worst_family_auc": 0.6404081224868201,
+        "n_families": 5,
+        "n_attacking_sources": 4,
+        "n_benign_sources": 457,
+        "fa_threshold": 0.485930922194067,
+        "false_per_host_day_at_80pct_5min": 15.770833333333334,
+        "detect_within_5min_check": 1.0,
+        "metrics_py_false_per_host_day": 15.770833333333334,
+        "detect_1pct_cal": 0.09311479747945024,
+        "false_window_rate_1pct_cal": 0.03991607692510063,
+        "benign_source_hour_rate_1pct_cal": 0.1318005374738728,
+        "per_family_auc": {
+          "AA:Reconnaissance": 0.9738447267016315,
+          "APT:Cover up": 0.8773041238424457,
+          "APT:Data Exfiltration": 0.7643609562357495,
+          "APT:Establish Foothold": 0.6404081224868201,
+          "APT:Lateral Movement": 0.7380046064597336
+        },
+        "bootstrap": {
+          "family_mean_auc_ci95": [
+            0.6804199607880557,
+            0.9811052070779755
+          ],
+          "false_per_host_day_ci95": [
+            3.913383437093443,
+            20.407404033074574
+          ],
+          "B": 200
+        }
+      }
+    }
+  },
+  "point_checks": [
+    {
+      "model": "v0 NCM, smoothed",
+      "split": "dev",
+      "original_family_mean_auc": 0.9010234617274158,
+      "recomputed_family_mean_auc": 0.9010232982800783,
+      "matches_3_decimals": true
+    },
+    {
+      "model": "v0 NCM, smoothed",
+      "split": "final",
+      "original_family_mean_auc": 0.888940765414443,
+      "recomputed_family_mean_auc": 0.8889385612498455,
+      "matches_3_decimals": true
+    },
+    {
+      "model": "token distance, smoothed",
+      "split": "dev",
+      "original_family_mean_auc": 0.8517797825276701,
+      "recomputed_family_mean_auc": 0.8517797825276702,
+      "matches_3_decimals": true
+    },
+    {
+      "model": "token distance, smoothed",
+      "split": "final",
+      "original_family_mean_auc": 0.8601150632178085,
+      "recomputed_family_mean_auc": 0.8601150620571889,
+      "matches_3_decimals": true
+    },
+    {
+      "model": "isolation forest, smoothed",
+      "split": "dev",
+      "original_family_mean_auc": 0.8342569169426128,
+      "recomputed_family_mean_auc": 0.8342569169426128,
+      "matches_3_decimals": true
+    },
+    {
+      "model": "isolation forest, smoothed",
+      "split": "final",
+      "original_family_mean_auc": 0.7987845071452762,
+      "recomputed_family_mean_auc": 0.7987845071452762,
+      "matches_3_decimals": true
+    }
+  ],
+  "note": "Author rerun. Same 200 source resamples and RNG order as scoreboard; weighted AUC credits ties. Historical point estimates remain unchanged.",
+  "inputs_unchanged": true
+}

@@ -1,0 +1,49 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+id_rsa*
+*.token
+
+# Generated runtime state (signing keys, journals, logs, databases)
+runtime/
+**/runtime/
+*.db
+*.sqlite
+*.sqlite3
+*.log
+*.jsonl
+
+# Data and model artifacts are not redistributed (see README, "Artifact access")
+data/
+artifacts/
+*.npz
+*.pt
+*.pth
+*.onnx
+*.parquet
+*.pcap
+*.pcapng
+*.csv.gz
+
+# Python / tooling
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Browser-test output
+.playwright-mcp/

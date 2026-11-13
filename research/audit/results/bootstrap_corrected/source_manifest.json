@@ -1,0 +1,10 @@
+{
+  "repo_commit": "ebf3a302d5f0779becde8b416db1b8387c44f88b",
+  "source_sha256": {
+    "ncm.py": "f2f8e4dd42d4557c1b1bd0ea79c78d21527d19430e88e183ee8d9ec5ee000690",
+    "metrics.py": "f78f828ec3e0f90fc380ec3e7ab71a6f676d9e81d6fe0928f0d8df7e54404389",
+    "scoreboard.py": "8ae7e7ce7cb8da929002e97cc790a2f687615fec2740c3bf785cd28567e6fa7d",
+    "recompute_bootstrap.py": "a78e5829008713ca501dbd10623763275fa6ab52c8bb9d4e64ebec95ad77c827",
+    "run_bootstrap_batch.py": "475b3c519fdf00de9468b3edd9d634838dfe1bdc185d738c7bbee740298f21ac"
+  }
+}

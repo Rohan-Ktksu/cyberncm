@@ -1,0 +1,23 @@
+train ncm-prototype\data\windows.npz (ncm-prototype\artifacts\ncm_gru64_s1.pt) -> test d2018\run\data\windows.npz: 501567 benign, 43584 attack test windows
+
+PART X1 - unsupervised transfer. Thresholds at 1%: 'source' from A's calibration, 'target-cal' from B's benign day 0.
+                                      dev AUC  dev family-mean AUC  dev worst family  dev detect@1% source  dev false@1% source  dev detect@1% target-cal  dev false@1% target-cal  final AUC  final family-mean AUC  final worst family  final detect@1% source  final false@1% source  final detect@1% target-cal  final false@1% target-cal
+baseline: isolation forest, smoothed    0.902                0.909             0.875                 1.000                0.308                     0.000                    0.012      0.935                  0.632               0.413                   0.995                  0.367                       0.000                      0.013
+token distance only, smoothed           0.634                0.672             0.604                 0.979                0.437                     0.004                    0.009      0.935                  0.528               0.243                   0.999                  0.535                       0.000                      0.013
+next-context surprise only, smoothed    0.251                0.216             0.038                 0.091                0.468                     0.000                    0.012      0.978                  0.507               0.309                   0.994                  0.568                       0.284                      0.013
+NCM (all three signals), smoothed       0.642                0.616             0.537                 0.935                0.454                     0.005                    0.013      0.927                  0.547               0.396                   0.997                  0.549                       0.174                      0.016 
+
+AUC per attack family on B, final split (days 3-4)
+                          windows  baseline: isolation forest, smoothed  token distance only, smoothed  next-context surprise only, smoothed  NCM (all three signals), smoothed
+Botnet Ares                 35599                                 0.937                          0.937                                 0.981                              0.928
+Web Attack - Brute Force       73                                 0.413                          0.481                                 0.309                              0.445
+Web Attack - SQL               18                                 0.475                          0.243                                 0.358                              0.396
+Web Attack - XSS               40                                 0.704                          0.452                                 0.381                              0.417 
+
+PART X2 - supervised transfer: fitted on all of A's labelled windows, attack-vs-benign on B
+                            dev AUC  dev family-mean AUC  dev worst family  final AUC  final family-mean AUC  final worst family  dev detect@1% source  dev false@1% source  dev detect@1% target-cal  dev false@1% target-cal  final detect@1% source  final false@1% source  final detect@1% target-cal  final false@1% target-cal
+RF single-window, smoothed    0.790                0.795             0.372      0.991                  0.795               0.574                   NaN                  NaN                       NaN                      NaN                     NaN                    NaN                         NaN                        NaN
+head without state            0.882                0.726             0.001      0.976                  0.579               0.382                   NaN                  NaN                       NaN                      NaN                     NaN                    NaN                         NaN                        NaN
+NCM hazard H                  0.659                0.689             0.083      0.992                  0.561               0.363                   NaN                  NaN                       NaN                      NaN                     NaN                    NaN                         NaN                        NaN
+NCM risk R                    0.671                0.664             0.416      0.992                  0.579               0.430                 0.979                 0.48                     0.006                    0.022                   0.998                  0.568                       0.981                      0.055 
+

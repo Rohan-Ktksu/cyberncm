@@ -1,0 +1,27 @@
+[
+  {
+    "dataset": "cic2017",
+    "exit_code": 0,
+    "elapsed_seconds": 228.42456102371216
+  },
+  {
+    "dataset": "unsw",
+    "exit_code": 0,
+    "elapsed_seconds": 438.66143584251404
+  },
+  {
+    "dataset": "d2018",
+    "exit_code": 0,
+    "elapsed_seconds": 691.8991084098816
+  },
+  {
+    "dataset": "unraveled",
+    "exit_code": 0,
+    "elapsed_seconds": 1177.997146844864
+  },
+  {
+    "dataset": "cicapt",
+    "exit_code": 0,
+    "elapsed_seconds": 93.64473342895508
+  }
+]

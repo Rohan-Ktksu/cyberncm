@@ -1,0 +1,977 @@
+{
+  "files": {
+    "scoreboard/cic2017_s0.json": {
+      "seed": 0,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9798958242670703
+          },
+          "final": {
+            "family_mean_auc": 0.9419058401220572
+          }
+        }
+      }
+    },
+    "scoreboard/cic2017_s1.json": {
+      "seed": 1,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9970772182904779
+          },
+          "final": {
+            "family_mean_auc": 0.9658990849899676
+          }
+        }
+      }
+    },
+    "scoreboard/cic2017_s2.json": {
+      "seed": 2,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9934600103740742
+          },
+          "final": {
+            "family_mean_auc": 0.944309951939978
+          }
+        }
+      }
+    },
+    "scoreboard/cic2017_s3.json": {
+      "seed": 3,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9912072007311589
+          },
+          "final": {
+            "family_mean_auc": 0.9612651028707992
+          }
+        }
+      }
+    },
+    "scoreboard/cic2017_s4.json": {
+      "seed": 4,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9948196583165441
+          },
+          "final": {
+            "family_mean_auc": 0.9568701333305747
+          }
+        }
+      }
+    },
+    "scoreboard/unsw_s0.json": {
+      "seed": 0,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9479641728094342
+          },
+          "final": {
+            "family_mean_auc": 0.9408952063296412
+          }
+        }
+      }
+    },
+    "scoreboard/unsw_s1.json": {
+      "seed": 1,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9492679495929993
+          },
+          "final": {
+            "family_mean_auc": 0.9418674635242213
+          }
+        }
+      }
+    },
+    "scoreboard/unsw_s2.json": {
+      "seed": 2,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9497806559480577
+          },
+          "final": {
+            "family_mean_auc": 0.9441258561888106
+          }
+        }
+      }
+    },
+    "scoreboard/unsw_s3.json": {
+      "seed": 3,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9479367321132535
+          },
+          "final": {
+            "family_mean_auc": 0.9425409361632315
+          }
+        }
+      }
+    },
+    "scoreboard/unsw_s4.json": {
+      "seed": 4,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9478446694088123
+          },
+          "final": {
+            "family_mean_auc": 0.940555803116374
+          }
+        }
+      }
+    },
+    "scoreboard/d2018_s0.json": {
+      "seed": 0,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9995543900300632
+          },
+          "final": {
+            "family_mean_auc": 0.9888625727591044
+          }
+        }
+      }
+    },
+    "scoreboard/d2018_s1.json": {
+      "seed": 1,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9999544614376853
+          },
+          "final": {
+            "family_mean_auc": 0.9881402431375502
+          }
+        }
+      }
+    },
+    "scoreboard/d2018_s2.json": {
+      "seed": 2,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9999111753163232
+          },
+          "final": {
+            "family_mean_auc": 0.9907036496844468
+          }
+        }
+      }
+    },
+    "scoreboard/d2018_s3.json": {
+      "seed": 3,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9998982549982438
+          },
+          "final": {
+            "family_mean_auc": 0.9892523842168568
+          }
+        }
+      }
+    },
+    "scoreboard/d2018_s4.json": {
+      "seed": 4,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9998652229419296
+          },
+          "final": {
+            "family_mean_auc": 0.9887710491027577
+          }
+        }
+      }
+    },
+    "scoreboard/unraveled_s0.json": {
+      "seed": 0,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9010234617274158
+          },
+          "final": {
+            "family_mean_auc": 0.888940765414443
+          }
+        }
+      }
+    },
+    "scoreboard/unraveled_s1.json": {
+      "seed": 1,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9166192642310296
+          },
+          "final": {
+            "family_mean_auc": 0.8991852063772667
+          }
+        }
+      }
+    },
+    "scoreboard/unraveled_s2.json": {
+      "seed": 2,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9055945238242331
+          },
+          "final": {
+            "family_mean_auc": 0.8979068475448873
+          }
+        }
+      }
+    },
+    "scoreboard/unraveled_s3.json": {
+      "seed": 3,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9006740994557845
+          },
+          "final": {
+            "family_mean_auc": 0.8842868441807663
+          }
+        }
+      }
+    },
+    "scoreboard/unraveled_s4.json": {
+      "seed": 4,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.907936706970955
+          },
+          "final": {
+            "family_mean_auc": 0.8975030555837231
+          }
+        }
+      }
+    },
+    "scoreboard/cicapt_s0.json": {
+      "seed": 0,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.8532200864413995
+          },
+          "final": {
+            "family_mean_auc": 0.6368140212992026
+          }
+        }
+      }
+    },
+    "scoreboard/cicapt_s1.json": {
+      "seed": 1,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.8931784892236869
+          },
+          "final": {
+            "family_mean_auc": 0.7388040286801145
+          }
+        }
+      }
+    },
+    "scoreboard/cicapt_s2.json": {
+      "seed": 2,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9084631217034296
+          },
+          "final": {
+            "family_mean_auc": 0.7134027422926248
+          }
+        }
+      }
+    },
+    "scoreboard/cicapt_s3.json": {
+      "seed": 3,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.8787258912916422
+          },
+          "final": {
+            "family_mean_auc": 0.7562471104946833
+          }
+        }
+      }
+    },
+    "scoreboard/cicapt_s4.json": {
+      "seed": 4,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.8628843142772618
+          },
+          "final": {
+            "family_mean_auc": 0.6399193777323567
+          }
+        }
+      }
+    },
+    "r6e/tf/cic2017_s0.json": {
+      "seed": 0,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9983186202503577
+          },
+          "final": {
+            "family_mean_auc": 0.9598062816967063
+          }
+        }
+      }
+    },
+    "r6e/tf/cic2017_s1.json": {
+      "seed": 1,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9977290251158657
+          },
+          "final": {
+            "family_mean_auc": 0.9569902668367061
+          }
+        }
+      }
+    },
+    "r6e/tf/cic2017_s2.json": {
+      "seed": 2,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.996529067887433
+          },
+          "final": {
+            "family_mean_auc": 0.9439243617404487
+          }
+        }
+      }
+    },
+    "r6e/tf/unsw_s0.json": {
+      "seed": 0,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9557656795949955
+          },
+          "final": {
+            "family_mean_auc": 0.9476278223501325
+          }
+        }
+      }
+    },
+    "r6e/tf/unsw_s1.json": {
+      "seed": 1,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9490411164305811
+          },
+          "final": {
+            "family_mean_auc": 0.9414088421071108
+          }
+        }
+      }
+    },
+    "r6e/tf/unsw_s2.json": {
+      "seed": 2,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.948184850332902
+          },
+          "final": {
+            "family_mean_auc": 0.9411186835092735
+          }
+        }
+      }
+    },
+    "r6e/tf/d2018_s0.json": {
+      "seed": 0,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9999144276691339
+          },
+          "final": {
+            "family_mean_auc": 0.9903156588215708
+          }
+        }
+      }
+    },
+    "r6e/tf/d2018_s1.json": {
+      "seed": 1,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9997315496820288
+          },
+          "final": {
+            "family_mean_auc": 0.9900765306566955
+          }
+        }
+      }
+    },
+    "r6e/tf/d2018_s2.json": {
+      "seed": 2,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9999482676906869
+          },
+          "final": {
+            "family_mean_auc": 0.9910685473141968
+          }
+        }
+      }
+    },
+    "r6e/tf/unraveled_s0.json": {
+      "seed": 0,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.8891472542109308
+          },
+          "final": {
+            "family_mean_auc": 0.8910629880778778
+          }
+        }
+      }
+    },
+    "r6e/tf/unraveled_s1.json": {
+      "seed": 1,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.8895412810628676
+          },
+          "final": {
+            "family_mean_auc": 0.8832943364090753
+          }
+        }
+      }
+    },
+    "r6e/tf/unraveled_s2.json": {
+      "seed": 2,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.8744947317693121
+          },
+          "final": {
+            "family_mean_auc": 0.8917119100448134
+          }
+        }
+      }
+    },
+    "r6e/tf/cicapt_s0.json": {
+      "seed": 0,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.8513003189240282
+          },
+          "final": {
+            "family_mean_auc": 0.5239018865935064
+          }
+        }
+      }
+    },
+    "r6e/tf/cicapt_s1.json": {
+      "seed": 1,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.8640342807252996
+          },
+          "final": {
+            "family_mean_auc": 0.4892051122953013
+          }
+        }
+      }
+    },
+    "r6e/tf/cicapt_s2.json": {
+      "seed": 2,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.8657497600854313
+          },
+          "final": {
+            "family_mean_auc": 0.5611200330924399
+          }
+        }
+      }
+    },
+    "r6e/gru_masked/cic2017_s0.json": {
+      "seed": 0,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9919523084614015
+          },
+          "final": {
+            "family_mean_auc": 0.9489689343224927
+          }
+        }
+      }
+    },
+    "r6e/gru_masked/cic2017_s1.json": {
+      "seed": 1,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9914681229639025
+          },
+          "final": {
+            "family_mean_auc": 0.9623072009402867
+          }
+        }
+      }
+    },
+    "r6e/gru_masked/cic2017_s2.json": {
+      "seed": 2,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9914028450881348
+          },
+          "final": {
+            "family_mean_auc": 0.9635858761411384
+          }
+        }
+      }
+    },
+    "r6e/gru_masked/unsw_s0.json": {
+      "seed": 0,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9519874784690762
+          },
+          "final": {
+            "family_mean_auc": 0.9436578360207899
+          }
+        }
+      }
+    },
+    "r6e/gru_masked/unsw_s1.json": {
+      "seed": 1,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9507541377341704
+          },
+          "final": {
+            "family_mean_auc": 0.9438939525984374
+          }
+        }
+      }
+    },
+    "r6e/gru_masked/unsw_s2.json": {
+      "seed": 2,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9471454099432894
+          },
+          "final": {
+            "family_mean_auc": 0.9407245109074786
+          }
+        }
+      }
+    },
+    "r6e/gru_masked/d2018_s0.json": {
+      "seed": 0,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9997131890521374
+          },
+          "final": {
+            "family_mean_auc": 0.988929802559715
+          }
+        }
+      }
+    },
+    "r6e/gru_masked/d2018_s1.json": {
+      "seed": 1,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9999513212813643
+          },
+          "final": {
+            "family_mean_auc": 0.9901464752952247
+          }
+        }
+      }
+    },
+    "r6e/gru_masked/d2018_s2.json": {
+      "seed": 2,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9998609727066547
+          },
+          "final": {
+            "family_mean_auc": 0.9955973406702097
+          }
+        }
+      }
+    },
+    "r6e/gru_masked/unraveled_s0.json": {
+      "seed": 0,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.907632394401264
+          },
+          "final": {
+            "family_mean_auc": 0.8962518840775126
+          }
+        }
+      }
+    },
+    "r6e/gru_masked/unraveled_s1.json": {
+      "seed": 1,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9151477664850222
+          },
+          "final": {
+            "family_mean_auc": 0.8842068579754999
+          }
+        }
+      }
+    },
+    "r6e/gru_masked/unraveled_s2.json": {
+      "seed": 2,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.9080321399217723
+          },
+          "final": {
+            "family_mean_auc": 0.9012091225486578
+          }
+        }
+      }
+    },
+    "r6e/gru_masked/cicapt_s0.json": {
+      "seed": 0,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.8626425958395567
+          },
+          "final": {
+            "family_mean_auc": 0.6658372265615495
+          }
+        }
+      }
+    },
+    "r6e/gru_masked/cicapt_s1.json": {
+      "seed": 1,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.8722080618510581
+          },
+          "final": {
+            "family_mean_auc": 0.6351862666374675
+          }
+        }
+      }
+    },
+    "r6e/gru_masked/cicapt_s2.json": {
+      "seed": 2,
+      "models": {
+        "v0 NCM, smoothed": {
+          "dev": {
+            "family_mean_auc": 0.90797878289355
+          },
+          "final": {
+            "family_mean_auc": 0.6333249182827619
+          }
+        }
+      }
+    },
+    "r6e/ensemble_cic2017.json": {
+      "dataset": "cic2017",
+      "single": {
+        "dev": [
+          0.9798958242670703,
+          0.9970772182904779,
+          0.9934600146642073,
+          0.9912072007311589,
+          0.9948196583165441
+        ],
+        "final": [
+          0.9419060285114396,
+          0.965899076559912,
+          0.9443099543196334,
+          0.9612651028707992,
+          0.9568701393809751
+        ]
+      },
+      "ensemble5": {
+        "dev": 0.9953297644300763,
+        "final": 0.9588477821880768
+      },
+      "leave_one_out": {
+        "dev": [
+          0.9964298959425998,
+          0.9940163778474224,
+          0.9945602709241422,
+          0.9952208700057044,
+          0.9951474695832692
+        ],
+        "final": [
+          0.9611475038242815,
+          0.9548096330666402,
+          0.9608202446596852,
+          0.9569213066293636,
+          0.9587655276900304
+        ]
+      }
+    },
+    "r6e/ensemble_unsw.json": {
+      "dataset": "unsw",
+      "single": {
+        "dev": [
+          0.9479641741004667,
+          0.9492679479273358,
+          0.9497806559480577,
+          0.9479367321132535,
+          0.9478446694088123
+        ],
+        "final": [
+          0.9408952054026027,
+          0.9418674635242213,
+          0.9441258556219414,
+          0.9425409407807805,
+          0.9405558026458328
+        ]
+      },
+      "ensemble5": {
+        "dev": 0.948077443896357,
+        "final": 0.941582142417172
+      },
+      "leave_one_out": {
+        "dev": [
+          0.948307579637011,
+          0.9479596415332217,
+          0.9477865531940011,
+          0.9482502954740555,
+          0.9482616945647683
+        ],
+        "final": [
+          0.9419245668808808,
+          0.9417651198606232,
+          0.9411069323470591,
+          0.9413476211478421,
+          0.9419700172442573
+        ]
+      }
+    },
+    "r6e/ensemble_cicapt.json": {
+      "dataset": "cicapt",
+      "single": {
+        "dev": [
+          0.8532200864413995,
+          0.8931784892236869,
+          0.9084631217034296,
+          0.8787258912916422,
+          0.8628843142772618
+        ],
+        "final": [
+          0.6368109797146588,
+          0.7388031162047514,
+          0.7134027422926248,
+          0.7562471104946833,
+          0.6399196818908112
+        ]
+      },
+      "ensemble5": {
+        "dev": 0.8766789510141352,
+        "final": 0.7026104906278642
+      },
+      "leave_one_out": {
+        "dev": [
+          0.886078010116097,
+          0.8723289210699108,
+          0.8690760944072846,
+          0.8763154714231083,
+          0.880719166468241
+        ],
+        "final": [
+          0.7180736022905159,
+          0.691420501090915,
+          0.6992857345629446,
+          0.6853612591348923,
+          0.7172181059444729
+        ]
+      }
+    },
+    "r6e/ensemble_d2018.json": {
+      "dataset": "d2018",
+      "single": {
+        "dev": [
+          0.9995543900300632,
+          0.9999544614376853,
+          0.999911175316323,
+          0.9998982549982438,
+          0.9998652230985979
+        ],
+        "final": [
+          0.9888625726772742,
+          0.9881402425101853,
+          0.9907036497390003,
+          0.9892523842714103,
+          0.9887710490754809
+        ]
+      },
+      "ensemble5": {
+        "dev": 0.9999438127446765,
+        "final": 0.9896205129034169
+      },
+      "leave_one_out": {
+        "dev": [
+          0.9999453701079758,
+          0.9999352207816437,
+          0.9999441948384049,
+          0.9999429118548125,
+          0.9999459200941518
+        ],
+        "final": [
+          0.98975729666791,
+          0.9896292886493048,
+          0.9893369892125649,
+          0.9895752700863703,
+          0.9895917307251038
+        ]
+      }
+    },
+    "r6e/ensemble_unraveled.json": {
+      "dataset": "unraveled",
+      "single": {
+        "dev": [
+          0.9010252125837014,
+          0.9166192652393501,
+          0.9055945238242331,
+          0.9006741004641049,
+          0.9079367079792755
+        ],
+        "final": [
+          0.888943260003003,
+          0.8991852076841857,
+          0.8979068474104535,
+          0.8842868439382533,
+          0.897503055577501
+        ]
+      },
+      "ensemble5": {
+        "dev": 0.9098718499662173,
+        "final": 0.8982926758801065
+      },
+      "leave_one_out": {
+        "dev": [
+          0.911008370340068,
+          0.9069054596201379,
+          0.9101221959715059,
+          0.9106079947754486,
+          0.9093321590715743
+        ],
+        "final": [
+          0.8988089771103056,
+          0.8960883614887699,
+          0.8970908513928386,
+          0.9004506209387365,
+          0.8974450963762799
+        ]
+      }
+    }
+  },
+  "sha256": {
+    "scoreboard/cic2017_s0.json": "548123efdac317fe35726f5bc29cc80eaf3d96f828226aa82ab43b0b7dcb4097",
+    "scoreboard/cic2017_s1.json": "8fc02989ff74f221b7c905b7698e8af58e95f7d6db086ed0f4ad0fd1cc9f1627",
+    "scoreboard/cic2017_s2.json": "4fb8888d3c07e21b233af1b96d463952fcd226b99316a92450a8b0af4303adeb",
+    "scoreboard/cic2017_s3.json": "b4ec4f4adb014f33c2e55e9ab661c2193e0e6ec638889e9faacbbdf21913d7f3",
+    "scoreboard/cic2017_s4.json": "445ae69e940f00f5e328df5726cb2b147125c715a8a33e40d2a51db3b171cf1c",
+    "scoreboard/unsw_s0.json": "ff95636cf87bf6024fd7e04b9000aa015fba98778db17f233052ca03371531a4",
+    "scoreboard/unsw_s1.json": "2183bfbe5c65fe990a410903d01e09d091eda03e01f827b16b114538ab5a9947",
+    "scoreboard/unsw_s2.json": "03a5328b93f3a3dbc0e24577382bec0f1f1fa4163d2de6cbcce90cf1dba2f88b",
+    "scoreboard/unsw_s3.json": "f64699da9e9df9241a6e3c8a5836941201f5873210dc746d66bfacb645fc1432",
+    "scoreboard/unsw_s4.json": "2619fd58bec06c63336a6dff028bdd1350db84474548451545705494d983cb66",
+    "scoreboard/d2018_s0.json": "c31b168b2f6176d1a06f009064d4c01a03812fa9a65fa7c1868c6456f0cff2f6",
+    "scoreboard/d2018_s1.json": "c121da1fca1e7435fe8e5030ab4785844a7f80f8d711c23af9f3774b1d3ef086",
+    "scoreboard/d2018_s2.json": "f13375f881d4d4e9cbf7658a6be6716a5ee56538636c0fa1d1d008b5be6eedd3",
+    "scoreboard/d2018_s3.json": "5d8f767b48e859920379a1cdb195d359e011e5b48ffd6a0f8d48e2754a8529a0",
+    "scoreboard/d2018_s4.json": "738d7ddfe4479f14f4a6e0a2602dcd44cdcd5eb5413032cd30a140f7796bb8aa",
+    "scoreboard/unraveled_s0.json": "af3a000d4c3aa0f8d6c78726325e3b40871aa7122d9c59f52ee1b59392948cb7",
+    "scoreboard/unraveled_s1.json": "5cf4c98f0424bbe1c32c6a35847c27be85c8e4d4fc0571f32fede78aea0dbcbb",
+    "scoreboard/unraveled_s2.json": "734af86255e0e9783fffb155ecbb957b9a0bc4e6592b566ba6308ed9f0171f03",
+    "scoreboard/unraveled_s3.json": "a384ad58932afdaf1ad6e230971d37c5a7495924d7c4980159885ba4e4dc5998",
+    "scoreboard/unraveled_s4.json": "2e3b2157337c5f08deb6f5477d7adcabe3699def0f036e094bc831cea25d4ac9",
+    "scoreboard/cicapt_s0.json": "b6b8600a0633d910eb148c77f00521a33c2fd828b91eef41e8c4b433a9475e20",
+    "scoreboard/cicapt_s1.json": "4f060512426cf9bbd6b5b800b696794b7a66c749435339f280ade33a64453d7a",
+    "scoreboard/cicapt_s2.json": "d6ab380a55b8d075ba79361707de169a5b567bb4187cf19a92929a876db62cd5",
+    "scoreboard/cicapt_s3.json": "6fb3a4b563b7a5343cd686127efdba9630bdbd4db20d319046255209f71e79f1",
+    "scoreboard/cicapt_s4.json": "9e70735ff8ff7057a3366dad46ac61ea9bdee9ce854967ecfc0eb0f9e854987c",
+    "r6e/tf/cic2017_s0.json": "c27a7581e632bf0cfcbec1084e9fca2acb016a961a140ffc90f041f234b19d46",
+    "r6e/tf/cic2017_s1.json": "6797ebbb59d394a383c4b8477be5d02db6ae1787018e9be9749c03b3cc61192d",
+    "r6e/tf/cic2017_s2.json": "2978f729190dfffaf702d4a2106e69dd3d4ff177e97d6760ff3b500ae72ec22f",
+    "r6e/tf/unsw_s0.json": "cb41a16c8b0dc3a50dcc9620e0fcf1d7e92c91dbed33526d4d602aff2a52fa64",
+    "r6e/tf/unsw_s1.json": "10f59f55ba102762dad134b5b30a4563fc4759135e161628ffcbe589417584be",
+    "r6e/tf/unsw_s2.json": "7eac91931e14c062aa6d0787b19e995a3bf0e397c83d1ae2907d4cdb30f20332",
+    "r6e/tf/d2018_s0.json": "d5ec7dff202d4fef5cb8e94694e8a9b54497cb34a95913428c7f402d329dc47f",
+    "r6e/tf/d2018_s1.json": "3070935d6df8112d37bfbd4458dd6ca767d80f417732c838e785e3ec955b8972",
+    "r6e/tf/d2018_s2.json": "032a7b9a9098bd61b17ae133a1d093738fe0155eef264e9e6b56b2fe24a2a7dd",
+    "r6e/tf/unraveled_s0.json": "67f286d04abd6ae589f1a2195c64ab3380d9ca2af60924d6ace720f31a86587e",
+    "r6e/tf/unraveled_s1.json": "424af31bde2b744ab616c213e72916069ae3727ac1a451293605250b904cb3b3",
+    "r6e/tf/unraveled_s2.json": "dee1fd5123dc3f0857dfcefb143236efcc51535f9c8377019864a919b6b36b6c",
+    "r6e/tf/cicapt_s0.json": "dcc4060532f04d4a2936397c7e41544a7c0f29711a232a93f1be1ccfb2576b40",
+    "r6e/tf/cicapt_s1.json": "f80217f56ff7bce68f437110362a88b8e4ca0907f0f64dc7ad84eafe949f66b2",
+    "r6e/tf/cicapt_s2.json": "168037fd5ee1139b1edded7ac89ac535341c9626180df0e4fdf78c7734055e23",
+    "r6e/gru_masked/cic2017_s0.json": "76bc85dbd57a08fdfcc722f75ef94bd9ded79c61da5d657431b6fb2580249c45",
+    "r6e/gru_masked/cic2017_s1.json": "5deff401b63d53c3d70225c906edf08c17954fbc2bb52102c9ce5d1f457f711d",
+    "r6e/gru_masked/cic2017_s2.json": "f0e80dc8097dcdbfdb872a35b4a928cc678c4375cfd1e8f0347fc4388c9c1e96",
+    "r6e/gru_masked/unsw_s0.json": "bee8dfaad302acc13be40d30445aa89ea800e41f5e87b48edad987e8ea3b6519",
+    "r6e/gru_masked/unsw_s1.json": "ec4394f9fc84b3bc1ec123333e715d16b8cd27f99ab560aceff436163a74fc50",
+    "r6e/gru_masked/unsw_s2.json": "2615f2e76c95b6443be0020375d7b0a3adb0a854c0bc93467e37c5435d5080d6",
+    "r6e/gru_masked/d2018_s0.json": "703837f0f6ae156331b3e5a33483b613ae2be44e40ddf26556c7656401b1a272",
+    "r6e/gru_masked/d2018_s1.json": "0938df7546c235b0dde178c3809baaad4e6514f6a70416e978fcddef70664b60",
+    "r6e/gru_masked/d2018_s2.json": "4229d5a213f9e33ad54a1d414e4cf6c5c2c28e7d3cf56f6282157376c153bb80",
+    "r6e/gru_masked/unraveled_s0.json": "31ce6a7ceb4d256b877988563373a6564e8df6e109bc1ad986f2ac3b2b992b96",
+    "r6e/gru_masked/unraveled_s1.json": "ac6114a57f95a326df085ea4c660c7c84170a8d513cb8d1211a3cdb63d93ad3a",
+    "r6e/gru_masked/unraveled_s2.json": "7ef2c9f267c958246f897b4c0a3daae74ca57ddd966e9707e34e4ad62af154a9",
+    "r6e/gru_masked/cicapt_s0.json": "b2a9467d01c4fd18890b9e4d8075f0b1fb1909c506343325920b71bfecafb6e8",
+    "r6e/gru_masked/cicapt_s1.json": "7bfb910ff9a490facdf86a514ce0d219bf8513d3e12facc98fb0cd3c7ccfda58",
+    "r6e/gru_masked/cicapt_s2.json": "58596b28925ea4ffba3328418c9b5e992f77b63927c27f5c70b994f253e4cf7c",
+    "r6e/ensemble_cic2017.json": "3f9d33be7a2c1435ebea1769e369fd82ed1edaaa98d8433c1fcfad74ef14820f",
+    "r6e/ensemble_unsw.json": "7789bf3062431f1104407efa1b4c006644ba36957024bd41072994b98e24e74d",
+    "r6e/ensemble_cicapt.json": "2b976253bc0adabd451632d84959c2cee1e19b29a9926e3218edd5f2a84d6f62",
+    "r6e/ensemble_d2018.json": "c05c141e3f3e1b884eb998c5ed2ff8e2e57fbd3c52f86e0504a3db7f9f87d303",
+    "r6e/ensemble_unraveled.json": "27e66efca14f4e7d0691694262552c7c112e39d45fbf68e86eec3e7e82036ef8"
+  },
+  "scope": "Extracted family-mean AUC point estimates for reproducing the report; original full-file hashes provided"
+}

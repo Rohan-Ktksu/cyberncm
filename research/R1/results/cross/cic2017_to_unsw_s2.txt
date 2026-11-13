@@ -1,0 +1,28 @@
+train ncm-prototype\data\windows.npz (ncm-prototype\artifacts\ncm_gru64_s2.pt) -> test unsw\run\data\windows.npz: 109440 benign, 30750 attack test windows
+
+PART X1 - unsupervised transfer. Thresholds at 1%: 'source' from A's calibration, 'target-cal' from B's benign day 0.
+                                      dev AUC  dev family-mean AUC  dev worst family  dev detect@1% source  dev false@1% source  dev detect@1% target-cal  dev false@1% target-cal  final AUC  final family-mean AUC  final worst family  final detect@1% source  final false@1% source  final detect@1% target-cal  final false@1% target-cal
+baseline: isolation forest, smoothed    0.057                0.052             0.042                 0.217                0.942                     0.004                    0.011      0.071                  0.064               0.043                   0.275                  0.939                       0.010                      0.018
+token distance only, smoothed           0.059                0.055             0.047                 0.994                0.965                     0.004                    0.009      0.069                  0.064               0.050                   0.993                  0.960                       0.007                      0.011
+next-context surprise only, smoothed    0.942                0.949             0.894                 0.669                0.032                     0.565                    0.027      0.947                  0.948               0.903                   0.667                  0.022                       0.566                      0.018
+NCM (all three signals), smoothed       0.088                0.081             0.066                 0.976                0.963                     0.007                    0.004      0.101                  0.091               0.062                   0.974                  0.960                       0.006                      0.013 
+
+AUC per attack family on B, final split (days 3-4)
+                windows  baseline: isolation forest, smoothed  token distance only, smoothed  next-context surprise only, smoothed  NCM (all three signals), smoothed
+Analysis            172                                 0.046                          0.056                                 0.942                              0.062
+Backdoor            166                                 0.069                          0.066                                 0.971                              0.092
+DoS                1455                                 0.064                          0.063                                 0.963                              0.094
+Exploits           8375                                 0.062                          0.067                                 0.963                              0.100
+Fuzzers            2963                                 0.099                          0.077                                 0.924                              0.111
+Generic            3204                                 0.082                          0.074                                 0.903                              0.104
+Reconnaissance     2312                                 0.058                          0.063                                 0.965                              0.095
+Shellcode           214                                 0.056                          0.062                                 0.977                              0.095
+Worms                20                                 0.043                          0.050                                 0.925                              0.071 
+
+PART X2 - supervised transfer: fitted on all of A's labelled windows, attack-vs-benign on B
+                            dev AUC  dev family-mean AUC  dev worst family  final AUC  final family-mean AUC  final worst family  dev detect@1% source  dev false@1% source  dev detect@1% target-cal  dev false@1% target-cal  final detect@1% source  final false@1% source  final detect@1% target-cal  final false@1% target-cal
+RF single-window, smoothed    0.101                0.105             0.075      0.118                  0.111               0.092                   NaN                  NaN                       NaN                      NaN                     NaN                    NaN                         NaN                        NaN
+head without state            0.094                0.097             0.082      0.105                  0.103               0.086                   NaN                  NaN                       NaN                      NaN                     NaN                    NaN                         NaN                        NaN
+NCM hazard H                  0.295                0.280             0.173      0.345                  0.333               0.174                   NaN                  NaN                       NaN                      NaN                     NaN                    NaN                         NaN                        NaN
+NCM risk R                    0.279                0.257             0.148      0.322                  0.284               0.125                 0.968                0.959                     0.136                    0.023                   0.963                  0.957                       0.165                      0.016 
+

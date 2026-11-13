@@ -1,0 +1,1 @@
+artifacts/ncm_gru64_s2.pt: 62887 train windows, 1955 chunks, 20 epochs, validation loss 5.3598

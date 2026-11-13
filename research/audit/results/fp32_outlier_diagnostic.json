@@ -1,0 +1,65 @@
+{
+  "scope": "One known outlier sequence only; not a full parity rerun or model fix.",
+  "environment": {
+    "python": "3.12.10",
+    "torch": "2.15.0+cpu",
+    "numpy": "2.5.4",
+    "ort": "1.31.1"
+  },
+  "sha256": {
+    "windows": "0f8a383e5b19c05123d23f89f7dbc526a00f15e54afbe9bc5292685f8bc2bea5",
+    "checkpoint": "b28f59335d68e0b84be412af3e405dcfa7fb84fb08ea62617bd26d5b0d9eece7",
+    "onnx": "619edd4c38ef258c66cc9b68ee06e70db5a5978ac8780e23aabf3f20ec9a0bd0"
+  },
+  "row": 57227,
+  "sequence_windows": 5365,
+  "sequence_position": 3711,
+  "reference_score": -3.281461238861084,
+  "onnx_score": -3.550473928451538,
+  "pytorch_step_score": -3.281524658203125,
+  "token": {
+    "pytorch_sequence": 438,
+    "onnx_step": 94,
+    "pytorch_single": 438,
+    "pytorch_step": 438,
+    "float64_direct": 438
+  },
+  "nearest_float64_squared_distances": [
+    {
+      "token": 438,
+      "distance": 0.46450585999499194,
+      "single_expanded_float32": 0.4645061492919922
+    },
+    {
+      "token": 94,
+      "distance": 0.4645065839526308,
+      "single_expanded_float32": 0.4645099639892578
+    },
+    {
+      "token": 255,
+      "distance": 0.5075292305579149,
+      "single_expanded_float32": 0.5075302124023438
+    },
+    {
+      "token": 278,
+      "distance": 0.5602426900060775,
+      "single_expanded_float32": 0.5602436065673828
+    },
+    {
+      "token": 181,
+      "distance": 0.5736066010015877,
+      "single_expanded_float32": 0.5736064910888672
+    }
+  ],
+  "token_negative_log_probability_native_previous_state": {
+    "94": 3.3108532428741455,
+    "438": 4.11463737487793
+  },
+  "k_calibration_std": 1.4939452409744263,
+  "onnx_vs_pytorch_step_hidden_max_at_row": 2.682209014892578e-07,
+  "sequence_max_raw_difference": 0.2690126895904541,
+  "sequence_token_disagreements": 1,
+  "token_term_predicted_score_change": -0.2690139203092597,
+  "observed_score_change": -0.2690126895904541,
+  "score_change_residual": 1.230718805589337e-06
+}

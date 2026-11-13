@@ -1,0 +1,52 @@
+{
+  "assumption": "Source IDs must have the same meaning across files; counts alone cannot establish raw-data reproducibility.",
+  "files": [
+    {
+      "path": "D:\\cyberncm-work\\ncm-prototype\\data\\windows.npz",
+      "sha256": "0f8a383e5b19c05123d23f89f7dbc526a00f15e54afbe9bc5292685f8bc2bea5",
+      "windows": 125674,
+      "per_day": {
+        "0": 26159,
+        "1": 26523,
+        "2": 25179,
+        "3": 23361,
+        "4": 24452
+      }
+    },
+    {
+      "path": "D:\\cyberncm-work\\drive_upload\\prepared_windows\\cic_ids2017_windows.npz",
+      "sha256": "0f8a383e5b19c05123d23f89f7dbc526a00f15e54afbe9bc5292685f8bc2bea5",
+      "windows": 125674,
+      "per_day": {
+        "0": 26159,
+        "1": 26523,
+        "2": 25179,
+        "3": 23361,
+        "4": 24452
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "against": "D:\\cyberncm-work\\drive_upload\\prepared_windows\\cic_ids2017_windows.npz",
+      "common_keys": 125674,
+      "baseline_only_per_day": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0
+      },
+      "candidate_only_per_day": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0
+      },
+      "changed_labels_on_common_keys": 0,
+      "changed_feature_rows_exact": 0,
+      "max_absolute_feature_difference": 0.0
+    }
+  ]
+}

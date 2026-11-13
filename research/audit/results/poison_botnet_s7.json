@@ -1,0 +1,142 @@
+{
+ "mode": "poison",
+ "seed": 7,
+ "features_controlled": [
+  "log_flows",
+  "log_gap",
+  "iat_mean",
+  "iat_std",
+  "iat_min",
+  "dur_mean",
+  "dur_std",
+  "pkt_iat_mean",
+  "syn_ratio",
+  "psh_ratio",
+  "ack_ratio",
+  "tcp_frac",
+  "init_win",
+  "log_fwd_bytes",
+  "pkt_len_mean",
+  "pkt_len_spread",
+  "fwd_len_max",
+  "log_fwd_pkts",
+  "log_dst_ips",
+  "log_dst_ports",
+  "ports_per_flow",
+  "ips_per_flow",
+  "new_dst_frac",
+  "wellknown_frac",
+  "dns_frac",
+  "port_entropy"
+ ],
+ "families": {
+  "dev": [
+   "DoS GoldenEye",
+   "DoS Hulk",
+   "DoS Slowhttptest",
+   "DoS Slowloris",
+   "FTP-Patator",
+   "Heartbleed",
+   "SSH-Patator"
+  ],
+  "final": [
+   "Botnet",
+   "DDoS",
+   "Infiltration",
+   "Infiltration - Portscan",
+   "Portscan",
+   "Web Attack - Brute Force",
+   "Web Attack - SQL Injection",
+   "Web Attack - XSS"
+  ]
+ },
+ "curve": {
+  "Botnet": {
+   "0.0": {
+    "poison_windows": 0,
+    "poison_fit_windows": 0,
+    "poison_calibration_windows": 0,
+    "total_fit_windows": 20927,
+    "total_calibration_windows": 5232,
+    "effective_day0_poison_fraction": 0.0,
+    "effective_fit_poison_fraction": 0.0,
+    "requested_poison_relative_to_original_day0": 0.0,
+    "pool_capped": false,
+    "calibration_threshold_original_rows_only": true,
+    "backbone_retrained": false,
+    "detection": {
+     "dev": null,
+     "final": 0.8514644351464435
+    }
+   },
+   "0.005": {
+    "poison_windows": 131,
+    "poison_fit_windows": 99,
+    "poison_calibration_windows": 32,
+    "total_fit_windows": 21032,
+    "total_calibration_windows": 5258,
+    "effective_day0_poison_fraction": 0.0049828832255610495,
+    "effective_fit_poison_fraction": 0.004707112970711297,
+    "requested_poison_relative_to_original_day0": 0.005,
+    "pool_capped": false,
+    "calibration_threshold_original_rows_only": true,
+    "backbone_retrained": false,
+    "detection": {
+     "dev": null,
+     "final": 0.03762726870296591
+    }
+   },
+   "0.01": {
+    "poison_windows": 262,
+    "poison_fit_windows": 209,
+    "poison_calibration_windows": 53,
+    "total_fit_windows": 21136,
+    "total_calibration_windows": 5285,
+    "effective_day0_poison_fraction": 0.009916354415048635,
+    "effective_fit_poison_fraction": 0.009888342165026496,
+    "requested_poison_relative_to_original_day0": 0.01,
+    "pool_capped": false,
+    "calibration_threshold_original_rows_only": true,
+    "backbone_retrained": false,
+    "detection": {
+     "dev": null,
+     "final": 0.12077067669172932
+    }
+   },
+   "0.02": {
+    "poison_windows": 524,
+    "poison_fit_windows": 409,
+    "poison_calibration_windows": 115,
+    "total_fit_windows": 21345,
+    "total_calibration_windows": 5338,
+    "effective_day0_poison_fraction": 0.019637971742307837,
+    "effective_fit_poison_fraction": 0.019161396111501524,
+    "requested_poison_relative_to_original_day0": 0.02,
+    "pool_capped": false,
+    "calibration_threshold_original_rows_only": true,
+    "backbone_retrained": false,
+    "detection": {
+     "dev": null,
+     "final": 0.0026795284030010718
+    }
+   },
+   "0.05": {
+    "poison_windows": 1195,
+    "poison_fit_windows": 931,
+    "poison_calibration_windows": 264,
+    "total_fit_windows": 21882,
+    "total_calibration_windows": 5472,
+    "effective_day0_poison_fraction": 0.043686480953425456,
+    "effective_fit_poison_fraction": 0.04254638515674984,
+    "requested_poison_relative_to_original_day0": 0.05,
+    "pool_capped": true,
+    "calibration_threshold_original_rows_only": true,
+    "backbone_retrained": false,
+    "detection": {
+     "dev": null,
+     "final": 0.0
+    }
+   }
+  }
+ }
+}

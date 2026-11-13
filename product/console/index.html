@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cyberncm console</title>
+<link rel="icon" href="data:,">
+<style>
+/* Tokens and components follow demo/template.html (light and dark; status is always a word and a shape). No external fonts or scripts. */
+:root {
+  --bg: #f5f7fa; --surface: #ffffff; --sunken: #ecf0f5; --line: #d5dce6; --fg: #152033; --muted: #5a6779; --accent: #1f55c9; --accent-fg: #ffffff; --focus: #1f55c9;
+  --ok: #17703f; --ok-bg: #e3f3ea; --warn: #8a5a00; --warn-bg: #fbefd2; --crit: #b3261e; --crit-bg: #fbe6e4;
+  --display: "Space Grotesk", "Inter", system-ui, sans-serif; --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace; --r: 6px; --gap: 16px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f1520; --surface: #172030; --sunken: #111927; --line: #2b3850; --fg: #e6ecf5; --muted: #9aa8bc; --accent: #7fa6ff; --accent-fg: #0b1220; --focus: #9dbbff;
+  --ok: #6fd39b; --ok-bg: #143324; --warn: #f0c060; --warn-bg: #3a2c0c; --crit: #ff8f86; --crit-bg: #421a17; color-scheme: dark } }
+* { box-sizing: border-box } [hidden] { display: none !important }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 var(--body) }
+.wrap { max-width: 960px; margin: 0 auto; padding-inline: 16px }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; margin: 0 } h1 { font-size: 20px } h2 { font-size: 22px } h3 { font-size: 16px }
+p { margin: 0; max-width: 65ch } .muted { color: var(--muted) } .mono { font-family: var(--mono) }
+.label { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted) }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px }
+header { background: var(--surface); border-bottom: 1px solid var(--line) } header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; padding-block: 12px }
+main { display: flex; flex-direction: column; gap: 24px; padding-block: 24px 48px } section { display: flex; flex-direction: column; gap: var(--gap) }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px }
+label { display: flex; flex-direction: column; gap: 4px; font-weight: 500 }
+input { font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 8px 10px; min-height: 40px; min-width: 0 }
+button { font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 6px 14px; min-height: 40px; cursor: pointer }
+button.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); font-weight: 600 }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--gap); display: flex; flex-direction: column; gap: 12px; min-width: 0 }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px } .stat { display: flex; flex-direction: column; gap: 2px } .stat b { font: 500 24px/1.2 var(--mono) }
+.pill { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; white-space: nowrap; background: var(--sunken); color: var(--muted) } .pill::before { content: "○" / "" }
+.pill.ok { background: var(--ok-bg); color: var(--ok) } .pill.ok::before { content: "●" / "" } .pill.warn { background: var(--warn-bg); color: var(--warn) } .pill.warn::before { content: "▲" / "" } .pill.crit { background: var(--crit-bg); color: var(--crit) } .pill.crit::before { content: "■" / "" }
+.banner { border: 1px solid var(--line); border-left: 4px solid var(--warn); background: var(--warn-bg); border-radius: var(--r); padding: 10px 14px }
+.error { border-left-color: var(--crit); background: var(--crit-bg) }
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface) } table { border-collapse: collapse; width: 100%; font-size: 14px }
+th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); white-space: nowrap } th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: var(--sunken) } tr:last-child td { border-bottom: 0 }
+.code { display: flex; gap: 8px; align-items: center; background: var(--sunken); border: 1px solid var(--line); border-radius: var(--r); padding: 8px 8px 8px 12px } .code code { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; font-family: var(--mono); font-size: 13px }
+.state { border: 1px dashed var(--line); border-radius: var(--r); padding: 24px; text-align: center; color: var(--muted) }
+progress { width: 100%; height: 12px; accent-color: var(--accent) }
+a { color: var(--accent) } ul.sites { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px } ul.sites li { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between }
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>cyberncm</h1><div class="row"><span id="who" class="muted"></span><button id="out" hidden>Sign out</button></div></div></header>
+<main class="wrap">
+  <div id="msg" role="status" aria-live="polite" class="banner" hidden></div>
+
+  <section id="auth" hidden aria-labelledby="auth-h">
+    <h2 id="auth-h">Sign in or create an account</h2>
+    <form class="panel" id="authform" autocomplete="on">
+      <label>Email<input id="email" type="email" required autocomplete="username"></label>
+      <label>Password (at least 10 characters)<input id="pw" type="password" required minlength="10" autocomplete="current-password"></label>
+      <div class="row"><button class="primary" type="submit" data-mode="signup" id="signup">Create account</button><button type="submit" data-mode="login" id="login">Sign in</button></div>
+    </form>
+  </section>
+
+  <section id="sites" hidden aria-labelledby="sites-h">
+    <div class="row" style="justify-content: space-between"><h2 id="sites-h">Your sites</h2></div>
+    <ul class="sites panel" id="sitelist"></ul>
+    <form class="panel" id="addform"><h3>Add a site</h3>
+      <label>Site name<input id="sitename" required maxlength="80" placeholder="Head office"></label>
+      <div class="row"><button class="primary" type="submit">Add site</button></div>
+    </form>
+    <div class="panel" id="install" hidden>
+      <h3>Install the agent</h3><p class="muted">Run this on a machine that can read the site's flow records. The enrolment token works once and expires in 24 hours; it is shown only now.</p>
+      <div class="code"><code id="cmd"></code><button id="copy" type="button">Copy</button></div>
+      <p class="muted">The agent starts in a learning period and then only watches: <strong>it never blocks anything</strong>.</p>
+    </div>
+  </section>
+
+  <section id="site" hidden aria-labelledby="site-h">
+    <div class="row" style="justify-content: space-between"><div><h2 id="site-h"></h2><p class="muted" id="site-sub"></p></div><span id="status" class="pill"></span></div>
+    <div class="banner">Shadow mode: this console only lists what the agent <em>would</em> block. Nothing is blocked on your network.</div>
+    <div class="panel"><div class="stats">
+      <div class="stat"><span class="label">Windows seen</span><b id="s-win">0</b></div>
+      <div class="stat"><span class="label">Alerts</span><b id="s-alerts">0</b></div>
+      <div class="stat"><span class="label">Would block now</span><b id="s-wb">0</b></div>
+      <div class="stat"><span class="label">Last heard</span><b id="s-seen" style="font-size:16px">never</b></div></div>
+      <div id="learn" hidden><span class="label">Learning the site's normal traffic</span><progress id="prog" max="100" value="0"></progress></div>
+    </div>
+    <h3>Blocklist (would block)</h3>
+    <div class="scroll"><table><thead><tr><th>Source</th><th>Score</th><th>Expires</th><th>Signed by agent</th></tr></thead><tbody id="wb"></tbody></table></div>
+    <h3>Recent alerts</h3>
+    <div class="scroll"><table><thead><tr><th>Source</th><th>Score</th><th>Received</th></tr></thead><tbody id="al"></tbody></table></div>
+    <div class="row"><button id="back" type="button">Back to your sites</button></div>
+  </section>
+</main>
+<script>
+const $ = id => document.getElementById(id); let timer = null, mode = "login";
+const show = id => { for (const s of ["auth", "sites", "site"]) $(s).hidden = s !== id; };
+function say(text, bad) { const m = $("msg"); m.textContent = text || ""; m.hidden = !text; m.classList.toggle("error", !!bad); }
+async function api(path, body) {
+  const r = await fetch("/api" + path, body === undefined ? {} : { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
+  const j = await r.json().catch(() => ({})); if (!r.ok) { const e = new Error(typeof j.detail === "string" ? j.detail : "request failed"); e.status = r.status; throw e; } return j;
+}
+const when = t => t ? new Date(t * 1000).toLocaleString() : "never";
+function cell(tr, text, cls) { const td = document.createElement("td"); td.textContent = text; if (cls) td.className = cls; tr.appendChild(td); }
+function rows(body, list, empty, fill) { body.replaceChildren(); if (!list.length) { const tr = document.createElement("tr"), td = document.createElement("td"); td.colSpan = 4; td.textContent = empty; td.className = "muted"; tr.appendChild(td); body.appendChild(tr); return; } for (const x of list) { const tr = document.createElement("tr"); fill(tr, x); body.appendChild(tr); } }
+const PILL = { waiting: ["warn", "Waiting for the agent"], learning: ["warn", "Connected, learning"], shadow: ["ok", "Connected, shadow mode"], offline: ["crit", "Agent offline"] };
+async function home() {
+  clearInterval(timer); let me = await api("/session");
+  if (!me.email) { $("who").textContent = ""; $("out").hidden = true; show("auth"); return; }
+  $("who").textContent = me.email; $("out").hidden = false; show("sites"); const list = await api("/sites"), ul = $("sitelist"); ul.replaceChildren();
+  if (!list.length) { const li = document.createElement("li"); li.className = "muted"; li.textContent = "No sites yet. Add one below."; ul.appendChild(li); }
+  for (const s of list) { const li = document.createElement("li"), a = document.createElement("a"), p = document.createElement("span"); a.href = "#site/" + s.id; a.textContent = s.name; const [c, t] = PILL[s.status]; p.className = "pill " + c; p.textContent = t; li.append(a, p); ul.appendChild(li); }
+}
+async function site(id) {
+  say(""); show("site"); const load = async () => { try {
+    const s = await api("/sites/" + id); $("site-h").textContent = s.name; $("site-sub").textContent = s.mode; const [c, t] = PILL[s.status]; $("status").className = "pill " + c; $("status").textContent = t;
+    const a = s.agent; $("s-win").textContent = a ? a.windows_seen : 0; $("s-alerts").textContent = s.alerts_total; $("s-wb").textContent = s.would_block.length; $("s-seen").textContent = a ? when(a.last_seen) : "never";
+    $("learn").hidden = !(a && s.status === "learning"); if (a) $("prog").value = Math.round((a.learn_progress || 0) * 100);
+    rows($("wb"), s.would_block, "Nothing to block.", (tr, x) => { cell(tr, x.src, "mono"); cell(tr, x.score.toFixed(2), "mono"); cell(tr, when(x.expires)); cell(tr, x.signature ? x.signature.slice(0, 16) + "…" : "", "mono"); });
+    rows($("al"), s.recent_alerts, "No alerts yet.", (tr, x) => { cell(tr, x.src, "mono"); cell(tr, x.score.toFixed(2), "mono"); cell(tr, when(x.received)); });
+  } catch (e) { if (e.status === 401) home(); else say(e.message, true); } };
+  await load(); clearInterval(timer); timer = setInterval(load, 5000);
+}
+function route() { const m = location.hash.match(/^#site\/(\d+)$/); if (m) site(+m[1]); else { say(""); home(); } }
+$("authform").addEventListener("submit", async ev => { ev.preventDefault(); const m = ev.submitter ? ev.submitter.dataset.mode : "signup", body = { email: $("email").value, password: $("pw").value };
+  try { await api("/" + m, body); } catch (e) {
+    if (m === "signup" && e.status === 409) { try { await api("/login", body); } catch (e2) { return say("An account with this email already exists, and that password does not match it.", true); } }   // Enter key on a returning user's form
+    else return say(e.message, true); }
+  $("pw").value = ""; say(""); home(); });
+$("addform").addEventListener("submit", async ev => { ev.preventDefault(); try { const r = await api("/sites", { name: $("sitename").value }); $("sitename").value = ""; $("cmd").textContent = r.install_command; $("install").hidden = false; say("Site '" + r.name + "' added. The command below is shown once."); const list = await api("/sites"); const ul = $("sitelist"); ul.replaceChildren(); for (const s of list) { const li = document.createElement("li"), a = document.createElement("a"), p = document.createElement("span"); a.href = "#site/" + s.id; a.textContent = s.name; const [c, t] = PILL[s.status]; p.className = "pill " + c; p.textContent = t; li.append(a, p); ul.appendChild(li); } } catch (e) { say(e.message, true); } });
+$("copy").addEventListener("click", () => navigator.clipboard && navigator.clipboard.writeText($("cmd").textContent).then(() => say("Copied.")));
+$("out").addEventListener("click", async () => { await api("/logout", {}); home(); }); $("back").addEventListener("click", () => { location.hash = ""; });
+addEventListener("hashchange", route); route();
+</script>
+</body>
+</html>

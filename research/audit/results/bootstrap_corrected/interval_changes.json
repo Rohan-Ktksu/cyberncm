@@ -1,0 +1,404 @@
+{
+  "scope": "Only 30 seed-zero family-mean AUC interval pairs updated. All historical point estimates, ranges, seed counts, FA intervals and family tables preserved.",
+  "source_sha256": {
+    "cic2017_s0.json": "bcfd5eaa95ecaf1479382aebbb01af4d23e33d59b2a095c2a9dc9ef3067b9389",
+    "unsw_s0.json": "5e85c19b23dae12f4319b9763fa9c5681b4c5d3b82c2a31a3bd946ad508f772c",
+    "d2018_s0.json": "92429574076f9df478279755d2d6f725fdf215119901d676315fc782e3c10a97",
+    "unraveled_s0.json": "f3e20e68c5f0169783a1a67ac63da35cb615024e9aefc6ff14fa9fb504397abb",
+    "cicapt_s0.json": "fb6fe32360ab6a45d673f553016c921cd73744232691bb561f01d6b052ff567c"
+  },
+  "input_csv_sha256": "0045bfe935b0914eb41dc99c5264b32f9ac55f65e85197c9e5cebe0f955cf094",
+  "input_md_sha256": "430d34edcbf8bf875d1af7731f750cc45013ef4ff15734329fa8ff4914c37ce1",
+  "changes": [
+    {
+      "dataset": "cic2017",
+      "model": "isolation forest, smoothed",
+      "split": "dev",
+      "old": [
+        "0.8865309140995584",
+        "0.9826946079730682"
+      ],
+      "new": [
+        0.8865309140995584,
+        0.9826946079730683
+      ]
+    },
+    {
+      "dataset": "cic2017",
+      "model": "isolation forest, smoothed",
+      "split": "final",
+      "old": [
+        "0.7962903576665682",
+        "0.9781596458072837"
+      ],
+      "new": [
+        0.7962903576665682,
+        0.9781596458072837
+      ]
+    },
+    {
+      "dataset": "cic2017",
+      "model": "token distance, smoothed",
+      "split": "dev",
+      "old": [
+        "0.9912447557301738",
+        "0.997709119855659"
+      ],
+      "new": [
+        0.9912447557301738,
+        0.997709119855659
+      ]
+    },
+    {
+      "dataset": "cic2017",
+      "model": "token distance, smoothed",
+      "split": "final",
+      "old": [
+        "0.8912378914411624",
+        "0.9737576538854901"
+      ],
+      "new": [
+        0.8912378914411624,
+        0.9737576538854902
+      ]
+    },
+    {
+      "dataset": "cic2017",
+      "model": "v0 NCM, smoothed",
+      "split": "dev",
+      "old": [
+        "0.9475577332652398",
+        "0.994012460828223"
+      ],
+      "new": [
+        0.9475577332652398,
+        0.9940124608282231
+      ]
+    },
+    {
+      "dataset": "cic2017",
+      "model": "v0 NCM, smoothed",
+      "split": "final",
+      "old": [
+        "0.8900682948843716",
+        "0.9685645291043815"
+      ],
+      "new": [
+        0.8900682948843716,
+        0.9685645291043817
+      ]
+    },
+    {
+      "dataset": "cicapt",
+      "model": "isolation forest, smoothed",
+      "split": "dev",
+      "old": [
+        "0.494316636878451",
+        "0.9771142566548978"
+      ],
+      "new": [
+        0.494316636878451,
+        0.9771142566548979
+      ]
+    },
+    {
+      "dataset": "cicapt",
+      "model": "isolation forest, smoothed",
+      "split": "final",
+      "old": [
+        "0.3888124412689844",
+        "0.9205953504489928"
+      ],
+      "new": [
+        0.3888124412689844,
+        0.9205953504489928
+      ]
+    },
+    {
+      "dataset": "cicapt",
+      "model": "token distance, smoothed",
+      "split": "dev",
+      "old": [
+        "0.6853486780314696",
+        "0.9900405243893565"
+      ],
+      "new": [
+        0.6853486780314696,
+        0.9900405243893565
+      ]
+    },
+    {
+      "dataset": "cicapt",
+      "model": "token distance, smoothed",
+      "split": "final",
+      "old": [
+        "0.3138335451209824",
+        "0.9468130180359409"
+      ],
+      "new": [
+        0.3138335451209824,
+        0.9468130180359409
+      ]
+    },
+    {
+      "dataset": "cicapt",
+      "model": "v0 NCM, smoothed",
+      "split": "dev",
+      "old": [
+        "0.5744644992226845",
+        "0.9891741878947349"
+      ],
+      "new": [
+        0.5744644992226845,
+        0.9891741878947349
+      ]
+    },
+    {
+      "dataset": "cicapt",
+      "model": "v0 NCM, smoothed",
+      "split": "final",
+      "old": [
+        "0.28437190547912855",
+        "0.962043483034805"
+      ],
+      "new": [
+        0.28437190547912855,
+        0.962043483034805
+      ]
+    },
+    {
+      "dataset": "d2018",
+      "model": "isolation forest, smoothed",
+      "split": "dev",
+      "old": [
+        "0.9814976049196537",
+        "0.9948589310685425"
+      ],
+      "new": [
+        0.9814976049196537,
+        0.9948589310685425
+      ]
+    },
+    {
+      "dataset": "d2018",
+      "model": "isolation forest, smoothed",
+      "split": "final",
+      "old": [
+        "0.7431414191765741",
+        "0.8350285622870537"
+      ],
+      "new": [
+        0.7431414191765741,
+        0.8350285622870537
+      ]
+    },
+    {
+      "dataset": "d2018",
+      "model": "token distance, smoothed",
+      "split": "dev",
+      "old": [
+        "0.997967042922063",
+        "0.9999108021513746"
+      ],
+      "new": [
+        0.997967042922063,
+        0.9999108021513746
+      ]
+    },
+    {
+      "dataset": "d2018",
+      "model": "token distance, smoothed",
+      "split": "final",
+      "old": [
+        "0.9723591873653535",
+        "0.9941869152429536"
+      ],
+      "new": [
+        0.9723591882175743,
+        0.9941869154958364
+      ]
+    },
+    {
+      "dataset": "d2018",
+      "model": "v0 NCM, smoothed",
+      "split": "dev",
+      "old": [
+        "0.9989623511073579",
+        "0.9999488813251501"
+      ],
+      "new": [
+        0.9989623511073579,
+        0.9999488813181535
+      ]
+    },
+    {
+      "dataset": "d2018",
+      "model": "v0 NCM, smoothed",
+      "split": "final",
+      "old": [
+        "0.9809271642256499",
+        "0.9963522425508343"
+      ],
+      "new": [
+        0.9809271641038415,
+        0.9963522425424404
+      ]
+    },
+    {
+      "dataset": "unraveled",
+      "model": "isolation forest, smoothed",
+      "split": "dev",
+      "old": [
+        "0.6808851781168543",
+        "0.9871636622606441"
+      ],
+      "new": [
+        0.6808851781168543,
+        0.9871636596642336
+      ]
+    },
+    {
+      "dataset": "unraveled",
+      "model": "isolation forest, smoothed",
+      "split": "final",
+      "old": [
+        "0.6804199607880557",
+        "0.9811052070779755"
+      ],
+      "new": [
+        0.6804199607880557,
+        0.9811052070779755
+      ]
+    },
+    {
+      "dataset": "unraveled",
+      "model": "token distance, smoothed",
+      "split": "dev",
+      "old": [
+        "0.7067213603932808",
+        "0.9990711300743161"
+      ],
+      "new": [
+        0.7067213603932809,
+        0.9990711300743161
+      ]
+    },
+    {
+      "dataset": "unraveled",
+      "model": "token distance, smoothed",
+      "split": "final",
+      "old": [
+        "0.7298064046172855",
+        "0.9520247191110806"
+      ],
+      "new": [
+        0.729806402106345,
+        0.9520247184564484
+      ]
+    },
+    {
+      "dataset": "unraveled",
+      "model": "v0 NCM, smoothed",
+      "split": "dev",
+      "old": [
+        "0.762390039661579",
+        "0.9994314368767682"
+      ],
+      "new": [
+        0.7623897046172068,
+        0.9994314368767683
+      ]
+    },
+    {
+      "dataset": "unraveled",
+      "model": "v0 NCM, smoothed",
+      "split": "final",
+      "old": [
+        "0.8088008999443517",
+        "0.9978525407017207"
+      ],
+      "new": [
+        0.8087988001512451,
+        0.9978525336247775
+      ]
+    },
+    {
+      "dataset": "unsw",
+      "model": "isolation forest, smoothed",
+      "split": "dev",
+      "old": [
+        "0.8178805980612217",
+        "0.9659768034827301"
+      ],
+      "new": [
+        0.8178805980612217,
+        0.96597680348273
+      ]
+    },
+    {
+      "dataset": "unsw",
+      "model": "isolation forest, smoothed",
+      "split": "final",
+      "old": [
+        "0.7985357183831134",
+        "0.9580097062503237"
+      ],
+      "new": [
+        0.7985357183831134,
+        0.9580097062503237
+      ]
+    },
+    {
+      "dataset": "unsw",
+      "model": "token distance, smoothed",
+      "split": "dev",
+      "old": [
+        "0.8796983127452942",
+        "0.9887705659744224"
+      ],
+      "new": [
+        0.8796983127452942,
+        0.9887705659744226
+      ]
+    },
+    {
+      "dataset": "unsw",
+      "model": "token distance, smoothed",
+      "split": "final",
+      "old": [
+        "0.8478743224379853",
+        "0.9793086287533387"
+      ],
+      "new": [
+        0.8478743224379853,
+        0.9793086287533387
+      ]
+    },
+    {
+      "dataset": "unsw",
+      "model": "v0 NCM, smoothed",
+      "split": "dev",
+      "old": [
+        "0.8578233819372519",
+        "0.9866817926065645"
+      ],
+      "new": [
+        0.8578233852101246,
+        0.9866817962633989
+      ]
+    },
+    {
+      "dataset": "unsw",
+      "model": "v0 NCM, smoothed",
+      "split": "final",
+      "old": [
+        "0.874610820620042",
+        "0.9809400653177729"
+      ],
+      "new": [
+        0.8746108192504911,
+        0.9809400652985338
+      ]
+    }
+  ]
+}
