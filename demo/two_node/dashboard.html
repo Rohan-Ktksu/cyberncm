@@ -116,7 +116,7 @@ progress { width: 100%; height: 8px }
   <div class="banner">
     <strong>Scope &amp; honesty notice:</strong>
     Simulated two-node prototype on <span class="mono">127.0.0.1</span> (not decentralized consensus or federated learning).
-    Node A scores <strong>recorded CIC-IDS2017 Friday</strong> windows through a frozen FP32 ONNX model (no online learning).
+    <span id="scope-data">Node A scores <strong>recorded CIC-IDS2017 Friday</strong> windows through a frozen FP32 ONNX model (no online learning).</span>
     Approved temporary blocks (&le; 30 s) gate mapped lab client <span class="mono">127.0.0.2</span> at Node B's isolated lab HTTP service (<span class="mono" id="scope-lab-service">configured lab listener</span>); the detector did not inspect <span class="mono">127.0.0.2</span>'s live traffic.
   </div>
 
@@ -156,7 +156,7 @@ progress { width: 100%; height: 8px }
       </div>
       <div>
         <div class="row between" style="font-size:12px">
-          <span class="label">Friday replay offset</span>
+          <span class="label">Replay offset</span>
           <span id="a-offset" class="mono muted">0 / 0 s</span>
         </div>
         <progress id="a-prog" max="100" value="0"></progress>
@@ -200,7 +200,7 @@ progress { width: 100%; height: 8px }
         <span id="pol-pill" class="pill">Waiting for alert</span>
       </div>
       <p class="muted" style="font-size:13px">
-        Default mode: remote alerts alone never automatically block. Explicit autonomous lab mode is the bounded exception shown in the red banner. Node B has no independent local sensor for the recorded subject, so mapped alerts (<span class="mono">172.16.0.1 &rarr; 127.0.0.2</span>) require explicit operator approval in default mode (<span class="mono">human-approved</span>). Unmapped subjects are rejected by policy.
+        Default mode: remote alerts alone never automatically block. Explicit autonomous lab mode is the bounded exception shown in the red banner. Node B has no independent local sensor for the recorded subject, so mapped alerts (<span class="mono" id="map-text">172.16.0.1 &rarr; 127.0.0.2</span>) require explicit operator approval in default mode (<span class="mono">human-approved</span>). Unmapped subjects are rejected by policy.
       </p>
       <div id="pending-box" class="probe-card" hidden>
         <div class="row between">
@@ -430,6 +430,16 @@ function render(s) {
 
   $("a-id").textContent = a.node_id ? shortHash(a.node_id.split(":").pop()) + " (" + a.node_id.slice(0, 34) + "…)" : "—";
   $("a-input").textContent = a.input_mode || "recorded-replay";
+  const mapEntries = Object.entries((s.node_b && s.node_b.subject_map) || {});
+  if (mapEntries.length) {
+    const txt = mapEntries.map(([k, v]) => k + " → " + v).join(", ");
+    $("link-target").textContent = txt;
+    $("map-text").textContent = txt;
+  }
+  if (s.sandbox) {
+    $("scope-data").textContent = "SANDBOX: Node A scores synthetic windows through a toy model trained on synthetic data (no real traffic, no real dataset, no online learning).";
+    setPill($("mode-pill"), "crit", "SANDBOX: synthetic data");
+  }
   $("a-model").textContent = a.model ? a.model.format : "—";
   $("a-onnx-hash").textContent = a.model ? shortHash(a.model.onnx_sha256) : "—";
   $("a-thr").textContent = a.thresholds ? ("r_block=" + a.thresholds.r_block.toFixed(4) + "  r_limit=" + a.thresholds.r_limit.toFixed(4)) : "—";

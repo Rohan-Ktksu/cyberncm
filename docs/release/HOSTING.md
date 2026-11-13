@@ -34,6 +34,10 @@ Only the contents of the `site/` folder: `index.html` and `assets/*.svg`. It is 
 
 Check the live documentation again before publishing; these figures were read from the provider's pages and can change.
 
+## Why the real demo and the sandbox are not hosted
+
+The two-node demo (and its synthetic-data sandbox) has operator controls (start, approve, unblock, reset) and holds a single shared state, so a public copy would let every visitor act on the same session; making it per-visitor would mean running a process pair per visitor on a free host. The public site therefore offers only the static in-browser simulation, and the sandbox is run locally (`demo/two_node/sandbox/README.md`). If a hosted per-visitor sandbox is wanted later it should get its own review: session isolation, rate limits, timeouts and abuse handling.
+
 ## Alternatives considered
 
 Any other static host (for example a project page on a university server) works unchanged because the site is plain files. No paid service, billing enrolment or metered integration is required for the proposed plan.

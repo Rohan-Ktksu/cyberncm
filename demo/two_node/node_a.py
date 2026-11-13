@@ -315,7 +315,11 @@ class ReplayEngine:
                 "listen": f"{config.HOST}:{config.NODE_A_PORT}",
                 "status": self.status,
                 "input_mode": "recorded-replay",
+                "sandbox": config.SANDBOX,
                 "dataset_notice": (
+                    "SANDBOX: replaying synthetic windows through a toy model; no real data. "
+                    "The detector does NOT inspect live lab-client traffic."
+                    if config.SANDBOX else
                     "Replaying recorded CIC-IDS2017 Friday windows. "
                     "The detector does NOT inspect live lab-client traffic."
                 ),
@@ -327,7 +331,7 @@ class ReplayEngine:
                 },
                 "thresholds": self.thr,
                 "replay": {
-                    "day": "Friday (CIC-IDS2017)",
+                    "day": "synthetic sandbox day" if config.SANDBOX else "Friday (CIC-IDS2017)",
                     "start_offset_s": config.REPLAY_START,
                     "end_offset_s": config.REPLAY_START + config.REPLAY_DURATION,
                     "current_offset_s": round(self.cur_offset_s, 1),

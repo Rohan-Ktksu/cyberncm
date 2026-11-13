@@ -49,6 +49,17 @@ class ReportTests(unittest.TestCase):
         s["node_a"]["recent_alerts"].append({"subject": "192.168.10.5", "dataset_ground_truth_only": "BENIGN"})
         self.assertIn("so by that label this is a false alert", report.build_report(s)["text"])
 
+    def test_sandbox_wording(self):
+        s = copy.deepcopy(STATE); s["sandbox"] = True
+        s["node_b"]["active_blocks"][0]["approval_mode"] = "human-approved"
+        out = report.build_report(s)["text"]
+        self.assertIn("Sandbox replay", out)
+        self.assertIn("toy onnx-fp32 model trained on synthetic data", out)
+        self.assertIn("synthetic label, ground truth only: DDoS", out)
+        self.assertIn("blocked by human approval", out)
+        self.assertIn("This is a sandbox", out)
+        self.assertNotIn("dataset label", out)
+
     def test_always_states_method_and_scope(self):
         for s in (STATE, {}, None, "not a dict"):
             r = report.build_report(s)

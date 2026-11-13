@@ -1,3 +1,5 @@
 runtime/
 __pycache__/
 *.pyc
+runtime-sandbox/
+sandbox/build/

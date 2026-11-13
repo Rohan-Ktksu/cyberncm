@@ -33,7 +33,9 @@ LAB_CLIENT_ALLOWLIST = frozenset({LAB_CLIENT})
 PROTECTED_ADDRESSES = frozenset({"127.0.0.1", CONTROL_CLIENT, "0.0.0.0"})
 
 # Demo mapping: a recorded-dataset subject -> a lab client. The detector never saw the lab client's traffic.
-SUBJECT_MAP = {"172.16.0.1": LAB_CLIENT}
+# Sandbox mode (synthetic traffic and a toy model, no real data): see sandbox/README.md
+SANDBOX = os.environ.get("CYBERNCM_SANDBOX", "0") == "1"
+SUBJECT_MAP = {os.environ.get("CYBERNCM_SUBJECT", "172.16.0.1"): LAB_CLIENT}
 
 MAX_BLOCK_SECONDS = 30          # hard cap on any block
 MAX_ALERT_LIFETIME_S = 120      # expires_ns - timestamp_ns may not exceed this
@@ -45,7 +47,7 @@ REPLAY_DAY = 4
 REPLAY_START = 25000
 REPLAY_DURATION = 1260
 REPLAY_SPEED = 10.0             # 5 s recorded window every 0.5 s of wall time
-PROTECTED_RECORDED = [ipaddress.ip_network("192.168.10.3/32")]  # same protected prefix as ncm/stream.py
+PROTECTED_RECORDED = [ipaddress.ip_network(os.environ.get("CYBERNCM_PROTECTED_RECORDED", "192.168.10.3/32"))]  # same protected prefix as ncm/stream.py
 
 OPERATOR_HEADER = "X-CyberNCM-Operator"   # required on operator POSTs (forces a CORS preflight a page cannot pass)
 

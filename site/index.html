@@ -152,7 +152,7 @@ footer{padding:28px 0 60px;color:var(--mut);font-size:14px}
     <div id="repBox" class="node" style="margin-top:12px;min-height:0" hidden><h3>Simulation report <span class="pill">rule-based text</span></h3><div id="repOut"></div></div>
     <p style="font-size:13px;color:var(--mut);margin:10px 0 0">Rules shown (simulated): human approval by default; signature, schema, allowlist and expiry checked before any action; in autonomous lab mode at most one automatic block per target per run, lasting at most 10 seconds, with no renewal; emergency disable releases the block and turns automation off. Signatures here are placeholders, not cryptography.</p>
   </div>
-  <p style="font-size:14px;color:var(--mut)">The real local demonstration (frozen FP32 model, recorded traffic, one local HTTP listener) is in <code>demo/two_node/</code> and needs artifacts you build yourself; see the README.</p>
+  <p style="font-size:14px;color:var(--mut)">The real local demonstration (Node A and Node B, one local HTTP listener) is in <code>demo/two_node/</code>. You can run it with no dataset using the sandbox (<code>python run_sandbox.py</code>: real code, synthetic data, toy model); see the README. It is not hosted here because it has operator controls and one shared state.</p>
 </section>
 
 <section id="limits">
@@ -221,7 +221,7 @@ const R = [
 ["Audit","Cross-check of reporting and claims (13 Nov)","CIC-IDS2017 seeds 0 and 2; UNSW seed 0","Rebuilds, parity, poisoning, bootstrap reruns","Fixed tie handling; FP32 required for streaming; INT8 flipped 41,403 of 99,515 decisions in one seed; full-backbone poisoning cut Botnet AUC 0.946 to 0.823 (one seed); 30 seed-0 interval pairs regenerated.","research/audit/README.md","Author-run; one seed for several checks","Run","ok"],
 ["G1","Is the mesh worth building?","All of the above","Five gate questions","Recommendation: build the single-site detector in alert and shadow mode; do not build the mesh on this evidence.","research/G1.md","A recommendation for the team, not an independent decision","Recommendation","ok"],
 ["Product","Single-site console and agent","Replay of flow files","Sign-up, enrolment, learning period, would-block list","Implemented as a first slice in shadow mode: nothing blocks and nothing is shared.","product/README.md","Replay only; learning period not validated","Implemented (first slice)","ok"],
-["Two-node demo","How would a directive pass a policy gate?","Recorded traffic, frozen FP32 model, loopback only","Signed directives, human approval by default, opt-in 10 s lab mode","Works locally as an illustration and passes its automated tests. Not consensus, not corroboration, no live detection.","demo/two_node/DEMO_RUNBOOK.md","Needs model and data artifacts you build yourself","Implemented (illustration)","ok"]
+["Two-node demo","How would a directive pass a policy gate?","Recorded traffic, frozen FP32 model, loopback only","Signed directives, human approval by default, opt-in 10 s lab mode","Works locally as an illustration and passes its automated tests, on real artifacts and in the sandbox. Not consensus, not corroboration, no live detection.","demo/two_node/DEMO_RUNBOOK.md","Real-data mode needs artifacts you build; the sandbox runs the same code on synthetic data with a toy model","Implemented (illustration)","ok"]
 ];
 const tb = document.querySelector("#idx tbody");
 function render(f){const q=(f||"").toLowerCase();

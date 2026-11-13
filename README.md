@@ -107,6 +107,7 @@ The simulation is **synthetic and clearly labelled**: it runs only in the visito
 |---|---|---|
 | In-browser simulation | Public website | Synthetic numbers, in the visitor's browser only |
 | Recorded replay | Local demo only | Frozen FP32 model replaying recorded CIC-IDS2017 traffic on your own machine; needs artifacts you build |
+| Sandbox (real code, synthetic data) | Local only: `python run_sandbox.py` | The real Node A, Node B, gate and enforcer on generated traffic and a toy model; labelled SANDBOX; says nothing about detection quality |
 | Actual local enforcement | Local demo only | A userspace gate on one local HTTP listener, one loopback client, 127.0.0.1 only |
 
 <a id="local-setup"></a>
@@ -125,11 +126,20 @@ pip install -r requirements.txt
 cd site && python -m http.server 8000                       # the website and simulation
 cd ncm && python test_ncm.py && python test_metrics.py       # model and metric checks
 python -m pytest product/tests -q                            # 5 pass, 1 skipped (needs artifacts)
-python -m pytest demo/two_node/test_report.py -q             # 7 pass, no artifacts needed
+python -m pytest demo/two_node/test_report.py demo/two_node/test_sandbox.py -q   # 14 pass, 1 skipped (the optional 2-minute sandbox build), no artifacts needed
 python -m pytest research/audit research/RERUN research/R12b/code research/R6e/code -q
 ```
 
-**What needs artifacts that are not published.** The local two-node demo needs a trained checkpoint, its FP32 ONNX export and the prepared CIC-IDS2017 windows file. Without them its 14 demo tests are *skipped* with an explanatory message (the 7 report tests need no artifacts and always run). To build them:
+**Run the real two-node demo with no data at all (sandbox).** The demo's real Node A, Node B, signed directives, policy gate and enforcer can run on synthetic traffic and a toy model that the repository generates for you:
+
+```bash
+cd demo/two_node
+python run_sandbox.py --reset-state --autostart      # first run builds the synthetic data and toy model (about 2 minutes)
+```
+
+Then open `http://127.0.0.1:18100`; everything is labelled SANDBOX. See [`demo/two_node/sandbox/README.md`](demo/two_node/sandbox/README.md) for what is real and what is synthetic.
+
+**What needs artifacts that are not published.** The demo on *real* recorded traffic needs a trained checkpoint, its FP32 ONNX export and the prepared CIC-IDS2017 windows file. Without them its 14 demo tests are *skipped* with an explanatory message (the report and sandbox tests need no artifacts and always run). To build them:
 
 ```bash
 # 1. Obtain CIC-IDS2017 from its official page (see "Dataset provenance") and place the files in data/ and data/orig/
@@ -145,7 +155,7 @@ Run the `ncm/` commands from inside `ncm/` as the scripts expect (see `ncm/READM
 
 | Symptom | Cause and fix |
 |---|---|
-| Demo tests all *skipped* | The checkpoint, its `.onnx` and `windows.npz` are missing. Build them as above or set `CYBERNCM_CHECKPOINT` and `CYBERNCM_WINDOWS`. |
+| Demo tests all *skipped* | The checkpoint, its `.onnx` and `windows.npz` are missing. Build them as above, set `CYBERNCM_CHECKPOINT` and `CYBERNCM_WINDOWS`, or use the sandbox. |
 | `FP32 ONNX export required` | Run `ncm/export.py`. The demo refuses to fall back to INT8. |
 | Port already in use | Change `CYBERNCM_NODE_A_PORT`, `CYBERNCM_NODE_B_PORT` or `CYBERNCM_LAB_PORT`. |
 | Different window count when you rebuild (125,577 instead of 125,674) | The timestamp tie rule changed during an audit; see `research/RERUN/README.md`. Do not expect bit-identical numbers on rebuilt data. |
@@ -173,9 +183,13 @@ Open the Node B dashboard at `http://127.0.0.1:18100`. Full steps, probes and cl
 
 **What the demo is and is not.** It uses a frozen FP32 model on recorded traffic. It maps one recorded subject (`172.16.0.1`) to a loopback client; it does **not** independently detect that client's live traffic. Enforcement is a userspace gate on one local HTTP listener: it does not modify the Windows firewall and does not block campus or internet traffic. Two processes on one laptop do not establish decentralised consensus, independent corroboration or a validated mesh.
 
+**Sandbox run.** The screenshot below is the real dashboard running the real code on synthetic data: the synthetic attacker's alert was approved by a person, the gate blocked the lab client (the probe confirms it) while the control client kept working, and the report describes what happened. All addresses are documentation addresses.
+
+![Sandbox dashboard](docs/screenshots/sandbox-dashboard.png)
+
 **Report and summary.** The Node B dashboard has a *Report and summary* panel (also `GET /api/report` and `/api/report.md`, read-only). It writes a plain-language summary of the run (scores, alerts, policy decisions, approvals, blocks, probe results) with fixed sentence templates over an allowlist of structured fields. It deliberately uses **no language model**: it reads no message text or free-form strings, so nothing from traffic can steer it, and it cannot influence any decision. (The project's own language-model experiment, R14, followed an injected instruction.) Dataset labels appear only as "ground truth, not model output", and an alert on a source labelled benign is called a false alert. The public website's simulation has the same kind of report over its synthetic counters.
 
-**Tests and verification (author-run, automated).** 14 demo tests and 7 report tests pass when the artifacts are present (the 14 include one for operator-header protection of Node A's replay controls and one for the report endpoint). Two separate-process scenarios were also run against the real detector processes and passed: automatic expiry, and emergency disable. Both showed the lab client blocked, the control client unaffected, access restored, no automatic re-block, and the model and data files unchanged. These are automated checks run by the authors; **no independent human review has been done**. In one recorded Friday replay with the FP32 model, 1,210 of 2,784 attack windows and 1,372 of 21,668 benign windows were under simulated quarantine (about 43.5% and 6.3%); see [metrics](#evaluation-metrics-and-how-to-read-them) for why that is neither detection accuracy nor prevention.
+**Tests and verification (author-run, automated).** 14 demo tests pass when the real artifacts are present, and 8 report tests and 6 sandbox tests pass with no artifacts (the 14 include one for operator-header protection of Node A's replay controls and one for the report endpoint). Two separate-process scenarios were also run against the real detector processes and passed, on both the real artifacts and the sandbox artifacts: automatic expiry, and emergency disable. Both showed the lab client blocked, the control client unaffected, access restored, no automatic re-block, and the model and data files unchanged. These are automated checks run by the authors; **no independent human review has been done**. In one recorded Friday replay with the FP32 model, 1,210 of 2,784 attack windows and 1,372 of 21,668 benign windows were under simulated quarantine (about 43.5% and 6.3%); see [metrics](#evaluation-metrics-and-how-to-read-them) for why that is neither detection accuracy nor prevention.
 
 ## Research index
 
@@ -213,7 +227,7 @@ Every round present in the repository is listed, including reduced, incomplete a
 | **Audit** | Cross-check of reporting and claims (13 Nov) | CIC-IDS2017 seeds 0 and 2; UNSW seed 0 | Rebuilds, parity, poisoning, bootstrap reruns | Fixed tie handling; FP32 required for streaming; INT8 flipped 41,403 of 99,515 decisions in one seed; full-backbone poisoning cut Botnet AUC 0.946 to 0.823 (one seed); 30 seed-0 interval pairs regenerated. | [`research/audit/README.md`](research/audit/README.md) | Author-run; one seed for several checks | Run |
 | **G1** | Is the mesh worth building? | All of the above | Five gate questions | Recommendation: build the single-site detector in alert and shadow mode; do not build the mesh on this evidence. | [`research/G1.md`](research/G1.md) | A recommendation for the team, not an independent decision | Recommendation |
 | **Product** | Single-site console and agent | Replay of flow files | Sign-up, enrolment, learning period, would-block list | Implemented as a first slice in shadow mode: nothing blocks and nothing is shared. | [`product/README.md`](product/README.md) | Replay only; learning period not validated | Implemented (first slice) |
-| **Two-node demo** | How would a directive pass a policy gate? | Recorded traffic, frozen FP32 model, loopback only | Signed directives, human approval by default, opt-in 10 s lab mode | Works locally as an illustration and passes its automated tests. Not consensus, not corroboration, no live detection. | [`demo/two_node/DEMO_RUNBOOK.md`](demo/two_node/DEMO_RUNBOOK.md) | Needs model and data artifacts you build yourself | Implemented (illustration) |
+| **Two-node demo** | How would a directive pass a policy gate? | Recorded traffic, frozen FP32 model, loopback only | Signed directives, human approval by default, opt-in 10 s lab mode | Works locally as an illustration and passes its automated tests, on real artifacts and in the sandbox. Not consensus, not corroboration, no live detection. | [`demo/two_node/DEMO_RUNBOOK.md`](demo/two_node/DEMO_RUNBOOK.md) | Real-data mode needs artifacts you build; the sandbox runs the same code on synthetic data with a toy model | Implemented (illustration) |
 
 
 Cross-cutting evidence: [`research/SCOREBOARD.md`](research/SCOREBOARD.md) (five datasets, five seeds), [`research/CLAIMS.md`](research/CLAIMS.md) (what may and may not be said), [`research/G1.md`](research/G1.md) (the decision page), [`MODEL_CARD.md`](MODEL_CARD.md).
@@ -300,8 +314,9 @@ Round R14 used the Qwen2.5-0.5B model ([model page](https://huggingface.co/Qwen/
 
 | Status | Item |
 |---|---|
-| **Implemented** | Single-site detector v0/v1 in alert and shadow mode; per-site refit; the research rounds above; single-site console and agent (first slice, replay only); local two-node demo with human approval and opt-in lab mode; this website. |
-| **Proposed (not done)** | Independent reproduction by another person; shadow-mode trial on a real site; measuring a real learning duration; packet-level features; an edge-hardware measurement; a cleaner alert policy before revisiting sharing; a contrastive objective and a state-space backbone; a synthetic-data demo that runs end to end without any dataset. |
+| **Implemented** | Single-site detector v0/v1 in alert and shadow mode; per-site refit; the research rounds above; single-site console and agent (first slice, replay only); local two-node demo with human approval and opt-in lab mode; a sandbox that runs that demo on synthetic data with no dataset; this website. |
+| **Proposed (not done)** | Independent reproduction by another person; shadow-mode trial on a real site; measuring a real learning duration; packet-level features; an edge-hardware measurement; a cleaner alert policy before revisiting sharing; a contrastive objective and a state-space backbone |
+| **Not offered** | A hosted live copy of the demo or sandbox: it has operator controls and one shared state, so every visitor would act on the same session. The website's static simulation is the public demo. |
 | **Blocked** | Any sharing, consensus or federated feature (the pre-set test failed; R12b is incomplete); automatic blocking (no policy met the target); the rerun kit's Level 1 (needs unpublished artifacts); a clearance at gate G1 (needs independent confirmation and real-site evidence); publishing dataset-derived material (needs redistribution rights). |
 
 ## Team, licence and security reports

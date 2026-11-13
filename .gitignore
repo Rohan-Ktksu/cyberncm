@@ -47,3 +47,7 @@ Thumbs.db
 
 # Browser-test output
 .playwright-mcp/
+
+# Sandbox build output and state
+runtime-sandbox/
+**/sandbox/build/

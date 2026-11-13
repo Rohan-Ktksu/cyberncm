@@ -375,6 +375,7 @@ class NodeBState:
             pending_active = [p for p in reversed(list(self.pending.values())) if p["status"] == "pending"]
             return {
                 "ts": time.time(),
+                "sandbox": config.SANDBOX,
                 "simulated_notice": (
                     "Two-node cooperative prototype on 127.0.0.1. "
                     "Not decentralized consensus, federated learning, or production enforcement."
